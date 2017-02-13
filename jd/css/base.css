@@ -1,0 +1,63 @@
+@charset "UTF-8";
+/*顶部的设置*/
+.nav{background:#F1F1F1;line-height: 30px;}
+.banxin-l{position: relative;}
+.banxin-l a{color:#949494;}
+.banxin-l .sj i{position: absolute;top:12px;right:-20px;width: 15px;height: 10px;overflow: hidden;}
+.banxin-l .sj s{position: absolute; top:-15px;left:0px;}
+.banxin-r ul li{float: left;background-color:#F1F1F1;}
+.banxin-r a{color:#949494;margin: 0px 8px;font-size: 12px; cursor:default;}
+.banxin-r a:hover{color:#C81623;}
+.banxin-r .spc{width: 1px;height: 12px;background-color:#ddd;margin-top:9px;padding:0px;}
+.ti-ico{position: relative;padding-left: 20px;}
+.ti-icoo{width: 15px;height: 20px; position:absolute; top:5px;left:8px;background: url("../image/jd2015img.png") no-repeat 0px 0px;}
+.ti-icoo:hover{width: 15px;height: 20px; position:absolute; top:5px;left:8px;background: url("../image/jd2015img.png") no-repeat 0px -25px;}
+.banxin-r .sj{ padding-right: 15px;position: relative;}
+.banxin-r .sj i{position: absolute;top:12px;right:0px;width: 15px;height: 10px;overflow: hidden;}
+.banxin-r .sj s{position: absolute; top:-15px;left:0px;}
+/*顶部的设置*/
+/*背景条的设置*/
+.box{background-color: #34BF32;}
+.bannerp{position: relative;}
+.banner{width: 19px;height:19px;background: url("../image/close-banner.png") 0 0 no-repeat; position:absolute;top:5px;right:5px;}
+.banner:hover{background: url("../image/close-banner.png")0 -19px no-repeat; }
+/*背景条的设置*/
+/*logo部分的设置*/
+
+.logo .logo-img{display:inline-block;width:362px;height: 100px;background: url("../image/logo.png");text-indent: -10000px;}
+.search{width: 538px;height:62px;}
+.search .ser{width: 448px;height: 34px;border:2px solid #B61D1D;margin-top: 24px;padding-left: 6px;}
+.search .btn{width: 80px;height: 38px;background-color:#B61D1D;color: white;cursor: pointer;margin-top: 24px;font-size: 16px;font-weight: bold;}
+.curt{width: 139px;height: 34px;background-color:#F9F9F9;border: 1px solid #DFDFDF;margin: 25px 60px 0 0; position: relative;}
+.curt s{display:inline-block;width: 18px;height: 16px;background: url("../image/jd2015img.png")  0 -90px no-repeat;position: absolute;top:8px;left: 15px; }
+.curt p{line-height: 34px;text-align: center;}
+.curt em{font-size: 14px;margin-left: -7px;}
+.curt span{display:inline-block;min-width: 8px;height: 14px;background-color:#C81623;font-size:12px;color:white;text-align:center;line-height:14px;border-radius:7px 7px 7px 0px;position: absolute;top:-5px;left: 104px; padding: 0px 4px;}
+.curt .lx{width: 7px;height: 16px;overflow: hidden; position: absolute;top:8px;right: 15px;}
+.hot{width: 500px;height: 30px;}
+.hot ul li{float: left; margin-right: 10px;line-height: 30px;color: #666666;}
+.hot a:hover{color: #C81623;}
+/*logo部分的设置*/
+/*footer部分的设置*/
+.footer{height: 496px;}
+.service{height: 296px;}
+.service .logan{height: 94px;background:#F5F5F5;position: relative;}
+.service .logan .logan-item{position:absolute;top:20px;left: 50%;}
+.logan1{margin-left: -604px;}
+.logan2{margin-left: -304px;}
+.logan4{margin-left: 304px;}
+.service .info{height: 202px;}
+.service .info .info-l{}
+.service .info .info-l dl{float: left;width: 199px;}
+.service .info .info-l dd,.info-r-dd{line-height: 20px;}
+.service .info .info-l dt,.service .info .info-r .info-r-dt{line-height: 35px;padding-top: 16px; font-size: 16px;color:#666666;}
+.service .info .info-l .info-a{width: 100px;}
+.service .info .info-r {width: 203px;height: 169px; float:right;background: url("../image/china.png") left bottom no-repeat;margin-right: 47px;}
+.service .info .info-r .info-rr{text-align: right;}
+.bottom{border-top: 1px solid #E5E5E5;}
+.links{text-align: center;padding-top: 25px;}
+.links a{margin:0px 5px; }
+.copyright{text-align: center;margin-top: 15px;}
+.authentication{text-align: center;margin-top: 10px; margin-bottom: 30px;}
+.authentication a{margin: 0px 5px;}
+/*footer部分的设置*/
