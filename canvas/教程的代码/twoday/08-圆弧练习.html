@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	// 绘制出, 圆心在 canva 正中心, 半径为 100, 角度从 -60度 到 120 度的圆弧
+	var x = cas.width / 2,
+		y = cas.height / 2,
+		r = 100,
+		start = -60,
+		end = 120;
+
+	ctx.arc( x, y, r, toRadian( start ), toRadian( end ) );
+
+	ctx.arc( x + 100, y, r, toRadian( start ), toRadian( end ) );
+
+	ctx.stroke();
+
+</script>
+</html>

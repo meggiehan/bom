@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	// 绘制第 0 行 第 0 列的 小人
+	// 绘制第 0 行 第 1 列的 小人
+	// 绘制第 0 行 第 3 列的 小人
+	var img = new Image();
+	img.src = './imgs/DMMban.png';
+
+
+	img.onload = function () {
+		var width = img.width / 4;
+		var height = img.height / 4;
+
+		// ctx.drawImage( img, 0, 0, width, height, 100, 100, width, height );
+
+		// ctx.drawImage( img, width, 0, width, height, 100, 100, width, height );
+
+		ctx.drawImage( img, 3 * width, 0, width, height, 100, 100, width, height );
+	};
+
+
+</script>
+</html>

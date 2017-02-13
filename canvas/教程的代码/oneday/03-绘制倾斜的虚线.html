@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	// 绘制虚线
+	// 从 (100,100) 绘制到 右下角 (500, 100)
+
+	// 从 (0,0) 绘制到 右下角 (600, 400)
+
+	var stepX = 5, stepY = stepX * 2 / 3,
+		startX = 0, startY = 0;
+
+	while ( true ) {
+
+		if ( startX >= 600 || startY >= 400 ) break;
+
+		// 绘制虚线的 实线部分
+		ctx.moveTo( startX, startY );
+		ctx.lineTo( startX+=stepX, startY+=stepY );
+
+		// 绘制空白部分
+		startX+=stepX;
+		startY+=stepY;
+	}
+
+
+
+
+	ctx.stroke();
+
+
+</script>
+</html>

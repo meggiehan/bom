@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI;
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+
+	var img = new Image();
+	// img.src = './imgs/DMMban.png';
+	img.src = './img/NPC5.png';
+
+
+	img.onload = function () {
+		var width = img.width / 4,
+			height = img.height / 4;
+		var i = 0;
+		// 这里需要有一个计时器
+		setInterval(function () {
+
+			// 首先擦除以前绘制的内容
+			ctx.clearRect( 0, 0, cas.width, cas.height );
+
+			ctx.drawImage( img, i * width, 0, width, height, 100, 100, width, height );
+
+			if ( i == 3 ) {
+				i = 0;
+			} else {
+				i++;
+			}
+
+		}, 200);
+
+
+
+
+	};
+
+
+</script>
+</html>

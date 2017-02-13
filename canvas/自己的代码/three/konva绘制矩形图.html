@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript" src='konva.js'></script>
+</head>
+<body>
+    <div id="sreen"></div>
+     <script>
+       var stage=new Konva.Stage({
+        width:600,
+        height:600,
+        container:"sreen"
+       })
+
+       var layer=new Konva.Layer();
+
+       var rect=new Konva.Rect({
+        x:50,
+        y:50,
+        width:200,
+        height:100,
+        // stroke:'green'
+        fill:"pink"
+       })
+
+       layer.add(rect);
+       stage.add(layer);
+    </script>
+</body>
+</html>

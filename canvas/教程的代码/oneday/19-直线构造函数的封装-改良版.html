@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	function Line( config ) {
+		// 必须提供的
+		this.ctx = config.ctx;
+		this.x0 = config.x0;
+		this.y0 = config.y0;
+		this.x1 = config.x1;
+		this.y1 = config.y1;
+
+		// 选择提供
+		this.strokeStyle = config.strokeStyle;
+		this.lineWidth = config.lineWidth;
+
+	}
+	Line.prototype = {
+		constructor: Line,
+		stroke: function () {
+			// 封装绘制过程即可
+			this.ctx.moveTo( this.x0, this.y0 );
+			this.ctx.lineTo( this.x1, this.y1 );
+
+			if ( this.strokeStyle ) {
+				this.ctx.strokeStyle = this.strokeStyle;
+			}
+			if ( this.lineWidth ) {
+				this.ctx.lineWidth = this.lineWidth;
+			}
+
+			this.ctx.stroke();
+		}
+	};
+
+	var line = new Line( {
+		ctx: ctx,
+		x0: 100,  // points = [ 100, 100, 400, 100 ]
+		y0: 100,
+		x1: 400,
+		y1: 100,
+		strokeStyle:'red',
+		lineWidth: 5
+	});
+	line.stroke();
+
+
+</script>
+</html>

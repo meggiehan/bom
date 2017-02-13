@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	// ctx.strokeStyle = 'red';
+	// ctx.strokeStyle = '#00f';
+	/*
+	ctx.strokeStyle = 'rgb( 0, 255, 0 )'
+
+
+	ctx.moveTo( 100, 100 );
+	ctx.lineTo( 100, 300 );
+
+	ctx.stroke();
+	*/
+
+	for ( var i = 0; i < 256; i++ ) {
+		ctx.beginPath();
+
+		ctx.strokeStyle = 'rgb( ' + i + ', ' + ( 255 - i ) + ', ' + i + ')';
+
+		ctx.moveTo( 50 + i, 100 );
+		ctx.lineTo( 50 + i, 300 );
+
+		ctx.stroke();
+	}
+
+</script>
+</html>

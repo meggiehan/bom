@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<style type="text/css">
+    canvas {
+        border: 1px solid #000;
+    }
+</style>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        var cas = document.getElementsByTagName('canvas')[0];
+        var ctx = cas.getContext('2d');
+
+        var img = new Image();
+        img.src = './img/NPC5.png';
+
+
+        img.onload = function(){
+            var width = img.width/4;
+            var height = img.height/4;
+            var i = 0;
+            var step = 0;
+            var targetX = 400;
+            var timer = setInterval(function(){
+                ctx.clearRect(0,0,cas.width,cas.height);
+                ctx.drawImage(img,i*width,2*height,width,height,0+step,100,2*width,2*height);
+                if(i == 3 || step == 400){
+                    i = 0;
+
+                } else {
+                    i++;
+                }
+                if(step >= 415){
+                    step = 0;
+                }
+                step += 15;
+            },200)
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	var width = 30;
+	var rows = cas.height / width;
+	var cols = cas.width / width;
+
+	for ( var i = 0; i < rows; i++ ) {
+
+		for ( var j = 0; j < cols; j++ ) {
+
+			ctx.moveTo( j * width, ( i + 1 ) * width );
+			ctx.lineTo( j * width + width, ( i + 1 ) * width );
+
+			// 开始绘制竖着的
+			ctx.lineTo( j * width + width, i * width );
+
+		}
+	}
+
+	ctx.stroke();
+
+</script>
+</html>

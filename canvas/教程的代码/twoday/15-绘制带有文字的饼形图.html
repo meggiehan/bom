@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	// 绘制三等分饼形图
+	var x = cas.width / 2,
+		y = cas.height / 2,
+		r = 100;
+
+	var step = 120,
+		start = -90;
+
+	// 颜色
+	var colors = [ 'red', 'green', 'blue' ];
+	// 文字就使用与饼颜色相同的颜色. 写 33.3 %
+
+	var x1, y1;  // 记录文字的坐标
+	var distance = 30; // 超出圆饼的距离, 用于计算文字的坐标
+
+	// 绘制饼
+	for ( var i = 0; i < 3; i++ ) {
+
+
+		// 绘制扇形
+
+		ctx.beginPath();
+		ctx.fillStyle = colors[ i ];
+
+		ctx.moveTo( x, y );
+
+		ctx.arc( x, y, r, 
+				toRadian( start ),
+				toRadian( start + step )
+			);
+
+		ctx.fill();
+
+
+
+		// 绘制文本
+		// 绘制直线
+		ctx.beginPath();
+		ctx.strokeStyle = colors[ i ];
+		ctx.moveTo( x, y );
+
+		x1 = x + (r + distance) * Math.cos( toRadian(start + step / 2) );
+		y1 = y + (r + distance) * Math.sin( toRadian(start + step / 2) );
+		ctx.lineTo( x1, y1 );
+
+		// 
+
+
+		ctx.stroke();
+
+		// 写文字
+		ctx.font = '20px Consolas';
+
+		if ( start + step / 2 < 270 && start + step / 2 > 90 ) {
+			ctx.textAlign = 'right';
+		}
+
+		ctx.fillText( '33.333 %', x1, y1 );
+
+
+		start += step;
+	}
+
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+
+	ctx.moveTo( 100, 100 ); // 把笔放在那里
+	ctx.lineTo( 200, 100 ); // 从刚才的位置, 绘制到哪里
+
+
+	ctx.stroke();  // 描边绘图, 可以看到效果
+
+
+</script>
+</html>

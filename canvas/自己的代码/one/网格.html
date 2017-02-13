@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+
+       var width=30;
+       var rows=cas.height/width;
+       var cols=cas.width/width;
+
+          for(var i=0;i<rows;i++){
+            for(var j=0;j<cols;j++){
+                ctx.moveTo(j*width, (i+1)*width);
+                ctx.lineTo(j*width+width, (i+1)*width);
+                ctx.lineTo(j*width+width, i*width);
+            }
+          }
+          ctx.stroke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	// 1, 准备 image 对象
+	var img = new Image();
+	img.src = './imgs/3484432_092618805000_2.jpg';
+
+	// 2, 准备矩形区域
+	var x = 100, 
+		y = 100,
+		width,
+		height = 200;
+
+	// 3, 开始绘图
+	img.onload = function () {
+
+		
+		// w : h = sW : sH
+		// source 资源
+ 		width = img.width * height / img.height;
+
+
+		ctx.drawImage( img, x, y, width, height );
+
+		ctx.drawImage( img, x + 10, y + 10, width, height );
+
+		ctx.drawImage( img, x + 20, y + 20, width, height );
+
+	};
+
+
+</script>
+</html>

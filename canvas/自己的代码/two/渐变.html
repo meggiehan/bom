@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        function toAngle ( radian ) {
+        return radian * 180 / Math.PI;
+       }
+    function toRadian ( angle ) {
+        return angle * Math.PI / 180;
+       }
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+        // var grd=ctx.createLinearGradient(0,0,175,50);
+        // grd.addColorStop(0,"#FF0000");
+        // grd.addColorStop(1,"#00FF00");
+        // ctx.fillStyle=grd;
+        // ctx.fillRect(0,0,175,50);
+
+
+         var bg = ctx.createLinearGradient(0, 0, 0, 0);  //定义线性渐变，渐变的起点 (x1,y1) 与终点 (x2,y2)。
+          var bg1 = ctx.createRadialGradient(50, 50, 0, 50, 50, 100);   //定义径向渐变
+          bg.addColorStop(0, 'red');  //定义好，之后开始上色
+          bg.addColorStop(0.5, 'blue');
+          bg.addColorStop(1, 'rgba(234, 233, 78, 0.6)');
+          var bg = ctx.createLinearGradient(0, 0, 0, 200);     //线性渐变
+          bg.addColorStop(0, 'pink');
+          bg.addColorStop(0.6, 'orange');
+          ctx.fillStyle = bg;
+          ctx.fillRect(10, 10, 100, 100);
+
+    </script>
+</body>
+</html>

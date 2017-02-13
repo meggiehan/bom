@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+
+
+	var paddingTop 		= 30,
+		paddingLeft 	= 30,
+		paddingBottom 	= 30,
+		paddingRight 	= 30;
+
+	var arrowHeight = 20,
+		arrowWidth = 10;
+
+
+	var  x0 = paddingLeft,
+		 y0 = cas.height - paddingBottom;
+
+	// 首先绘制坐标轴线
+	ctx.moveTo( x0, paddingTop );
+	ctx.lineTo( x0, y0 );
+	ctx.lineTo( cas.width - paddingRight, y0 );
+
+	// 绘制箭头
+	// 绘制 x 轴
+	ctx.moveTo( cas.width - paddingRight, y0 );
+	ctx.lineTo( cas.width - paddingRight - arrowHeight, y0 - arrowWidth * .5 );
+	ctx.moveTo( cas.width - paddingRight, y0 );
+	ctx.lineTo( cas.width - paddingRight - arrowHeight, y0 + arrowWidth * .5 );
+
+
+	ctx.moveTo( paddingLeft, paddingTop );
+	ctx.lineTo( paddingLeft - arrowWidth * .5, paddingTop + arrowHeight );
+	ctx.moveTo( paddingLeft, paddingTop );
+	ctx.lineTo( paddingLeft + arrowWidth * .5, paddingTop + arrowHeight );
+
+
+	ctx.stroke();
+
+</script>
+</html>

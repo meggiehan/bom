@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        function toAngle ( radian ) {
+        return radian * 180 / Math.PI;
+       }
+    function toRadian ( angle ) {
+        return angle * Math.PI / 180;
+       }
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+
+        ctx.shadowOffsetX=3;
+        ctx.shadowOffsetY=3;
+        ctx.shadowBlur=2;
+        ctx.shadowColor = "rgba(122, 35, 99, 0.5)";
+        // ctx.fontcolor='pink';
+        ctx.font="30px 黑体";
+        ctx.fillStyle="blue"
+        ctx.fillText('hello', 100, 100);
+        ctx.fill();
+    </script>
+</body>
+</html>

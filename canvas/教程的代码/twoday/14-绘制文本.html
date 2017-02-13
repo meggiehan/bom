@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI;
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+
+
+	// 在 100, 100 的地方绘制文字
+	// 在 100, 300 的地方绘制文字
+
+	// 绘制参考点
+	ctx.fillStyle = 'red';
+	ctx.arc( 100, 100, 4, 0, 2 * Math.PI );
+	ctx.arc( 100, 300, 4, 0, 2 * Math.PI );
+	ctx.fill();
+
+
+	// 绘制文本
+	ctx.beginPath();
+
+	ctx.font = '30px Consolas';
+
+	// ctx.fillStyle = 'black';
+
+	ctx.fillText( 'Hello JavaScript', 100, 100 );//字体是实心的
+
+	ctx.strokeText( 'Hello JavaScript', 100, 300 );//字体是空心的
+
+</script>
+</html>

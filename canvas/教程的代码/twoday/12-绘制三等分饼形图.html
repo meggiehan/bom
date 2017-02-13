@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	var x0 = cas.width / 2,
+		y0 = cas.height / 2;
+
+	// 绘制第一张饼
+	// -90 到 -90 + 120
+	/*
+	ctx.fillStyle = 'red';
+	ctx.moveTo( x0, y0 );
+	ctx.arc( x0, y0, 100, toRadian( - 90 ), toRadian( 30 ) );
+	ctx.fill();
+
+	ctx.beginPath();
+	ctx.fillStyle = 'green';
+	ctx.moveTo( x0, y0 );
+	ctx.arc( x0, y0, 100, toRadian( 30 ), toRadian( 150 ) );
+	ctx.fill();
+
+	ctx.beginPath();
+	ctx.fillStyle = 'blue';
+	ctx.moveTo( x0, y0 );
+	ctx.arc( x0, y0, 100, toRadian( 150 ), toRadian( 270 ) );
+	ctx.fill();
+	*/
+
+	var colors = 'red,green,blue'.split( ',' );
+	var startAngle = -90;
+	for ( var i = 0; i < 3; i++ ) {
+		ctx.beginPath();
+		ctx.fillStyle = colors[ i ];
+		ctx.moveTo( x0, y0 );
+		ctx.arc( x0, y0, 100, 
+			toRadian( startAngle ), toRadian( startAngle+=120 ) );
+		ctx.fill();
+	}
+
+</script>
+</html>

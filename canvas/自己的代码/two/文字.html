@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width=" 600" height="600"></canvas>
+     <script>
+
+        var ctx = document.getElementById('canvas').getContext('2d');
+        ctx.shadowOffsetX = 2;     //X轴阴影距离，负值表示往上，正值表示往下
+        ctx.shadowOffsetY = 2;     //Y轴阴影距离，负值表示往左，正值表示往右
+        ctx.shadowBlur = 2;     //阴影的模糊程度
+        ctx.shadowColor = "rgba(0, 0, 0, 0.5)";    //阴影颜色
+        ctx.font = "30px Times New Roman";    //设置字体和字体大小
+        ctx.fillStyle = "Black";
+        ctx.fillText("Sample", 15, 30);    //实体文字
+        ctx.strokeStyle = 'red';
+        ctx.strokeText('Hello world', 15, 100);    //边框文字
+    </script>
+</body>
+</html>

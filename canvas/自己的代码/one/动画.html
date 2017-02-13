@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width=" 600" height="600"></canvas>
+     <script>
+
+        var can = document.getElementById('canvas');
+        var ctx = can.getContext('2d');
+        var offset = 0;
+        function draw() {
+            offset++;
+            if (offset > 16) {
+                 offset = 0;
+            }
+            ctx.clearRect(0,0, can.width, can.height);
+            ctx.setLineDash([6, 2]);
+            ctx.lineDashOffset = -offset;
+            ctx.strokeRect(150,150, 300, 300);
+        }
+        setInterval(draw, 20);
+            </script>
+</body>
+</html>

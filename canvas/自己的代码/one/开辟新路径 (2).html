@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(100, 100, 150, 150);
+
+        // ctx.fillStyle = "pink";
+        // ctx.fillRect(200, 200, 150, 150);
+
+
+       ctx.fillStyle='pink';
+       ctx.moveTo(100, 100);
+       ctx.lineTo(100, 200);
+       ctx.lineTo(370, 200);
+       ctx.lineTo(370, 100);
+       ctx.closePath();
+
+           ctx.fill();
+
+        ctx.beginPath();
+        ctx.strokeStyle='green';
+       ctx.moveTo(100, 300);
+       ctx.lineTo(100, 370);
+       ctx.lineTo(370, 370);
+       ctx.lineTo(370, 300);
+         ctx.closePath();
+        ctx.stroke();
+
+        // ctx.fill();
+    </script>
+</body>
+</html>

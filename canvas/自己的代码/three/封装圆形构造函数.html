@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        function toAngle ( radian ) {
+        return radian * 180 / Math.PI;
+       }
+    function toRadian ( angle ) {
+        return angle * Math.PI / 180;
+       }
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+        //x,y,ctx,raduis,strokeStyle,fillStyle,startAngle,endAngle,clockwise,lineWidth
+
+        function Circle(config){
+            this.ctx=config.ctx;
+            this.x=config.x;
+            this.y=config.y;
+            this.radius=config.radius;
+            this.startAngle=config.startAngle;
+            this.endAngle=config.endAngle;
+            this.clockwise=config.clockwise;
+
+            this.lineWidth=config.lineWidth;
+            this.strokeStyle=config.strokeStyle;
+            this.fillStyle=config.fillStyle;
+        }
+
+        Circle.prototype={
+            constructor:Circle,
+            stroke:function(){
+                var ctx=this.ctx;
+                 ctx.save();
+                 ctx.beginPath();
+                ctx.lineWidth=this.lineWidth;
+                if(this.strokeStyle){
+                    ctx.strokeStyle=this.strokeStyle;
+                }
+                ctx.arc(this.x,this.y,this.radius,this.startAngle,this.endAngle,this.clockwise);
+                ctx.stroke();
+                ctx.restore();
+            },
+            fill:function(){
+                var ctx=this.ctx;
+                  ctx.save();
+                  ctx.beginPath();
+                ctx.lineWidth=this.lineWidth;
+                if(this.fillStyle){
+                    ctx.fillStyle=this.fillStyle;
+                }
+                ctx.arc(this.x,this.y,this.radius,this.startAngle,this.endAngle,this.clockwise);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        var circle=new Circle({
+            ctx:ctx,
+            lineWidth:5,
+            x:200,
+            y:200,
+            radius:100,
+            startAngle:0,
+            endAngle:2*Math.PI,
+            clockwise:false,
+            strokeStyle:"orange"
+        });
+        circle.stroke();
+
+         var circle1=new Circle({
+            ctx:ctx,
+            lineWidth:5,
+            x:350,
+            y:350,
+            radius:50,
+            startAngle:0,
+            endAngle:2*Math.PI,
+            clockwise:false,
+            fillStyle:"pink"
+        });
+        circle1.fill();
+
+        var circle2=new Circle({
+            ctx:ctx,
+            lineWidth:5,
+            x:500,
+            y:500,
+            radius:20,
+            startAngle:0,
+            endAngle:2*Math.PI,
+            clockwise:false,
+            fillStyle:"green"
+        });
+        circle2.fill();
+    </script>
+</body>
+</html>

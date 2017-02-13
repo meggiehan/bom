@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	// 绘制水平的虚线
+	
+	ctx.moveTo( 100, 100 );
+	
+	ctx.lineTo( 400, 100 );
+	
+
+	// ctx.setLineDash( [ 10, 5, 5, 5 ] );
+
+	ctx.setLineDash( [] );
+
+	ctx.stroke();
+
+</script>
+</html>

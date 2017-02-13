@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        function toAngle ( radian ) {
+        return radian * 180 / Math.PI;
+       }
+    function toRadian ( angle ) {
+        return angle * Math.PI / 180;
+       }
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+
+        var img=new Image();
+        img.src='./img/tp1.png';
+        // img.onload=function(){
+        //     ctx.drawImage(img,150,150);
+        // }
+
+        window.onload=function(){
+              var img=new Image();
+              img.src='./img/tp1.png';
+              ctx.drawImage(img,150,150,300,100);
+        }
+
+    </script>
+</body>
+</html>

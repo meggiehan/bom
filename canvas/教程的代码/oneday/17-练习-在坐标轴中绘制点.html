@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+
+
+	var paddingTop 		= 50,
+		paddingLeft 	= 50,
+		paddingBottom 	= 50,
+		paddingRight 	= 50;
+
+	var arrowHeight = 20,
+		arrowWidth = 10;
+
+
+	var  x0 = paddingLeft,
+		 y0 = cas.height - paddingBottom;
+
+	// 首先绘制坐标轴线
+	ctx.moveTo( x0, paddingTop );
+	ctx.lineTo( x0, y0 );
+	ctx.lineTo( cas.width - paddingRight, y0 );
+
+	ctx.stroke();
+
+	// 绘制箭头
+	// 绘制 x 轴
+	ctx.beginPath();
+	ctx.moveTo( cas.width - paddingRight, y0 );
+	ctx.lineTo( cas.width - paddingRight - arrowHeight, y0 - arrowWidth * .5 );
+	ctx.lineTo( cas.width - paddingRight - arrowHeight * .5, y0 );
+	ctx.lineTo( cas.width - paddingRight - arrowHeight, y0 + arrowWidth * .5 );
+	ctx.closePath();
+
+
+	ctx.moveTo( paddingLeft, paddingTop );
+	ctx.lineTo( paddingLeft - arrowWidth * .5, paddingTop + arrowHeight );
+	ctx.lineTo( paddingLeft, paddingTop + arrowHeight * .5 );
+	ctx.lineTo( paddingLeft + arrowWidth * .5, paddingTop + arrowHeight );
+	ctx.closePath();
+
+
+	ctx.fill();
+
+
+
+
+
+
+	// 下面绘制点
+	ctx.beginPath();
+
+	// 绘制一个点在坐标轴的中间
+	var width = cas.width - paddingRight - paddingLeft - arrowHeight,
+		height = cas.height - paddingTop - paddingBottom - arrowHeight;
+
+	var x = width * .5,
+		y = height * .5;
+
+
+	// 坐标变换
+	x = x0 + x;
+	y = y0 - y;
+
+	// 绘制一个红色的矩形
+	var pointWidth = 8;
+
+	ctx.fillStyle = 'red';
+
+	ctx.moveTo( x - pointWidth * .5, y - pointWidth / 2 );
+	ctx.lineTo( x + pointWidth * .5, y - pointWidth / 2 );
+	ctx.lineTo( x + pointWidth * .5, y + pointWidth / 2 );
+	ctx.lineTo( x - pointWidth * .5, y + pointWidth / 2 );
+	ctx.closePath();
+	ctx.fill();
+
+</script>
+</html>

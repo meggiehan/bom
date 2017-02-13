@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	// 绘制一个在画布正中间的圆
+	ctx.arc( cas.width / 2 + 100, cas.height / 2, 50, 0, Math.PI );
+
+	// 前两个参数表示圆弧的圆心坐标
+	// 第三个参数是圆弧的半径
+	// 后面的两个参数分别表示圆弧开始的角度与结束的角度
+
+
+
+	ctx.stroke();
+
+</script>
+</html>

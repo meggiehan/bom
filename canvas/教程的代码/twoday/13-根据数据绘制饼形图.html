@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	var data = [ 11, 22, 33, 112, 34, 56 ];
+
+	// 首先求和, 计算出每一个数字占总数的百分比, 然后与 360 相乘, 得到角度
+	var sum = 0;
+	data.forEach( function ( v ) {
+		sum += v;
+	});
+
+	// 根据总和 计算每一个的百分比与角度
+	// { value: 11, angle: 角度 }
+	var data2 = data.map( function ( v ) {
+		return { value: v, angle: v * 360 / sum };
+	});
+
+	// 遍历 data2 来进行绘图
+	// var colors = "darkslategrey,darkturquoise,darkviolet,deeppink,deepskyblue,dimgray,dimgrey,dodgerblue,firebrick".split(',');
+
+
+	// var colors = "crimson,cyan,darkblue,darkcyan,darkgoldenrod,darkgray,darkgreen,darkgrey,darkkhaki,darkmagenta".split(',');
+
+
+	var colors = "honeydew,hotpink,indianred,indigo,ivory,khaki,lavender,lavenderblush,lawngreen,lemonchiffon".split( ',' );
+
+
+	var start = -90;
+	data2.forEach(function ( v, i ) {
+		ctx.beginPath();
+		ctx.fillStyle = colors[ i ];
+		ctx.moveTo( 300, 200 );
+		ctx.arc( 300, 200, 100, toRadian( start ), toRadian( start+=v.angle ) );
+		ctx.fill();
+	});
+
+	// 绘制一个小圆环为了美观
+	ctx.beginPath();
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = 'pink';
+	ctx.arc( 300, 200, 105, 0, 2 * Math.PI );
+	ctx.stroke();
+
+
+</script>
+</html>

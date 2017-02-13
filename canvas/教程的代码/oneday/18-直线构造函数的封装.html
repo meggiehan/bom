@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	function Line( ctx, x0, y0, x1, y1 ) {
+		this.ctx = ctx;
+		this.x0 = x0;
+		this.y0 = y0;
+		this.x1 = x1;
+		this.y1 = y1;
+	}
+	Line.prototype = {
+		constructor: Line,
+		stroke: function () {
+			// 封装绘制过程即可
+			this.ctx.moveTo( this.x0, this.y0 );
+			this.ctx.lineTo( this.x1, this.y1 );
+			this.ctx.stroke();
+		}
+	};
+
+	var line = new Line( ctx, 100, 100, 400, 100 );
+	line.stroke();
+
+
+</script>
+</html>

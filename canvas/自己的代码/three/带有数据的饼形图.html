@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        function toAngle ( radian ) {
+        return radian * 180 / Math.PI;
+       }
+    function toRadian ( angle ) {
+        return angle * Math.PI / 180;
+       }
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+
+        var x=cas.width/2,
+            y=cas.height/2,
+            r=100;
+
+        var step=120,start=-90;
+
+        var distance=35;
+        var xx,yy;
+
+        var txtline;
+        var paddingX=20/3,paddingY=20/3;
+
+        var colors='red,green,blue'.split(",");
+        var txts=['sadsfsk',123,'sdsdssd'];
+
+        ctx.font='30px Consolas';
+        for(var i=0;i<3;i++){
+                ctx.beginPath();
+                ctx.fillStyle=colors[i];
+                ctx.moveTo(x, y);
+                ctx.arc(x,y,r,toRadian(start),toRadian(start+step));
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.strokeStyle=colors[i];
+                ctx.moveTo(x,y);
+
+                xx=x+(r+distance)*Math.cos(toRadian(start+step/2));
+                yy=y+(r+distance)*Math.sin(toRadian(start+step/2));
+
+                ctx.lineTo(xx,yy);
+
+                txtline=ctx.measureText(txts[i]).width+2*Math.abs(paddingX);
+                if(start+step/2<270 && start+step/2>90){
+                  txtline=-ctx.measureText(txts[i]).width+2*Math.abs(paddingX);
+                }
+                ctx.lineTo(xx+txtline,yy);
+
+                 ctx.stroke();
+
+                 if ( start + step / 2 < 270 && start + step / 2 > 90 ) {
+                       ctx.textAlign = 'right';
+                       paddingX = - 20 / 3;
+                    }
+                ctx.fillText( txts[ i ], xx + paddingX, yy - paddingY );
+
+                start+=step;
+        }
+
+        //绘制直线
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400" id="cas"></canvas>
+</body>
+<script>
+	
+	// 处理弧度与角度的计算
+	function toAngle ( radian ) {
+		return radian * 180 / Math.PI; 
+	}
+	function toRadian ( angle ) {
+		return angle * Math.PI / 180;
+	}
+
+
+
+	var cas = document.getElementById( 'cas' );
+
+	var ctx = cas.getContext( '2d' );
+	
+	
+	// 将坐标轴移动到画布的中间
+	ctx.translate( cas.width / 2, cas.height / 2 );
+
+	// 通过旋转坐标实现图形的旋转
+	ctx.rotate( toRadian( 15 ) );
+
+
+
+
+	// 绘制矩形
+	var width = 100;
+
+	ctx.strokeRect( 0 - width / 2, 0 - width / 2, width, width );
+
+
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 600" height="600"></canvas>
+     <script>
+        function toAngle ( radian ) {
+        return radian * 180 / Math.PI;
+       }
+    function toRadian ( angle ) {
+        return angle * Math.PI / 180;
+       }
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+        //x,y,ctx,raduis,starttoRadian,endtoRadian,lineWidth,strokeStyle,fillStyle
+
+        function Sector(config,ras,end){
+            this.ctx=config.ctx;
+            this.x=config.x;
+            this.y=config.y;
+            this.mx=config.mx;
+            this.my=config.my;
+            this.ras=ras;
+            this.end=end;
+            this.raduis=config.raduis;
+            this.lineWidth=config.lineWidth;
+            this.strokeStyle=config.strokeStyle;
+            this.fillStyle=config.fillStyle;
+
+
+        }
+        Sector.prototype={
+            stroke:function(){
+                var ctx=this.ctx;
+                var ras=this.ras,end=this.end;
+                ctx.lineWidth=this.lineWidth;
+
+           var toRadianstart=function(ras){
+                return ras * Math.PI / 180;
+            },
+            toRadianend=function(end){
+                return end * Math.PI / 180;
+            };
+
+                if(this.strokeStyle){
+                    ctx.strokeStyle=this.strokeStyle;
+                }
+                ctx.moveTo(this.mx, this.my);
+                ctx.arc(this.x,this.y,this.raduis,toRadianstart(ras),toRadianend(end));
+                ctx.closePath();
+                ctx.stroke();
+            },
+            fill:function(){
+                var ctx=this.ctx;
+                ctx.lineWidth=this.lineWidth;
+                if(this.fillStyle){
+                    ctx.fillStyle=this.fillStyle;
+                }
+               ctx.moveTo(this.mx, this.my);
+                ctx.arc(this.x,this.y,this.raduis,this.toRadianstart,this.toRadianend);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        var sector=new Sector({
+            ctx:ctx,
+            x:cas.width/2,
+            y:cas.height/2,
+            mx:300,
+            my:300,
+            raduis:50,
+            lineWidth:3,
+            strokeStyle:'orange'
+        },-135,-50);
+
+        sector.stroke();
+
+
+
+        // Sector.toRadian = function（）{}
+        // Sector.toAngle = .function（）{}
+
+    </script>
+</body>
+</html>

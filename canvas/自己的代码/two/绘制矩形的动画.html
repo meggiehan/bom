@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ca" width=" 800" height="600"></canvas>
+     <script>
+        var cas=document.getElementsByTagName('canvas')[0];
+        var ctx=cas.getContext("2d");
+
+        var x=50,
+        y=50,
+        w=200,
+        h=100,
+        step=3;
+
+        var timer=setInterval(function(){
+           ctx.clearRect(x,y,w,h);
+
+           x+=step;
+            if(x>=500){
+                x=500;
+                 clearInterval(timer);
+            }
+            ctx.fillStyle='lightgreen';
+            ctx.fillRect(x,y,w,h);
+
+        },20)
+
+
+       // var x=10,y=10,w=200,h=100,step=3;
+
+       // var timer=setInterval(function(){
+       //  ctx.clearRect(x,y,w,h);
+       //  x+=step;
+       //  if(x>=500){
+       //      x=500;
+       //      clearInterval(timer);
+       //  }
+       //  ctx.fillRect(x,y,w,h);
+       // }, 20)
+
+    </script>
+</body>
+</html>
