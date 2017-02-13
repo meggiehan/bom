@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sort(arr, fn) {//sort方法的原理
+        var newarr=[];
+        for(i=0;i<arr.length;i++){
+            newarr[newarr.length]=arr[i];
+        }
+        for (var i = 0; i < newarr.length - 1; i++) {
+            var flag = true;
+            for (var j = 0; j < newarr.length - 1 - i; j++) {
+                if (fn(newarr[j], newarr[j + 1]) > 0) {//把我们要用到的函数传进来，然后去执行
+                    var temp = newarr[j];
+                    newarr[j] = newarr[j + 1];
+                    newarr[j + 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return newarr;
+    }
+    var arr = [3, 6, 1, 5, 10, 2];
+    console.log(arr);
+    console.log(sort(arr, function (a, b) {
+        return a - b;
+    }));
+
+    console.log(arr);
+
+//
+//    var arr = [];
+//     arr.sort(function (a, b) {
+//     return a - b;
+//     });
+//
+////     sort(arr, function (a, b) {
+////     return a - b;
+////     });
+//
+//    Array.prototype.newSort = function (fn) {
+//        var newArr = [];
+//        for (var i = 0; i < this.length; i++) {
+//            newArr[newArr.length] = this[i];
+//        }
+//        for (var i = 0; i < newArr.length - 1; i++) {
+//            var flag = true;
+//            for (var j = 0; j < newArr.length - 1 - i; j++) {
+//                if (fn(newArr[j], newArr[j + 1]) > 0) {//把我们要用到的函数传进来，然后去执行
+//                    var temp = newArr[j];
+//                    newArr[j] = newArr[j + 1];
+//                    newArr[j + 1] = temp;
+//                    flag = false;
+//                }
+//            }
+//            if (flag) {
+//                break;
+//            }
+//        }
+//        return newArr; };
+//    var arr = [3, 2, 1];
+//    console.log(arr);
+//    console.log(arr.newSort(function (a, b) {
+//        return a - b;
+//    }));
+//    console.log(arr);
+
+</script>
+</body>
+</html>

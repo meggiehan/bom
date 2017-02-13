@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12-闭包的应用-获得闭包中多个数据</title>
+</head>
+<body>
+</body>
+<script>
+	//获得多个变量的数据不是使用的数组（当变量很多的时候，数组的索引对应会乱），而是使用的对象（给函数添加一个函数名即可）。
+	function foo () {
+		var num1 = 123, num2 = 456;//值也可以是数组或者对象。
+		return {
+			get_num1: function () {
+				return num1;
+			},
+			set_num1: function ( value ) {
+				num1 = value;
+			},
+			get_num2: function () {
+				return num2;
+			}//既能够读取，又能修改闭包的数据。
+		};
+	}//通过这种方法，可以获得多个元素（变量）。
+
+	var o = foo();
+
+	console.log( 'num1 = ' + o.get_num1() );
+	console.log( 'num2 = ' + o.get_num2() );
+
+	o.set_num1( 789 );
+
+	console.log( 'num1 = ' + o.get_num1() );
+	console.log( 'num2 = ' + o.get_num2() );
+
+	function foo(){
+		var num1=123,num2=456;
+		return {
+			get_num1:function (){
+				return num1;
+			},
+			get_num2:function(){
+				return num2;
+			}
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img{
+			width: 200px;
+		}
+
+		/* 设置动画 */
+		@keyframes autoMove{
+			/* 起始值就是默认的状态 */
+			0%{
+				transform: translateX(0px) rotateY(0deg);
+			}
+
+			/* 移动到 最右边 */
+			45%{
+				transform: translateX(1000px);
+			}
+			/* 原地旋转180度 */
+			50%{
+				transform: translateX(1000px) rotateY(180deg);
+			}
+
+			/* 移动回最左边 */
+			95%{
+				transform: translateX(100px) rotateY(180deg);
+			}
+
+			/* 原地旋转180度
+				动画播放完毕以后 会还原到 默认的状态
+			*/
+			 100%{
+				transform: translateX(0px) rotateY(180deg);
+			}
+			/*from{*/
+				/*transform: translateX(0px);*/
+		    /*}*/
+			/*to{*/
+				/*transform: translateX(1000px) rotateY(180deg);*/
+			/*}*/
+
+		}
+		
+		/* 使用autoMove动画 3s秒钟完成 一直播放 匀速 */
+		.animation{
+			animation: autoMove 5s 1s linear infinite  alternate;
+			/* animation-fill-mode: forwards; */
+		}
+	</style>
+</head>
+<body>
+	<img src="images/car.jpg" alt="" class='animation'>
+</body>
+</html>

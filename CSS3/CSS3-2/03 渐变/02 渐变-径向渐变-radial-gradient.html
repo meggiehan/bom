@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>径向渐变</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #f7f7f7;
+		}
+		.radial {
+			height: 500px;
+			width: 500px;
+			margin: 100px auto;
+			border-radius:250px;
+			/*background-image: radial-gradient(yellow, green);*/
+			/*两个值：只有渐变的两种颜色，圆心以及半径在哪儿？
+			*圆心：位于几何中心，就是两个对角线的交点；
+			*半径：圆心到正方形最远的地方。
+			*/
+			background-image: radial-gradient(100px at 250px 250px,yellow ,green);
+			/**/
+}
+			/*第一个参数：表示径向渐变大范围；
+			 *第二个参数：表示圆心的位置。开头必须是at,后面表示圆心的坐标（相对于这个盒子）
+			 *第三个参数：表示渐变颜色范围。
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div class="radial"></div>
+</body>
+</html>

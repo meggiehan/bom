@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="setTimeout" id="btn1"/>
+<input type="button" value="clearTimeout" id="btn2"/>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var timer = null;
+
+    btn1.onclick = function () {
+        //1要执行的代码 2时间 单位毫秒
+        timer = setTimeout(function () {
+            console.log("bong");
+        }, 3000);
+    };
+    btn2.onclick = function () {
+        clearTimeout(timer);
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    console.log(/chuan/.test("chuan"));//true
+    console.log(/chuan/.test("chuang"));//true
+    console.log(/chuan/.test("achuan"));//true
+    //在真正的表单验证中 必须是我要什么你就给我什么 这就用到了边界
+    //^用来表示开头
+    console.log("---^---");
+    console.log(/^chuan/.test("chuan"));//true //限定开头
+    console.log(/^chuan/.test("achuan"));//false 开头被限定死了
+    console.log(/^chuan/.test("chuang"));//true ^只限定开头
+    //$用来表示结尾
+    console.log("---$---");
+    console.log(/chuan$/.test("chuan"));//true //限定结尾
+    console.log(/chuan$/.test("chuang"));//false 结尾被限定死了
+    console.log(/chuan$/.test("achuan"));//true $只限定结尾
+    //^$一起用 把开头和结尾都限定死了 这样才是精确的匹配
+    console.log("---^$---");
+    console.log(/^chuan$/.test("chuan"));//true
+    console.log(/^chuan$/.test("achuan"));//false
+    console.log(/^chuan$/.test("chuang"));//false
+    //开头和结尾都限定了
+    console.log(/^chuan$/.test("achuang"));//false
+    console.log(/^chuan$/.test("chuanchuan"));//false(里面的所有必须一致包括个数)
+    console.log(/^chuan$/.test("chuan"));//true
+    //false 严格模式要求很严 必须完全是我想要的 必须是我要的那个
+
+
+</script>
+</body>
+</html>

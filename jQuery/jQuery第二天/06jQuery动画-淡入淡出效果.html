@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background: pink;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 淡入效果
+            $("#btnShow").click(function() {
+                // fadeIn() 作用：让选择到的元素 淡淡的进入我们的视线
+                // $("div").fadeIn();
+                $("div").fadeIn(3000, function() {
+                    alert("淡入执行完毕");
+                });
+            });
+
+            // 淡出效果
+            $("#btnHide").click(function() {
+                // fadeOut() 作用：让选择到的元素，淡淡的淡出我们的视线
+                $("div").fadeOut();
+            });
+        });
+
+//        $(function(){
+//            $("#btnShow").click(function(){
+//                $("div").fadeIn(3000);
+//            })
+//            $("#btnHide").click(function(){
+//                $("div").fadeOut(3000);
+//            })
+//        })
+
+
+    </script>
+</head>
+<body>
+<button id="btnShow">淡入</button>
+<button id="btnHide">淡出</button>
+<div></div>
+</body>
+</html>

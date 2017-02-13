@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    window.onload = function () {
+        console.log(1);
+    };
+    /*window.onload = function () {
+     console.log(2);
+     };*/
+    //给同一个对象 注册的相同事件 会相互抵消
+
+    //给window追加 onload事件 不会顶掉之前的函数
+    function addLoadEvent(fn) {
+        var oldOnLoad = window.onload;//把当前的这个事件用一个变量先存起来。
+        //检查现在的window.onload是否绑定了事件
+        //console.log(oldOnLoad);
+        if (typeof oldOnLoad === "function") {//说明之前绑定了事件
+            window.onload = function () {
+                oldOnLoad();//之前的要执行
+                fn();//传入的新的要绑定的将来也要执行
+            };
+        } else {
+            window.onload = fn;
+            /*window.onload = function () {
+             fn();
+             };*/
+        }
+    }
+    addLoadEvent(function () {
+        console.log(1);
+    });
+
+       function addLoadEvent(fn){
+           var oldonload=window.onload;
+           if(typeof oldonload==="function"){
+               oldonload();
+               fn();
+           }
+           else{
+               window.onload=fn;
+           }
+       }
+     addLoadEvent(function(){
+//         console.log(1);
+     })
+
+//    function addLoadEvent(fn) {
+//        var oldOnLoad = window.onload;
+//        if (typeof oldOnLoad === "function") {
+//            window.onload = function () {
+//                oldOnLoad();
+//                fn();
+//            };
+//        } else {
+//            /*window.onload = function () {
+//             fn();
+//             };*/
+//            window.onload = fn;
+//        }
+//    }
+</script>
+</body>
+</html>

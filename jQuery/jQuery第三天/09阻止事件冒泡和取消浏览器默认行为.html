@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background: pink;
+            margin: 100px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+//        $(function () {
+//            $("div").on("click", function (event) {
+//                alert(22222);
+//
+//                // preventDefault() 作用：阻止浏览器的默认行为
+//                // event.preventDefault();
+//                // 作用：阻止默认行为
+//                return false;
+//            });
+//
+//            $("div").on("click", "input", function (event) {
+//                alert(11111);
+//                // stopPropagation() 作用：阻止冒泡
+//                // event.stopPropagation();
+//
+//                // 作用：阻止冒泡
+//                return false;
+//            });
+//
+//            // 事件执行的顺序：
+//            // 如果是单击的按钮，首先会触发按钮的单击事件
+//            // 然后，再触发div的单击事件
+//        });
+
+        $(function(){
+            $("div").on("click",function(event){
+//                event.preventDefault();
+                alert("11111");
+                return false;
+
+            })
+            $("div").on("click","input",function(event){
+//                event.stopPropagation();
+                alert("22222");
+                return false;
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" value="事件对象"/>
+    <a href="http://web.itcast.cn/" target="_blank">传智播客-前端学院</a>
+</div>
+</body>
+</html>

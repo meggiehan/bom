@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+         perspective: 500px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            /*border: 1px solid grey;*/
+            position: relative;
+            transition: all 1s;
+            transform-style: preserve-3d;
+        }
+        ul{
+            padding: 0;
+            margin: 5px 25px;
+            list-style: none;
+            /*width: 90px;*/
+            /*height: 90px;*/
+            /*border: 1px solid silver;*/
+            float: left;
+            /*background-color: white;*/
+            border-radius: 10px;
+            display: flex;
+        }
+        li{
+            width: 50px;
+            height:50px;
+            background-color: black;
+            border-radius: 50%;
+            margin: 5px;
+        }
+        .item{
+            width: 100%;
+            height: 100%;
+            font-size: 150px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            border-radius: 30px;
+        }
+        .item:nth-child(1){
+            background: url("images/2.jpg")no-repeat center/cover;
+            transform: rotateY(0deg) translateZ(100px);
+        }
+        .item:nth-child(2){
+            background: url("images/2.jpg")no-repeat center/cover;
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .item:nth-child(3){
+            background: url("images/5.jpg")no-repeat center/cover;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .item:nth-child(4){
+            background: url("images/99.jpg")no-repeat center/cover;
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .item:nth-child(5){
+            background: url("images/9.jpg")no-repeat center/cover;
+            transform: rotateX(90deg) translateZ(100px);
+        }.item:nth-child(6){
+             background: url("images/88.jpg")no-repeat center/cover;
+             transform: rotateX(-90deg) translateZ(100px);
+         }
+         .item ul:nth-child(1){
+             justify-content: center;
+             position: absolute;
+             left:40px ;
+             top:60px;
+         }
+    .box:hover{
+        transform: rotateX(360deg) rotateY(360deg) ;
+        /*transform: rotateX(450deg) rotateY(450deg) ;*/
+    }
+
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+</body>
+</html>

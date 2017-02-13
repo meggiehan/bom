@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+<script>
+    var box=document.getElementById("box");
+    console.log(box.innerHTML);
+    console.log(box.innerText);
+    box.innerText="aaaaa";
+    box.innerHTML="aaaaa";
+    box.innerHTML="<h1>title</h1>";
+    box.innerText="<h1>title</h1>";
+
+</script>
+</body>
+</html>

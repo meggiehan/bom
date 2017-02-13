@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="关灯" id="btn"/>
+<script>
+    var btn=document.getElementById("btn");
+    var isopen=true;
+    btn.onclick=function(){
+        if(isopen){
+            document.body.style.backgroundColor="black";
+            this.value="开灯";
+            isopen=false;
+        }
+        else{
+            document.body.style.backgroundColor="white";
+            this.value="关灯";
+            isopen=true;
+        }
+    }
+
+//    var btn=document.getElementById("btn");
+//    var isopen=true;
+//    btn.onclick=function(){
+//        if(isopen){
+//            document.body.style.backgroundColor="black";//设置元素的行内样式
+//            this.value="开灯";
+////            isopen=false;
+//        }
+//        else{
+//            document.body.style.backgroundColor="white";//body是页面上唯一的，所以可以直接使用document.
+//            this.value="关灯";
+////            isopen=true;
+//        }
+//        isopen=!isopen;
+//    }
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    function Studnet(name, age, sex, score) {
+        var stu = new Object();
+        stu.name = name;
+        stu.age = age;
+        stu.sex = sex;
+        stu.score = score;
+        stu.sayHi = function () {
+            console.log("大家好我叫" + this.name + "我今年" + this.age);
+        };
+        return stu;
+    }
+
+    var stu1 = Studnet("zs", 18, 1, 100);
+    var stu2 = Studnet("ls", 8, 0, 10);
+    //console.log(stu1.name);
+    //stu1.sayHi();
+    //console.log(stu1);
+    //console.log(stu2);
+    //console.log(typeof stu1);
+    //console.log(typeof []);
+    //想看更具体的类型 就不能用typeof了 typeof只能看数据类型
+    //console.log([] instanceof Array);//[]是不是Array的实例
+    //如果是 instanceof 就返回true 否则返回false
+    //console.log(stu1 instanceof Studnet);
+    //之所以instanceof无法判断stu1 是因为 我们的工厂函数无法将变量和创建他的模版函数 建立联系
+
+</script>
+</body>
+</html>

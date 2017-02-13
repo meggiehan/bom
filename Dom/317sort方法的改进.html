@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var arr = [3, 2, 1];
+     console.log(arr);
+     console.log(arr.sort(function (a, b) {
+     return a - b;
+     }));//返回排好的数组
+     console.log(arr);//对原数组产生了影响*/
+
+    function sort(arr, fn) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            newArr[newArr.length] = arr[i];
+        }
+        for (var i = 0; i < newArr.length - 1; i++) {
+            var flag = true;
+            for (var j = 0; j < newArr.length - 1 - i; j++) {
+                if (fn(newArr[j], newArr[j + 1]) > 0) {
+                    var temp = newArr[j];
+                    newArr[j] = newArr[j + 1];
+                    newArr[j + 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return newArr;
+    }
+    var arr = [3, 2, 1];
+    console.log(arr);
+    //我们封装的sort方法 不影响原数组
+    console.log(sort(arr, function (a, b) {
+        return a - b;
+    }));
+    console.log(arr);
+
+
+</script>
+</body>
+</html>

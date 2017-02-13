@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style>
+		a[href]{
+			color: red;
+		}
+		/*完全等于某一个属性*/
+		a[href="2.txt"]{
+			color: #ccc;
+		}
+		a[class~="abcd"]{
+			color: seagreen;
+		}
+		/*a[class="msb"]{*/
+			/*color: seagreen;*/
+		/*}这种方式就找不到*/
+
+		/*以某字符开头*/
+		a[href^="a"]{
+			color: green;
+		}
+		/*以某字符结尾*/
+		a[href$="d"]{
+			color: blue;
+		}
+		/*包含所有g字母的属性*/
+		a[href*="g"]{
+			color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<li><a href="1.mp4">这是一个1文件</a></li>
+		<li><a class="msb abcd" href="2.mp4">这是一个1文件</a></li>
+		<li><a href="2.txt">这是一个2文件</a></li>
+		<li><a href="3.md">这是一个3文件</a></li>
+		<li><a href="a.audio">这是一个4文件</a></li>
+		<li><a href="5.video">这是一个5文件</a></li>
+		<li><a href="a.png">这是一个6文件</a></li>
+		<li><a href="7.gif">这是一个7文件</a></li>
+		<li><a href="8.jpg">这是一个8文件</a></li>
+	</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08-每一个对象都会连接到构造函数的prototype上</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Foo() {}	
+
+	// 只要函数存在了, 这个神秘的对象也就存在了
+	// Foo.prototype 就是该对象的引用
+
+	Foo.prototype.sayHello = function () {
+		console.log( 'js 高级与面向对象' );
+	};
+	//Foo.prototype是一个对象，然后指向了一个对象，Foo.prototype本身就是一个对象，所以通过.就可以直接创建方法。
+	var p = new Foo();
+
+	p.sayHello();
+
+</script>
+</html>

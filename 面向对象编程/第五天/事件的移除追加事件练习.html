@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var itcastload=(function(){
+        var data=[];
+        window.onload=function(){
+            for(i=0;i<data.length;i++){
+                data[i]();
+            }
+        }
+        return {
+            addEvent:function(fn){
+                data.push(fn);
+            },
+            removeEvent:function(fn){
+                for(i=data.length-1;i>=0;i--){
+                    if(data[i]===fn){
+                        data.splice(i,1);
+                    }
+                }
+            }
+        }
+    })();
+
+    itcastload.addEvent(function(){
+        console.log("加载1");
+    })
+
+    itcastload.addEvent(function(){
+        console.log("加载2");
+    })
+
+    function f(){
+        console.log("加载3");
+    }
+
+    itcastload.addEvent(f);
+
+    itcastload.removeEvent(f);
+    console.log("最后的");
+</script>
+</body>
+</html>

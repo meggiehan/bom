@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="father">
+    <div class="aaa bbb ccc show"></div>
+    <div class="aaa bbb ccc showcase"></div>
+    <div class="aaa bbb ccc"></div>
+</div>
+<script>
+    //寻找father下面 所有类名叫show的标签
+    var father = document.getElementById("father");
+    //var elements = father.getElementsByClassName("show");
+    var elements = getElementsByClassName(father, "show");
+    console.log(elements);
+
+
+    //基础版
+    function getElementsByClassName(element, className) {
+     //找到所有的标签 判断是否有这个类名 有就放到数组里
+     var filterArr = [];
+     var elements = element.getElementsByTagName("*");
+     for (var i = 0; i < elements.length; i++) {
+     if (elements[i].className.indexOf(className) != -1) {
+     filterArr.push(elements[i]);
+     }
+     }
+     return filterArr;
+     }
+//
+//    function getElementsByClassName(element,className){
+//           var filterArr=[];
+//        var elements=element.getElementsByTagName("*");
+//        for(i=0;i<elements.length;i++){
+//            if(elements[i].className.indexOf(className)!=-1){
+//                filterArr.push(elements[i]);
+//            }
+//        }
+//        return filterArr;
+//    }
+
+    function getElementsByClassName(element,className){
+        var filtArr=[];
+        var elements=element.getElementsByTagName("*");
+        for(i=0;i<elements.length;i++){
+            var nameArr=elements[i].className.split(" ");
+            for(j=0;j<nameArr.length;j++){
+                if(nameArr[j]===className){
+                    filtArr.push(elements[i]);
+                }
+            }
+
+        }
+        return filtArr;
+    }
+
+
+    //升级版
+    function getElementsByClassName(element, className) {
+        if (element.getElementsByClassName) {
+            return element.getElementsByClassName(className);
+        } else {
+        //找到所有的标签 判断是否有这个类名 有就放到数组里
+        var filterArr = [];
+        var elements = element.getElementsByTagName("*");
+        for (var i = 0; i < elements.length; i++) {
+            var nameArr = elements[i].className.split(" ");
+            for (var j = 0; j < nameArr.length; j++) {
+                if (nameArr[j] === className) {//这里要用新建的数组来对类名进行遍历。
+                    filterArr.push(elements[i]);
+                    break;
+                }
+            }
+        }
+        return filterArr;
+        }
+    }
+
+</script>
+</body>
+</html>

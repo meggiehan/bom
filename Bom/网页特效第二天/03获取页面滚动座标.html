@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aaaa</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        document.title = scrollTop;
+    };
+
+
+    console.log(document.body);//body标签 是对象
+    console.log(document.head);//head标签 是对象
+    console.log(document.title);//title标签中的内容 是字符串
+    //console.log(document.html);//document没有html这个属性的
+    console.log(document.documentElement);//html标签 是documentElement
+
+
+</script>
+</body>
+</html>

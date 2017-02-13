@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 200px;
+            background: pink;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+    <!--第一步：引包-->
+    <script src="jquery-1.12.2.js"></script>
+    <!--第二步：入口函数-->
+    <script>
+        // js的入口函数：window.onload = function() { // 功能代码 };
+        // jQuery的入口函数
+//        // 文档准备好了，下面就可以来处理DOM
+        $(document).ready(function() {
+//            /*第三步：实现功能*/
+//            // 1. 获取到设置内容按钮 并且绑定单击事件
+//            // $("#btnSetHtml")作用：获取到id属性为指定值得元素
+            $("#btnSetHtml").click(function() {
+//                // alert("123");
+//                // 2. 获取页面中所有的div 元素，并且设置内容
+//                // 作用等同于：document.getElementsByTagName("div")
+//                // html方法，就是对 for (var i = 0; i < divs.length; i++) { ... }
+//                // 的封装
+//                // 隐式迭代
+                $("div").html("我是内容");
+            });
+//            // 1. 获取到显示div按钮，并且绑定单击事件
+//            // js的写法：onclick = function() {}
+            $("#btnShow").click(function() {
+//                // 2. 获取到所有的div元素，并且让div展示出来
+                $("div").show(1000); // 参数：毫秒
+            });
+//
+        });
+
+
+        /*$(document).ready(function () {
+            alert("这是第2个ready");
+        });
+        $(document).ready(function () {
+            alert("这是第3个ready");
+        });*/
+
+//
+//        $(document).ready(function(){
+//            $("#btnSetHtml").click(function(){
+//                $("div").html("我是内容哦");
+//            });
+//            $("#btnShow").click(function(){
+//                $("div").show(1000);
+//            });
+//        });
+    </script>
+</head>
+<body>
+<!--回想：如何使用animage.js这个库的？
+
+1. 把这个库 引导页里面来
+2. 入口函数
+3. 直接使用库提供的方法-->
+
+<button id="btnSetHtml">设置内容</button>
+<button id="btnShow">显示div</button>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

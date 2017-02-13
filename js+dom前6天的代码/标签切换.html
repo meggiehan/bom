@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .hd {
+            height: 45px;
+        }
+
+        .hd span {
+            display: inline-block;
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hd span.current {
+            background-color: purple;
+        }
+
+        .bd li {
+            height: 255px;
+            background-color: purple;
+            display: none;
+        }
+
+        .bd li.current {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box" id="box">
+    <div class="hd">
+        <span class="current">体育</span>
+        <span>娱乐</span>
+        <span>新闻</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <ul>
+            <li class="current">我是体育模块</li>
+            <li>我是娱乐模块</li>
+            <li>我是新闻模块</li>
+            <li>我是综合模块</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var box=document.getElementById("box");
+    var spans=box.getElementsByTagName("span");
+    var lis=box.getElementsByTagName("li");
+//让所有的对象获得事件
+    for(i=0;i<spans.length;i++){
+        spans[i].index=i;//给上面的标签设置一个索引，方便以后下面模块根据索引号进行连接。
+        spans[i].onclick=function(){
+            for(j=0;j<spans.length;j++){//让每个li获得事件
+                spans[j].className="";//上面的标签干掉页面所有
+                lis[j].className="";//下面的标签干掉页面所有
+            }
+            this.className="current";//留下当前自己
+            var index=this.index;//留下当前自己，并且与上面的标签索引与之对应。
+            lis[index].className="current";
+        }
+    }
+//
+//      for(i=0;i<spans.length;i++){
+//          spans[i].index=i;
+//          spans[i].onclick=function(){
+//              for(j=0;j<spans.length;j++){
+//                  spans[j].className="";
+//                  lis[j].className="";
+//              }
+//              this.className="current";
+//              var index=this.index;
+//              lis[index].className="current";
+//          }
+//
+//
+//      }
+
+//    var box=document.getElementById("box");
+//    var spans=box.getElementsByTagName("span");
+//    var lis=box.getElementsByTagName("li");
+//    for(i=0;i<spans.length;i++){
+//        spans[i].index=i;
+//                spans[i].onclick=function(){
+//                                for(j=0;j<spans.length;j++){
+//                                    spans[j].className="";
+//                                }
+//                                this.className="current";
+//                                for(k=0;k<lis.length;k++){
+//                                    lis[k].className="";
+//                                }
+//                    var index=this.index;
+//                    lis[index].className="current";
+//                }
+//
+//
+//    }
+//////
+    //    //点击当前标签 当前标签排他
+//    //找人
+//    var box = document.getElementById("box");
+//    var spans = box.getElementsByTagName("span");//顶部的标签
+//    var lis = box.getElementsByTagName("li");//底部的盒子
+//    //给每一个都绑定事件
+//    for (var i = 0; i < spans.length; i++) {
+//        spans[i].index = i;
+//        console.dir(spans[i]);
+//
+//        spans[i].onclick = function () {
+//            //干掉所有人
+//            for (var j = 0; j < spans.length; j++) {
+//                spans[j].className = "";
+//            }
+//            //留下我自己
+//            this.className = "current";
+//            //console.log(i);
+//            //this.aaaaaaaa
+//            //干掉所有人
+//            for (var k = 0; k < lis.length; k++) {
+//                lis[k].className = "";
+//            }
+//            //留下对应的
+//            var index = this.index;
+//            lis[index].className = "current";
+//
+//        };
+//    }
+//
+//
+//    var stu = {};
+//    stu.name = "zs";
+//    stu.age = 18;
+
+</script>
+</body>
+</html>

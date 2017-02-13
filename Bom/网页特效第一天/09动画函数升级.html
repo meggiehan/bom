@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 90px;
+            left: 3px;
+            background-color: yellow;
+            border-top: 10px solid green;
+            position: absolute; /*一定要记得加定位*/
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">奔跑到200吧老段</button>
+<button id="btn2">奔跑到400吧老段</button>
+<div id="demo"></div>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var demo = document.getElementById("demo");
+    var timer = null;
+    btn1.onclick = function () {
+        animate(demo, 200);
+    };
+    btn2.onclick = function () {
+        animate(demo, 400);
+    };
+
+//    function animate(obj,target){
+//        clearInterval(obj.timer);
+//        obj.timer=setInterval(function(){
+//            var step=10;
+//            var leader=obj.offsetLeft;
+//            step=leader<target?step:-step;
+//            if(Math.abs(leader-target)>Math.abs(step)){
+//                leader=leader+step;
+//                obj.style.left=leader+"px";
+//            }
+//            else{
+//                obj.style.left=target+"px";
+//                clearInterval(obj.timer);
+//            }
+//        },15)
+//    }
+
+
+
+
+   // 需求：往左往右都可以
+    function animate(obj, target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var leader = obj.offsetLeft;
+            var step = 10;//之前只能是正数 只能往右走
+            /*if (leader < target) {
+             step = step;
+             } else {
+             step = -step;
+             }*/
+            step = leader < target ? step : -step;
+            //if (leader != target) {
+            //Math.abs(target - leader) 当前位置到目标的距离
+            //当前位置到目标的距离如果很大 这一步迈出之后 到不了目标 或者正好到
+            // 就可以迈出这一步
+            if (Math.abs(target - leader) >= Math.abs(step)) {
+                leader = leader + step;
+                obj.style.left = leader + "px";
+            } else {
+                //就差一点儿了手动放到目标即可
+                obj.style.left = target + "px";
+                clearInterval(obj.timer);
+            }
+        }, 15);
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //深层复制
+//       function deepClone(arr) {
+//        var newArr = [];
+//        for (var i = 0; i < arr.length; i++) {
+//            newArr[newArr.length] = arr[i];
+//        }
+//        return newArr;
+//    }
+
+    var arr1 = [3, 2, 1];
+//    console.log(arr1);
+//    //var arr2 = arr1;
+//    //var arr2 = deepClone(arr1);
+//    console.log(deepClone(arr1).sort(function (a, b) {
+//        return a - b;
+//    }));
+//    //arr2[0] = 100;
+//    console.log(arr1);
+
+    function deepClone(arr){
+        var newArr=[];
+        for(i=0;i<arr.length;i++){
+            newArr[newArr.length]=arr[i];
+        }
+        return newArr;
+    }
+    console.log(deepClone(arr1));
+//    var arr2=arr1;
+//    var arr2=deepClone(arr1);
+    console.log(deepClone(arr1).sort(function (a, b) {
+        return a - b;
+    }));
+    //    arr2[0]=100;
+    console.log(arr1);
+    //深层复制
+//    function deepClone(arr) {
+//        var newArr = [];
+//        for (var i = 0; i < arr.length; i++) {
+//            newArr[newArr.length] = arr[i];
+//        }
+//        return newArr;
+//    }
+//
+//    var arr1 = [3, 2, 1];
+//    //var arr2 = arr1;
+//    //var arr2 = deepClone(arr1);//将arr1复制了一份给arr2所以这时候改变arr2的值不会影响arr1的值。
+//    console.log(deepClone(arr1).sort(function (a, b) {
+//        return a - b;
+//    }));
+//    //arr2[0] = 100;
+//    console.log(arr1);
+</script>
+</body>
+</html>

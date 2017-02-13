@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+//因为默认情况下，btn是属于docum文档的，所以说触发了btn事件后会继续往上级触发，执行document的事件。
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        alert("按钮被点击啦");
+    };
+    document.onclick = function () {
+        alert("文档被点击了");
+    };
+</script>
+</body>
+</html>

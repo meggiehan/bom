@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+      body{
+          margin: 0;
+          padding: 0;
+      }
+        .head img{
+            display: inline-block;
+            width: 100%;
+        }
+        .section{
+            margin-top: 10px;
+            display: flex;
+            height: 80px;
+        }
+        .aiside{
+            flex: 1;
+            background-color: orange;
+        }
+        .article{
+            flex: 2;
+            margin-left: 10px;
+            background-color: orange;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .article a{
+            width: 50%;
+            text-decoration: none;
+            color: purple;
+            font-size: 20px;
+            line-height: 39px;
+            text-align: center;
+            border-left: 1px solid wheat;
+            border-bottom: 1px solid wheat;
+            box-sizing: border-box;
+        }
+        .section:last-child .article{
+           margin-left: 0px;
+        }
+        .section:last-child .article a{
+            width: 33.33333%;
+        }
+        .footer{
+            display: flex;
+        }
+        .footer a{
+            flex: 1;
+        }
+        .footer img{
+            display: inline-block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="continer">
+    <div class="head">
+        <a href="#"><img src="images/banner.jpg" alt=""/></a>
+    </div>
+    <div class="main">
+        <div class="section">
+            <div class="aiside"></div>
+            <div class="article">
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="aiside"></div>
+            <div class="article">
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="aiside"></div>
+            <div class="article">
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="article">
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+                <a href="#">Do you want to go to sichuan?</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#"><img src="images/extra_1.png" alt=""/></a>
+        <a href="#"><img src="images/extra_2.png" alt=""/></a>
+    </div>
+</div>
+</body>
+</html>

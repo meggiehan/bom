@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频播放器</title>
+	<link rel="stylesheet" href="./css/font-awesome.css">
+	<link rel="stylesheet" href="./css/player.css">
+</head>
+<body>
+	<figure>
+		<figcaption>视频播放器</figcaption>
+		<div class="player">
+			<video src="./video/fun.mp4"></video>
+			<div class="controls">
+				<!-- 播放/暂停 -->
+				<a href="javascript:;" class="switch fa fa-play"></a>
+				<!-- 全屏 -->
+				<a href="javascript:;" class="expand fa fa-expand"></a>
+				<!-- 进度条 -->
+				<div class="progress">
+					<div class="loaded"></div>
+					<div class="line"></div>
+					<div class="bar"></div>
+				</div>
+				<!-- 时间 -->
+				<div class="timer">
+					<span class="current">00:00:00</span> /
+					<span class="total">00:00:00</span>
+				</div>
+				<!-- 声音 -->
+			</div>
+		</div>
+	</figure>
+	<script src="./js/jquery.min.js"></script>
+	<script>
+
+
+		/*
+		 * 思路导航
+		 * 1. 当视屏文件符合规定，我们把承载video的盒子显示 -->> canplay()事件（监听视频可以播放）
+		 * 2. 点击左侧播放按钮进行播放或者暂停，并且改变样式 -->> clicl()事件（ClassList.add） play()播放 pause()暂停  paused 属性
+		 * 3. 让视频的总时间显示在规定的位置。-->> video.duration（单位是秒）
+		 * 4. 在视频播放过程中规定位置的时间随时改变 -->> video.currentTime（单位是秒） ontimeupdate()事件  是播放位置改变的时候触发
+		 * 5. 播放过程中进度条随时间的变化而改变 -->> (currentTime/duration)*100+%
+		 * 6. 点击进度条的位置进行跳播 -->> video.currentTime赋值就行
+		 * 7. 点击全屏按钮是进行全屏播放 -->> fullScreen
+		 * 8. 当视屏播放完以后 播放按钮还原，进度条还原，进度时间还原 -->> onended()事件（监听视频播放完毕）
+		 * */
+
+      var video=document.querySelector("video");
+	  var total=document.querySelector(".total");
+	  var current=document.querySelector(".current");
+	  var line=document.querySelector(".line");
+	  var expand=document.querySelector(".expand");
+	  var bar=document.querySelector(".bar");
+	  var play=document.querySelector(".switch");
+		var time,h,m,s;
+	   video.oncanplay=function(){
+		   video.style.display="block";
+		   time=video.duration;
+//		   console.log(time);
+		    h =parseInt(time/3600);
+		   m=parseInt(time/60);
+		   s=parseInt(time%60);
+		   h=h<10?"0"+h:h;
+		   m=m<10?"0"+m:m;
+		   s=s<10?"0"+s:s;
+		   total.innerHTML=h+":"+m+":"+s;
+	   }
+	  play.onclick=function(){
+		  this.classList.toggle("fa-play");
+		  this.classList.toggle("fa-pause");
+		 if(video.paused){
+			 video.play();
+		 }
+		  else{
+			 video.pause();
+		 }
+	  }
+     video.ontimeupdate=function(){
+		 time=video.currentTime;
+		  h =parseInt(time/3600);
+		  m=parseInt(time/60);
+		 s=parseInt(time%60);
+		 h=h<10?"0"+h:h;
+		 m=m<10?"0"+m:m;
+		 s=s<10?"0"+s:s;
+		 current.innerHTML=h+":"+m+":"+s;
+		 var curT=(time/video.duration)*100+"%";
+		 line.style.width=curT;
+	 }
+     bar.onclick=function(ev){
+		 var a=ev.offsetX;
+		 var b=parseInt(window.getComputedStyle(this).width);
+		 video.currentTime=video.duration*(a/b);
+	 }
+    expand.onclick=function(){
+		video.webkitRequestFullScreen();
+	}
+		video.onended=function(){
+			play.classList.remove('fa-pause');
+			video.currentTime=0;
+		}
+
+
+
+		// 初始化
+		var video = $('video')[0],
+			// 播放进度条
+			line = $('.line'),
+			// 当前时间
+			current = $('.current'),
+			// 时分秒
+			h, m, s;
+
+		// 当视频可以播放时
+		video.oncanplay = function () {
+			video.style.display = 'block';
+
+			h = Math.floor(video.duration / 3600)
+			m = Math.floor(video.duration / 60);
+			s = Math.floor(video.duration % 60);
+
+			// 小于10时拼接字符串0
+			h = h < 10 ? '0' + h : h;
+			m = m < 10 ? '0' + m : m;
+			s = s < 10 ? '0' + s : s;
+
+			// 总共多少时间
+			$('.total').text(h + ':' + m + ':' + s);
+		}
+
+		// 播放/暂停
+		$('.switch').on('click', function () {
+			// 切换状态
+			$(this).toggleClass('fa-pause fa-play');
+
+			// 切换状态
+			if(video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}
+		});
+
+		// 播放进度
+		video.ontimeupdate = function () {
+
+			var value = 0;
+
+			if (video.currentTime > 0) {
+
+				value = video.currentTime / video.duration * 100;
+			}
+
+			line.css('width', value + '%');
+
+			h = Math.floor(video.currentTime / 3600)
+			m = Math.floor(video.currentTime / 60);
+			s = Math.floor(video.currentTime % 60);
+
+			// 小于10时拼接字符串0
+			h = h < 10 ? '0' + h : h;
+			m = m < 10 ? '0' + m : m;
+			s = s < 10 ? '0' + s : s;
+
+			// 时间进度
+			current.text(h + ':' + m + ':' + s);
+		}
+
+		// 跳跃播放
+		$('.bar').on('click', function (ev) {
+			video.currentTime = (ev.offsetX / $(this).width()) * video.duration;
+		});
+
+		// 播放完毕
+		video.onended = function () {
+			// 切换状态
+			$('.switch').removeClass('fa-pause').addClass('fa-play');
+			// 进度条为0
+			line.css('width', 0);
+			// 时间还原
+			current.text('00:00:00');
+
+			// 播放时间还原
+			video.currentTime = 0;
+		}
+
+		// 全屏
+		$('.expand').on('click', function () {
+			video.webkitRequestFullScreen();
+		});
+	</script>
+</body>
+</html>

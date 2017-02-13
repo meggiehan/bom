@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //实际上 事件发生的时候 是浏览器让我们注册的这个函数执行的
+    //浏览器在调用这个函数的时候 会传入一个参数 这个参数就包含了和这个事件相关的很多信息
+    document.onclick = function (a) {
+        //alert("a");
+        //alert(a);
+        console.log(a);
+    };
+    //事件是有一个对象的，并且事件发生的时候是由浏览器来调用的。浏览
+    //器在调用这个函数的时候会传入一个参数，这个参数就包含了和这个事件相
+    //关的很多信息。
+
+    //形参和实参可以不一致 如果传入了实参没有形参接收 也不会出错 只是实参就废了
+    function cl() {
+        console.log("哈哈哈");
+    }
+    //cl();
+    //cl("呵呵呵");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" value="奶爸盛典" id="txt"/>
+<input type="button" value="搜索" id="btn"/>
+<script>
+    var txt=document.getElementById("txt");
+    var btn=document.getElementById("btn");
+//    txt.onfocus=function(){
+//        if(txt.value==="奶爸盛典"){
+//            txt.value="";
+//        }
+//    }
+//    txt.onblur=function(){
+//        if(txt.value===""){
+//            txt.value="奶爸盛典";
+//        }
+//    }
+    var flag=true;
+    txt.onfocus = function () {
+        if(this.value === "奶爸盛典")
+        {
+            if(flag)
+            {
+                this.value = "";
+            }
+            else
+            {
+                this.value = "奶爸盛典";
+            }
+        }
+
+    }
+    txt.onblur = function () {
+        if(txt.value === "奶爸盛典")
+        {
+            txt.value = "奶爸盛典";
+            flag = false;
+        }
+        else if(txt.value === "")
+        {
+            txt.value = "奶爸盛典";
+            flag = true;
+        }
+    }
+
+
+
+
+
+//    var txt=document.getElementById("txt");
+//    var btn=document.getElementById("btn");
+//    txt.onfocus=function(){
+//        if(txt.value==="奶爸盛典"){
+//            txt.value="";
+//        }
+//    }
+//    txt.onblur=function(){
+//        if(txt.value===""){
+//            txt.value="奶爸盛典";
+//        }
+//        else if(txt.value==="奶爸盛典"){
+//            txt.value="奶爸盛典";
+//        }
+//    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn1" value="setTimeout"/>
+<input type="button" id="btn2" value="clearTimeout"/>
+<script>
+    var timeid=null;
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    btn1.onclick=function(){
+        timeid=setTimeout(function(){
+            console.log("abcdefg");
+        },1000);
+    }
+    btn2.onclick=function(){
+        clearTimeout(timeid);
+    }
+
+//    var timerId = null;//用timerId来记录当前的状态。
+//    var btn1 = document.getElementById("btn1");
+//    var btn2 = document.getElementById("btn2");
+//    btn1.onclick = function () {
+//        //1.要执行的代码 2.延迟的时间 单位 毫秒
+//        timerId = setTimeout(function () {//settimeout:点击一次执行一次。
+//            console.log("bongshakalaka");
+//        }, 3000);
+//    };
+//    btn2.onclick = function () {
+//        clearTimeout(timerId);
+//    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //正则里面写什么都是可以的，例如/chuan/  只能多给不能少给。
+    //我们现在只是学习基本语法 不做精确匹配 只要有我想要的就可以
+    console.log(/chuan/.test("chuan"));//true
+    console.log(/chuan/.test("chuang"));//true 只要有我想要的就可以
+    console.log(/chuan/.test("chua"));//false 可以多给 不能少给
+    //  | 表示或 或的优先级最低 可以通过()提升优先级
+    /foot|boot/.test("foot");
+    /foot|boot/.test("boot");
+    /f|boot/.test("f");
+    /f|boot/.test("boot");
+    /f|boot/.test("foot");//这个表达式表示的意思是 f或者boot 只不过foot里面有了f所以会返回true
+    /(f|b)oot/.test("foot");//()可以把他们变为整体 提升优先级
+    /a1|b1|c1/.test("a1");
+    /a|b|c1/.test("a1");//true
+    /(a|b|c)1/.test("a1");
+    /[abc]1/.test("a1");//[]表示一个字符的位置
+    // []里面的内容表示这个位置可以出现的内容
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html, body{
+			height: 100%;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		section {
+			height: 100%;
+			background-color: #DE8910;
+			position: relative;
+		}
+		.rocket {
+			height: 190px;
+			width: 100px;
+			position: absolute;
+			bottom: 0;
+			transform: rotate(30deg)  translate(100px, 0) ;
+			transition: transform 1s;
+		}
+		section:hover .rocket{
+			transform: translate(1000px, -500px) rotate(30deg);
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="rocket">
+			<img src="images/rocket.png" alt="">
+		</div>
+	</section>
+</body>
+</html>

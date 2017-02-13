@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .current{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="隐藏"/>
+
+<div id="box"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var isflag=true;
+    btn.onclick = function () {
+        if(isflag){
+            box.style.display="none";
+            this.value="显示";
+            isflag=false;
+        }
+        else{
+            this.value="隐藏";
+            box.style.display="block";
+            isflag=true;
+        }
+
+
+    };
+    //box.style.display = "none";
+    //box.style.visibility = "hidden";
+    //点击按钮隐藏盒子
+    //opacity 0
+    //rgba (0,0,0,0)
+    //display none
+    //visibility hidden
+    //width 0 height 0
+    //z-index 负数
+    //margin 负数
+    //直接把这个元素干掉
+    //定位 把他弄到页面外面
+
+
+</script>
+</body>
+</html>

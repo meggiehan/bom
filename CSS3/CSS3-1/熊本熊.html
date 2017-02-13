@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .bear {
+            width: 370px;
+            height: 320px;
+            margin: 80px auto;
+            position: relative;
+        }
+
+        .face {
+            margin: 80px auto;
+            width: 370px;
+            height: 320px;
+            background: #000;
+            border-radius: 200px/150px;
+        }
+
+        .ear {
+            width: 80px;
+            height: 80px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+        }
+
+        .ear-l {
+            left: -8px;
+        }
+
+        .ear-r {
+            right: -8px;
+        }
+
+        .ear:before,
+        .ear:after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 18px;
+        }
+
+        .ear:before {
+            left: 18px;
+        }
+
+        .ear:after {
+            right: 18px;
+        }
+
+        .red-f {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            top: 120px;
+            left: -22px;
+        }
+
+        .red-r {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            top: 120px;
+            right: -22px;
+        }
+
+        .eye {
+            width: 60px;
+            height: 62px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 55px;
+        }
+
+        .ef {
+            left: 65px;
+        }
+        .er{
+            right: 65px;
+        }
+        .eye:before{
+            content: '';
+            display: block;
+            width: 60px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: -25px;
+            left: 5px;
+        }
+        .eye:after{
+            content: '';
+            display: block;
+            width: 60px;
+            height: 16px;
+            background: #000;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: -17px;
+            left: 5px;
+        }
+        #yan,#yan1{
+            content: "";
+            display: block;
+            width: 15px;
+            height: 27px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            top:20px;
+        }
+        #yan{
+            left: 5px;
+        }
+        #yan1{
+            right: 39px;
+        }
+        .mouse {
+            width: 230px;
+            height: 160px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 120px;
+            left: 70px;
+        }
+        .nose-t{
+            width: 45px;
+            height: 15px;
+            background: #000;
+            border-radius: 50% 50% 0 0/100% 100% 0 0;
+            position: absolute;
+            top: 30px;
+            left: 95px;
+        }
+        .nose-b{
+            width: 45px;
+            height: 20px;
+            background: #000;
+            border-radius: 0 0 50% 50% /0 0 100% 100%;
+            position: absolute;
+            top: 45px;
+            left: 95px;
+        }
+        .tooth-t{
+            width: 155px;
+            height: 35px;
+            background: #000;
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            position: absolute;
+            top: 95px;
+            left: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="bear">
+    <div class="face">
+        <div class="ear ear-l"></div>
+        <div class="ear ear-r"></div>
+        <div class="eye ef">
+            <span id="yan"></span>
+        </div>
+        <div class="eye er">
+            <span id="yan1"></span>
+        </div>
+        <div class="red-f"></div>
+        <div class="red-r"></div>
+        <div class="mouse">
+            <div class="nose-t"></div>
+            <div class="nose-b"></div>
+            <div class="tooth-t"></div>
+            <div class="tooth-b"></div>
+        </div>
+    </div>
+</div>
+<script src="jquery-1.12.2.js"></script>
+<script>
+
+    $(function(){
+        setInterval(function(){
+            $('#yan').stop().animate({left:38,top:20},500,function(){$('#yan').animate({left:0,bottom:70},500)});
+            $('#yan1').stop().animate({left:38,top:20},500,function(){$('#yan1').animate({left:0,bottom:70},500)});
+        },1500)
+    })
+
+
+        function animate(obj, json, fn) {//json attr, target
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for (var k in json) {//json 属性名:属性值 k:json[k]
+                if (k === "opacity") {
+                    var leader = getStyle(obj, k) * 100;
+                    var target = json[k] * 100;
+                    var step = (target - leader) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader / 100;
+                } else if (k === "zIndex") {
+                    obj.style.zIndex = json[k];
+                } else {
+                    var leader = parseInt(getStyle(obj, k)) || 0;
+                    var target = json[k];
+                    var step = (target - leader) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader + "px";
+                }
+
+                if (leader != target) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                clearInterval(obj.timer);
+                if (fn) {
+                    fn();
+                }
+            }
+        }, 15);
+    }
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

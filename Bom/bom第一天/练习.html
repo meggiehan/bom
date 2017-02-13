@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//    //视频01
+//    //基本包装类型
+//     var a = "abc";
+//    console.log(a);//abc
+//    var b = new String(a);
+//     console.log(b);//String
+//     var a = [1,2,3];
+//     var b = new Boolean(a);
+//     console.log(a.length);//3
+//     console.log(a);//[1,2,3]
+//     console.log(b);//Boolean
+//
+//    //视频02
+//    //new 返回值
+//     function num(temp){
+//     	this.value = "1111";
+//     	var aaa = new Date();
+//     	return aaa;
+//     }//若为值类型，又使用了new创建，则返回num.
+//     var temp = "2222"
+//     var temp = new Date();
+//     var num1 = num(temp);
+//     var num2 = new num();
+//     var num3 = new num(temp);
+//     var num4 = new num(temp);
+////     本身{value:"1111"}   return temp
+//     console.log(num1);//"2222"  Thu Nov 10 2016 12:40:53 GMT+0800 (中国标准时间)
+//     console.log(num2);//{value:"1111"}  Thu Nov 10 2016 12:40:53 GMT+0800 (中国标准时间)
+//     console.log(num3);//{value:"1111"}  Thu Nov 10 2016 12:40:53 GMT+0800 (中国标准时间)
+//     console.log(num4);//{value:"1111"}  Thu Nov 10 2016 12:40:53 GMT+0800 (中国标准时间)
+
+//    //视频03
+////    (1) slice substring 只在参数为负数的时候不同
+//     var test = '123456789';
+//    //参数是负数时，slice会将它字符串的长度与对应的负数相加  结果作为参数
+//     console.log(test.slice(-3));         //789           //若只传1个参数，则表示从某个位置以后的所有值都截取到。
+//     console.log(test.slice(9-3));         //789
+//     console.log(test.slice(3,-4));       //45
+//     console.log(test.slice(3,9-4));       //45
+//   // substring则干脆将负参数都直接转换为0
+//     console.log(test.substring(-3));     //123456789
+//     console.log(test.substring(0));     //123456789
+//     console.log(test.substring(3,-4));   //123
+//     console.log(test.substring(3,0));   //123
+
+//    //(2) indexOf()方法  查找字符串中指定字符 出现的位置
+//     var a = "hello world!"
+//     console.log(a.indexOf("l"));//2
+//     var index = -1;
+//     do{
+//     	index = a.indexOf("l",index+1)
+//     	if(index != -1){
+//     		console.log(index);
+//     	}
+//     }while(index!= -1);//2,3,9注意空格也算是一个字符。
+//
+//    //(3) replace
+//     var str = "hello world";
+//     str = str.replace("o","!");
+//     console.log(str);//hell! world
+//     do{
+//     	str = str.replace("o","!");
+//     }while(str.indexOf("o") != -1)
+//     console.log(str);//hell! w!rld
+
+    //视频04
+    //(1) 统计一个字符串中指定字符出现的次数
+//     var str = "hello world";
+//     console.log(str.charAt(3));//1
+//     console.log(str.charCodeAt(3));//108（ASCII码）
+//     var o = {};
+//     for (var i = 0; i < str.length; i++) {
+//     	var item = str.charAt(i);//或者写成var item=str[i];也可以.
+//     	if(o[item]){
+//     		o[item]++;
+//     	}else{
+//     		o[item] = 1;
+//     	}
+//     }
+//     for (var id in o) {//遍历对象的时候最好用for in来遍历。这里是把o里面所有的值都遍历一遍。id已经是当前o对象里面的值。
+//     	console.log(id + "——" + o[id]);//空格也会一起统计。
+//     }
+//     console.log(o);//object
+//
+//    //(2) 把一个字符串中的字符全部去掉
+//     var str = ' hello world ';
+//     str = str.trim();//去除两边的空格
+//     var arr = str.split(" ");
+//     console.log(arr);
+//     console.log(arr.join(''));
+//     console.log(str);
+
+
+    //视频11
+    //封装addLoadEvent来给页面绑定加载后执行事件
+     function addLoadEvent(fn){
+     	var oldLoad = window.onload;
+     	if(typeof(oldLoad) === "function"){
+           window.onload=function(){//如没有这一句，则事件会重复执行。所以最好不要漏掉这一句。
+               oldLoad();
+               fn();
+           }
+     	}else{
+     		window.onload = fn;
+     	}
+     }
+     addLoadEvent(function(){
+     	alert(1);
+     })
+     addLoadEvent(function(){
+     	alert(2);
+     })
+     addLoadEvent(function(){
+     	alert(3);
+     })
+     alert("window.onload要执行了！");
+     window.onload();
+// 1,2,1,3,window.onload要执行了！",1,1
+
+</script>
+</body>
+</html>

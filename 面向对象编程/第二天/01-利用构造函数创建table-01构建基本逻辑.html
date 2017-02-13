@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01-利用构造函数创建table</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+//	function cTag( tagName ) {
+//		return document.createElement( tagName );
+//	}
+//
+//	function Table () {
+//		// 实际上在调用这个构造函数的时候, 应该利用 DOM
+//		// 方法创建相应的 table 标签与 tbody 标签
+//		this.DOM = cTag( 'table' );
+//		this.DOM.appendChild( cTag( 'tbody' ) );
+//
+//	}
+//
+//	var t = new Table( 400, 1 );
+//	t.width( 400 );	// 利用参数添加表格的属性
+//
+//	// t.add( tr )
+//	// 在开发中有一个原则, 就是尽量不去修改原生的对象
+//
+//
+//	document.body.appendChild( t.DOM );
+
+//function cTag(tagname){
+//	return document.createElement(tagname);
+//}
+//	function Table(width,border){
+//		this.DOM=cTag('table');
+//		this.DOM.appendChild(cTag('tbody'));
+//
+//		this.DOM.width=width;
+//		this.DOM.border=border;
+//
+//		this.width=function(w){
+//			this.DOM.width= w;
+//		}
+//		this.border=function(b){
+//			this.DOM.border= b;
+//		}
+//	}
+//
+//	var t = new Table(700,7);
+////    t.width(500);
+////    t.border(5);
+//	document.body.appendChild(t.DOM);
+
+
+
+function cTag(tagname){
+	return document.createElement(tagname);
+}
+function Table(option){
+	var table=cTag('table');
+
+	for(var k in option){
+		table.setAttribute(k,option[k]);
+//		table[ k ] = option[ k ];
+	}
+
+	this.DOM=table;
+	this.DOM.appendChild(cTag('tbody'));
+	this.add=function(tr){
+		table.lastChild.appendChild(tr.DOM);
+	}
+}
+var t = new Table( { width: 400, border: 1, itcast: '传智播客' } );
+function Tr(){
+	this.DOM=cTag('tr');
+	this.add=function(td){
+		this.DOM.appendChild(td.DOM);
+	}
+}
+var tr = new Tr();
+t.add(tr);
+
+function Td(value,option){
+	this.DOM=cTag('td');
+    for(var k in option){
+		this.DOM.setAttribute(k,option[k]);
+	}
+	this.DOM.innerHTML=value;
+}
+var d=new Td('测试数据');
+tr.add(d);
+document.body.appendChild(t.DOM);
+
+</script>
+</html>

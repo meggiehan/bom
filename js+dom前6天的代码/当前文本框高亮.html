@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box">
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+</div>
+<script>
+
+    var box=document.getElementById("box");
+    var inputs=box.children;
+    for(i=0;i<inputs.length;i++){
+        inputs[i].onfocus=function(){
+            this.style.backgroundColor="pink";
+        }
+        inputs[i].onblur=function(){
+            this.style.backgroundColor="";
+        }
+    }
+//    //获得对象
+//    var box=document.getElementById("box");
+//    var inputs=box.getElementsByTagName("input");
+//    //让每个对象能够获得事件
+//    for(i=0;i<inputs.length;i++){
+//        inputs[i].onfocus=function(){
+//            for(i=0;i<inputs.length;i++){
+//                //干掉所有对象
+//                inputs[i].style.backgroundColor="";
+//            }
+//            //留下当前对象
+//            this.style.backgroundColor="pink";
+//        }
+//    }
+
+//
+//    //获得对象
+//    var box=document.getElementById("box");
+//    var inputs=box.getElementsByTagName("input");
+//    //让每个对象能够获得事件
+//    for(i=0;i<inputs.length;i++){
+//        inputs[i].onfocus=function(){
+//
+//               this.style.backgroundColor="pink";
+//        }
+//        //同一个浏览器获取焦点的只能是一个表单元素
+//        //当前这个获取焦点后 其他的就自动失去焦点了
+//          inputs[i].onblur=function(){
+//              this.style.backgroundColor="";
+//          }
+//
+//    }
+</script>
+</body>
+</html>

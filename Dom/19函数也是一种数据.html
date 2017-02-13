@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var num = 10;
+    var fn = function () {
+        console.log("fn");
+    }
+    //console.log(typeof fn());
+    //console.log(typeof fn);//function
+    //函数就是对象
+    //1.对象可以通过构造函数创建
+    //构造函数Function 如果只传一个参数 function_body
+    var fn2 = new Function("alert('a')");
+    function fn3() {
+        alert('a');
+    }
+    //fn2();
+    //fn3();
+    //如果很多参数 最后一个是function_body 前面所有的都是形参的参数名
+    var fn4 = new Function("a", "b", "c", "alert(a+b+c)");
+    function fn5(a, b, c) {
+        alert(a + b + c);
+    }
+    //fn4(1, 2, 3);
+    //fn5(1, 2, 3);
+    //2.对象有属性
+    function fn6(a, b, c) {
+        console.log("aaaaa");
+        console.log(fn6.name);//函数名
+        console.log(fn6.length);//形参个数
+        console.log(fn6.arguments);//实参列表
+        //实参是调用的时候传入的 所以arguments必须在里面看
+    }
+    //fn6(1, 2, 3, 4, 5, 6);
+    //name 函数名
+    //length 形参的个数
+    //console.log(fn6.name);//函数名
+    //console.log(fn6.length);//形参个数
+    //console.log(fn6.arguments);//实参列表
+
+    //JS没有重载
+    //但是通过arguments可以模拟重载
+    function getMax(a, b, c) {
+        if (getMax.arguments.length === 2) {
+            return a > b ? a : b;
+        }
+        if (getMax.arguments.length === 3) {
+            return (a > b ? a : b) > c ? (a > b ? a : b) : c;
+        }
+    }
+    console.log(getMax(1, 2));
+    console.log(getMax(1, 2, 3));
+
+</script>
+</body>
+</html>

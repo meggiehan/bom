@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="demo"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+    var timer = null;
+    btn.onclick = function () {
+//        animate(demo, "borderRadius", 40);
+        animate(demo, {"height": 300, "width": 300, "left": 300, "top": 300,"borderRadius":250});
+
+    };
+    //把 任意对象 的 任意数值属性 改变为 任意的目标值
+//    function animate(obj, attr, target) {
+//        clearInterval(obj.timer);
+//        obj.timer = setInterval(function () {
+//            //var leader = obj.offsetLeft;
+//            //获取任意数值属性的当前值
+//            var leader = parseInt(getStyle(obj, attr)) || 0;//如果parseInt里面的样式是auto，则返回的是NaN 给个默认值0
+//            var step = (target - leader) / 10;
+//            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+//            leader = leader + step;
+//            obj.style[attr] = leader + "px";
+//            if (leader === target) {
+//                clearInterval(obj.timer);
+//            }
+//        }, 15);
+//    }
+    //console.log(parseInt(getStyle(demo, "left")));
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+    function animate(obj,json) {
+        clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var flag=true;
+                    for(var k in json) {
+                        var leader = parseInt(getStyle(obj, k)) || 0;
+                        var target = json[k];
+                        var step = (target - leader) / 10;
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                        leader = leader + step;
+                        obj.style[k] = leader + "px";
+    //                    if (leader === target) {
+    //                        clearInterval(obj.timer);
+    //                    }
+                        console.log("代码还在执行");
+                        if(leader!=target){
+                            flag=false;
+                        }
+                    }
+                if(flag){
+                    clearInterval(obj.timer);
+                }
+            }, 15);
+    }
+</script>
+</body>
+</html>

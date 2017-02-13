@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        ul li {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            float: left;
+            margin: 20px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+
+//        $(document).ready(function(){
+//            $("li").each(function(index,ele){
+//              $(ele).css("opacity",(index+1)/10);
+//            })
+//        })
+
+
+
+        $(function () {
+            // 给10个元素设置不同的不透明度值
+            // $("li").css("opacity", 0.5);
+
+            // 参数：表示每次遍历都要执行的函数
+            $("li").each(function (index, ele) {
+                // index 表示：当前这个元素的索引号 从0开始的 0 - 10
+                // ele 表示当前元素， ele === this => true
+                // 0 : (0 + 1) / 10 = 0.1
+                // 1 : (1 + 1) / 10 = 0.2
+                // ...
+                // 9 : (9 + 1) / 10 = 1
+                var op = (index + 1) / 10;
+                $(ele).css("opacity", op);
+            });
+
+            // for
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

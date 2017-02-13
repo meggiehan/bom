@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单属性</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		form {
+			max-width: 640px;
+			width: 100%;
+			margin: 32px auto;
+			font-size: 32px;
+		}
+
+		label {
+			display: block;
+			margin: 30px;
+		}
+
+		input {
+			display: block;
+			width: 100%;
+			height: 32px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <form action="" autocomplete="off" novalidate id="myForm"> -->
+	<form action="" autocomplete="off" id="myForm">
+		<fieldset>
+			<legend>表单属性</legend>
+			<label for="">
+				placeholder: <input type="text" name="placeholder" placeholder="请输入用户名">
+			</label>
+			<label for="">
+				autofocus: <input type="text" name="autofocus" autofocus>
+			</label>
+			<label for="">
+				<input type="file" multiple>
+			</label>
+			<label for="">
+				autocomplete: <input type="text" name="autocomplete" autocomplete="on">
+			</label>
+			<label for="">
+				email: <input type="email" required>
+			</label>
+			<label for="">
+				text: <input type="text" novalidate>
+			</label>
+			<label for="">
+				text: <input type="text" required>
+			</label>
+			<label for="">
+				pattern: <input type="text" pattern="\D+">
+			</label>
+			<label for="">
+				<input type="submit" value="保存">
+			</label>
+		</fieldset>
+	</form>
+	<div class="">
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+		<p>adsfasdfasdfasdf</p>
+	</div>
+	<input type="text" name="demo" form="myForm">
+</body>
+</html>

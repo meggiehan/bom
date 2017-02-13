@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,html{
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background-color: skyblue;
+			position: relative;
+			overflow: hidden;
+		}
+		img{
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			transform: translateY(190px)  translateX(0px) rotate(0deg);
+		}
+		body:hover img{
+			transform: translateY(-500px) translateX(1000px) rotate(720deg);
+			transition: all 3.5s linear;
+		}
+		/*想让rotate转动到720°，则必须让x和y轴相匹配。
+	</style>
+</head>
+<body>
+	<img src="images/rocket.png" alt="">
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn1" value="全选"/>
+<input type="button" id="btn2" value="不选"/>
+<input type="button" id="btn3" value="反选"/>
+
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_tbAll"/>
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧狮子头</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>日式肥牛</td>
+            <td>田老师</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+        var all=document.getElementById("j_tbAll");
+        var btn1=document.getElementById("btn1");
+        var btn2=document.getElementById("btn2");
+        var btn3=document.getElementById("btn3");
+        var tbody=document.getElementById("j_tb");
+        var inputs=tbody.getElementsByTagName("input");
+        btn1.onclick=function(){
+//            for(i=0;i<inputs.length;i++){
+//                inputs[i].checked=true;
+//            }
+           fnchecked(btn1,inputs,true);
+        }
+        btn2.onclick=function(){
+            for(i=0;i<inputs.length;i++){
+                inputs[i].checked="";
+            }
+        }
+        btn3.onclick=function(){
+            for(i=0;i<inputs.length;i++){
+                inputs[i].checked=!inputs[i].checked;
+            }
+        }
+        all.onclick=function(){
+            for(i=0;i<inputs.length;i++){
+                inputs[i].checked=all.checked;
+            }
+        }
+        for(i=0;i<inputs.length;i++){
+            inputs[i].onclick=function(){
+                var ischeckall=true;
+                for(i=0;i<inputs.length;i++){
+                    if(!inputs[i].checked){
+                        ischeckall=false;
+                        break;
+                    }
+                }
+                all.checked=ischeckall;
+            }
+        }
+        //封装
+        function fnchecked(element,inputs,bool){
+            element.onclick=function(){
+                for(var i=0;i<inputs.length;i++){
+                    if(typeof bool==="boolean"){
+                        inputs[i].checked=bool;
+                    }
+                    else{
+                        inputs[i].checked=!inputs[i].checked;
+                    }
+                }
+            }
+        }
+//       var btn1=document.getElementById("btn1");
+//       var btn2=document.getElementById("btn2");
+//       var btn3=document.getElementById("btn3");
+//       var all=document.getElementById("j_tbAll");
+//       var tbody= document.getElementById("j_tb");
+//       var checkboxes=tbody.getElementsByTagName("input");
+//           btn1.onclick=function(){
+//               for(var i=0;i<checkboxes.length;i++){
+//                   checkboxes[i].checked=true;
+//               }
+//
+//           }
+//        btn2.onclick=function(){
+//            for(var i=0;i<checkboxes.length;i++){
+//                checkboxes[i].checked=false;
+//            }
+//        }
+//        btn3.onclick=function(){
+//            for(var i=0;i<checkboxes.length;i++){
+//                checkboxes[i].checked=!checkboxes[i].checked;
+//            }
+//        }
+//           var all = document.getElementById("j_tbAll");
+//           var tbody = document.getElementById("j_tb");
+//           var checkboxes = tbody.getElementsByTagName("input");
+//
+//           all.onclick = function () {
+//               for ( var i = 0; i < checkboxes.length; i++) {
+//                   checkboxes[i].checked = all.checked;
+//               }
+//           };
+//        for(i=0;i<checkboxes.length;i++){
+//            checkboxes[i].onclick=function(){
+//                var ischeckall=true;
+//                for(i=0;i<checkboxes.length;i++){
+//                    if(!checkboxes[i].checked){
+//                        ischeckall=false;
+//                        break;
+//                    }
+//                }
+//                all.checked=ischeckall;
+//            }
+//        }
+////
+
+</script>
+</body>
+</html>

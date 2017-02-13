@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="top" id="topPart">
+    <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+<script>
+    //找人
+    var topPart = document.getElementById("topPart");
+    var navBar = document.getElementById("navBar");
+    var mainPart = document.getElementById("mainPart");
+    //窗体滚动的时候 判断页面滚动座标 是否大于 topPart的高度 如果大于了 把navBar变为固定定位
+    window.onscroll = function () {
+        //判断页面滚动座标 是否大于 topPart的高度
+        if (scroll().top > topPart.offsetHeight) {
+            //navBar.style.position = "fixed";
+            //navBar.className = "nav fixed";
+            navBar.className = "fixed";
+            //navBar变为固定定位后 下面的部分会跑上去 我们可以补上一个padding-top
+            mainPart.style.paddingTop = navBar.offsetHeight + "px";//记得加单位
+        } else {
+            navBar.className = "nav";
+            //回来后还要把padding-top删掉
+            mainPart.style.paddingTop = 0;
+        }
+    };
+    function scroll() {
+        return {
+            top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+            left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+        };
+    }
+
+</script>
+</body>
+</html>

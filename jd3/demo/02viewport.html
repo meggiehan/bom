@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--定义  因为我们页面的加载顺序  需要让浏览器知道我么设置了viewport
+    viewport只在移动端识别
+
+    适配的方式
+    就是设置屏幕的宽度和viewport的宽度一样
+    width 定义viewport的宽度  有一个特殊的值  deivce-width  作用当前设备的宽度
+    initial-scale 默认的初始缩放比 设置1.0  和pc端页面的显示比例一致 一比一显示在移动端
+    user-scalable 是否允许用户自行缩放 1,0  yes,no  不允许
+    maximum-scale：最大缩放比，大于0的数字
+    minimum-scale：最小缩放比，大于0的数字
+
+    行业通用的viewpoert设置
+    -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+    <title></title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+            height: 1000px;
+            background: pink;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div>内容内容内容内容内容内容内容内容内容内容内
+        容内容内容内容内容内容内容内
+        内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容
+        容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+</body>
+</html>

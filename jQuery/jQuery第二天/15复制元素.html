@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+//        $(function() {
+//            // 复制元素？
+//
+//            $("#btnClone").click(function() {
+//                // 将 srcDiv 里面的内容 复制一份到 target 里面去
+//                // 并且将复制出来的元素 的字号改为：30px
+//
+//                // clone() 作用：复制元素，并且返回新的元素
+//                // 返回值为：jQuery对象
+//                var $ulClone = $("#srcDiv").children().clone();//如果不加.clone();则会把之前的删除了追加到新的元素里。
+//                //.clone()里面可以传true和false，但是在这里表示的是是否复制事件。但一般不推荐，再重新绑定一定就可以了
+//                // 对复制出来的元素，进行相应的处理，此时，不会影响到原来的元素
+//                $ulClone.css("fontSize", "30px");
+//                $ulClone.css("background", "pink");
+//
+//                // 放到目标元素里面去
+//                $("#target").append($ulClone);
+//            });
+//        });
+        $(function(){
+            $("#btnClone").click(function(){
+                var $ulClone=$("#srcDiv").children().clone();
+                $ulClone.css("fontSize","30px");
+                $ulClone.css("background","pink");
+
+                $("#target").append($ulClone);
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="btnClone">复制元素</button>
+    <div id="srcDiv">
+        <ul>
+            <li>兄弟很多啊01</li>
+            <li>兄弟很多啊02</li>
+            <li>兄弟很多啊03</li>
+            <li>兄弟很多啊04</li>
+            <li>兄弟很多啊05</li>
+            <li>兄弟很多啊06</li>
+            <li>兄弟很多啊07</li>
+            <li>兄弟很多啊08</li>
+            <li>兄弟很多啊09</li>
+            <li>兄弟很多啊10</li>
+        </ul>
+    </div>
+
+    <div id="target">
+
+    </div>
+</body>
+</html>

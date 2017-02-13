@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">去吧皮卡段</button>
+<div id="demo"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+    var timer = null;
+
+    btn.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            var target = 0;
+            var leader = demo.offsetLeft;
+            var step = (target - leader) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            console.log("target:" + target + "--leader:" + leader + "--step:" + step);
+            leader = leader + step;
+            demo.style.left = leader + "px";
+            if (leader === target) {
+                clearInterval(timer);
+            }
+        }, 15);
+    };
+
+    Math.ceil(-0.9)//取得是更大的 0
+    //1目标是小数 2先加速再减速 3看hackEdition
+
+</script>
+</body>
+</html>

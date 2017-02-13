@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .odd {
+            background-color: salmon;
+        }
+
+        .even {
+            background-color: slateblue;
+        }
+    </style>
+</head>
+<body>
+<ul id="beauty">
+    <li>西施</li>
+    <li>杨贵妃</li>
+    <li>貂蝉</li>
+    <li>昭君</li>
+    <li>白飞飞</li>
+</ul>
+<script>
+    var ul = document.getElementById("beauty");
+    var lis = ul.getElementsByTagName("li");
+//    var lis=ul.children;
+    var index = 0;
+    for (i = 0; i < lis.length; i++) {
+
+        if (lis[i].nodeType != 1) {
+            continue;
+        }
+        if (index % 2 === 0) {
+            lis[i].className = "odd";
+        }
+        else {
+            lis[i].className = "even";
+        }
+        index++;
+    }
+    //    var ul=document.getElementById("beauty");
+    //    var lis=ul.childNodes;
+    //    var index=0;
+    //    for(i=0;i<lis.length;i++){
+    //        if(lis[i].nodeType!=1){
+    //            continue;
+    //        }
+    //        if(index%2===0){
+    //            lis[i].className="odd";
+    //        }
+    //        else{
+    //            lis[i].className="even";
+    //        }
+    //        index++;
+    //    }
+
+
+    //    var beauty=document.getElementById("beauty");
+    //    var lis=beauty.getElementsByTagName("li");
+    //    for(i=0;i<lis.length;i++){
+    //        if(i%2===0){//注意这里对2取余不能用lis里的值，而是用i下标对2取余。
+    //            lis[i].className="odd";
+    //        }else{
+    //            lis[i].className="even";
+    //        }
+    //    }
+</script>
+</body>
+</html>

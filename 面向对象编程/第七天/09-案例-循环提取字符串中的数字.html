@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+</body>
+<script>
+	// 案例： 在 'abc123def456ghij789klum' 提取数字
+
+	var str = 'abc123def456ghij789klum';
+	// 1> 全局模式
+	var r = /\d+/g;
+
+	// 2> 匹配要使用循环的方式
+	var res;
+
+	//r.exec( str )返回的是一个对象（数组），所以，res中存储的就是要提取的符合要求的字符串。
+	while ( res = r.exec( str ) ) {//当条件不满足的时候，为null，这时候为FALSE，跳出循环。
+		console.log( res );
+	}
+
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //作用域链
+    //1全局变量 解析器先在函数内部作用域寻找name1的声明，如果找不到，就会向上级作用域中寻找变量name1
+//    var name1 = "zs";
+//     function f1() {
+//     name1 = "ls";
+//     console.log(name1);//这里打印输出也会输出ls
+//     }
+//     f1();
+//     console.log(name1);//ls
+//    //2局部变量 解析器先在函数内部的作用域寻找name2的声明，如果找到就使用局部变量
+//    var name2 = "zs";
+//     function f2() {
+//     var name2 = "ls";
+//     console.log(name2);//这里输出的是ls
+//     }
+//     f2();
+//     console.log(name2);//zs
+    //3作用域链 作用域链只和在哪里定义有关 和在哪里调用无关
+//    var color = "red";
+//     function outer() {
+//     var anotherColor = "blue";
+//
+//     function inner() {
+//     var tmpColor = color;
+//     color = anotherColor;
+//     anotherColor = tmpColor;
+//     console.log(anotherColor);//red
+//     }
+//
+//     inner();
+//     }
+//     outer();
+//     console.log(color);//blue
+    //4作用域链 所谓的不加var就是全局变量其实并不准确
+    var name3 = "zs";
+    function f3() {
+        var name3 = "ls";
+
+        function f4() {
+            name3 = "ww";//当嵌套的层次不是很多的情况下，可以使用这种方法记忆，
+            // 但是当嵌套的层次较多的时候，他往上找，找到最后还是找的局部变量。
+        }
+
+        f4();
+        console.log(name3);//ww
+    }
+    f3();
+    console.log(name3);//zs
+
+</script>
+</body>
+</html>

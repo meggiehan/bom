@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .odd {
+            background-color: #999;
+        }
+
+        .even {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<ul id="beauty" aaa="1">
+    <li>西施</li>
+    <!--注释aa-->
+    <li>琳琳</li>
+    <li>小龙龙</li>
+    <li>苏东坡</li>
+</ul>
+<script>
+    //通过层次结构 来找标签 还是很常用的
+    var ul = document.getElementById("beauty");
+    //var lis = ul.getElementsByTagName("li");//这种方式获取元素 不关心层级结构
+    //如果内部还有li也会获取到
+    var children = ul.childNodes;//ul所有的子节点 childNodes子节点
+    //console.log(children);
+    var index = 0;
+    for (var i = 0; i < children.length; i++) {
+        if (children[i].nodeType !== 1) {
+            continue;
+        }
+        if (index % 2 === 0) {//偶数 对应页面上的奇数行
+            children[i].className = "odd";
+        } else {
+            children[i].className = "even";
+        }
+        index++;
+    }
+    console.log(children);
+    //nodeType 元素节点1 文本节点3
+    //节点常用属性 nodeType nodeValue nodeName
+    //文本节点
+//    console.log(children[0].nodeType);//3
+//    console.log(children[0].nodeValue);//文本节点的内容
+//    console.log(children[0].nodeName);//#text
+    //元素节点
+//    console.log(children[1].nodeType);//1
+//    console.log(children[1].nodeValue);//元素节点的nodeValue永远是null
+//    console.log(children[1].nodeName);//元素对应的标签名(而且是大写的)
+//    注释节点
+    console.log(children[3].nodeType);//8
+    console.log(children[3].nodeValue);//注释中的内容
+    console.log(children[3].nodeName);//#comment
+    //属性节点(标签的属性节点不是这个标签的子节点)
+//    var attrNode = ul.getAttributeNode("id");
+//    console.log(attrNode.nodeType);//2
+//    console.log(attrNode.nodeValue);//属性值
+//    console.log(attrNode.nodeName);//属性名
+
+
+</script>
+</body>
+</html>

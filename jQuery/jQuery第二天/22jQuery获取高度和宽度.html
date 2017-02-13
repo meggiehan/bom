@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background: pink;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 给div设置高度
+            $("#btnSetHeight").click(function () {
+                // $("div").css("height", "400px");
+                $("div").height(400);
+            });
+
+            // 获取div高度
+            $("#btnGetHeight").click(function () {
+                // var h = $("div").css("height");
+                // console.log(h);
+                // console.log(typeof h);
+
+                // 获取到高度之后，要给高度乘以2，在设置高度
+                // h 100px
+                // h = parseInt(h, 10) * 2;
+                // console.log(h);
+
+                // 获取到了 div 的高度
+                // height() 作用：获取或者设置高度
+                var h = $("div").height();
+                console.log(h);
+            });
+
+            // 设置宽度
+            $("#btnSetWidth").click(function () {
+                $("div").width(300);
+            });
+
+            // 获取宽度
+            $("#btnGetWidth").click(function () {
+                var w = $("div").width();
+                console.log(w);
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btnSetHeight">设置高度</button>
+<button id="btnGetHeight">获取高度</button>
+<button id="btnSetWidth">设置宽度</button>
+<button id="btnGetWidth">获取宽度</button>
+    <div>
+    </div>
+</body>
+</html>

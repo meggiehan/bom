@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3边框</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		ul {
+			width: 960px;
+			margin: 40px auto;
+			list-style: none;
+			background-color: #FFF;
+		}
+
+		li {
+			padding: 15px;
+		}
+
+		/*li:nth-child(2){*/
+			/*width: 300px;*/
+			/*height: 150px;*/
+			/*border-width: 20px;*/
+			/*border-image: url(./images/border.png) 27  repeat stretch;*/
+			/*/!*border-image-source: ;*!/*/
+			/*/!*border-image-slice: ;*!/*/
+			/*/!*border-image-repeat: ;*!/*/
+			/*/!*border-image-width;*!/*/
+		/*}*/
+
+		li:nth-child(2) {
+			width: 300px;
+			height: 150px;
+			/*background-color: black;*/
+			border-width: 20px;
+			border:20px solid mediumvioletred;
+			/*利用边框（背景）图片border-image*/
+			border-image: url(./images/border_image_2.png) 27 repeat repeat;
+			/*-webkit-border-image: url(./images/border.png) 27 stretch repeat;*/
+
+			/*通过边框背景图片可以实现自适应的边框样式，无需准备多张图片*/
+
+			/*具体的属性值分别代表什么意思*/
+
+			/*引入一个图片*/
+			/*border-image-source: url(./images/border.png);*/
+
+
+			border-image-slice: 27 27 27 27 fill;
+			border-image-repeat: round;
+			/*fill表示中间第五块也进行设置出来。
+
+			/*平铺的效果(stretch拉伸，repeat平铺,round)
+			border-image-repeat: stretch;
+			border-image-repeat: repeat;
+
+			border-image-repeat: round;
+
+			/*改变边框背景的宽度
+			border-image-width: 80px;
+
+			/*没有border-image-height，可以联想一个border-width
+			/*border-image-height: 20px;*/
+
+			/*我们自已可以通PS等工具将图片切成9块*/
+			/*利用DIV模拟出相同的效果来*/
+			/*步聚过于复杂并且HTML的结构也复杂*/
+
+			/*希望通过简单的方法来实现  border-image*/
+
+			/*1、指定一个图片*/
+			/*2、裁切一个图片 设置裁切的尺寸*/
+			/*3、设置一个平铺效果*/
+			/*4、可以设置一个宽度*/
+
+
+		}
+		
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<div class="border-image">
+				<img src="./images/border.png" alt="">
+			</div>
+		</li>
+		<li>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 400px;
+            width: 400px;
+            background: green;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+
+            // 给按钮绑定单击事件
+            $("#btnFadeTo").click(function () {
+                // 让div改变不透明度 到 某个值
+                // 第一个参数表示：动画执行的时间
+                // 第二个参数表示：要达到的不透明度值
+                $("div").fadeTo(1000, 0.5);//两个值都必须要传进去。
+
+                // 如果第一个参数为0，那么效果等同于：.css("opacity", 0.5);
+                 $("div").fadeTo(0, 0.5);
+            });
+        });
+//
+//        $(document).ready(function(){
+//            $("#btnFadeTo").click(function(){
+//                $("div").fadeTo(1000,0.5);
+//            })
+//        })
+
+    </script>
+</head>
+<body>
+<button id="btnFadeTo">淡到</button>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.head{
+	width: 100%;
+	height: 1.333333rem;
+    background: #4DB9FF;
+    border-bottom: 1px solid #3B77DB;
+    position: relative;
+}
+.head .search_top{
+	width: 50%;
+	height: 0.733333rem;
+	background: #fff;
+	border-radius: 0.133333rem;
+	left: 25%;
+	top: 0.293333rem;
+	position: absolute;
+	font-size: 0.373333rem;
+}
+.head .sear{
+	display: inline-block;
+	background: url("../images/sprite.png") no-repeat;
+	background-size:6.666667rem 6.666667rem;
+    position: absolute;
+    /*padding: 0.266667rem 0.293333rem;*/
+    background-origin: content-box;/*定位以内容开始定位*/
+    background-clip: content-box;/*显示背景 从内容开始显示*/
+    width: 0.4rem;
+    height: 0.4rem;
+    top: 0.32rem;
+	right: 3rem;
+	margin-top: 0.133333rem;
+	background-position: 0 -3.333333rem;
+}
+
+.main{
+
+}
+.main .tp_top img{
+	height: 5.733333rem;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+.main .tp_top .zhezhao img{
+	width: 100%;
+	height: 1.466667rem;
+	position: absolute;
+	right: -2.633333rem;
+	top:3.5rem;
+}
+.main .tp_top .tp_text img{
+	width: 4.853333rem;
+	height: 0.866667rem;
+	position: absolute;
+	right: 1.5rem;
+	top:3.8rem;
+}
+.main .tp_center img{
+	height: 5.733333rem;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+.main .tp_center .zhezhao_two img{
+    width: 100%;
+	height: 1.466667rem;
+	position: absolute;
+	right: -2.633333rem;
+	top:9rem;
+}
+.main .tp_center .tp_text_two img{
+	width: 4.786667rem;
+	height: 0.853333rem;
+	position: absolute;
+	right: 1.5rem;
+	top:9.3rem;
+}
+.main .tp_bottom img{
+	height: 5.733333rem;
+	width: 100%;
+	display: block;
+}
+.main .tp_bottom .zhezhao_three img{
+    width: 100%;
+	height: 1.466667rem;
+	position: absolute;
+	right: -2.633333rem;
+	top:14.9rem;
+}
+.main .tp_bottom .tp_text_three img{
+	width: 4.786667rem;
+	height: 0.853333rem;
+	position: absolute;
+	right: 1.5rem;
+	top:15.2rem;
+}

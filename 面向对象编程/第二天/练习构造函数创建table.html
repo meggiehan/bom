@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function cTag(tagname){
+        return document.createElement(tagname);
+    }
+
+    function Table(width,border){
+        this.DOM=cTag("table");
+        this.DOM.appendChild(cTag("tbody"));
+//
+        this.DOM.width=width;//利用属性来赋值
+        this.DOM.border=border;
+
+        this.width=function(w){
+            this.DOM.width=w;//使用方法的来传参数赋值
+        }
+        this.border=function(b){
+            this.DOM.border=b;
+        }
+        console.log(this.DOM);
+    }
+    var t=new Table(600,5);
+//    t.width(500);
+//    t.border(3);
+    document.body.appendChild(t.DOM);
+</script>
+</body>
+</html>

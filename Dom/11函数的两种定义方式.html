@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //console.log(fn1(1, 2));//代码执行之前 将函数的声明提升了
+    //console.log(fn2(1, 2));
+    //console.log(fn2);
+    //fn2是可以找到的 如果找不到报错是fn2 is not defined
+    //只不过找到的fn2不是函数 所以报错fn2 is not a function
+    //找到的fn2是undefined
+    //变量的声明在函数执行之前也会提升 变量声明提升 只提升声明不提升赋值
+
+
+    //函数的两种定义方式
+    //函数声明
+    function fn1(a, b) {
+        return a + b;
+    }
+    //函数表达式
+    var fn2 = function (a, b) {
+        return a + b;
+    }
+    //console.log(fn1(1, 2));
+    //console.log(fn2(1, 2));
+
+
+</script>
+</body>
+</html>

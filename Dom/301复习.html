@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //声明提升
+//    console.log(num);//undefined
+//     fn();//fn
+//     var num = 10;
+//     function fn() {
+//     console.log("fn");
+//     }
+//     console.log(num);//10
+//     fn();//fn
+//
+//    //全局作用域 局部作用域
+//    //全局变量 局部变量
+//    var a = "a";//全局变量
+//     console.log(a);//a
+//     function fn() {
+//     console.log(a);//a
+////         var a="cc";//如果加上这句，则会执行声明的提升，及上面的a会执行声明的提升，输出undefined，下面的a输出cc.
+//         console.log(a);//cc  如果没有var a="cc"，这句这里则会显示a
+//         var b = "b";//局部变量
+//     console.log(b);//b
+//     c = "c";//特殊 函数内部没加var声明的 是全局变量
+//     }
+//     fn();
+//     console.log(b);//报错
+//     console.log(c);//可以使用
+
+    //递归
+//    var i = 0;
+//     function fn() {
+//     console.log("fn");
+//     i++;
+//     if (i < 10) {//一定要添加一个限制条件，不然会成为循环递归的，导致系统崩溃。
+//     fn();
+//     }
+//     }
+//     fn();
+
+    // 回调
+    function callback() {
+     console.log("callback");
+     }
+     function fn(a) {
+     console.log(a);//这里会输出callback的函数体
+     a();//当他调用的时候，才会输出callback。
+     }
+    fn(callback);
+    /*fn(function () {
+     console.log("匿名函数");
+     });*/
+
+
+</script>
+</body>
+</html>

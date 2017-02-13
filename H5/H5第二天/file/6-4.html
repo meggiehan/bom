@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件读取</title>
+</head>
+<body>
+<input type="file" multiple class="file">
+<!--  -->
+<img src="" alt="" id="img">
+<script>
+
+    var file = document.querySelector(".file");
+    var oimg = document.querySelector("#img");
+    file.onchange = function () {
+        var f = this.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(f);
+        reader.onload = function () {
+            oimg.src = this.result;
+//			   document.querySelector('img').src = this.result;
+        }
+    }
+//
+//    		// 获取file表单元素
+//    		var file = document.querySelector('.file');
+//    		file.onchange = function () {
+//    			// 获取第一个文件信息
+//    			var f = this.files[0];
+//
+//    			// 实例化一个读取器
+//    			var reader = new FileReader();
+//
+////    			console.log(reader);
+//    			// 读取文件
+//    			reader.readAsDataURL(f);
+//    			// reader.readAsBinaryString(f);
+//    			// reader.readAsText(f);
+//
+//    			// 当文件过大，不能立即读完
+//    			// 通过事件监听进度
+//    			reader.onload = function () {
+////    				console.log(this.result);
+//    				document.querySelector('img').src = this.result;
+//    			}
+//    		}
+
+</script>
+</body>
+</html>

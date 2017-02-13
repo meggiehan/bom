@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background: pink;
+            margin: 100px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 事件对象，跟事件关联
+            $("div").on("click", function (event) {
+                // event 就表示jQUery的事件对象
+                console.log(event);
+
+                // event.delegateTarget 表示：代理绑定事件的元素 -> div
+                // event.currentTarget 表示： 绑定事件的元素     -> div
+                // event.target 表示：触发事件的元素
+            });
+
+            // 通过代理绑定的事件
+            $("div").on("click", "input", function (event) {
+                console.log(event);
+
+                // event.delegateTarget 表示：代理绑定事件的元素 -> div
+                // event.currentTarget 表示： 绑定事件的元素     -> input
+                // event.target 表示：触发事件的元素             -> input
+            });
+
+            $(document).on("mousedown", function (event) {
+                console.log(event.button);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <input type="button" value="事件对象"/>
+    </div>
+</body>
+</html>

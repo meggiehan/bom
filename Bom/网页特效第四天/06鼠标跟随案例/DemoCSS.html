@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="img.jpg" alt="" width="50" height="50" id="pic"/>
+<script>
+    var timer=null;
+    var pic=document.getElementById("pic");
+    document.onmousemove=function(event){
+        clearInterval(timer);
+        var event=event||window.event;
+        var pageX=event.pageX||event.clientX+document.documentElement.scrollLeft;
+        var pageY=event.pageY||event.clientY+document.documentElement.scrollTop;
+        timer=setInterval(function(){
+            var targetX=pageX-pic.offsetWidth/2;
+            var targetY=pageY-pic.offsetHeight/2;
+            var leaderX=pic.offsetLeft;
+            var leaderY=pic.offsetTop;
+            var stepX=(targetX-leaderX)/10;
+            var stepY=(targetY-leaderY)/10;
+            stepX=stepX>0?Math.ceil(stepX):Math.floor(stepX);
+            stepY=stepY>0?Math.ceil(stepY):Math.floor(stepY);
+            leaderX=leaderX+stepX;
+            leaderY=leaderY+stepY;
+            pic.style.left=leaderX+"px";
+            pic.style.top=leaderY+"px";
+            if(leaderX===targetX&&leaderY===targetY){
+                clearInterval(timer);
+            }
+    },1);
+    }
+</script>
+</body>
+</html>

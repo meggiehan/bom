@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 隔行变色
+            // js的实现思路：
+            // 1. 获取到所有的li元素，然后循环遍历
+            // 2. 判断是奇数行还是偶数行
+            // 3. 分别设置不同的背景色
+
+            // 奇数行选择器
+            // 符号：  :odd
+            // 作用：获取所有选择到的元素中 索引号为 奇数的元素
+            $("li:odd").css("background", "pink");
+
+            // 偶数行选择器
+            // 符号：  :even
+            // 作用：获取所有选择到的元素中 索引号为 偶数的元素
+            $("li:even").css("background", "green");
+
+            // 相等选择器
+            // 符号： :eq(index)
+            // 作用：获取所有选择到的元素中 索引号为 指定值的元素
+            $("li:eq(5)").css("fontSize", "30px");//这里的index值只能是一位值，不能有区间表示等。
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>这是第1个li元素</li>
+    <li>这是第2个li元素</li>
+    <li>这是第3个li元素</li>
+    <li>这是第4个li元素</li>
+    <li>这是第5个li元素</li>
+    <li>这是第6个li元素</li>
+    <li>这是第7个li元素</li>
+    <li>这是第8个li元素</li>
+    <li>这是第9个li元素</li>
+    <li>这是第10个li元素</li>
+</ul>
+</body>
+</html>

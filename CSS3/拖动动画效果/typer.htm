@@ -1,0 +1,39 @@
+<!-- This script has been in the http://www.javascripts.com Javascript Public Library! -->
+<!-- Note that though this material may have been in a public depository, certain author copyright restrictions may apply. -->
+<html>
+<head>
+<title>Computer Types the Words</title>
+<script>
+<!--
+var i = 0
+var showString= "This is a computer typing script, the words in this test will appear "
+	+	"one letter after another.  Ain't this cool?  Download it for your own website!!  "
+	+	"Get more easy to use yet powerful and useful JavaScripts at my website.  You will be "
+	+	"transfered in a few seconds."
+function marquee()
+{
+var stringLength= showString.length
+document.show.marquee1.value= document.show.marquee1.value + showString.charAt(i)
+i++
+var timeID= setTimeout("marquee()",70)
+if (i >= stringLength)
+	{
+		clearTimeout(timeID);
+		i=0;
+		location.href="http://www.geocities.com/SiliconValley/Network/7432"}
+}
+
+//-->
+</script>
+</head>
+<body onLoad= "marquee()">
+<form name="show">
+My Cool Script Here....<BR>
+This is a computer typing script.<BR>
+<textarea rows=6 cols=57 wrap="virtual" name="marquee1"></textarea>
+</form>
+Tommy Raven says Moo.
+</body>
+</html>
+<!-- Tommy Raven (Min) says Moo. -->
+

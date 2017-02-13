@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div {
+            width: 1000px;
+            height: 200px;
+            background: red;
+            display: flex;
+        }
+        div>div:nth-child(1){
+            background: blue;
+            flex:3
+        }
+        div>div:nth-child(2){
+            background: black;
+            flex:3
+        }
+        div>div:nth-child(3){
+            background: yellow;
+            /*width: 100px;*/
+            flex:3
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+</div>
+</body>
+</html>

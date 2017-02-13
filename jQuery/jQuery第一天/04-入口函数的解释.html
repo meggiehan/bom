@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.min.js"></script>
+    <script>
+        // jQuery的入口函数
+        // 作用：等到文档准备好了，就来执行function里面的方法，
+        // 这时候，我们就可以来操作DOM了
+        $(document).ready(function() {
+            // 获取到按钮
+            // 给按钮绑定事件
+            /*$("#btnTest").click(function () {
+                alert("abc");
+            });*/
+
+        });
+
+        // jQuery入口函数 写法2
+        // 作用 等同于上面的写法
+        $(function() {
+            $("#btnTest").click(function () {
+                alert("abc");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnTest">测试</button>
+</body>
+</html>

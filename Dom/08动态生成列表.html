@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .cls {
+            list-style: none;
+            width: 150px;
+            /*动态生成的结构高度要靠内部内容撑起来*/
+            /*height: 54px;*/
+            margin: 0;
+            padding: 0;
+            background-color: #0099cc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="创建" id="btn"/>
+
+<div id="box"></div>
+<script>
+//    var bgc=null;
+    var phones = ["小米", "华为", "中兴", "苹果", "三星", "魅族"];
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+    btn.onclick=function(){
+        var ul=document.getElementById("u");
+        if(ul){
+            return;
+        }
+        var ul=document.createElement("ul");
+        ul.id="u";
+        ul.className="cls";
+        box.appendChild(ul);
+        for(i=0;i<phones.length;i++){
+            var phone=phones[i];
+            var li=document.createElement("li");
+            li.innerHTML=phone;
+            ul.appendChild(li);
+            if(i%2===0){
+                li.style.backgroundColor="#c0c0c0";
+            }
+            else{
+                li.style.backgroundColor="#d0d0d0";
+            }
+            li.onmouseover=function(){
+                this.bgc=this.style.backgroundColor;
+                this.style.backgroundColor="#f0f0f0";
+            }
+            li.onmouseout=function(){
+                this.style.backgroundColor=this.bgc;
+            }
+        }
+
+    }
+//
+//    var bgc = null;
+    var phones = ["小米", "华为", "中兴", "苹果", "三星", "魅族"];
+    //点击按钮 在box里根据数据 动态生成 列表
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    btn.onclick = function () {
+        var ul = document.getElementById("u");
+        //如果获取到了 是一个对象 如果获取不到是null
+        if (ul) {//如果获取到了就是对象 对象转换成布尔值是true
+            return;//能进来 说明页面上已经有了 就不再重复创建了
+        }
+        ul = document.createElement("ul");
+        ul.id = "u";
+        ul.className = "cls";
+        box.appendChild(ul);
+        //对数据进行遍历 有几条数据 就创建几个li
+        for (var i = 0; i < phones.length; i++) {
+            var phone = phones[i];//每个数据
+            var li = document.createElement("li");
+            li.innerHTML = phone;
+            ul.appendChild(li);
+            if (i % 2 === 0) {
+                li.style.backgroundColor = "#c0c0c0";
+                //这里不能用this点属性,因为用了this 只能给当前的那个设置样式。
+            } else {
+                li.style.backgroundColor = "#d0d0d0";
+            }
+            li.onmouseover = function () {
+                this.bgc = this.style.backgroundColor;
+                this.style.backgroundColor = "#f0f0f0";
+            };
+            li.onmouseout = function () {
+                this.style.backgroundColor = this.bgc;//这里最好不要用全局变量，因为，用的少而且占用内存，
+                // 所以我们直接在函数内部声明一个记录变量，并且在最后不能用引号，直接是this.bgc
+            };
+        }
+    };
+
+</script>
+</body>
+</html>

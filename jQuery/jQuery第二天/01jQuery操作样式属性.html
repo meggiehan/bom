@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .lc {
+            /*....*/
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        // jQuery入口函数
+        $(document).ready(function() {
+            // css()
+            // 作用：设置样式属性
+            /*// 第一个参数：表示要设置的样式属性的名称
+            // 第二个参数：表示要设置的样式属性对应的值
+            $("li").css("background", "pink");
+            // 设置30号的字号
+            $("li").css("fontSize", "30px");
+            // color: green;
+            $("li").css("color", "green");
+            // ...*/
+
+            // 同时设置多个样式属性
+            // 参数：是一个js的对象，对象的键表示：要设置的样式属性名称
+            // 值表示要设置的样式属性对应的值
+            var cssStys = {
+                "background": "pink",
+                "fontSize": "30px",
+                "color": "green"
+            };
+            $("li").css(cssStys);
+
+            /*$("li").css({
+                "background": "pink",
+                "fontSize": "30px",
+                "color": "green"
+            });*/
+
+            // 获取样式属性 ？
+            // 说明：传入一个参数，表示 获取该键对应的值
+            var fs = $("li").css("color");
+            console.log(fs);
+        });
+
+        // $(function() {});
+    </script>
+</head>
+<body>
+<ul>
+    <li>兄弟很多01</li>
+    <li>兄弟很多02</li>
+    <li>兄弟很多03</li>
+    <li>兄弟很多04</li>
+    <li>兄弟很多05</li>
+    <li>兄弟很多06</li>
+    <li>兄弟很多07</li>
+    <li>兄弟很多08</li>
+</ul>
+</body>
+</html>

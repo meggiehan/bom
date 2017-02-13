@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05-使用arguments改写extend函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function extend() {
+		var args = arguments;
+		if ( args.length == 1 ) {  		// 混入到 this 中
+			for ( var k in args[ 0 ] ) {
+				this[ k ] = args[ 0 ][ k ];
+			}
+		} else {						// 混入到 argu...[ 0 ] 中
+			for ( var k in args[ 1 ] ) {
+				args[ 0 ][ k ] = args[ 1 ][ k ];
+			}
+		}
+	}
+
+
+	var o1 = { name: '张三' };
+	var o2 = { age: 19, gender: '男' };
+	var o3 = {};
+
+	extend( o1, o2 );
+
+	o3.extend = extend;
+
+	o3.extend( o1, o2 );   // o1, o2, o3 分别怎么变化?
+
+	// o3.extend( o2 );
+
+</script>
+</html>

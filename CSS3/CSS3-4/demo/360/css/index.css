@@ -1,0 +1,260 @@
+body{
+	margin: 0;
+}
+
+/* 首页 */
+.one{
+	background-color: skyblue;
+	padding-top: 100px;
+}
+
+.one .logo{
+	background: url('../images/logo.png') no-repeat center;
+	height: 186px;
+}
+
+.one .text{
+	text-align: center;
+	margin: 50px 0;
+}
+.one .info{
+	background: url('../images/info_1.png') no-repeat center;
+	height: 96px;
+}
+
+/*  第二页 */
+.two{
+	background-color: yellowgreen;
+	/*  如果这里也添加了弹性布局 那么子元素的div 就不会出 默认宽度100% 取消即可 */
+}
+
+/*  由于 插件帮助我们生成了一个div 我们需要找到他 添加弹性布局才能够生效 */
+.two>div{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.two .info {
+	background: url('../images/info_2.png') no-repeat center;
+	width: 635px;
+	height: 309px;
+}
+
+.two .shield{
+	width: 480px;
+}
+
+/* 第三页布局 */
+.three{
+	background-color: skyblue;
+}
+
+.three >div{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: relative;
+	overflow: hidden;
+}
+
+.three .info{
+	background: url('../images/info_3.png')no-repeat center;
+	width: 631px;
+	height: 278px;
+}
+.three .circle{
+	background: url('../images/circle.png') no-repeat center;
+	width: 453px;
+	height: 449px;
+}
+.three .rocket{
+	background: url('../images/rocket.png') no-repeat center;
+	width: 203px;
+	height: 204px;
+	position: absolute;
+	bottom: -204px;
+	left: 0;
+	
+}
+
+/* 第四页 */
+.four{
+	background-color: purple;
+}
+.four >div{
+	display: flex;
+
+	justify-content: space-around;
+	align-items: center;
+}
+
+.four .searchBox{
+	width: 529px;
+	height: 480px;
+	align-self: flex-end;
+	/* 子元素需要定位 */
+	position: relative;
+}
+.four .searchBox >div{
+	position: absolute;
+}
+.four .searchBox .search{
+	background: url('../images/search.png') no-repeat center;
+	width: 529px;
+	height: 66px;
+}
+.four .searchBox .key{
+	background: url('../images/key.png') no-repeat ;
+	width: 99px;
+	height: 22px;
+	top: 22px;
+	left: 15px;
+}
+.four .searchBox .result{
+	background: url('../images/result.png') no-repeat ;
+	width: 529px;
+	height: 372px;
+	top: 66px;
+	left: 0px;
+}
+
+.four .info{
+	background: url('../images/info_4.png') no-repeat center;
+	width: 612px;
+	height: 299px;
+}
+
+
+.five{
+	background-color: hotpink;
+}
+.five >div{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.five .info{
+	background: url('../images/info_5.png') no-repeat center;
+	width: 100%;
+	height: 134px;
+}
+.five .browser{
+	background: url('../images/toolbar.png') no-repeat top,
+	url('../images/extra.png') no-repeat bottom right;
+	width: 1004px;
+	flex: 1;
+	position: relative;
+}
+
+.five .browser .line{
+	position: absolute;
+	background-color: white;
+}
+.five .browser .top{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 2px;
+}
+.five .browser .bottom{
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 2px;
+}
+.five .browser .left{
+	top: 0px;
+	left: 0px;
+	width: 2px;
+	height: 100%;
+}
+.five .browser .right{
+	top: 0px;
+	right: 0px;
+	width: 2px;
+	height: 100%;
+}
+
+
+/* 分别设置 页面的动画效果 */
+.one .text img{
+	opacity: 0;
+	margin: 0 15px;
+}
+/* 添加动画的时候中间不能留有空隙，否则不生效 */
+.one.animation .text img{
+	opacity: 1;
+	margin: 0 ;
+	transition: all 1s;
+}
+
+/* 第二页动画 */
+.two .shield img:nth-child(5){
+	transform: rotateZ(45deg) translate(200px,100px);
+}
+.two.animation .shield img:nth-child(5){
+	transform: rotateZ(0deg) translate(0,0);
+	transition: all 1s;
+}
+
+/* 第三页动画 */
+.three.animation .rocket{
+	transition:  all 1s;
+	/* 最终的目标值 */
+	transform: translateX(970px) translateY(-420px);
+}
+
+/* 第四页动画 */
+.four .searchBox {
+	transform: translateX(-150%);
+}
+
+.four .searchBox .key{
+	width: 0;
+}
+
+.four .searchBox .result{
+	height: 0;
+}
+
+.four.animation .searchBox{
+	transition: all 1s;
+	transform: translateX(0);
+}
+
+/*  如果设置图片 position 为center的话 那么 不管盒子多大 图片都是居中的 这里显示效果 就会问题 需要修改 */
+.four.animation .searchBox .key{
+	transition: all 1s 1.5s;/*这里必须放在最前面，否则达不到一个字一个字出现的效果*/
+	/*  让动画分步执行 设置的位置  */
+	transition-timing-function: steps(5);
+	
+	width: 99px;
+}
+.four.animation .searchBox .result{
+	transition: all 1s 3s;
+	transform: translateX(0);
+	height: 372px;
+}
+
+/* 页面5的动画效果 */
+.five{
+	overflow: hidden;
+}
+.five .left{
+	transform: translateY(-200%);
+}
+.five .top{
+	transform: translateX(200%);
+}
+.five .bottom{
+	transform: translateX(-200%);
+}
+.five .right{
+	transform: translateY(200%);
+}
+
+.five.animation .line{
+	transition:  all 1s;
+	transform: translate(0,0);
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #F7F7F7;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .calendar {
+            width: 385px;
+            height: 312px;
+            padding: 48px 141px 10px 12px;
+            margin: 100px auto;
+            background: url("./images/bg.jpg") 0 0 no-repeat;
+        }
+
+        .calendar dd, .calendar dt {
+            overflow: hidden;
+        }
+
+        .calendar span {
+            display: block;
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            margin-right: 1px;
+            border: 3px solid transparent;
+            float: left;
+        }
+
+        .calendar dt {
+            border-top: 1px solid #5cadff;
+        }
+
+        .calendar dt span {
+            height: 28px;
+            line-height: 34px;
+            font-size: 14px;
+        }
+
+        .calendar dd {
+            border-top: 1px solid #c8cacc;
+        }
+
+        .calendar span > i, .calendar span > b {
+            display: block;
+            line-height: 1;
+        }
+
+        .calendar span > b {
+            height: 26px;
+            line-height: 30px;
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: normal;
+        }
+
+        .calendar span > i {
+            color: #999;
+            font-size: 12px;
+            font-style: normal;
+        }
+
+        /*ele 的父级元素下 如果第n个是ele元素  那就可以匹配成功*/
+        /*dd:nth-child(2){*/
+            /*color:chartreuse;*/
+        /*}*/
+        dl>dd:nth-child(2){
+            color:chartreuse;
+        }
+        /*dl dd:nth-child(2){*/
+            /*color:chartreuse;*/
+        /*}*/
+
+        /*/!*ele 父级元素下的第n个ele元素*!/*/
+        /*dd:nth-of-type(1){*/
+            /*color:red;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="calendar">
+    <dl>
+        <dt>
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+            <span>日</span>
+        </dt>
+        <dd>
+            <span data-range="prev-month">
+                <b>30</b>
+                <i>十九</i>
+            </span>
+            <span class="today">
+                <b>1</b>
+                <i>艾滋病日</i>
+            </span>
+            <span>
+                <b>2</b>
+                <i>二十一</i>
+            </span>
+            <span>
+                <b>3</b>
+                <i>二十二</i>
+            </span>
+            <span>
+                <b>4</b>
+                <i>二十三</i>
+            </span>
+            <span>
+                <b>5</b>
+                <i>二十四</i>
+            </span>
+            <span>
+                <b>6</b>
+                <i>二十五</i>
+            </span>
+        </dd>
+        <dd>
+            <span data-range="prev-month">
+                <b>30</b>
+                <i>十九</i>
+            </span>
+            <span class="today">
+                <b>1</b>
+                <i>艾滋病日</i>
+            </span>
+            <span>
+                <b>2</b>
+                <i>二十一</i>
+            </span>
+            <span>
+                <b>3</b>
+                <i>二十二</i>
+            </span>
+            <span>
+                <b>4</b>
+                <i>二十三</i>
+            </span>
+            <span>
+                <b>5</b>
+                <i>二十四</i>
+            </span>
+            <span>
+                <b>6</b>
+                <i>二十五</i>
+            </span>
+        </dd>
+        <dd>
+            <span data-range="prev-month">
+                <b>30</b>
+                <i>十九</i>
+            </span>
+            <span class="today">
+                <b>1</b>
+                <i>艾滋病日</i>
+            </span>
+            <span>
+                <b>2</b>
+                <i>二十一</i>
+            </span>
+            <span>
+                <b>3</b>
+                <i>二十二</i>
+            </span>
+            <span>
+                <b>4</b>
+                <i>二十三</i>
+            </span>
+            <span>
+                <b>5</b>
+                <i>二十四</i>
+            </span>
+            <span>
+                <b>6</b>
+                <i>二十五</i>
+            </span>
+        </dd>
+        <dd>
+            <span data-range="prev-month">
+                <b>30</b>
+                <i>十九</i>
+            </span>
+            <span class="today">
+                <b>1</b>
+                <i>艾滋病日</i>
+            </span>
+            <span>
+                <b>2</b>
+                <i>二十一</i>
+            </span>
+            <span>
+                <b>3</b>
+                <i>二十二</i>
+            </span>
+            <span>
+                <b>4</b>
+                <i>二十三</i>
+            </span>
+            <span>
+                <b>5</b>
+                <i>二十四</i>
+            </span>
+            <span>
+                <b>6</b>
+                <i>二十五</i>
+            </span>
+        </dd>
+        <dd>
+            <span data-range="prev-month">
+                <b>30</b>
+                <i>十九</i>
+            </span>
+            <span class="today">
+                <b>1</b>
+                <i>艾滋病日</i>
+            </span>
+            <span>
+                <b>2</b>
+                <i>二十一</i>
+            </span>
+            <span>
+                <b>3</b>
+                <i>二十二</i>
+            </span>
+            <span>
+                <b>4</b>
+                <i>二十三</i>
+            </span>
+            <span>
+                <b>5</b>
+                <i>二十四</i>
+            </span>
+            <span>
+                <b>6</b>
+                <i>二十五</i>
+            </span>
+        </dd>
+    </dl>
+</div>
+
+
+</body>
+</html>

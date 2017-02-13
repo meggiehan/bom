@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function f1(a, b) {
+        a = a + 1;//6
+        b = b + 1;//7
+        console.log("a = " + a);//6
+        console.log("b = " + b);//7
+
+    }
+    var x = 5;
+    var y = 6;
+    f1(x, y);
+    console.log("x = " + x);//5
+    console.log("y = " + y);//6
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    function f2(p) {
+        p = new Person("ls", 50);
+        console.log(p.name);//ls
+        p.name = "ww";
+        console.log(p.name);//ww
+    }
+    var p2 = new Person("zs", 18);
+    f2(p2);
+    console.log(p2.name);//zs
+
+</script>
+</body>
+</html>

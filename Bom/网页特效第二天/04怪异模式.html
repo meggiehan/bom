@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aaaa</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //<!DOCTYPE html> document type definition 文档类型声明
+    console.log(document.compatMode);
+    //CSS1Compat 标准模式 BackCompat怪异模式
+
+    window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        //var scrollTop = window.pageYOffset;
+        //标准模式 chrome可以 FF可以 IE可以 IE678不行
+        //怪异模式 chrome可以 FF可以 IE可以 IE678不行
+        //var scrollTop = document.documentElement.scrollTop;
+        //标准模式 chrome不行 FF可以 IE可以 IE678可以
+        //怪异模式 chrome不行 FF不行 IE可以 IE678可以
+        //var scrollTop = document.body.scrollTop;
+        //标准模式 chrome可以 FF不行 IE不行 IE678不行
+        //怪异模式 chrome可以 FF可以 IE可以 IE678不行
+        document.title = scrollTop;
+    };
+
+
+</script>
+</body>
+</html>

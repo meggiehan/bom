@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function animate(obj,target){
+        clearInterval(obj.timer);
+       obj.timer=setInterval(function(){
+          var leader=obj.offsetLeft;
+          var step=10;
+          if(leader<target){
+              leader=leader+step;
+              obj.style.left=leader;
+          }
+           else{
+              clearInterval(obj.timer);
+          }
+      },15)
+    }
+
+</script>
+</body>
+</html>

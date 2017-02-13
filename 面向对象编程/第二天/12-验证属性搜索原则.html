@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12-属性搜索原则</title>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+	
+	function Person ( name, age, gender ) {
+		// this.name = name;
+		this.age = age;
+		this.gender = gender;
+	}
+	
+	// Person.prototype.name = 'itcast';
+
+	var p = new Person( '李雷', 19, '男' );
+
+	console.log( p.name );
+
+
+</script>
+</html>

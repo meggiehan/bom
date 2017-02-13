@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // jQuery对象指的是什么？
+            // $("#btn")
+
+            // DOM对象指的是什么？
+            // document.getElementById("btn")
+
+            // jQuery对象转成DOM对象
+            // 1.
+             $("#btn")[0] // 0表示的是 索引号
+             console.log($("#btn")[0] === document.getElementById("btn"));
+
+            // $("#btn") 本质上存储的就是 DOM对象，
+            // 所以，可以使用[]的形式，来获取数组里面的元素
+
+            // 方式二
+             $("#btn").get(0)
+
+            // DOM对象转成jQuery对象
+            var btn = document.getElementById("btn");
+            $(btn).click(function() {
+                alert(123);
+            });
+
+
+
+            // 两个对象比较的问题
+            /*var obj = {};
+            var obj1 = {};
+            console.log(obj === obj1); // 结果：false*/
+
+            // 数组取值
+            /*var arr = ["111", "222"];
+            console.log(arr[0]);*/
+
+
+            // 手机例子
+            // 裸机：打电话、 聊微信。。。
+
+            // 带手机套的手机：打电话、 聊微信。。。保护手机
+
+            // 把裸机理解为DOM对象，把带手机套的手机理解为jQuery对象
+            // 把DOM对象转成jQuery对象：相当于 给手机带了一个手机套
+            // 把jQuery对象转成DOM对象：相当于 把手机套拿下来
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

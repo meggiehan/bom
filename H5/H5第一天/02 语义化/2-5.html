@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微数据</title>
+</head>
+<body>
+	<!-- 传统做法 -->
+	<!-- <div>
+		<span>Kayo</span>
+		<span>2012年2月6日 22:30</span>
+		<span>评论内容</span>
+	</div> -->
+	
+	<!-- 友好做法，可以让机器也能识别内容 -->
+	<div itemscope itemtype="http://schema.org/Movie">
+		<span itemprop="actor">刘德华</span>
+		<span itemprop="director" datatime="2012-02-06T22:30:30.50+08:00">2012年2月6日 22:30</span>
+		<!--<a href="" itemprop="url"></a>-->
+		<p itemprop="url" >http://www.baidu.com</p>
+		<span itemprop="description">评论内容</span>
+	</div>
+</body>
+</html>

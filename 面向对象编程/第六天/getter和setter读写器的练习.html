@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var o=(function(){
+//         var num=123;
+//        return {
+//            get_num:function(){
+//                return num;
+//            },
+//            set_num:function(v){
+//                num=v;
+//            }
+//        };
+//    })();
+//
+//    console.log(o.get_num());
+//
+//    o.set_num(567);
+//    console.log(o.get_num());
+
+
+    var o=(function(){
+        var num=123;
+        return {
+            get num(){
+                console.log("getter");
+                return num;
+            },
+            set num(v){
+                num=v;
+                console.log("setter");
+            }
+        };
+    })();
+
+    console.log(o.num);
+
+    o.num=567;
+    console.log(o.num);
+</script>
+</body>
+</html>

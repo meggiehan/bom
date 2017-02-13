@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            position: absolute;
+            border-radius: 150px;
+        }
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            position: absolute;
+            border-radius: 150px;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: slateblue;
+            position: absolute;
+            border-radius: 150px;
+        }
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: absolute;
+            border-radius: 150px;
+        }
+        #box4 {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            position: absolute;
+            border-radius: 150px;
+        }
+        #box5 {
+            width: 100px;
+            height: 100px;
+            background-color:magenta;
+            position: absolute;
+            border-radius: 150px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<div id="box4"></div>
+<div id="box5"></div>
+<script>
+    var timer=null;
+    var box=document.getElementById("box");
+    var box1=document.getElementById("box1");
+    var box2=document.getElementById("box2");
+    var box3=document.getElementById("box3");
+    var box4=document.getElementById("box4");
+    var box5=document.getElementById("box5");
+        timer=setInterval(function(){
+            var y=parseInt(Math.random()*738);
+            var x=parseInt(Math.random()*1036);
+            box.style.top=y+"px";
+            box.style.left=x+"px";
+    },1000)
+    timer=setInterval(function(){
+        var y=parseInt(Math.random()*738);
+        var x=parseInt(Math.random()*1036);
+        box1.style.top=y+"px";
+        box1.style.left=x+"px";
+    },1000)
+    timer=setInterval(function(){
+        var y=parseInt(Math.random()*738);
+        var x=parseInt(Math.random()*1036);
+        box2.style.top=y+"px";
+        box2.style.left=x+"px";
+    },1000)
+    timer=setInterval(function(){
+        var y=parseInt(Math.random()*738);
+        var x=parseInt(Math.random()*1036);
+        box3.style.top=y+"px";
+        box3.style.left=x+"px";
+    },1000)
+    timer=setInterval(function(){
+        var y=parseInt(Math.random()*738);
+        var x=parseInt(Math.random()*1036);
+        box4.style.top=y+"px";
+        box4.style.left=x+"px";
+    },1000)
+    timer=setInterval(function(){
+        var y=parseInt(Math.random()*738);
+        var x=parseInt(Math.random()*1036);
+        box5.style.top=y+"px";
+        box5.style.left=x+"px";
+    },1000)
+
+//    var timer = null;
+//    //让盒子往下移动
+//    var y = 0;
+//    //找人
+//    var box = document.getElementById("box");
+//    timer = setInterval(function () {
+//        y++;
+//        if (y < 300) {
+//            box.style.top = y + "px";
+//        } else {
+//            clearInterval(timer);
+//        }
+//
+//    }, 15);
+
+
+</script>
+</body>
+</html>

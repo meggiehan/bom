@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>not</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		.test {
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			background-color: black;
+		}
+		li:not(.special){
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="test">绿色</li>
+		<li class="test">绿色</li>
+		<li class="test special">绿色</li>
+	</ul>
+</body>
+</html>

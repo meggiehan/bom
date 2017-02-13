@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text-shadow</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #ccc;
+		}
+		li{
+			font-size: 24px;
+			line-height: 40px;
+			margin: 10px 0;
+		}
+		li:nth-child(1) {
+			text-shadow: 3px 3px 3px red, 5px 5px 5px blue;
+		}
+		li:nth-child(2) {
+			text-shadow: 5px 5px 5px red, -5px -5px 5px blue, -15px -15px 5px pink;
+		}
+		li:nth-child(3) {
+			text-shadow: -3px -3px 5px #000, 6px 6px 5px red;
+		}	
+	</style>
+</head>
+<body>
+	<ul>
+		<li>text-shadow:3px 3px 3px #ccc</li>
+		<li>text-shadow: 5px 5px 5px red, -5px -5px 5px blue, -15px -15px 5px pink</li>
+		<li>-3px -3px 5px #000, 6px 6px 5px red</li>
+	</ul>
+</body>
+</html>

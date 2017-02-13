@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sort(arr, fn) {
+        for (var i = 0; i < arr.length - 1; i++) {
+            var flag = true;
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (fn(arr[j], arr[j + 1]) > 0) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return arr;
+    }
+    var array = [3, 2, 1];
+    console.log(sort(array, function (a, b) {
+        return a - b;
+    }));
+
+
+
+
+</script>
+</body>
+</html>

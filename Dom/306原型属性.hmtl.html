@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr1 = new Array();
+    console.log(arr1);
+    arr1.run = function () {
+        console.log("奔跑吧数组");
+    };
+    //arr1.run();
+    var arr2 = new Array();
+    //arr2.run();
+    //希望有一个方法 可以让所有的数组对象 都能调用
+    //如果希望某类对象都有某个方法 可以在这个对象的构造函数的原型属性上绑定方法
+    Array.prototype.jump = function () {
+        console.log("去把皮卡丘");
+    };
+    //arr1.jump();
+    //arr2.jump();
+    //绑定到构造函数的原型属性上的方法 将来通过这个构造函数所创建的对象都有这个方法
+
+    //Array.prototype.join()
+    Array.prototype.join = function(){};
+    var arr = new Array();
+    arr.join();
+    //Math.random()
+    //var m = new Math();
+    //m.random();
+    Math.random();//我们是这样调用的
+
+
+</script>
+</body>
+</html>

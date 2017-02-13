@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str = "   a a a   ";
+    console.log(str);
+    //str = str.replace(/^\s+|\s+$/g, "");
+    //console.log(str);
+    console.log(trim(str));
+
+    //去除 任意字符串的 两端的空白符
+    function trim(str) {
+        return str.replace(/^\s+|\s+$/g, "");
+    }
+
+</script>
+</body>
+</html>

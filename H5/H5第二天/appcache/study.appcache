@@ -1,0 +1,31 @@
+CACHE MANIFEST
+
+#version 1.0.0
+
+#缓存一些资料，在离线时使用
+CACHE:
+
+./images/img1.jpg
+./images/img2.jpg
+./images/img3.jpg
+./images/img4.jpg
+./images/img5.jpg
+
+#当处于网络连接时可以更新
+NETWORK:
+
+./css/main.css
+
+FALLBACK:
+
+./online.html ./offline.html
+
+./css/online.css
+
+CACHE:
+
+./images/img1.jpg
+./images/img2.jpg
+./images/img3.jpg
+./images/img4.jpg
+./images/img5.jpg

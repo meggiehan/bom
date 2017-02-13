@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //将能被3整除的数放到新的数组里
+        //        var arr=[];
+        //        for(i=1;i<=100;i++){
+        //            if(i%3==0){
+        //                arr[arr.length]=i;
+        //            }
+        //        }
+        //        console.log(arr);
+        //把0-100之间所有数，放到数组中
+        //        var array = [];
+        //        for (i = 0; i <= 100; i++) {
+        //            array[array.length] = i;
+        //        }
+        //        console.log(array);
+        //把1-100之间所有数，放到数组中
+        //        var array = [];
+        //        for (i = 1; i <= 100; i++) {
+        //            array[array.length] = i;
+        //        }
+        //        console.log(array);
+        //把1-100之间所有的奇数，放到数组中
+        //        var array = [];
+        //        for (i = 1; i <= 100; i++) {
+        //            if(i%2!==0){
+        //                array[array.length] = i;
+        //            }
+        //        }
+        //        console.log(array);
+        //把1-100之间能被3整数的数字，存到数组中
+        //        var array = [];
+        //        for (i = 1; i <= 100; i++) {
+        //            if(i%3===0){
+        //                array[array.length] = i;
+        //            }
+        //        }
+        //        console.log(array);
+
+        //求一组数中的所有数的和 和 平均值
+        //        var array = [3, 5, 7, 8, 90, 8, 21];
+        //        var sum = 0;
+        //        var avg = 0;
+        //        for (i = 0; i < array.length; i++) {
+        ////
+        //            sum+=array[i];
+        //            avg=sum/i;//avg=sum/array.length;
+        //        }
+        //        console.log(sum);
+        //        console.log(avg);
+        //求一组数中的最大值
+        //        var array = [2, 3, 66, 77, 1, 99, 88, 10];
+        //        var max = array[0];
+        //        for (i = 1; i < array.length; i++) {
+        //            if (max < array[i]) {
+        //                max = array[i];
+        //            }
+        //        }
+        //        console.log(max);
+        //求一组数中的最小值
+        //        var array = [2, 3, 66, 77, 1, 99, 88, 10];
+        //        var min = array[0];
+        //        for (i = 1; i < array.length; i++) {
+        //            if (min > array[i]) {
+        //                min = array[i];
+        //            }
+        //        }
+        //        console.log(min);
+        //求一组数中的最大值和最小值以及所在位置
+        //        var array = [2, 3, 66, 77, 1, 99, 88, 10];
+        //        var min = array[0];
+        //        var max = array[0];
+        //        var area=0; var area1=0;
+        //               for (i = 1; i < array.length; i++) {
+        //            if (min > array[i]) {
+        //                min = array[i];
+        //                area=i;
+        //            }
+        //            else if(max < array[i]) {
+        //                max = array[i];
+        //                area1=i;
+        //            }
+        //        }
+        //        console.log(min,area,max,area1);
+        //将字符串数组用|或其他符号分割
+        //                var array=["abc","bcd","cde","def","efg"];
+        //                var str=array[0];
+        //                var sp="|";
+        //                for(i=1;i<array.length;i++){
+        //                  str=str+sp+array[i];
+        //                }
+        //                console.log(str);
+        // 有一个字符串数组，求字符串数组中每项的长度，并把长度的数值存储到新的数组中
+        //                var array = ["ac", "bcdo", "cdkke", "def", "efyhhg"];
+        //                var newarray = [];
+        //                for (i = 0; i < array.length; i++) {
+        //                    newarray[newarray.length] = array[i].length;
+        //                }
+        //                console.log(newarray);
+        //将数组中值为0的项去掉，将不为0的值存入一个新的数组
+        //        var array = [2, 3, 0, 66, 77, 0, 1, 99, 88, 10, 0];
+        //        var newarray = [];
+        //        for (i = 0; i < array.length; i++) {
+        //            if (array[i] !== 0) {
+        //                newarray[newarray.length] = array[i];
+        //            }
+        //
+        //        }
+        //        console.log(newarray);
+        //让一个数组倒叙保存另一个数组中的每一项
+        //        var array = [2, 3, 0, 66, 77, 1, 99, 88, 10,];
+        //        var newarray=[];
+        //        for(i=array.length;i>=0;i--){
+        //            newarray[newarray.length]=array[i];
+        //        }
+        //        console.log(newarray);
+        //冒泡排序，将一个数组中的值从小到大排列
+        var array = [9, 1, 2, 3, 4, 5, 6, 7, 8];
+        var out = 0;
+        var inner = 0;
+        for (i = 0; i < array.length - 1; i++) {
+            var issort = true;
+            for (j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    var temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    issort = false;
+                }
+                inner++;
+            }
+            out++;
+            if (issort) {
+                break;
+            }
+        }
+        console.log(array);
+        console.log(out);
+        console.log(inner);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

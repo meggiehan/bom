@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var name3 = "zs";
+//    function f3() {
+//        var name3 = "ls";
+//
+//        function f4() {
+//            name3 = "ww";
+//        }
+//
+//        f4();
+//        console.log(name3);//
+//    }
+//    f3();
+//    console.log(name3);//
+
+    //1、-----------------------------------
+    /*var num = 10;
+     fn1();
+     function fn1() {
+     console.log(num);//
+     var num = 20;
+     }*/
+    //2、-----------------------------------
+    /*var a = 18;
+     fn2();
+     function fn2() {
+     var b = 9;
+     console.log(a);//
+     console.log(b);//
+     var a = '123';
+     }*/
+    //3、-----------------------------------
+    fn3();
+    console.log(c);//
+    console.log(b);//
+    console.log(a);//
+    function fn3() {
+        var a = b = c = 9;//赋值是从右往左。
+        console.log(a);//
+        console.log(b);//
+        console.log(c);//
+    }
+
+</script>
+</body>
+</html>

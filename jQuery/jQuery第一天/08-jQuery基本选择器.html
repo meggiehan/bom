@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 给所有的li元素都设置背景色
+            // 标签选择器
+            // 作用：获取页面中所有的li标签
+             $("li").css("background", "pink");
+
+            // 给id属性为liItem的元素设置30号字号
+            // id选择器
+            // 作用：获取id属性为指定值的第一个元素
+             $("#liItem").css("fontSize", "30px");
+
+            // 给具有类：item 的元素，设置背景色
+            // css写法：.item { 。。。 }
+            // 类选择器
+            // 作用：获取类名为指定值得所有元素
+             $(".item").css("background", "pink");
+
+            // li.item
+            // 只给li元素具有类：item的元素 设置背景色
+            // 交集选择器
+             $("li.item").css("background", "pink");//(两个条件同时满足才执行)
+
+            // 给所有的li元素和所有的div元素，设置背景色
+            // 并集选择器
+            // 作用：同时获取,分隔的多个选择器匹配的元素
+             $("li,div").css("background", "pink");//同时满足两个选择器。
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>这是第1个li元素</li>
+    <li class="item">这是第2个li元素</li>
+    <li>这是第3个li元素</li>
+    <li id="liItem">这是第4个li元素</li>
+    <li>这是第5个li元素</li>
+    <li class="item">这是第6个li元素</li>
+    <li>这是第7个li元素</li>
+    <li class="item">这是第8个li元素</li>
+</ul>
+<p>这是一个p元素</p>
+<div class="item">
+    这是div
+</div>
+<div class="item">
+    这是div
+</div>
+<div class="item">
+    这是div
+</div>
+</body>
+</html>

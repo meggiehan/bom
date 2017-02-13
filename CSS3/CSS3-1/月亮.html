@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: #000014;
+            overflow: hidden;
+            position: absolute;
+        }
+        .yl{
+           margin-left: 130px;
+            margin-top: 50px;
+            width: 150px;
+            height: 150px;
+            background-color: black;
+            border-radius:80px;
+            box-shadow: inset -35px 5px blue;
+        }
+        span,s,b,i,.box3,.box-lx,.box-llx{
+            font-style: normal;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 28px;
+            color: orange;
+            margin: 10px;
+        }
+       span{
+           /*display: none;*/
+           position: absolute;
+           left: 30px;
+           top: 100px;
+        }
+        s{
+
+            position: absolute;
+            left: 100px;
+            top: 50px;
+        }
+        i{
+            position: absolute;
+            left: 170px;
+            bottom: 30px;
+        }
+        .box3{
+        position: absolute;
+            left: 100px;
+            bottom: 100px;
+        }
+        .box-lx{
+            /*display: none;*/
+            color: wheat;
+            position: absolute;
+            left: -50px;
+            bottom: -50px;
+        }
+        .box-llx{
+            /*display: none;*/
+            color: wheat;
+            position: absolute;
+            left: -100px;
+            bottom: -30px;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2">
+        <div class="yl"></div>
+        <span id="aa">★ </span>
+        <s id="bb">★</s>
+        <b id="cc">★</b>
+        <i id="dd">★</i>
+        <div class="box3" id="ee">★ </div>
+        <div class="box-lx" id="ff">★ </div>
+        <div class="box-llx" id="gg">★ </div>
+    </div>
+</div>
+<script src="jquery-1.12.2.js"></script>
+<script>
+//  $(function(){
+//         $('.box1').on('mousemove',function(){
+////          $('#aa')[0].style.display="none";
+////             $('#aa').animate({'opacity':0},1000,function(){animate({'opacity':1},1000)});
+//             $('#aa').stop().animate({opacity:0},"slow",function(){$('#aa').animate({opacity:1},"slow")});
+//             $('#bb').stop().animate({opacity:0},"slow",function(){$('#bb').animate({opacity:1},"slow")});
+//             $('#cc').stop().animate({opacity:0},"slow",function(){$('#cc').animate({opacity:1},"slow")});
+//             $('#dd').stop().animate({opacity:0},"slow",function(){$('#dd').animate({opacity:1},"slow")});
+//             $('#ee').stop().animate({opacity:0},"slow",function(){$('#ee').animate({opacity:1},"slow")});
+//         })
+//  })
+$(function(){
+        setInterval(function(){
+            $('#aa').stop().animate({opacity:0},500,function(){$('#aa').animate({opacity:1},500)});
+            $('#bb').stop().animate({opacity:0},500,function(){$('#bb').animate({opacity:1},500)});
+            $('#cc').stop().animate({opacity:0},500,function(){$('#cc').animate({opacity:1},500)});
+            $('#dd').stop().animate({opacity:0},500,function(){$('#dd').animate({opacity:1},500)});
+            $('#ee').stop().animate({opacity:0},500,function(){$('#ee').animate({opacity:1},500)});
+            $('#ff').stop().animate({left:2000,bottom:2000},1000);
+            $('#gg').stop().animate({left:1500,bottom:1500},1000);
+        },1500)
+    })
+
+
+
+
+
+
+
+   function animate(obj, json, fn) {//json attr, target
+       clearInterval(obj.timer);
+       obj.timer = setInterval(function () {
+           var flag = true;
+           for (var k in json) {//json 属性名:属性值 k:json[k]
+               if (k === "opacity") {
+                   var leader = getStyle(obj, k) * 100;
+                   var target = json[k] * 100;
+                   var step = (target - leader) / 10;
+                   step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                   leader = leader + step;
+                   obj.style[k] = leader / 100;
+               } else if (k === "zIndex") {
+                   obj.style.zIndex = json[k];
+               } else {
+                   var leader = parseInt(getStyle(obj, k)) || 0;
+                   var target = json[k];
+                   var step = (target - leader) / 10;
+                   step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                   leader = leader + step;
+                   obj.style[k] = leader + "px";
+               }
+
+               if (leader != target) {
+                   flag = false;
+               }
+           }
+           if (flag) {
+               clearInterval(obj.timer);
+               if (fn) {
+                   fn();
+               }
+           }
+       }, 15);
+   }
+   function getStyle(obj, attr) {
+       if (window.getComputedStyle) {
+           return window.getComputedStyle(obj, null)[attr];
+       } else {
+           return obj.currentStyle[attr];
+       }
+   }
+</script>
+</body>
+</html>

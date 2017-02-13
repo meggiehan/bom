@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //以下代码的执行结果是什么？
+    function f1(a, b) {
+     a = a + 1;
+     b = b + 1;
+     console.log("a = " + a);//6
+     console.log("b = " + b);//7
+     }
+     var x = 5;
+     var y = 6;
+     f1(x, y);
+     console.log("x = " + x);//5
+     console.log("y = " + y);//6
+
+    function Person(name, age) {
+     this.name = name;
+     this.age = age;
+     }
+     function f2(p) {
+     p = new Person("ls", 50);//如果将这句注释掉以后，那么p2.name就=ww
+     p.name = "ww";
+     console.log(p.name);//ww
+     }
+     var p2 = new Person("zs", 18);
+     f2(p2);
+     console.log(p2.name);//zs
+
+    function fn(arr) {//形式参数
+        arr[0] = 100;
+        //console.log(arr);
+    }
+    var array = [1, 2, 3, 4];
+    console.log(array);
+    fn(array);//实际参数
+    console.log(array);
+    //让形式参数影响实际参数 是一种很不好的设计
+    //ES3 里面的 数组对象的一些方法就会改变原来的数组
+    //ES5 里面的新的方法都不会对原数组产生影响 这样的设计才合理
+
+
+</script>
+</body>
+</html>

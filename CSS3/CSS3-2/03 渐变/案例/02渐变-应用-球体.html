@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #ccc;
+		}
+		.ball{
+			height: 400px;
+			width: 400px;
+			margin: 100px auto;
+			border-radius: 200px;
+			background-color: #ccc;
+			/*background-image: 
+			radial-gradient(
+				200px at 200px 100px, 
+				rgba(0,0,0,0) 
+				,rgba(0,0,0,0.4)
+			
+			);*/
+			/*还有通过这种来表示没有半径，只有颜色变化*/
+			/*background-image:radial-gradient(
+				 at 200px 100px, 
+				#fff,#ccc,#fff 
+			);*/
+			/*还可以添加百分数来表示*/
+			background-image:radial-gradient(
+				 at 200px 50px, 
+				#ccc 20% ,#fff 80%,#ccc 0%
+			);
+			/*解释文档：http://blog.csdn.net/playboyanta123/article/details/9303857*/
+		}
+	</style>
+</head>
+<body>
+	<div class="ball"></div>
+</body>
+</html>

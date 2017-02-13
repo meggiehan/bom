@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="demo" class="aaa bbb ccc showcase show"></div>
+<input type="button" id="btn" value="按钮"/>
+<script>
+    var demo = document.getElementById("demo");
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+
+        //把show替换成hide
+        //demo.className = "aaa bbb ccc showcase hide";
+        //demo.className = demo.className.replace("show", "hide");
+        replaceClassName(demo, "show", "hide");
+
+    };
+//    function replaceClassName(element, oldStr, newStr) {
+//     element.className = element.className.replace(oldStr, newStr);
+//     }
+//
+//
+    function replaceClassName(element, oldStr, newStr) {
+        //把类名这个字符串按照空格分割 把里面每一个类名 做判断 这样就没问题了
+        var arr = element.className.split(" ");
+        //console.log(arr);
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === oldStr) {
+                arr[i] = newStr;
+            }
+        }
+        //console.log(arr);
+        element.className = arr.join(" ");
+    }
+
+//    function replaceClassName(element,oldstr,newstr){
+//        var arr=element.className.split(" ");
+//        console.log(arr);
+//        for(i=0;i<arr.length;i++){
+//            if(arr[i]===oldstr){
+//                arr[i]=newstr;
+//            }
+//        }
+//        element.className=arr.join(" ");
+//    }
+
+//    function replaceClassName(element,oldstr,newstr){
+//        var arr=element.className.split(" ");
+//        console.log(arr);
+//        for(i=0;i<arr.length;i++){
+//            if(arr[i]===oldstr){
+//                arr[i]=newstr;
+//            }
+//        }
+//        element.className=arr.join(" ");
+//    }
+
+</script>
+</body>
+</html>

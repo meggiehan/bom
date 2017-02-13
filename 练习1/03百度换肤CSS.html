@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-image: url(images/1.jpg);
+        }
+
+        #mask {
+            background-color: rgba(255, 255, 255, 0.3);
+            height: 200px;
+            text-align: center;
+        }
+
+        #mask img {
+            width: 200px;
+            margin-top: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="mask">
+    <img src="images/1.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/5.jpg" alt="">
+</div>
+<script>
+    var mask = document.getElementById("mask");
+    var imgs = mask.children;
+    for (i = 0; i < imgs.length; i++) {
+        imgs[i].onclick=function(){
+            document.body.style.backgroundImage="url("+this.src+")";
+        }
+    }
+    //    var mask=document.getElementById("mask");
+    //    var imgs=mask.children;
+    //    for(i=0;i<imgs.length;i++){
+    //        imgs[i].onclick=function(){
+    //            for(i=0;i<imgs.length;i++){
+    //                document.body.style.backgroundImage="url("+this.src+")";
+    //            }
+    //        }
+    //    }
+
+
+    //    var mask = document.getElementById("mask");
+    ////    var imgs = mask.getElementsByTagName("img");
+    //    var imgs=mask.children;
+    //    //给每一个小图片注册点击事件
+    //    for (i = 0; i < imgs.length; i++) {
+    //        imgs[i].onclick = function () {
+    //            //让body的背景变为当前这个小图片的路径
+    ////            for(i=0;i<imgs.length;i++){
+    //                document.body.style.backgroundImage="url("+this.src+")";
+    ////            }
+    //        }
+    //    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    document.onclick = function (event) {
+        //var event = event || window.event;
+        var event = eventUtil.getEvent(event);//引用外部文件里对象的写法。
+        console.log("client: " + event.clientX + "--" + event.clientY);//浏览器
+        //page有兼容问题 client没有 我们可以用client来计算page
+        //var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+        //var pageX = getPageX(event);
+        var pageX = eventUtil.getPageX(event);
+
+        //var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+        var pageY = getPageY(event);
+
+        console.log("page: " + event.pageX + "--" + event.pageY);//页面
+
+        //console.log("screen: " + event.screenX + "--" + event.screenY);//屏幕
+    };
+    //其中 最常用的是page
+
+    function getPageX(event) {
+        return event.pageX || event.clientX + document.documentElement.scrollLeft;
+    }
+    function getPageY(event) {
+        return event.pageY || event.clientY + document.documentElement.scrollTop;
+    }
+
+//    function getPageX(event){
+//        return event.pageX||event.clientX+document.documentElement.scrollLeft;
+//    }
+//    function getPageY(event){
+//        return event.pageY||event.clientY+document.documentElement.scrollTop;
+//    }
+
+</script>
+</body>
+</html>

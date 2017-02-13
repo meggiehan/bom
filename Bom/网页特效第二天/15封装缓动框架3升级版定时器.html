@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="demo"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+    var timer = null;
+    btn.onclick = function () {
+        animate(demo, {"height": 400, "width": 400, "left": 400, "top": 400});
+    };
+    //把 任意对象 的 任意数值属性 改变为 任意的目标值
+    function animate(obj, json) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            //先假设 这一次执行完 所有的属性都到达目标了
+            var flag = true;
+            for (var k in json) {
+                var leader = parseInt(getStyle(obj, k)) || 0;
+                var target = json[k];
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader + "px";
+                //if (leader === target) {
+                //    clearInterval(obj.timer);
+                //}
+                console.log("代码还在运行");
+                if (leader != target) {
+                    flag = false;//告诉标记 当前这个属性还没到达
+                }
+            }
+            //如果此时仍然为true 就说明真的都到达了
+            if (flag) {
+                clearInterval(obj.timer);
+            }
+        }, 15);
+    }
+    //全部属性都到达目标值才能清空
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+    //console.log(parseInt(getStyle(demo, "left")));
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="创建" id="btn"/>
+
+<div id="box"></div>
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+    btn.onclick=function(){
+        var inputa=document.getElementById("a");
+        if(inputa){
+            return;
+        }
+        var input=document.createElement("input");
+        input.type="button";
+        input.style.width="50px";
+        input.id="a";
+        box.appendChild(input);
+    }
+
+
+//    var btn = document.getElementById("btn");
+//    var box = document.getElementById("box");
+//    var input = document.getElementById("t");
+//    btn.onclick = function () {
+//        if (input) {
+//            return;
+//        }
+//        input = document.createElement("input");
+////        input.type = "button";
+//        input.type = "text";
+//        input.id = "t";
+//        box.appendChild(input);
+//    }
+
+    //点击按钮 box里 创建文本框
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    btn.onclick = function () {
+        var input = document.getElementById("t");
+        //如果获取到了 是一个对象 如果获取不到是null
+        if (input) {//如果获取到了就是对象 对象转换成布尔值是true
+            return;//能进来 说明页面上已经有了 就不再重复创建了
+        }
+        input = document.createElement("input");
+        input.type = "text";
+        input.id = "t";
+        box.appendChild(input);
+    };
+
+</script>
+</body>
+</html>

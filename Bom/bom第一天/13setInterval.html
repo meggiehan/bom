@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn1" value="setInterval"/>
+<input type="button" id="btn2" value="clearInterval"/>
+<script>
+//    var btn1=document.getElementById("btn1");
+//    var btn2=document.getElementById("btn2");
+//    var timer=null;
+//    btn1.onclick=function(){
+//        timer=setInterval(function(){
+//            console.log("1234567");
+//        },1000)
+//    }
+//    btn2.onclick=function(){
+//        clearInterval(timer);
+//    }
+
+
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var timer = null;
+
+    btn1.onclick = function () {
+        //设定间歇定时器
+        //1要执行的代码 2时间间隔 单位毫秒
+        timer = setInterval(function () {
+        //setInterval:每隔多久执行一次，不清除的话一直执行。开启的瞬间不执行，开始之后才开始算时间。
+            console.log("睡你..起来嗨");
+        }, 1000);
+    };
+    btn2.onclick = function () {
+        clearInterval(timer);
+    };
+</script>
+</body>
+</html>

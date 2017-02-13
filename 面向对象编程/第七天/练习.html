@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str = 'qwertyuiopasdfghjklxcitcastvbnm,wertyuioqwsdfgbhnjmzxcfvghjuiko';
+
+    var search="itcast";
+    for(var i=0;i<str.length-search.length;i++){
+        if(search==str.substr(i,search.length)){
+            console.log(i);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

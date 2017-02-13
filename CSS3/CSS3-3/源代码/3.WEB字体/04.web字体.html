@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* 准备字体的样式
+			如果 想要更改文字的放置位置 需要修改对应的路径信息
+			iconfont能够获取字体文件
+			有字库 等等
+		 */
+		@font-face {
+			   font-family: 'webfont';
+			    src: url('webfont/webfont.eot'); /* IE9*/
+			    src: url('webfont/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			    url('webfont/webfont.woff') format('woff'), /* chrome、firefox */
+			    url('webfont/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+			    url('webfont/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+		}
+		.web-font{
+			    font-family:"webfont" !important;
+			    font-size:16px;font-style:normal;
+			    -webkit-font-smoothing: antialiased;
+			    -webkit-text-stroke-width: 0.2px;
+			    -moz-osx-font-smoothing: grayscale;
+		}
+		/* 文字的大小 是支持修改的 
+			我们只能够使用制作出来的那些文字 其他的字用不了
+			文字的顺序是可以修改的
+		*/
+		#webfont{
+			font-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<p class="web-font" id='webfont'>每天都要早睡早起,这样身体才会棒棒哒,我是中国人,早起,早睡</p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .container{
+            width: 150px;
+            height: 300px;
+            border: 2px solid silver;
+            position: relative;
+            margin:230px auto;
+        }
+        .container>img{
+            width: 150px;
+            height: 300px;
+            background-size: cover;
+            position: absolute;
+            /*transform-origin: 100px 50px;*/
+            transform-origin: center;
+            transition: all 2.2s;
+        }
+        .container:hover img:nth-child(1){
+            transform: rotate(60deg);
+        }
+        .container:hover img:nth-child(2){
+            transform: rotate(120deg);
+        }
+        .container:hover img:nth-child(3){
+            transform: rotate(180deg);
+        }
+        .container:hover img:nth-child(4){
+            transform: rotate(240deg);
+        }
+        .container:hover img:nth-child(5){
+            transform: rotate(300deg);
+        }
+        .container:hover img:nth-child(6){
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+    <img src="images/8.JPG" alt="">
+    <img src="images/8.JPG" alt="">
+    <img src="images/8.JPG" alt="">
+    <img src="images/8.JPG" alt="">
+    <img src="images/8.JPG" alt="">
+    <img src="images/8.JPG" alt="">
+</div></body>
+</html>

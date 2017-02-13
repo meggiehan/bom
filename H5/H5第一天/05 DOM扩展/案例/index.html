@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab 标签</title>
+    <style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+	
+		.tabs {
+			width: 400px;
+			margin: 30px auto;
+			background-color: #FFF;
+			border: 1px solid #C0DCC0;
+			box-sizing: border-box;
+		}
+
+		.tabs nav {
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			overflow: hidden;
+			background-color: #C0DCC0;
+			display: flex;
+		}
+
+		nav a {
+			display: block;
+			width: 100px;
+			border-right: 1px solid #FFF;
+			color: #000;
+			text-decoration: none;
+		}
+
+		nav a:last-child {
+			border-right: 0 none;
+		}
+
+		nav a.active {
+			background-color: #9BAF9B;
+		}
+
+		.cont {
+			overflow: hidden;
+			display: none;
+		}
+
+		.cont ol {
+			line-height: 30px;
+		}
+
+    </style>
+</head>
+<body>
+	<div class="tabs">
+		<nav>
+			<a href="javascript:;" data-cont="local" class="active">国内新闻</a>
+			<a href="javascript:;" data-cont="global">国际新闻</a>
+			<a href="javascript:;" data-cont="sports">体育新闻</a>
+			<a href="javascript:;" data-cont="funny">娱乐新闻</a>
+		</nav>
+		<section class="cont" id="local" style="display:block">
+			<ol>
+				<li>河感在生矿难，死伤在全10</li>
+				<li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+				<li>南方大旱，农作物减产绝收面积上亩</li>
+				<li>猪流感在广在全国暴发</li>
+				<li>禽流感在全国多处继续蔓延，温家宝指示</li>
+				<li>南方大旱，农作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+			</ol>
+		</section>
+		<section class="cont" id="sports">
+			<ol>
+				<li>河南再次发生矿难，死伤人数超过100</li>
+				<li>禽流感在全国多处农作物农延，温家宝指示</li>
+				<li>南方大旱，农作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+				<li>禽流感在全农作物继续蔓延，温家宝指示</li>
+				<li>南方大农作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+			</ol>
+		</section>
+		<section class="cont" id="global">
+			<ol>
+				<li>河南再次发生矿难，死伤人数超过100</li>
+				<li>禽流感次发生蔓延，温家宝指示</li>
+				<li>南方大旱，农作物减产绝收面积上亩</li>
+				<li>猪流感在广减产绝收发</li>
+				<li>禽流感在全国多作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+			</ol>
+		</section>
+		<section class="cont" id="sports">
+			<ol>
+				<li>河南再次发生矿难，死伤人数超过100</li>
+				<li>禽流感在全国多处农作物农延，温家宝指示</li>
+				<li>南方大旱，农作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+				<li>禽流感在全农作物继续蔓延，温家宝指示</li>
+				<li>南方大农作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+			</ol>
+		</section>
+		<section class="cont" id="funny">
+			<ol>
+				<li>河南再次发生矿难，死伤人数超过100dddads</li>
+				<li>禽流感在全国物农延，温家宝指示</li>
+				<li>南方大旱，农作物减产绝收面积上亩</li>
+				<li>猪流感在广东群体性暴发</li>
+				<li>禽流感在全农作物继续蔓延，温家宝指示</li>
+				<li>猪流感在广东群体性暴发</li>
+			</ol>
+		</section>
+    </div>
+    <script>
+    	// 1、通给每一个a标签设定了一个自定义属性data-cont
+    	// 2、添加点击事件，当点击时，获取自定义属性值
+    	// 3、通过获取到自定义属性值，去找对应ID值等于这个自定义属性的元素
+    	// 4、控制这个刚刚找到DOM元素的display属性
+
+    	// 获取所有a标签
+    	var navs = document.querySelectorAll('nav a');
+    	var cont = ''; // 声明一个变量
+    	var section = '';
+    	var active = '';
+
+    	for(var i=0; i<navs.length; i++) {
+
+    		
+    		navs[i].onclick = function () {
+
+    			// 当前点击时已被选中的标签元素
+    			active = document.querySelector('.active');
+
+    			// 获取到当前点击时已被选中的标签元素的自定义属性
+    			cont = active.dataset['cont'];
+
+    			// 获取到当前点击时已被选中的标签元素的自定义属性值
+    			// 对应的ID的元素
+    			section = document.getElementById(cont);
+
+    			// 将对应的DOM元素display改成node
+    			section.style.display = 'none';
+
+    			// 当前点击时已被选中的标签元素移除class="active"
+    			active.classList.remove('active');
+
+    			// 以上代码是想要隐藏一个元素
+
+    			// 选中当前被点击的元素
+    			this.classList.add('active');
+
+    			// console.log(this.dataset);
+    			cont = this.dataset['cont']; // 获取一个ID值
+    			// console.log(cont);
+
+    			// 获取当前被点击元素的自定义属性对应的元素
+    			section = document.getElementById(cont);
+
+    			// 改变display属性
+    			section.style.display = 'block';
+    		}
+    	}
+    	
+	</script>
+</body>
+</html>

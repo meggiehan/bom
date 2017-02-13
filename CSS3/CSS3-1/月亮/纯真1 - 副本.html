@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            position: relative;
+        }
+        .head{
+            position: relative;
+            margin: 20px auto;
+            height: 229px;
+            width: 229px;
+            border: 1px solid #333;
+            background: #0DAAD5;
+            border-radius: 115px;
+        }
+        .z{
+            position: absolute;
+            width: 189px;
+            height: 160px;
+            /*border: 1px solid #000;*/
+            background: #fff;
+            border-radius: 90px/80px;
+            bottom:0px;
+            left:20px;
+
+        }
+        .eye1{
+            position: absolute;
+            height: 57px;
+            width: 50px;
+            border: 1px solid #333;
+            background: #fff;
+            border-radius: 25px;
+            top:45px;
+            left:65px;
+        }
+        .eye2{
+            position: absolute;
+            height: 57px;
+            width: 50px;
+            border: 1px solid #333;
+            background: #fff;
+            border-radius: 25px;
+            top:45px;
+            left:115px;
+        }
+
+        .w{
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border: 1px solid #333;
+            background: #B52E01;
+            border-radius: 11px;
+            top:94px;
+            left:104px;
+        }
+        .m1{
+            position: absolute;
+            height: 67px;
+            border: 1px solid #333;
+            top:116px;
+            left:115px;
+        }
+        .hi{
+            position: absolute;
+            width: 120px;
+            height: 28px;
+            overflow: hidden;
+            top:158px;
+            left:56px;
+        }
+        .l1{
+            position: absolute;
+            width: 42px;
+            border: 1px solid #333;
+            top:135px;
+            left:36px;
+        }
+        .l2{
+            position: absolute;
+            width: 42px;
+            border: 1px solid #333;
+            top:120px;
+            left:36px;
+            transform: rotate(10deg);
+        }
+        .l3{
+            position: absolute;
+            width: 42px;
+            border: 1px solid #333;
+            top:150px;
+            left:36px;
+            transform: rotate(-10deg);
+        }
+        .r1{
+            position: absolute;
+            width: 42px;
+            border: 1px solid #333;
+            top:135px;
+            right:36px;
+        }
+        .r2{
+            position: absolute;
+            width: 42px;
+            border: 1px solid #333;
+            top:120px;
+            right:36px;
+            transform: rotate(-10deg);
+        }
+        .r3{
+            position: absolute;
+            width: 42px;
+            border: 1px solid #333;
+            top:150px;
+            right:36px;
+            transform: rotate(10deg);
+        }
+        .smile{
+            position: absolute;
+            bottom:0px;
+            left:0px;
+            width: 120px;
+            height: 65px;
+            border: 1px solid #333;
+            border-radius: 60px/33px;
+        }
+        .bo{
+            position: absolute;
+            bottom:5px;
+            left:40px;
+            width: 147px;
+            height: 17px;
+            border: 1px solid #333;
+            background: #B52E01;
+            border-radius: 15px;
+        }
+        .dang{
+            position: absolute;
+            bottom:-12px;
+            left:100px;
+            border: 1px solid #333;
+            background: #E1E11F;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .dang .c1{
+            position: absolute;
+            top:8px;
+            width: 29px;
+            height: 3px;
+            border: 1px solid #333;
+        }
+        .dang .c2{
+            position: absolute;
+            top:15px;
+            left:11px;
+            width: 6px;
+            height: 6px;
+            border: 1px solid #333;
+            background: #333;
+            border-radius: 3px;
+        }
+        .dang .c3{
+            position: absolute;
+            top:20px;
+            left:14px;
+            height: 10px;
+            border: 1px solid #333;
+        }
+        .main{
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 1px solid #333;
+            border-radius: 60px;
+            background: #fff;
+            bottom:-105px;
+            left:54px;
+        }
+
+        .l-hand{
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            border: 1px solid #333;
+            background: #0DAAD5;
+            bottom:-37px;
+            left:-20px;
+            transform: rotate(-45deg);
+        }
+        .r-hand{
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            border: 1px solid #333;
+            background: #0DAAD5;
+            bottom:-37px;
+            right:-20px;
+            transform: rotate(45deg);
+        }
+        .body{
+            position: absolute;
+            width: 147px;
+            height: 130px;
+            border: 1px solid #333;
+            background: #0DAAD5;
+            bottom:-120px;
+            left:40px;
+        }
+        .ni{
+            position: absolute;
+            width: 16px;
+            height: 7px;
+            bottom:-120px;
+            left:107px;
+            overflow: hidden;
+        }
+        .a{
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #333333;
+            background: #fff;
+            border-radius: 7px;
+            top:0;
+            left:0;
+
+        }
+        .lai{
+            position: absolute;
+            height: 45px;
+            width: 45px;
+            border: 1px solid #333;
+            background: #fff;
+            border-radius: 22.5px;
+            bottom:-82px;
+            left:-35px;
+        }
+        .rai{
+            position: absolute;
+            height: 45px;
+            width: 45px;
+            border: 1px solid #333;
+            background: #fff;
+            border-radius: 22.5px;
+            bottom:-82px;
+            right:-35px;
+        }
+        .hello{
+            position:absolute;
+            bottom:-95px;
+            left:70px;
+            width: 92px;
+            height: 45px;
+            border-top:1px solid #333;
+            overflow: hidden;
+        }
+        .package{
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border: 1px solid #333;
+            border-radius: 45px;
+            bottom:0;
+            left:0;
+        }
+        .l-foot{
+            position: absolute;
+            bottom:-147px;
+            left:20px;
+            width: 90px;
+            height: 25px;
+            border: 1px solid #333;
+            border-radius: 20px 10px 10px 8px;
+        }
+        .r-foot{
+            position: absolute;
+            bottom:-147px;
+            right:20px;
+            width: 90px;
+            height: 25px;
+            border: 1px solid #333;
+            border-radius:  10px 20px 10px 8px;
+        }
+
+        .zhu{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #000;
+            border-radius: 5px;
+            top:24px;
+            left:5px;
+        }
+        .zhu1{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #000;
+            border-radius: 5px;
+            top:24px;
+            right:5px;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <span class="l-hand"></span>
+    <span class="lai"></span>
+    <span class="r-hand"></span>
+    <span class="rai"></span>
+    <span class="body"></span>
+    <div class="ni">
+        <span class="a"></span>
+    </div>
+
+    <span class="z"></span>
+    <div class="eye1">
+        <span class="zhu" id="yan"></span>
+    </div>
+    <div class="eye2">
+        <span class="zhu1" id="yan1"></span>
+    </div>
+    <span class="w"></span>
+    <span class="m1"></span>
+    <div class="hi">
+        <span class="smile"></span>
+    </div>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="l3"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+    <span class="r3"></span>
+
+    <span class="main"></span>
+    <span class="bo"></span>
+    <div class="dang">
+        <i class="c1"></i>
+        <i class="c2"></i>
+        <i class="c3"></i>
+    </div>
+    <div class="hello">
+        <span class="package"></span>
+    </div>
+    <span class="l-foot"></span>
+    <span class="r-foot"></span>
+</div>
+
+
+<script src="jquery-1.12.2.js"></script>
+<script>
+$(function(){
+    setInterval(function(){
+        $('#yan').stop().animate({left:38,top:20},500,function(){$('#yan').animate({left:0,bottom:70},500)});
+        $('#yan1').stop().animate({right:38,top:20},500,function(){$('#yan1').animate({right:0,bottom:70},500)});
+    },1500)
+})
+
+
+
+function animate(obj, json, fn) {//json attr, target
+    clearInterval(obj.timer);
+    obj.timer = setInterval(function () {
+        var flag = true;
+        for (var k in json) {//json 属性名:属性值 k:json[k]
+            if (k === "opacity") {
+                var leader = getStyle(obj, k) * 100;
+                var target = json[k] * 100;
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader / 100;
+            } else if (k === "zIndex") {
+                obj.style.zIndex = json[k];
+            } else {
+                var leader = parseInt(getStyle(obj, k)) || 0;
+                var target = json[k];
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader + "px";
+            }
+
+            if (leader != target) {
+                flag = false;
+            }
+        }
+        if (flag) {
+            clearInterval(obj.timer);
+            if (fn) {
+                fn();
+            }
+        }
+    }, 15);
+}
+function getStyle(obj, attr) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(obj, null)[attr];
+    } else {
+        return obj.currentStyle[attr];
+    }
+}
+</script>
+</body>
+</html>

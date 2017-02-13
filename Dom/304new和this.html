@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //1.全局上下文
+    //console.log(this);//在全局上下文中 this指的是全局对象 也就是window
+    //2.函数上下文 //在函数上下文中 this指向调用这个函数的对象
+    function fn() {
+        console.log(this);
+    }
+    fn();//函数其实也有归属 他属于window
+    window.fn();
+    alert();
+    window.alert();
+
+    var obj = {};
+    obj.fn = function () {
+        console.log(this);
+    };
+    obj.fn();//this指向调用这个方法的对象
+
+    //3. new 会 改变this 的指向 并让构造函数把他返回
+
+
+</script>
+</body>
+</html>

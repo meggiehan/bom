@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 600px;
+            height: 300px;
+            border: 1px solid grey;
+            display: flex;
+            transition: all 1s;
+        }
+        .one{
+            background: url("images/2.jpg") no-repeat center/cover;
+            width: 200px;
+            height: 300px;
+            order: 1;
+            transition: all 1s 2s;
+        }
+        .two{
+            background: url("images/8.jpg") no-repeat center/cover;
+            width: 200px;
+            height: 300px;
+            order: 2;
+            transition: all 1s 2s;
+        }
+        .three{
+            background: url("images/99.jpg") no-repeat center/cover;
+            width: 200px;
+            height: 300px;
+            order: 3;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="center">
+    <div class="one common"id="y" ></div>
+    <div class="two common" id="e"></div>
+    <div class="three common" id="s"></div>
+</div>
+<script type="text/javascript" src="jquery-1.12.2.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script>
+
+    var center=document.getElementById("center");
+    var y=document.getElementById("y");
+    var e=document.getElementById("e");
+    var s=document.getElementById("s");
+
+    y.onmouseover=function(){
+        y.style.order='2';
+        e.style.order='3';
+        s.style.order='1';
+
+    }
+
+//    $(function(){
+//        $(".common").bind("drag",function(){
+//           $(".one").css({
+//               transform:'translateY('+200+'px)'
+//           });
+////            console.log("123");
+//        })
+//    })
+F
+//    var startX=0;
+//    var startY=0;
+//    var movingX=0;
+//    var movingY=0;
+//    var endX=0;
+//    var endY=0;
+//
+//        $(function(){
+//        $(".one").bind("mousedown",function(event) {
+//            startX = event.pageX;
+//            startY = event.pageY;
+//        })
+//            $(document).bind("mousemove", function (evt) {
+//                movingX = evt.pageX;
+//                movingY = evt.pageY;
+//                var moveX = movingX - startX;
+//                var moveY = movingY - startY;
+//                $(".one").position(moveX, moveY);
+//            })
+//            $(".one").bind("mouseup", function (e) {
+//                endX = e.pageX;
+//                endY = e.pageY;
+//            })
+//
+//    })
+</script>
+</body>
+</html>

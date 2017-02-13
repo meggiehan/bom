@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var count1 = 0;
+    function fib1(n) {
+        count1++;
+        if (n == 1 || n == 0) return 1;
+        return fib1(n - 1) + fib1(n - 2);
+    }
+
+    var count2=0;
+    var data=[1,1];
+    function fib2(n){
+        count2++;
+       var v=data[n];
+        if(v){
+            return v;
+        }
+        else{
+            v=fib2(n-1)+fib2(n-2);
+            data[n]=v;
+            return v;
+        }
+    }
+
+
+   var fib2=(function(){
+        var data=[1,1];
+       return function (n){
+            var v=data[n];
+            if(v){
+                return v;
+            }
+            else{
+                v=arguments.callee(n-1)+arguments.callee(n-2);
+                data[n]=v;
+                return v;
+            }
+        }
+    })();
+</script>
+</body>
+</html>

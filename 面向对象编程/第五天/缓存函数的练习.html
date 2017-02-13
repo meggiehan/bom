@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+var cache=(function(){
+   var data=[],max=3;
+    function cache(key,value){
+     if(data.length>=3){
+        var temp=data.shift();
+         delete cache[temp];
+     }
+        data.push(key);
+        cache[key]=value;
+    }
+    return cache;
+})();
+cache( 'name1', '张三' );
+cache( 'name2', '李四' );
+cache( 'name3', '王五' );
+cache( 'name4', '找钱' );
+</script>
+</body>
+</html>

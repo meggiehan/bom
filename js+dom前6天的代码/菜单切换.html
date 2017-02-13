@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #list li {
+            list-style-type: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: beige;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #list li.current {
+            background-color: burlywood;
+        }
+
+        #list li a {
+            text-decoration: none;
+        }
+
+        .odd {
+            background-color: #ccc;
+        }
+
+        .even {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul id="list">
+        <li class="current"><a href="javascript:void(0)">首页</a></li>
+        <li><a href="javascript:void(0)">播客</a></li>
+        <li><a href="javascript:void(0)">博客</a></li>
+        <li><a href="javascript:void(0)">相册</a></li>
+        <li><a href="javascript:void(0)">关于</a></li>
+        <li><a href="javascript:void(0)">帮助</a></li>
+    </ul>
+</div>
+<script>
+    //用children写法
+//    var ul=document.getElementById("list");
+//    var children=ul.children;
+//    for(i=0;i<children.length;i++){
+//        children[i].onclick=function(){
+//            for(i=0;i<children.length;i++){
+//                children[i].removeAttribute("class");
+//            }
+//            this.setAttribute("class","current");
+//        }
+//    }
+    var ul=document.getElementById("list");
+    var children=ul.children;
+    //通过children获得对象
+    //把每一个子节点取出来 做相应的处理
+    for(i=0;i<children.length;i++){
+        children[i].onclick=function(){
+            for(i=0;i<children.length;i++){
+                //干掉其他的对象
+                children[i].removeAttribute("class");
+            }
+            //留下当前的自己
+            this.setAttribute("class","current");
+        }
+    }
+    //用childNodes写法
+//    var ul=document.getElementById("list");
+//    var lis=ul.getElementsByTagName("li");
+//    var nodes=ul.childNodes;
+//    for(i=0;i<nodes.length;i++){
+//        if(nodes[i].nodeType!==1){
+//            continue;
+//        }
+//        nodes[i].onclick=function(){
+//            for(j=0;j<nodes.length;j++){
+//                if(nodes[j].nodeType!==1){
+//                    continue;
+//                }
+//               nodes[j].removeAttribute("class");
+//            }
+//            this.setAttribute("class","current");
+//        }
+//    }
+//    //点击当前li 当前li排他
+//    var ul = document.getElementById("list");
+//    //var lis = ul.getElementsByTagName("li");//不关心层级 只找指定标签
+//    //缺点： 如果内部还有li 也会找到
+//    //var nodes = ul.childNodes;//子节点 只找子级
+//    //缺点： 除了我们想要的元素节点 还会获取到其他节点
+//    var children = ul.children;//子元素
+//    for (var i = 0; i < children.length; i++) {
+//        children[i].onclick = function () {
+//            //干掉所有人
+//            for (var j = 0; j < children.length; j++) {
+//                children[j].removeAttribute("class");
+//            }
+//            //留下我自己
+//            this.setAttribute("class", "current");
+//        };
+//    }
+//    //childNodes 是DOM标准中规定的方法 获取节点的方式所有浏览器都支持
+//    //children 虽然虽然不是DOM标准中规定的方法 因为很常用所有浏览器也都支持
+
+
+</script>
+</body>
+</html>

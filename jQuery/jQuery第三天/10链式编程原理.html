@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // 链式编程元素：return this;
+
+        // 之前js的知识
+        // 创建自定义对象
+        // Person 表示 构造函数 或者 “类”
+        function Person() {
+            this.name = "Jack";
+            this.age = 18;
+
+            this.sayHello = function () {
+                console.log(this.name);
+
+                return this;
+            };
+
+            this.addAge = function () {
+                this.age++;
+                console.log(this.age);
+
+                return this;
+            }
+        }
+
+        // 创建一个Person类型的对象 new
+        var p = new Person();
+        // 如果能使用 构造函数里面提供的 属性或者方法，
+        // 就在构造函数里面给 this 添加相应的属性或者方法
+        // 然后，新创建出来的对象 就可以使用这些属性或者方法了
+        // p === this => true
+        // p.sayHello().addAge();
+        /*var p1 = p.sayHello();
+        p1.addAge();*/
+
+        p.sayHello().addAge().addAge().sayHello();
+
+        // 因为方法 sayHello ，没有返回值，默认的返回值就是：undefined
+    </script>
+</head>
+<body>
+
+</body>
+</html>

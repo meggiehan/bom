@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //{} 是量词中 自定义出现次数的
+    console.log(/^a{3}$/.test("aaa"));//true
+    //[] 表示一个字符的位置 里面写的是这个位置可以出现的内容
+    console.log(/[abc]/.test("a"));//true
+    //() 提高优先级 小括号中的是一组
+    console.log(/^chuan$/.test("chuan"));//true
+    console.log(/^chuan$/.test("chuanchuan"));//false
+    console.log(/^chuan{2}$/.test("chuanchuan"));//false
+    console.log(/^chuan{2}$/.test("chuann"));//true
+    console.log(/^(chuan){2}$/.test("chuanchuan"));//true
+    //{}是表示前面那一个字符出现两次。
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"/>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        //location相当于浏览器地址栏,并且可以将url解析成独立的片段
+        window.location
+        location.href = "http://www.baidu.com";
+        location.reload();//让页面重新加载
+
+        console.log(window.location.hash);//锚点
+        console.log(window.location.host);//服务器 服务器名+端口号
+        console.log(window.location.hostname);//服务器名
+        console.log(window.location.pathname);//路径名
+        console.log(window.location.port);//端口号
+        console.log(window.location.protocol);//协议
+        console.log(window.location.search);//参数
+        //location是属于Window下面的一个分支。即Window.location。
+        //ws地址栏是以localhost显示的
+        //sl地址栏是以file来显示的.
+//        console.log(window.location.hash);
+//        console.log(window.location.host);
+//        console.log(window.location.hostname);
+//        console.log(window.location.pathname);
+//        console.log(window.location.port);
+//        console.log(window.location.protocol);
+//        console.log(window.location.search);
+
+    };
+</script>
+</body>
+</html>

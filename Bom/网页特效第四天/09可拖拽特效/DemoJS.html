@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            height: 30px;
+            background: #036663;
+            border-bottom: 1px solid #369;
+            line-height: 30px;
+            padding-left: 30px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            text-decoration: none;
+
+        }
+
+        .d-box {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #eee;
+            box-shadow: 2px 2px 2px 2px #666;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+        }
+
+        .hd {
+            width: 100%;
+            height: 25px;
+            background-color: #7c9299;
+            border-bottom: 1px solid #369;
+            line-height: 25px;
+            color: white;
+            cursor: move;
+        }
+
+        #box_close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <a href="javascript:;" id="register">注册信息</a>
+</div>
+<div class="d-box" id="d_box">
+    <div class="hd" id="drop">注册信息 (可以拖拽)
+        <span id="box_close">【关闭】</span>
+    </div>
+    <div class="bd"></div>
+</div>
+<script>
+    //找人
+    var d_box = document.getElementById("d_box");//盒子整体
+    var drop = document.getElementById("drop");//拖动条
+    //鼠标在盒子的头部按下 盒子整体跟着鼠标移动
+    //onmousedown 鼠标按下事件
+    drop.onmousedown = function (event) {
+        //鼠标按下之后 获取此刻 鼠标在d_box中的位置
+        var event = event || window.event;
+        //鼠标在页面中的位置
+        var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+        var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+        //鼠标在盒子中的位置
+        //注意 因为要对d_box进行移动 所以加了定位 所以就不能算 drop的offsetLeft
+        var boxX = pageX - d_box.offsetLeft;//鼠标在盒子中的水平位置
+        var boxY = pageY - d_box.offsetTop;//鼠标在盒子中的竖直位置
+        //按下后变为可拖动状态 鼠标移动后 让盒子跟着鼠标移动
+        document.onmousemove = function (event) {
+            //让盒子跟着鼠标走
+            var event = event || window.event;
+            //获取鼠标在页面上的位置
+            var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+            var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+            //根据鼠标位置设置盒子位置
+            d_box.style.left = pageX - boxX + "px";
+            d_box.style.top = pageY - boxY + "px";
+            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+        };
+    }
+    document.onmouseup = function () {
+        document.onmousemove = null;
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str = "abc";
+    console.log(str.length);//length是属性 而str是基本数据类型 不是对象 哪儿来的属性？
+
+    var temp = new String(str);//1.创建了一个临时的包装对象
+    console.log(temp.length);//2.让包装对象 提供我们需要的属性
+    temp = null;//3.使用完成后 把临时的对象清空
+
+    //Number和Boolean很少用 而且容易产生歧义
+    var bool = new Boolean(false);
+    console.log(bool);//Boolean {[[PrimitiveValue]]: false}
+    console.log(!!bool);//true因为上面的bool中是有值的，不为空，所以最后为true.
+
+    var str = new String();
+    var num1 = new Number();//这里的 Number和下面的 Number是一个函数，因为js里面没有重载。
+    var num2 = Number("1");
+    console.log(num1);//Number {[[PrimitiveValue]]: 0}
+    console.log(num2);//1
+
+
+
+
+//    var temp=new String(str);
+//    console.log(temp.length);
+//    temp=null;
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>本地存储</title>
+	<style>
+		p {
+			text-align: center;
+			margin: 50px 0 0;
+		}
+	</style>
+</head>
+<body>
+	<!-- 添加 -->
+	<p>
+		<label for="">
+			键:<input type="text" class="key">
+		</label>
+		<label for="">
+			值:<input type="text" class="val">
+		</label>
+		<input type="button" class="set" value="设置">
+	</p>
+	<!-- 读取 -->
+	<p>
+		<label for="">
+			值: <output class='val'>&nbsp;</output>
+		</label>
+		<label for="">
+			键:<input type="text" class="key">
+		</label>
+		<input type="button" class="get" value="读取">
+	</p>
+	<!-- 删除 -->
+	<p>
+		<label for="">
+			键:<input type="text" class="key">
+		</label>
+		<input type="button" class="remove" value="删除">
+	</p>
+	<!-- 清空 -->
+	<p>
+		<input type="button" class="clear" value="清空">
+	</p>
+	<script src="jquery.min.js"></script>
+	<script>
+
+		// 设置
+		$('.set').on('click', function () {
+			// 获取用户输入的key或val
+			var key = $(this).parents('p').find('.key').val();
+			var val = $(this).parents('p').find('.val').val();
+			window.sessionStorage.setItem(key, val);
+		});
+		// 读取
+		$('.get').on('click', function () {
+			var key = $(this).parents('p').find('.key').val();
+			var val = $(this).parents('p').find('.val');//这里不能加上.val()的方法，因为下面要进行赋值。
+			// 读取到的结果
+			var result = window.sessionStorage.getItem(key);
+			// 将读取到的结果写到页面
+			val.val(result);
+		});
+		// 删除
+		$('.remove').on('click', function () {
+			var key = $(this).parents('p').find('.key').val();
+			// 删除某个值
+			window.sessionStorage.removeItem(key);
+		});
+		// 清空
+		$('.clear').on('click', function () {
+			// 删除所有值
+			window.sessionStorage.clear();
+		});
+
+
+//
+//		$('.set').on('click',function(){
+//			var key=$(this).parents('p').find('.key').val();
+//			var val=$(this).parents('p').find('.val').val();
+//			window.sessionStorage.setItem(key,val);
+//		})
+//
+//		$('.get').on('click',function(){
+//			var key=$(this).parents('p').find('.key').val();
+//			var val=$(this).parents('p').find('.val');
+//			var result=window.sessionStorage.getItem(key);
+//			val.val(result);
+//		})
+//		$('.remove').on('click',function(){
+//			var key=$(this).parents('p').find('.key').val();
+//			var val=$(this).parents('p').find('.val');
+//			window.sessionStorage.removeItem(key);
+//		})
+//
+//		$('.clear').on('click',function(){
+//			window.sessionStorage.clear();
+//		})
+	</script>
+</body>
+</html>

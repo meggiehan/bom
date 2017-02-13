@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>姓名</label><input type="text" id="inp1"><span></span><br/>
+</div>
+<script>
+    var inpName = document.getElementById("inp1");
+    var regName = /^[\u4e00-\u9fa5]{2,}$/;
+    inpName.onblur = function () {
+        if (regName.test(this.value)) {
+            //输入正确
+            this.nextSibling.innerHTML = "输入正确";
+            this.nextSibling.className = "right";
+        } else {
+            this.nextSibling.innerHTML = "输入错误";
+            this.nextSibling.className = "wrong";
+        }
+    };
+var inp1=document.getElementById("inp1");
+var regName=/^[\u4e00-\u9fa5]{2,}$/;//u4e00-u9fa5
+inp1.onblur=function(){
+    if(regName.test(this.value)){
+        this.nextSibling.innerHTML="输入正确";
+        this.nextSibling.className="right";
+    }
+    else{
+        this.nextSibling.innerHTML="输入错误";
+        this.nextSibling.className="wrong";
+    }
+}
+</script>
+2</html>

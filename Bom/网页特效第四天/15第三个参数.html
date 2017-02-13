@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #son {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="father">
+    <div id="son"></div>
+</div>
+<script>
+    var son = document.getElementById("son");
+    var father = document.getElementById("father");
+    var arr = [son, father, document.body, document, window];
+    for (var i = 0; i < arr.length; i++) {
+        //从下到上是冒泡，从上到下是捕获。//先捕获后冒泡，
+        //从子级 到 父级 从下到上 是冒泡的顺序.
+        /*arr[i].onclick = function () {
+         console.log(this);//简单事件的触发顺序都是冒泡的顺序
+         };*/
+        /*arr[i].addEventListener("click", function () {
+         console.log(this);
+         }, false);*///false表示 不使用捕获 是冒泡的顺序
+        //从父级 到 子级 从上到下 是捕获的顺序
+        arr[i].addEventListener("click", function () {
+            console.log(this);
+        }, true);//使用捕获
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>replaceState</title>
+</head>
+<body>
+	<input type="button" id="btn" value="看地址变没变">
+	<script>
+		var btn = document.getElementById('btn');
+
+		btn.onclick = function () {
+
+			// 替换当前的地址，并不会生成新的记录
+			// 1、对象，在替换历史时，会设置一些数据，一般会设置null
+			// 2、一般不生效，没意义
+			// 3、我们要替换址址
+			history.replaceState({}, '我是标题', 'test.html');
+		}
+
+	</script>
+</body>
+</html>

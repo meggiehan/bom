@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //截取字符串"我爱中华人民共和国"，中的"中华"
+    //slice()    //从start位置开始，截取到end位置，end取不到
+    //substring() //从start位置开始，截取到end位置，end取不到
+    //substr()   //从start位置开始，截取length个字符
+    var str = "我爱中华人民共和国";
+//    //1.开始 2.结束 [start,end)
+//    str = str.slice(-5,5);
+//    console.log(str);
+    ////    //1.开始 2.结束 [start,end)
+    str = str.substring(2,-6);
+    console.log(str);
+    ////    //1.开始 2.长度
+//    str = str.substr(2, 2);//若第二个值为0，则返回空
+//    console.log(str); //slice和substring看起来完全一样 但是传入负数的时候不一样
+//    //str.slice和str.substring 正值得时候基本没差，但是负数的时候有差别
+//    //str.slice会自动将负值加长度转换为正数，但是第二位的数字要比第一位数字大才可以找到具体的字符串。
+//    //str.substring  如果前面的值为负数，则会把他自动变为0.
+//    //如果后面的值为负数，也会把他自动变为0.然后和前面的兑换位置。
+//
+//    //"abcoefoxyozzopp"查找字符串中所有o出现的位置
+    var str = "abcoefoxyozzopp";
+     //console.log(str.indexOf("o", 3 + 1));
+     var index = -1;//这里设置成-1是因为有可能第0项就是要查找的字符，所以要设置成-1+1=0，从第0项开始遍历。
+     do {
+         index = str.indexOf("o", index + 1);
+         if(index!=-1){//不要把-1打印出来，因为那不是要查找到字符的位置。所以给一个判定条件。
+             console.log(index);
+         }
+     } while (index != -1);
+
+
+//    console.log(str.indexOf("o"));
+//    var index=-1;
+//    do{
+//        index=str.indexOf("o",index+1);
+//        console.log(index);
+//    }while(index!=-1)
+
+    //把字符串中所有的o替换成!
+    var str = "abcoefoxyozzopp";
+//    str = str.replace("o", "!");//(1)
+//    str = str.replace(/o/, "!");//(2)  (1),(2)到达的效果是一样的。
+//    str = str.replace(/o/g, "!");//正则表达式。
+//    do {
+//     str = str.replace("o", "!");
+//     } while (str.indexOf("o") != -1);
+//     console.log(str);
+    do{
+        str=str.replace("o","!");
+    }while(str.indexOf("o")!=-1);
+    console.log(str);
+
+    //    str=str.replace("o","!");
+//    str=str.replace(/o/,"!");
+//    str=str.replace(/o/g,"!");
+//    do{
+//        str=str.replace("o","!")
+//    }while(str.indexOf("o")!=-1)
+//    console.log(str);
+
+    //统计一个字符串中每个字符出现的次数
+    var str = "abcoefoxyozzopp";
+     var o = {};
+     for (var i = 0; i < str.length; i++) {
+     var item = str.charAt(i);//str[i];
+     if (o[item]) {
+     o[item]++;//如果以前已经有了值 就让这个值加一
+     } else {
+     o[item] = 1;//如果之前没有，说明是undefined，转换为false 进来以后，执行 现在已经有一次了 那就创建一个属性值是1
+     }
+     }
+     //console.log(o);
+     for (var key in o) {
+     console.log(key + "出现了" + o[key] + "次");//o[key]记录的是出现了多少次
+     }
+
+
+
+//    var str = "abcoefoxyozzopp";
+//      var o={};
+//      for(i=0;i<str.length;i++){
+//          var item=str[i];
+//          if(o[item]){
+//              o[item]++;
+//          }
+//          else{
+//              o[item]=1;
+//          }
+//      }
+//    for(var key in o){
+//        console.log(key + "出现了" + o[key] + "次");
+//    }
+//
+//
+//    //把一个字符串中所有的空格全部去掉 var str = " aaa df sdd sds sd ";
+    var str = " aaa df sdd sds sd ";
+    console.log(str);// aaa df sdd sds sd
+    str = str.trim();//trim可以去除两边的空格
+    console.log(str);//aaa df sdd sds sd
+    var arr = str.split(" ");//这里一定是用空格分隔而不是空字符串。
+    console.log(arr);//["aaa", "df", "sdd", "sds", "sd"]
+    str = arr.join("");
+    console.log(str);//aaadfsddsdssd
+
+
+////    var str = " aaa df sdd sds sd ";
+////    console.log(str);
+//////    str=str.trim();
+////    var arr=str.split(" ");
+////    str=arr.join("");
+////    console.log(str);
+//
+//
+//
+//    //replaceClassName
+//    //getElementsByClassName
+//
+//
+    //封装查找字符串里的固定字符出现的位置。
+]    function findStr(str, x) {
+        num = str.indexOf(x, num + 1);
+        if (num !== -1) {
+            console.log(num);
+            findStr(str, x);
+        }
+    }
+    findStr(str, "o");
+
+
+//    var num = -1;
+//    function findstr(str,x){
+//        num=str.indexOf(x,num+1);
+//        if(num!==-1){
+//            console.log(num);
+//            findstr(str,x);
+//        }
+//    }
+//    findstr(str,"o");
+</script>
+</body>
+</html>

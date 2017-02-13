@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 给div设置文本内容
+            $("#btnSetText").click(function () {
+                // text() 作用：用来设置或者获取被选择元素的文本内容
+                // 能够清空元素的原有内容
+                // $("div").text("这是文本内容");
+                // $("div").html("这是文本内容");
+                // $("div").html("<h2>动态创建元素</h2>");
+                // 如果传入的是 一个html字符串，也会被当做普通的文本内容输出
+                $("div").text("<h2>动态创建元素</h2>");
+                // $("div").text("&lt;h2&gt;动态创建元素&lt;/h2&gt;");
+            });
+            // 获取文本内容
+            $("#btnGetText").click(function () {
+                // 不传入参数，表示获取内容
+                // 获取到的内容是纯文本内容，不包括 html标签
+                // 如果是文本内容，获取的时候，就会把内容当做文本（字符串）来看待
+                // 所以，此时，设置什么内容就展示什么内容
+                // var txt = $("div").text();
+                // 当用text（）方法设置的，如果内容含有 html 标签或者是不能直接展示的字符，那么
+                // html 方法 将会对 获取到的内容进行转换，转换为 在html标签中
+                // 能展示出的内容。
+                // 比如：< 转换成： &lt;  > 转换成： &gt;
+                var txt = $("div").html();
+                alert(txt);
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btnSetText">设置文本内容</button>
+<button id="btnGetText">获取文本内容</button>
+<div>
+    <!--这是div的初始化内容
+    <h2>这是标题</h2>-->
+    &lt;h2&gt;动态创建元素&lt;/h2&gt;
+</div>
+</body>
+</html>

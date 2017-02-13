@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onLine</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+		}
+
+		p {
+			width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			margin: 100px auto;
+			color: #FFF;
+			font-size: 24px;
+			background-color: #000;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<p class="tips"></p>
+	<p>事件绑订方法</p>
+	<script src="jquery.min.js"></script>
+	<script>
+		// 网络监听的事件
+		// online 在线 offline 离线
+		// 事件是给window绑订的
+		
+		// 通过window.navigator.onLine可以返回当前的网络状态
+
+		// 判断当前的状态
+		alert(window.navigator.onLine);
+
+
+		// 监听当前设备在线
+		window.addEventListener('online', function () {
+			// alert('online');
+			$('.tips').text('网络已连接').fadeIn(500).delay(1000).fadeOut();
+		});
+
+		// 监听当前设备离线
+		window.addEventListener('offline', function () {
+			// alert('offline');
+			$('.tips').text('网络已断开').fadeIn(500).delay(1000).fadeOut();
+		});
+
+//		window.addEventListener('online',function(){
+//			$('.tips').text('网络已连接').fadeIn(500).delay(1000).fadeOut();
+//		})
+//		window.addEventListener('offline',function(){
+//			$('.tips').text('网络已断开').fadeIn(500).delay(1000).fadeOut();
+//		})
+
+	</script>
+</body>
+</html>

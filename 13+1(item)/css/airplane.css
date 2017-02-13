@@ -1,0 +1,345 @@
+html,body{
+	height: 100%;
+	font-family: "MicroSoft YaHei","sans-serif";
+}
+.airplane_layout{
+   width: 100%;
+   height: 100%;
+   /*min-width: 4.0rem;*/
+   /*max-width: 8.533333rem;*/
+   margin: 0 auto;
+   background: #DDDDDD;
+}
+/*.continer{
+   width: 100%;
+   min-width: 4.0rem;
+   max-width: 8.533333rem;
+   margin: 0 auto;
+}*/
+.head{
+	width: 100%;
+	height: 1.066667rem;
+    background: #4DB9FF;
+    border-bottom: 1px solid #3B77DB;
+}
+/*.header_left{
+	background: url("../images/sprite.png") no-repeat;
+	background-size: 65px 115px;
+}*/
+.nav{
+	padding-top: 1.066667rem;
+	width: 100%;
+	height:2.666667rem;
+	background: #4DB9FF;
+	
+}
+.nav .nav_left {
+	float: left;
+	width: 50%;
+}
+.nav .nav_left .shanghai{ 
+	display: block;
+    color: #fff;
+    font-family: ;
+    font-size: 0.6rem;
+    padding-left: 0.2rem;
+}
+.nav .nav_left .gl{
+	float: left;
+	display: block;
+	color: #fff;
+	font-size: 0.5rem;
+	 padding-left: 0.2rem;
+}
+.nav .nav_left .money{
+	display: inline-block;
+	border:  1px solid #fff;
+	color:  #fff;
+	font-size: 0.24rem;
+	padding: 1px;
+	margin-left:0.266667rem;
+	margin-top: 0.066667rem;
+}
+.nav .nav_right{
+	width: 50%;
+    float: right;
+    position: relative;
+}
+.nav .nav_right .line{
+
+}
+.nav .nav_right .road{
+	display: block;
+    width: 0.6rem;
+    height: 0.64rem;
+}
+.nav .nav_right .there{
+   display: block;
+   font-size: 0.4rem;
+   color: #fff;
+   position: absolute;
+   right: 0.4rem;
+   bottom: -0.666667rem;
+}
+
+.main{
+	width: 100%;
+	height: 8.5rem;
+	background: #fff;
+	/*overflow: hidden;*/
+	/*min-height: 2.666667rem;*/
+	
+}
+.main .main_top{
+	width: 100%;
+	height: 5.2rem;
+	position: relative;
+	border-bottom: 1px solid #DDDDDD;
+}
+.main .main_top .banner{
+	background: url("../images/back.png")no-repeat;
+	background-size: 2.146667rem 1.213333rem;
+	width: 2.146667rem;
+	height: 1.213333rem;
+	padding-top: 0.466667rem;
+	position: absolute;
+	top:0.466667rem;
+	left: 0.4rem;
+}
+.main .main_top .banner .text_line{
+	text-align: center;
+	line-height: 0.013333rem;
+	color: #fff;
+	font-size: 0.5rem;
+}
+.main .main_top .box_start{
+  height: 1.066667rem;
+  width: 92%;
+  margin: 0 auto;
+  background: #3B77DB;
+  position: absolute;
+  top:1.666667rem;
+  left: 0.4rem;
+  border-radius: 0.066667rem;
+}
+.main .main_top .min{
+   display: inline-block;
+   color: #fff;
+   padding-left: 0.4rem;
+   line-height: 1.066667rem;
+   font-size: 0.24rem;
+}
+.main .main_top .max{
+   display: inline-block;
+   color: #fff;
+   padding: 0 0.266667rem;
+   line-height: 1.066667rem;
+   font-size: 0.4rem;
+}
+.main .main_top .sty{
+	display: inline-block;
+   width: 0.6rem;
+   height: 0.6rem;
+   border-radius: 0.04rem;
+   background: #4DB9FF;
+   margin-left: 0.933333rem;
+}
+.main .main_top .syt{
+	display: inline-block;
+   width: 0.6rem;
+   height: 0.6rem;
+    border-radius: 0.04rem;
+   background: #F1BDBF;
+   margin-left: 0.2rem;
+}
+.main .main_top .sm{
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+	line-height: 0.6rem;
+	font-size: 0.4rem;
+	padding-left: 0.086667rem;
+}
+.main .main_top .time{
+	color: #fff;
+display: inline-block;
+padding: 0 0.2rem;
+font-size: 0.373333rem;
+font-weight: normal;
+}
+.main .main_top .box_end{
+  height: 1.066667rem;
+  width: 92%;
+  margin: 0 auto;
+  background: #3B77DB;
+  position: absolute;
+  top:3.066667rem;
+  left: 0.4rem;
+   border-radius: 0.066667rem;
+
+}
+.main .main_top .price{
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+    float: left;
+    font-size: 0.52rem;
+}
+/*.main .main_top .site{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+    float: right;
+}*/
+
+.main .main_bottom{
+   /*float: left;*/
+   /*position: static;*/
+   width: 100%;
+   height:3.133333rem;
+   background: #fff;
+   overflow: hidden;
+}
+.main .main_bottom h3{
+	font-size: 0.506667rem;
+	font-weight: normal;
+	padding: 0.4rem 0.4rem 0 0.4rem;
+}
+
+/*途径站点*/
+/*.station {
+	height: 3.146667rem;
+	margin-top: 0.026667rem;
+	background-color: #fff;
+	padding: 0.266667rem 0.4rem;
+}*/
+/*.station p {
+	color: #353535;
+	font-size: 0.426667rem;
+}*/
+.main .main_bottom .s_road {
+	width: 100%;
+	left: 0.4rem;
+	margin-top:0.666667rem;
+	height: 0.24rem;
+	line-height: 0.24rem;
+	position: relative;
+}
+.main_bottom .s_road span:nth-child(2n+1){
+	width: 0.24rem;
+	height: 0.24rem;
+	display: inline-block;
+	border:1px solid black;
+	background-color: #fff;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.main_bottom .s_road span:nth-child(2n){
+	width: 1.2rem;
+	border: 1px solid #614161;
+	border-left:none;
+	border-right: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+.main_bottom .s_road span:nth-child(1),
+.main_bottom .s_road span:nth-child(7){
+	width: 0.666667rem;
+	height: 0.666667rem;
+}
+/*.main_bottom .s_road span:nth-child(7){
+	border: none;
+	background: #3B8383;
+}*/
+.main_bottom .s_road span:nth-child(11){
+	/*border: none;
+	background: #3B8383;*/
+	width: 0.4rem;
+	height: 0.4rem;
+}
+.main_bottom .s_road span:nth-child(1){
+	padding-left: 0.066667rem;
+	background: url("../images/sprite.png")no-repeat center center;
+	background-size:6.666667rem 6.666667rem;
+	background-position: 0 -2.0rem;
+	width: 0.52rem;
+	height: 0.52rem;
+	background-origin: content-box;
+    background-clip: content-box;
+     padding:0.04rem 0.04rem;
+}
+.main_bottom .s_name {
+	height: 0.133333rem;
+	width: 100%;
+	position: relative;
+}
+.main_bottom .s_name span {
+	position: absolute;
+	font-size: 0.32rem;
+}
+.main_bottom .s_name span:nth-child(1){
+	top: 0.3rem;
+	left: 0.16rem;
+}
+.main_bottom .s_name span:nth-child(2){
+	top: -0.6rem;
+	left: 1.0rem;
+}
+.main_bottom .s_name span:nth-child(3){
+	top:0.186667rem;
+	left: 2.4rem;
+}
+.main_bottom .s_name span:nth-child(4){
+	width: 1.68rem;
+	height: 0.52rem;
+	text-align: center;
+	line-height: 0.52rem;
+	color: #fff;
+	border-radius: 0.053333rem;
+	background-color: #614161;
+	top: -0.85rem;
+	right: 3.3rem;
+}
+.main_bottom .s_name span:nth-child(5){
+	top: 0.26rem;
+	right: 1.59rem;
+}
+.main_bottom .s_name span:nth-child(6){
+	top: -0.7rem;
+	right: 0.2rem;
+}
+.b_site{
+	background: #fff;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+    font-size: 0.46rem;
+    color: #3C78DB;
+}
+.footer{
+	margin-top: 10px;
+	width: 100%;
+	height: 5.0rem;
+	/*padding: 6.666667rem;*/
+	/*min-height: 2.666667rem;*/
+	background: #fff;
+}
+.footer h3{
+   font-size: 0.5rem;
+   font-weight: normal;
+   padding: 0.266667rem 0 0.15rem 0.4rem;
+}
+.footer .conn{
+	width: 92%;
+	height: 1.133333rem;
+	margin: 0 auto;
+	background: #3B77DB;
+    margin-top: 0.133333rem;
+    border-radius:  0.066667rem;
+}
+.footer .text_end{
+	font-size: 0.28rem;
+	color: #fff;
+	padding: 0.133333rem;
+}

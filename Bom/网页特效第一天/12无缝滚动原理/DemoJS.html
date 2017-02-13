@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        /*取消图片底部3像素距离*/
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box ul li {
+            float: left;
+        }
+
+        .box ul {
+            width: 1500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="screen">
+    <ul>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/01.jpg" alt=""/></li>
+    </ul>
+</div>
+<script>
+    var screen = document.getElementById("screen");
+    var ul = screen.children[0];
+    var lis = ul.children;
+    var timer = null;
+
+    timer = setInterval(play, 15);//这里最开始设置图片滚动的初始样式。
+    screen.onmouseover = function () {
+        clearInterval(timer);//当鼠标指上去的时候，暂停滚动，所以要清除计时器的计时。
+    };
+    screen.onmouseout = function () {
+       timer=setInterval(play,15);
+
+    }//当鼠标离开的时候，就要继续滚动，所以又要恢复计时器的功能。
+    console.log(timer);
+    function play() {
+        //leader = leader + step
+        var leader = ul.offsetLeft;//这里是因为记录当前的leader位置，而不是求宽度，所以用offsetleft。
+        var step = -3;
+        if (leader > -900) {
+            leader = leader + step;
+            ul.style.left = leader + "px";
+        } else {
+            ul.style.left = 0;
+        }
+    }
+
+</script>
+</body>
+</html>

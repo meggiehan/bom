@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 400px;
+            width: 400px;
+            background: pink;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+//        $(function() {
+//            // 实现自定义动画
+//            $("#btnAnimate").click(function() {
+//                // 第一个参数：要执行动画的属性
+//                // 第二个参数：动画执行的时长
+//                // 第三个参数：动画执行完后立即调用的函数
+//                $("div").animate({
+//                    "width": "100px",
+//                    "height": "200px",
+//                    "opacity": 0.4
+//                }, 2000, function() {
+//                    alert("自定义动画执行完毕");
+//                });
+//
+//                // 执行动画的样式属性的共同点：
+//                // 100px / 200px / 0.4 => 100 / 200 / 0.4
+//                // font-family: "宋体"
+//
+//                // 能执行动画的条件：
+//                // 1. 样式属性 有唯一的值（不满足的情况，font: "" 20px ）
+//                // 2. 样式属性的值 可以转换为数字值
+//
+//            });
+//        });
+
+        $(function(){
+            $("#btnAnimate").click(function(){
+                $("div").animate({
+                    "width":"500px",
+                    "height":"50px",
+                    "background-color":"blue",
+                    "opacity":0.3
+                },2000,function(){
+                    $("div").animate({
+                        "width":"50px",
+                        "height":"500px",
+                        "background-color":"blue",
+                        "opacity":0.6
+                    },2000)
+                })
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<button id="btnAnimate">自定义动画</button>
+<div></div>
+</body>
+</html>

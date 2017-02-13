@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            text-align: center;
+        }
+
+        .wrap div {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+//        $(document).ready(function () {
+//            // 给body或者document绑定键盘按下的事件
+//            $(document).on("keydown", function (e) {
+//                // 获取到按键的 值
+//                var keycode =  e.keyCode;
+//                // 改变keycode 的内容
+//                $("#keyCodeSpan").text(keycode);
+//
+//                // 根据keycode改变背景色
+//                // $("#bgChange").css("background", "red");
+//                // 判断：if-else / switch-case
+//                switch (keycode) {
+//                    case 82:
+//                        // $("#bgChange").css("background", "red");
+//                        changeBg("red");
+//                        break;
+//                    case 71:
+//                        // $("#bgChange").css("background", "green");
+//                        changeBg("green");
+//                        break;
+//                    case 66:
+//                        // $("#bgChange").css("background", "blue");
+//                        changeBg("blue");
+//                        break;
+//                }
+//            });
+//
+//            // 改变背景色函数
+//            function changeBg(color) {
+//                $("#bgChange").css("background", color);
+//            }
+//        });
+
+        $(document).ready(function(){
+            $(document).on("keydown",function(event){
+                var keycode=event.keyCode;
+                $("#keyCodeSpan").text(keycode);
+                  switch(keycode){
+                      case 71: bgcolor("gray");
+                          break;
+                      case 82:bgcolor("red");
+                          break;
+                      case 66:bgcolor("blue");
+                          break;
+                      case 89:bgcolor("yellow");
+                          break;
+                      case 79:bgcolor("orange");
+                          break;
+
+                  }
+            })
+        })
+
+        function bgcolor(color){
+            $("#bgChange").css("background",color);
+        }
+
+    </script>
+</head>
+
+<body>
+<div class="wrap">
+    <h1>按键改变颜色</h1>
+    <div id="bgChange">keyCode为：<span id="keyCodeSpan"></span></div>
+</div>
+</body>
+
+</html>

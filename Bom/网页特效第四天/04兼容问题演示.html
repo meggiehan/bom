@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    document.onclick = function (event) {
+        //console.log(event);//chrome可以 FF可以 IE可以 IE678不兼容
+        console.log(window.event);//IE678用的是这个
+        var event = event || window.event;
+        console.log(event.pageX);
+        console.log(event.clientX + document.documentElement.scrollLeft);
+    };
+</script>
+</body>
+</html>

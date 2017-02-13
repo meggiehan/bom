@@ -1,0 +1,240 @@
+body{background:#f5f5f5;}
+.jd_layout{min-width: 300px;max-width: 640px;margin: 0 auto;position: relative;}
+/*头部搜索区块*/
+/*在这里没有办法实现功能,因为fixed基准的是以Window为基准的*/
+.jd_header{position: fixed;left: 0; top: 0; width: 100%; height: 40px;z-index: 1;}
+.jd_header .jd_header_box{
+    min-width: 300px;
+    height: 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(201,21,35,0);
+    position: relative;
+}
+.jd_header .jd_header_box .icon_logo{
+    background: url("../images/sprites.png") no-repeat;
+    background-size: 200px 200px;
+    position: absolute;
+    left: 10px;
+    top:4px;
+    height: 36px;
+    width: 60px;
+    background-position: 0 -103px;
+}
+.jd_header .jd_header_box .login{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;}
+.jd_header .jd_header_box form{
+    width: 100%;
+    padding-left: 75px;
+    padding-right: 55px;
+    position: relative;
+}
+.jd_header .jd_header_box input{
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 5px;
+    height: 30px;
+    padding-left: 30px;
+}
+.jd_header .jd_header_box form .icon_search{
+    height: 20px;
+    width: 20px;
+    background-position:-60px -109px;
+    position: absolute;
+    left: 80px;
+    top: 10px;
+}
+.jd_banner{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.jd_banner ul:nth-child(1){
+    width: 1000%;
+}
+.jd_banner ul:nth-child(1) li{
+    width: 10%;
+    float: left;
+}
+.jd_banner ul:nth-child(1) li a{
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:nth-child(1) li a img{
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:nth-child(2){
+    position: absolute;
+    width: 118px;
+    height: 6px;
+    left: 50%;
+    bottom: 5px;
+    margin-left: -59px;
+}
+.jd_banner ul:nth-child(2) li{
+    float: left;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+.jd_banner ul:nth-child(2) li.now{
+    background: #fff;
+}
+.jd_banner ul:nth-child(2) li:first-child{
+    margin-left: 0;
+}
+.jd_nav{
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+.jd_nav ul li{
+    float: left;
+    width: 25%;
+}
+.jd_nav ul li a{
+    width: 100%;
+    display: block;
+}
+.jd_nav ul li a img{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+}
+.jd_nav ul li a p{
+    padding: 6px 0;
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+}
+.jd_product{
+  padding: 0 5px;
+}
+.jd_product_box{
+    margin-top: 10px;
+    box-shadow: 0 0 1px 1px #e0e0e0;
+    background: #fff;
+}
+.jd_product .product_tit{
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.jd_product .product_tit h3{
+    position: relative;
+    font-weight:normal;
+    margin-left: 10px;
+    padding-left: 7px;
+
+}
+.jd_product .product_tit h3::before{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: #d8505c;
+    top: 10px;
+    left: 0;
+}
+.sk_icon{
+    background: url("../images/seckill-icon.png") no-repeat;
+    background-size: 16px 20px;
+    width: 16px;
+    height: 20px;
+    float: left;
+    margin-top:7px;
+    margin-left: 10px;
+}
+.sk_name{
+    color: #d8505c;
+    font-size: 15px;
+    float: left;
+    margin-left: 10px;
+}
+.sk_time{
+    float: left;
+    margin-left: 10px;
+}
+.sk_time span{
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    background: #333;
+    text-align: center;
+    float: left;
+    margin-top: 8px;
+    margin-right: 3px;
+    color: #fff;
+}
+.sk_time span:nth-child(3n){
+    background: #fff;
+    color: #333;
+    width: 3px;
+}
+.sk_product{
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0;
+}
+.sk_product li{
+    width: 33.33333%;
+    float: left;
+}
+.sk_product li a{
+    width: 100%;
+    display: block;
+    border-right: 1px solid #e0e0e0;
+}
+.sk_product li:last-child a{
+    border-right: none;
+}
+.sk_product li a img{
+    width: 64%;
+    margin: 0 auto;
+    display: block;
+}
+.sk_product li p:first-of-type{
+    color: #d8505c;
+    padding-top: 5px;
+}
+.sk_product li p:last-of-type{
+    text-decoration: line-through;
+    padding-top: 5px;
+}
+.jd_product .no_border{
+    border-bottom: none;
+}
+.jd_product .product_con{
+    min-height: 100px;
+}
+
+.w_50{
+    width: 50%;
+    display: block;
+}
+.w_50 img{
+    width: 100%;
+    display: block;
+}
+.b_left{
+    border-left: 1px solid #e0e0e0;
+}
+.b_right{
+    border-right: 1px solid #e0e0e0;
+}
+.b_bottom{
+    border-bottom: 1px solid #e0e0e0;
+}

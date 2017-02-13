@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .line1,.line2,.line3,.line4,.line5,.line6{
+            width: 1360px;
+            height: 100px;
+            background-color: skyblue;
+            margin: 10px;
+        }
+        ul{
+            padding: 0;
+            margin: 5px 25px;
+            list-style: none;
+            width: 90px;
+            height: 90px;
+            border: 1px solid silver;
+            float: left;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+        }
+       li{
+           width: 20px;
+           height: 20px;
+           background-color: black;
+           border-radius: 50%;
+           margin: 5px;
+       }
+       .line3 ul:nth-child(1){
+           margin: 0px 270px;
+       }
+        .line3 ul:nth-child(2){
+            margin: 0px 270px;
+        }
+        .line4 ul:nth-child(1){
+            margin: 0px 270px;
+        }
+        .line4 ul:nth-child(2){
+            margin: 0px 270px;
+        }
+        .line5 ul:nth-child(1){
+            margin: 0px 270px;
+        }
+        .line5 ul:nth-child(2){
+            margin: 0px 270px;
+        }
+        .line6 ul:nth-child(1){
+            margin: 0px 170px;
+        }
+        .line6 ul:nth-child(2){
+            margin: 0px 170px;
+        }
+        .line6 ul:nth-child(3){
+            margin: 0px 170px;
+        }
+        .line1 ul:nth-child(2){
+            justify-content: center;
+        }
+        .line1 ul:nth-child(3){
+            justify-content: flex-end;
+        }
+        .line1 ul:nth-child(4){
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .line1 ul:nth-child(5){
+            justify-content: center;
+            align-items: center;
+        }
+        .line1 ul:nth-child(6){
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .line1 ul:nth-child(7){
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .line1 ul:nth-child(8){
+            flex-direction: column;
+            justify-content: flex-end;
+             align-items: center;
+        }
+        .line1 ul:nth-child(9){
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .line2 ul:nth-child(1){
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(2){
+            align-items: center;
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(3){
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(4){
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(5){
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(6){
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(7){
+            justify-content: flex-start;
+        }
+        .line2 ul:nth-child(7) li:nth-child(2){
+            align-self: center;
+        }
+        .line2 ul:nth-child(8){
+            justify-content: space-between;
+        }
+        .line2 ul:nth-child(8) li:nth-child(2){
+            align-self: flex-end;
+        }
+        .line2 ul:nth-child(9){
+        }
+
+        .line3 ul:nth-child(1){
+           justify-content: space-between;
+       }
+        .line3 ul:nth-child(1) li:nth-child(2){
+           align-self: center;
+        }
+        .line3 ul:nth-child(1) li:nth-child(3){
+            align-self: flex-end;
+        }
+        .line3 ul:nth-child(2){
+            justify-content: space-between;
+            flex-direction: row-reverse;
+        }
+        .line3 ul:nth-child(2) li:nth-child(2){
+            align-self: center;
+        }
+        .line3 ul:nth-child(2) li:nth-child(3){
+            align-self: flex-end;
+        }
+
+        .line4 ul:nth-child(1){
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .line4 ul:nth-child(1) li:nth-child(1){
+            margin: 5px 10px;
+            justify-content: space-between;
+            align-content:space-between ;
+        }
+        .line4 ul:nth-child(2){
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+        .line4 ul:nth-child(2) li:nth-child(4){
+            justify-content: flex-end;
+            /*align-content:flex-end ;*/
+            align-self: flex-end;
+        }
+
+        .line5 ul:nth-child(1){
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .line5 ul:nth-child(1) li:nth-child(1){
+            align-content:space-between ;
+        }
+        .line5 ul:nth-child(2){
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .line5 ul:nth-child(2) li:nth-child(4){
+            /*justify-content: center;*/
+            align-self: center;
+
+        }
+        .line5 ul:nth-child(2) li:nth-child(5){
+            justify-content: center;
+            align-self: center;
+            align-content: flex-end;
+
+        }
+
+        .line6 ul:nth-child(1){
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+        .line6 ul:nth-child(2){
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+        .line6 ul:nth-child(2) li:nth-child(4){
+            /*align-self: flex-end;*/
+            margin: 35px 5px 0 5px;
+        }
+        .line6 ul:nth-child(2) li:nth-child(5){
+            /*align-self: flex-end;*/
+            margin: 35px 5px 0px 5px;
+        }
+        .line6 ul:nth-child(2) li:nth-child(6){
+            /*align-self: flex-end;*/
+            margin: 35px 5px 0px 5px;
+        }
+
+        .line6 ul:nth-child(3){
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+        .line6 ul:nth-child(3) li:nth-child(1){
+            margin: 5px 5px 5px 17px;
+        }
+        .line6 ul:nth-child(3) li:nth-child(2){
+            margin: 5px 5px 5px 17px;
+        }
+        .line6 ul:nth-child(3) li:nth-child(3){
+            margin: 5px 5px 5px 17px;
+        }
+        .line6 ul:nth-child(3) li:nth-child(4){
+            margin: 5px 5px 5px 12px;
+        }
+        .line6 ul:nth-child(3) li:nth-child(5){
+            margin: 5px 5px 5px 12px;
+        }
+        .line6 ul:nth-child(3) li:nth-child(6){
+            margin: 5px 5px 5px 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="line1">
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+</div>
+<div class="line2">
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="line3">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="line4">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="line5">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="line6">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

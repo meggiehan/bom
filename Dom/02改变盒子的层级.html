@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute; /*层级要想生效也要加定位*/
+        }
+
+        #box1 {
+            background-color: red;
+            float: left;
+            margin: 50px;
+        }
+
+        #box2 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+<!--<div id="box3"></div>-->
+<script>
+    var zindex=0;
+    var box1=document.getElementById("box1");
+    var box2=document.getElementById("box2");
+    var arr=[box1,box2]
+    for(i=0;i<arr.length;i++){
+        arr[i].onclick=function(){
+            zindex++;
+            this.style.zIndex=zindex;
+        }
+    }
+
+
+//    var zIndex = 0;
+//    var box1 = document.getElementById("box1");
+//    var box2 = document.getElementById("box2");
+//    var arr = [box1, box2];
+//    for (var i = 0; i < arr.length; i++) {
+//        arr[i].onclick = function () {
+//            zIndex++;
+//            this.style.zIndex = zIndex;
+//        };
+//    }
+
+</script>
+</body>
+</html>

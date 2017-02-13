@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn1" value="打开"/>
+<input type="button" id="btn2" value="关闭"/>
+<script>
+    var win = null;
+    //打开
+    document.getElementById("btn1").onclick = function () {
+        //1.url 2窗口名 3窗口的一些属性
+        win = window.open("http://www.baidu.com");//返回window对象
+        //window.open("http://www.baidu.com", "_self");//当前窗口
+//        win=window.open("http://www.baidu.com","_self");
+//        win=window.open("http://www.baidu.com", "_blank");//新窗口
+//       win= window.open("http://www.baidu.com", "_blank", "width=200,height=200");//新窗口
+    };
+    //关闭
+    document.getElementById("btn2").onclick = function () {
+        //window.close();//关闭当前窗口
+        win.close();
+    };
+
+//var win=null;
+//var btn1=document.getElementById("btn1");
+//var btn2=document.getElementById("btn2");
+//btn1.onclick=function(){
+//    win=window.open("http://www.baidu.com");
+//}
+//btn2.onclick=function(){
+//    win.close();
+//}
+</script>
+</body>
+</html>

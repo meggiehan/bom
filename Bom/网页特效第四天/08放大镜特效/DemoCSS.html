@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+        .box img {
+            vertical-align: top;
+        }
+
+        #bigBox img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div id="smallBox" class="small">
+        <img src="images/001.jpg" width="350" alt=""/>
+
+        <div id="mask" class="mask"></div>
+    </div>
+    <div id="bigBox" class="big">
+        <img src="images/0001.jpg" width="800" alt=""/>
+    </div>
+</div>
+<script>
+    var box=document.getElementById("box");
+    var smallBox=document.getElementById("smallBox");
+    var mask=document.getElementById("mask");
+    var bigBox=document.getElementById("bigBox");
+    var bigImg=bigBox.children[0];
+    smallBox.onmouseover=function(){
+        bigBox.style.display="block";
+        mask.style.display="block";
+    }
+    smallBox.onmouseout=function(){
+        bigBox.style.display="none";
+        mask.style.display="none";
+
+    }
+
+       smallBox.onmousemove=function(event){
+           var event=event||window.event;
+           var pageX=event.pageX||event.clientX+document.documentElement.scrollLeft;
+           var pageY=event.pageY||event.clientY+document.documentElement.scrollTop;
+           var boxX=pageX-box.offsetLeft;
+           var boxY=pageY-box.offsetTop;
+           var maskX=boxX-mask.offsetWidth/2;
+           var maskY=boxY-mask.offsetHeight/2;
+           if(maskX<0){
+               maskX=0;
+           }
+           if(maskX>smallBox.offsetWidth-mask.offsetWidth){
+               maskX=smallBox.offsetWidth-mask.offsetWidth;
+           }
+           if(maskY<0){
+               maskY=0;
+           }
+           if(maskY>smallBox.offsetHeight-mask.offsetHeight){
+               maskY=smallBox.offsetHeight-mask.offsetHeight;
+           }
+           //大盒子的位置=大盒子总移距离/遮罩总移距离*遮罩现在的位置。
+           var bigBoxtomove=bigImg.offsetWidth-bigBox.offsetWidth;
+           var masktomove=smallBox.offsetWidth-mask.offsetWidth;
+           var mate=bigBoxtomove/masktomove;
+           bigImg.style.left=-mate*maskX+"px";
+           bigImg.style.top=-mate*maskY+"px";
+           mask.style.left=maskX+"px";
+           mask.style.top=maskY+"px";
+   }
+</script>
+</body>
+</html>

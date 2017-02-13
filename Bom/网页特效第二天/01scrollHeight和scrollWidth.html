@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #demo {
+            width: 200px;
+            height: 100px;
+            /*display: inline;*/
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素
+    内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内
+    容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大
+    小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内
+    容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素
+    内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的
+    大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部
+    内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内
+    容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小
+    <img src="1.jpg">
+</div>
+<script>
+    var demo = document.getElementById("demo");
+    console.log(demo.offsetHeight);//元素自身的大小
+    console.log(demo.scrollHeight);//元素内部内容的大小
+    console.log(demo.offsetWidth);
+    console.log(demo.scrollWidth);
+</script>
+</body>
+</html>

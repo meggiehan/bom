@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            height: 100px;
+            width: 300px;
+            background: pink;
+        }
+        div p {
+            height: 50px;
+            width: 150px;
+            background: green;
+            margin: 10px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 给div绑定单击事件
+            $("div").on("click", function () {
+                alert("这是给div绑定的单击事件");
+            });
+            // 给p元素绑定事件
+            $("div").on("click", "p", function () {
+                alert("动态绑定的事件触发了");
+            });
+            // 解除事件绑定
+            $("#btn").on("click", function () {
+                // off() 作用：解除事件绑定
+                // 出入多个事件名 并以 空格分隔，这样就能解除多个事件的绑定
+                // 把所有的事件都解除，包括：给自身绑定的事件 以及 动态绑定的事件
+                // $("div").off("click");
+                // 第一个参数：表示 要接触的事件名称
+                // 第二个参数：表示解除动态绑定的事件，而自身绑定的事件还存在
+                $("div").off("click", "**");
+                // 解除事件绑定 注意点：
+                // 用什么方式绑定的事件，就用该方式对应的解除事件的方式来解除
+                // bind()  --->  unbind()
+                // delegate() ---> undelegate()
+                // on() ---> off()
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">解除事件绑定</button>
+    <div>
+        <p>这是div 的子元素p</p>
+    </div>
+</body>
+</html>

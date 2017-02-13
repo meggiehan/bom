@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素
+    内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内
+    容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大
+    小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内
+    容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素
+    内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的
+    大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部
+    内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内
+    容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小素内部内容的大小
+    <img src="1.jpg">
+</div>
+<script>
+    var demo = document.getElementById("demo");
+    //onscroll滚动事件
+//    demo.onscroll = function () {
+//        console.log(demo.scrollTop);
+//        console.log(demo.scrollLeft);
+//
+//    };
+    demo.scrollIntoView=function(){
+ console.log(demo.scrollLeft);
+    }
+</script>
+</body>
+</html>

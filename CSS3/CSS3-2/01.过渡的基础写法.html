@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid gray;
+			margin: 100px auto;
+
+			/* 过渡的 单独写法 */
+			/* 过渡属性 可以指定 某一个 或者某一些 如果想要所有的都能够过渡 使用all即可 */
+			/* transition-property: width,height; */
+			/* 持续时间 */
+			/* transition-duration: 2s; */
+			/* 延迟时间 */
+			/* transition-delay: 1s,2s; */
+			/* 过渡的动画线型
+				linear
+				ease-in
+				ease-out
+				...
+				实际开发的时候 不会使用transition来制作 太长的动画效果 所以 使用默认的即可
+				ease
+			 */
+			/* transition-timing-function: ease; */
+
+			/* 复合写法 */
+			/* transition: width 1s 1s linear, */
+			/* height 1s 2s ease,background-color 1s 3s; */
+
+			/* 如果不想要过渡的属性 分别设置效果 可以直接使用all 指定 所有的属性 进行过渡 */
+		}
+		div:hover{
+			width: 400px;
+			height: 400px;
+			background-color: hotpink;
+			/*transition: width 1s 1s linear,*/
+			/*height 1s 2s ease,background-color 1s 3s;*/
+
+			transition: all 2s;
+			transition-timing-function: cubic-bezier(.19,1.43,1,.34);
+
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

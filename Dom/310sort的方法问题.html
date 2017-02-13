@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sort(arr, fn) {
+        for (var i = 0; i < arr.length - 1; i++) {
+            var flag = true;
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (fn(arr[j], arr[j + 1]) > 0) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return arr;
+    }
+    /*var array = [3, 2, 1];
+     console.log(sort(array, function (a, b) {
+     return a - b;
+     }));*/
+
+
+    //复习 形参和实参
+     function fn(a, b) {//形式参数
+     a = 100;//对形参进行改变
+     //console.log(a);//形参改变了
+     return a + b;
+     }
+     var a = 10;
+     var b = 20;
+     fn(a, b);//实际参数
+     //调用函数的时候 是把实际参数的值 复制一份 赋值给形参 他们只是值一样 没有任何关系
+     //console.log(a);//实参不会改变
+     //对形参的改变一定不会影响实参 这个说法是不严谨的
+
+    var array = [3, 2, 1];//实际参数
+    console.log(array);
+    //把实际参数array复制了一份 赋值给了形式参数arr 我们是对形式参数arr进行的修改
+    console.log(sort(array, function (a, b) {
+        return a - b;
+    }));//这个函数内部只是对形式参数arr进行了修改
+    console.log(array);
+
+
+</script>
+</body>
+</html>

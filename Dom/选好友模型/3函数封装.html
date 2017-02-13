@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="all" multiple="multiple">
+    <option value="">西施</option>
+    <option value="">琳琳</option>
+    <option value="">小龙龙</option>
+    <option value="">苏东坡</option>
+</select>
+<input type="button" id="btn1" value="&gt;&gt;"/>
+<input type="button" id="btn2" value="&lt;&lt;"/>
+<input type="button" id="btn3" value="&gt;"/>
+<input type="button" id="btn4" value="&lt;"/>
+<select name="" id="sel" multiple="multiple"></select>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var all = $("all");//左边的
+    var sel = $("sel");//右边的
+    //点击btn1  把左边的都放到右边
+    $("btn1").onclick = function () {
+        move(all, sel, true);
+    };
+    //点击btn2  把右边的都放到左边
+    $("btn2").onclick = function () {
+        move(sel, all, true);
+    };
+    //点击btn3  把左边选中的放到右边
+    $("btn3").onclick = function () {
+        move(all, sel, false);
+    };
+    //点击btn4  把右边选中的放到左边
+    $("btn4").onclick = function () {
+        move(sel, all, false);
+    };
+    //isMoveAll 如果 true 就全都移动 如果是 false 只移动选中的
+    function move(sour, dest, isMoveAll) {
+        var options = sour.children;
+        for (var i = 0; i < options.length; i++) {
+            var option = options[i];
+            if (isMoveAll || option.selected) {
+                dest.appendChild(option);
+                i--;
+            }
+        }
+    }
+
+
+    function moveAll(sour, dest) {
+        var options = sour.children;
+        for (var i = 0; i < options.length; i++) {
+            var option = options[i];
+            dest.appendChild(option);
+            i--;
+        }
+    }
+    function moveSelected(sour, dest) {
+        var options = sour.children;
+        for (var i = 0; i < options.length; i++) {
+            var option = options[i];
+            if (option.selected) {
+                dest.appendChild(option);
+                i--;
+            }
+        }
+    }
+
+    //isMoveAll 如果 true 就全都移动 如果是 false 只移动选中的
+    function move(sour, dest, isMoveAll) {
+        var options = sour.children;
+        for (var i = 0; i < options.length; i++) {
+            var option = options[i];
+            if (isMoveAll) {
+                dest.appendChild(option);
+                i--;
+            } else {
+                if (option.selected) {
+                    dest.appendChild(option);
+                    i--;
+                }
+            }
+        }
+    }
+    function move(sour,dest,isMoveAll){
+        var options=sour.children;
+        for(i=0;i<options.length;i++){
+            var option=options[i];
+            if(isMoveAll||option.selected){
+                dest.appendChild(option);
+                i--;
+            }
+        }
+    }
+    function move(sour,dest,isMoveAll){
+        var options=sour.children;
+        for(i=0;i<options.length;i++){
+            var option=options[i];
+            if(isMoveAll){
+                dest.appendChild(option);
+                i--;
+            }
+            else{
+                if(option.selected){
+                    dest.appendChild(option);
+                    i--;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

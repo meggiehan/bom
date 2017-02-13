@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素</title>
+	<style>
+		.active {
+			color: green;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>国内新闻</li>
+		<li class="active">国际新闻</li>
+		<li class="active">体育新闻</li>
+		<li>娱乐新闻</li>
+	</ul>
+	<script>
+		// document.getElementById();
+		// document.getElementsByTagName(); 伪数组
+
+		// 以前是可以获取元素的，但是获取的条件比较单一
+
+		// HTML5 提供了一些新的DOM获取元素的方法
+		// document.getElementsByClassName(); 伪数组
+
+		var active = document.getElementsByClassName('active');
+
+		console.log(active);
+
+		active[0].style.backgroundColor = 'red';
+
+		active[1].style.backgroundColor = 'blue';
+
+
+	</script>
+</body>
+</html>

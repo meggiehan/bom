@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01-利用构造函数创建table</title>
+</head>
+<body>
+	
+</body>
+<script>
+//	function cTag( tagName ) {
+//		return document.createElement( tagName );
+//	}//这是动态创建元素
+//	function Table ( option ) {
+//		var table = cTag( 'table' );//首先动态创建一个table标签
+//		for ( var k in option ) {
+//			table.setAttribute( k, option[ k ] );//只能使用点语法，不能使用关联数组方法。
+//		}
+//		this.DOM = table;//table = this.DOM = cTag('table)  三者同表示一个节点
+//		//这里是把创建出来的 cTag('table')节点放在了table的变量里了，
+//		// 后面用到这个节点的地方他直接放这个table变量代替的
+//		table.appendChild( cTag( 'tbody' ) );
+//		this.add = function ( tr ) {
+//			table.lastChild.appendChild( tr.DOM )
+//		};
+//	}//创建表格容器，并且添加属性
+//	function Tr() {
+//		this.DOM = cTag( 'tr' );
+//		this.add = function ( td ) {
+//			this.DOM.appendChild( td.DOM );
+//		};
+//	}
+//	function Td( value, option ) {
+//		var td = cTag( 'td' );
+//		for ( var k in option ) {
+//			td.setAttribute( k, option[ k ] );
+//		}
+//		td.innerHTML = value;
+//
+//		this.DOM = td;
+//	}
+//	var arr = [
+//		{ name: 'jim1', age: 19, gender: '男' },
+//		{ name: 'jim2', age: 18, gender: '男' },
+//		{ name: 'jim3', age: 20, gender: '男' },
+//		{ name: 'jim4', age: 18, gender: '男' }
+//	];
+//	// 创建表格
+//	var table = new Table( { width: 600, border: 1 } ) ;
+//
+//	// 有多少条数据就创建多少行
+//	for ( var i = 0; i < arr.length; i++ ) {
+//		var tr = new Tr();
+//		// 根据数据创建 td
+//		for ( var k in arr[ i ] ) {
+//			var td = new Td( arr[ i ][ k ] );
+//			tr.add( td );
+//		}
+//		// 将行加入到 table
+//		table.add( tr );
+//	}
+//	document.body.appendChild( table.DOM );
+
+
+  function cTag(tagname){
+	return document.createElement(tagname);
+  }
+
+	function Table(option){
+		var table=cTag('table');
+		for(var k in option){
+			table.setAttribute(k,option[k]);
+		}
+		this.DOM=table;
+		this.DOM.appendChild(cTag('tbody'));
+		this.add=function(tr){
+			table.lastChild.appendChild(tr.DOM);
+		}
+	}
+var t=new Table();
+	function Tr(){
+		this.DOM=cTag('tr');
+		this.add=function(td){
+			this.DOM.appendChild(td.DOM);
+		}
+	}
+var tr=new Tr();
+t.add(tr);
+
+function Td(value,option){
+	var td=cTag('td');
+	for(var k in option){
+		td.setAttribute(k,option[k]);
+	}
+	td.innerHTML=value;
+	this.DOM=td;
+}
+var d=new Td();
+tr.add(d);
+
+var arr = [
+		{ name: 'jim1', age: 19, gender: '男' },
+		{ name: 'jim2', age: 18, gender: '男' },
+		{ name: 'jim3', age: 20, gender: '男' },
+		{ name: 'jim4', age: 18, gender: '男' }
+	];
+
+var table=new Table({ width: 600, border: 1});
+
+for(i=0;i<arr.length;i++){
+	var tr= new Tr();
+	for(var k in arr[i]){
+		var td=new Td(arr[i][k]);
+		tr.add(td);
+	}
+	table.add(tr);
+}
+
+document.body.appendChild(table.DOM);
+
+
+</script>
+</html>

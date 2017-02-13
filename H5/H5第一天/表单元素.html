@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form {
+            width: 250px;
+        }
+        label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>表单元素</legend>
+        <label for="" >
+            姓名: <input name="name" type="text"/>
+        </label>
+        <label for="">
+            省份:
+            <select   name="name" >
+                <option value="1">上海</option>
+                <option value="2">安徽</option>
+            </select>
+        </label>
+        <label for="">
+            个人简介:
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </label>
+        <label for="">
+            课程: <input type="number" list="course"/>
+        </label>
+        <datalist id="course">
+            <option value="php">php1</option>
+            <option value="photo"></option>
+            <option value="photoshop"></option>
+        </datalist>
+        <label for="">
+            加密：
+            <keygen name="safety"/>
+        </label>
+        <label for="">
+            结果：<output>5656koko</output>
+        </label>
+        <label for="">
+            度量器：<meter min="0" max="100" low="50" high="80" value="91"></meter>
+            度量器：<meter min="0" max="100" low="60" high="80" value="61"></meter>
+            度量器：<meter min="0" max="100" low="60" high="80" value="91"></meter>
+        </label>
+        <label for="">
+            提交:
+            <input type="submit"/>
+        </label>
+
+    </fieldset>
+</form>
+</body>
+</html>

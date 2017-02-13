@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+			position: relative;
+		}
+
+		.box {
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			position: absolute;
+			top: 100px;
+			left: 50px;
+		}
+
+		.container {
+			width: 300px;
+			height: 300px;
+			background-color: green;
+			position: absolute;
+			top: 100px;
+			left: 50%;
+			margin-left: -150px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 拖拽元素 -->
+	<div class="box" draggable="true"></div>
+	<!-- 目标元素 -->
+	<div class="container">
+		<p class="text">将文件拖到此处</p>
+		<img src="" class="preview" alt="">
+	</div>
+
+	<script>
+		// 拖拽元素
+		var box = document.querySelector('.box');
+
+		// 目标元素
+		var container = document.querySelector('.container');
+
+		/*****************拖拽元素****************/
+
+		// // 只要有拖拽就触发，并且只有box颜色发生变化；
+		 box.addEventListener('drag', function () {
+		 	this.style.backgroundColor = 'red';
+		 	console.log('drag');
+		 });
+
+
+		 //有触发之后，box和拖拽元素的颜色都发生变化；
+		 box.addEventListener('dragstart', function () {
+		 	//新生成的元素
+		 	this.style.backgroundColor = 'blue';
+		 	//只触发一次
+		 	console.log('dragstart');
+		 });
+
+		 //有触发之后，box发生变化，并且当鼠标离开拖拽元素之后才触发，
+		 box.addEventListener('dragleave', function () {
+		 	this.style.backgroundColor = 'pink';
+		 	//只触发一次
+		 	console.log('dragleave');
+		 });
+		// // dragend事件没有边界限制，当不拖拽才触发；
+		box.addEventListener('dragend', function () {
+			this.style.backgroundColor = 'green';
+			//只触发一次
+			console.log('dragend');
+		});
+////
+//		/*****************目标元素****************/
+
+		container.addEventListener('dragenter', function () {
+			document.querySelector('.text').innerHTML = '松开鼠标';
+			this.style.backgroundColor = 'blue';
+			// 只触发一次
+			// console.log('dragenter');
+		});
+
+		container.addEventListener('dragover', function (ev) {
+			this.style.backgroundColor = 'red';
+			// 只触发多次
+			// console.log('dragover');
+ //因为要触发多次，所以后面的就没法执行了，只能阻止他的默认行为
+
+			// 阻止默认行为
+			ev.preventDefault();
+		});
+
+		container.addEventListener('drop', function (ev) {
+			this.style.backgroundColor = 'yellow';
+			// 触发多次
+			// console.log('drop');
+
+			// 要想生效，必须阻止dragover的默认行为
+
+			 ev.preventDefault();
+			console.log(ev);
+			var reader = new FileReader();
+			reader.readAsDataURL(ev.dataTransfer.files[0])
+			reader.onload = function () {
+				console.log(this.result);
+
+				document.querySelector('.preview').src = this.result;
+			}
+		});
+		container.addEventListener('dragleave', function () {
+			this.style.backgroundColor = 'black';
+			// 触发多次
+			console.log('dragleave');
+			// 要想生效，必须阻止dragover的默认行为
+		});
+
+
+//		container.addEventListener("dragenter",function(){
+//			this.style.backgroundColor="pink";
+//			console.log("dragenter");
+//		})
+//
+//		container.addEventListener("dragover",function(ev){
+//			this.style.backgroundColor="gary";
+//			console.log("dragover");
+//			ev.preventDefault();
+//		})
+//
+//		container.addEventListener("drop",function(ev){
+//			this.style.backgroundColor="orange";
+//			console.log("drop");
+////			ev.preventDefault();
+//		})
+//
+//		container.addEventListener("dragleave",function(){
+//			this.style.backgroundColor="blue";
+//			console.log("dragleave");
+//		})
+	</script>
+</body>
+</html>

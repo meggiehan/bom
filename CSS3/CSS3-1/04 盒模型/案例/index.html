@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.box {
+			padding-top: 30px;
+			text-align: center;
+		}
+
+		.items {
+			width: 316px;
+			height: 170px;
+			margin: 0 10px;
+			display: inline-block;
+			position: relative;
+			border: 5px solid #ccc;
+			box-sizing: border-box;
+			/*box-sizing: content-box;*/
+			overflow: hidden;
+		}
+
+		.items:hover {
+			border: 10px solid #CCC;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="items"><img src="./images/1.jpg" alt=""></div>
+		<div class="items"><img src="./images/2.jpg" alt=""></div>
+		<div class="items"><img src="./images/3.jpg" alt=""></div>
+	</div>
+	<p>1</p>
+	<script>
+		var lp = document.getElementsByTagName('p');
+		var time = 10;
+		
+			for (var i=0;i<time;i++) {
+				lp.innerHTML = i;
+			}
+		
+	</script>
+</body>
+</html>

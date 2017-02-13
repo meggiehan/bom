@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px; /*包括height*/
+            margin: 20px; /*不包括margin*/
+            border: 10px solid #000; /*包括border*/
+            padding: 20px; /*包括padding*/
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    var demo = document.getElementById("demo");
+    console.log(demo.offsetHeight);//offsetHeight=border+padding+height
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 全选功能
+            // 1. 给全选复选框绑定单击事件
+            $("#j_cbAll").click(function() {
+                // 2. 判断一下，复选框是否被选中
+                var isChecked = $(this).prop("checked");
+                if(isChecked) {
+                    // 3. 如果未选中，则让下面所有的其他复选框选中
+                    // :checkbox 作用：匹配所有的checkbox
+                    $("#j_tb").find(":checkbox").prop("checked", true);
+                } else {
+                    // 4. 如果选中，则让下面所有的其他复选框不选中
+                    $("#j_tb").find(":checkbox").prop("checked", false);
+                }
+            });
+            // 给表格tbody里面所有的checkbox绑定单击事件
+            $("#j_tb").find(":checkbox").click(function () {
+                // 判断 选中的复选框的个数 和 所有的复选框的个数，是否相等
+                // length 属性：不是方法，所以不需要()调用
+                // length 的作用：获取匹配元素的个数
+                var allLength = $("#j_tb").find(":checkbox").length;
+                // console.log(allLength);
+                // 获取选中的复选框的个数
+                var checkedLength = $("#j_tb").find(":checked").length;
+                // console.log(checkedLength);
+
+                if(allLength == checkedLength) {
+                    // 如果相等，就让 全选复选框 选中
+                    $("#j_cbAll").prop("checked", true);
+                } else {
+                    // 如果不相等，就让 全选复选框 不选中
+                    $("#j_cbAll").prop("checked", false);
+                }
+            });
+        });
+
+//
+//        $(function(){
+//            $("#j_cbAll").click(function(){
+//              var isChecked= $("#j_cbAll").prop("checked");
+//                if(isChecked){
+//                    $("#j_tb").find("input").prop("checked",true);
+//                }
+//                else{
+//                    $("#j_tb").find("input").prop("checked",false);
+//                }
+//            })
+//            $("#j_tb").click(function(){
+//                var allChecked=$("#j_tb").find(":checkbox").length;
+//                var selChecked=$("#j_tb").find(":checked").length;
+//                if(allChecked===selChecked){
+//                    $("#j_cbAll").prop("checked",true);
+//                }
+//                else{
+//                    $("#j_cbAll").prop("checked",false);
+//                }
+//            })
+//        })
+
+    </script>
+</head>
+
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll" />
+            </th>
+            <th>课程名称</th>
+            <th>所属学院</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>JavaScript</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>css</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>html</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>jQuery</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <!--<tr>
+            <td><input type="checkbox"/></td>
+            <td>HTML5</td>
+            <td>前端与移动开发学院</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>CSS3</td>
+            <td>前端与移动开发学院</td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

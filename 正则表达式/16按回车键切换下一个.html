@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<input type="text"/><br/>
+<script>
+
+    var inputs=document.getElementsByTagName("input");
+    for( var i=0;i<inputs.length;i++){
+        inputs[i].onkeyup=function(e){
+            if(e.keyCode===13){
+                var next=this.nextElementSibling.nextElementSibling;
+               if(next.type==="text"){
+                   next.focus();
+               }
+            }
+        }
+    }
+
+
+
+
+    var inputs = document.getElementsByTagName("input");
+    //在当前的文本框中 按下回车键 找到下一个文本框 让下一个文本框获取焦点
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onkeyup = function (e) {
+            //console.log(e.keyCode);
+            if (e.keyCode === 13) {
+                var next = this.nextElementSibling.nextElementSibling;
+                //下一个元素节点是回车，所有这里需要下一个元素的下一个元素
+                if (next.type === "text") {
+                    next.focus();//让下一个获得焦点。
+                }
+            }
+        };
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件读取</title>
+</head>
+<body>
+	<input type="file" multiple class="file">
+	<select name="" id="">
+		<option value="0">河北省</option>
+		<option value="1">河南省</option>
+		<option value="2">山东省</option>
+	</select>
+	<script>
+
+		// var select = document.querySelector('select');
+
+		//  select.onchange = function () {
+		// 	alert(this.value);
+		// }
+	
+		//获取file表单元素
+		var file = document.querySelector('.file');
+
+		file.onchange = function () {
+		 alert("我是文件");
+
+			// for(var key in file) {
+			// 	console.log(key + '~~~' + file[key]);
+			// }
+
+			console.log(file.files);
+		 }
+	</script>
+</body>
+</html>

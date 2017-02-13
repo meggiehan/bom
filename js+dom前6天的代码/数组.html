@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //求1-100之间奇数的数，用数组输出
+        //        var array = [];
+        //        for (var i = 1; i <= 100; i++) {
+        //            if (i % 2 !== 0) {
+        //                array[array.length] = i;
+        //
+        //            }
+        //        }
+        //        console.log(array);
+        //求数组中一组数的最大值
+
+                function getMax(array) {
+                    array = array || [];
+                    if (array.length == 0) {
+                        return;
+                    }
+                    var max = array[0];
+                    for (i = 1; i < array.length; i++) {
+                        max = max < array[i] ? array[i] : max;
+
+                    }
+                    return max;
+                }
+                var array = [3, 5, 22, 88, 90];
+                console.log(getMax(array));
+        //求一组数中的最小值
+        //        function getMin(array){
+        //            array=array||[];
+        //            if(array.length==0){
+        //                return;
+        //            }
+        //            var min=array[0];
+        //            for(i=0;i<array.length;i++){
+        //                min=min>array[i]?array[i]:min;
+        //            }
+        //            return min;
+        //        }
+        //        var array=[3,5,1,0.2,55];
+        //        console.log(getMin(array));
+        //求一组数中的最小值
+        //        function getMin(array) {
+        //            array = array || [];
+        //            if(array.length==0){
+        //                return;
+        //            }
+        //            var min=array[0];
+        //            for(i=0;i<array.length;i++){
+        //                if(min>array[i]){
+        //                    min=array[i];
+        //                }
+        //            }
+        //            return min;
+        //        }
+        //        console.log(getMin([3,5,7,8,2]));
+
+        //求翻转数组
+        //        function reverse(array) {
+        //            array = array || [];
+        //            var newarray = [];
+        //            for (i = array.length - 1; i >= 0; i--) {
+        //                newarray[newarray.length] = array[i];
+        //            }
+        //            return newarray;
+        //        }
+        //        console.log(reverse([1, 2, 3, 4]));
+        //对数组排序，从小到大
+        //        function sort(array) {
+//                        array=array||[];
+        //            for (i = 0; i < array.length - 1; i++) {
+        //                var issort = true;
+        //                for (j = 0; j < array.length - 1 - i; j++) {
+        //                    if (array[j] > array[j + 1]) {
+        //                        var temp = array[j];
+        //                        array[j] = array[j + 1];
+        //                        array[j + 1] = temp;
+        //                        issort = false;
+        //                    }
+        //                }
+        //                if (issort) {
+        //                    break;
+        //                }
+        //            }
+        //            return array;
+        //        }
+        //        var array = [3, 88, 1, 99, 89, 32];
+        //        console.log(sort(array));
+        //对数组排序，从大到小
+        function sort1(array) {
+            array = array || [];//判断数组是否为空，如果无值则表示给他一个默认的值
+            //控制外层循序次数
+            for (i = 0; i < array.length - 1; i++) {
+                var issort1 = true;//判断循环是否排序完
+                //控制内层循环的次数
+                for (j = 0; j < array.length - 1 - i; j++) {
+                    if (array[j] < array[j + 1]) {
+                        var temp = array[j];
+                        array[j] = array[j + 1];//交换变量
+                        array[j + 1] = temp;
+                        issort1 = false;//如果循环跳进来，则没有排序完
+                    }
+                }
+                if (issort1) {
+                    break;//如果执行完成，则退出循环，不再执行循环
+                }
+            }
+            return array;
+        }
+        var array = [32, 6, 7, 1, 90, 66];
+        console.log(sort1(array));
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

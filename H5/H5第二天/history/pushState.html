@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pushState</title>
+</head>
+<body>
+	<input type="button" id="btn" value="看地址变没变">
+	<script>
+		// 1、pushState可以往历史记录添加一条记录
+		var btn = document.getElementById('btn');
+		
+		// 
+		btn.onclick = function () {
+			location.href = 'http://www.baidu.com';
+
+			// 1、对象，在添加历史时，会设置一些数据，一般会设置null
+			// 2、一般不生效，没意义
+			// 3、我们要更改址址，并且会当一条新记录
+			history.pushState({}, '我是标题', '/demo.html');
+		}
+
+
+	</script>
+</body>
+</html>

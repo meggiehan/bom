@@ -1,0 +1,58 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+i,s,em{
+    text-decoration: none;
+    font-style: normal;
+}
+body{
+    color: #333333;
+    font-size: 18px;
+    font-family: "Î¢ÈíÑÅºÚ","Microsoft Yahei";
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+ol li,ul li{
+    list-style: none;
+    float: left;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #E4392A;
+  }
+.fr{
+    float: right;;
+}
+.fl {
+    float: left;
+}
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    zoom: 1;
+}
+.banxin{
+    width: 1170px;
+    margin: 0 auto ;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size: 14px;
+    font-weight: normal;
+}
+

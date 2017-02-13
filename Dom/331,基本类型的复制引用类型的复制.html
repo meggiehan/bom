@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var nuw1=12;
+    var nuw2=nuw1;
+    nuw1=30;
+    console.log(nuw1);//30
+    console.log(nuw2);//12
+
+    function person(name,age){
+//        var person1=new person;
+        this.name=name;
+        this.age=age;
+    }
+    var p1= new person("mj",22);//这里一定要上new
+    var p2=p1;
+    p2.name="hmj";
+    console.log(p1.name);
+    console.log(p2.name);
+    //    //基本类型的复制
+//    var num1 = 10;
+//    var num2 = num1;//复制数值
+//    num1 = 20;
+//    console.log(num1);//20
+//    console.log(num2);//10
+//
+//    //引用类型的复制
+//    function Person(name, age) {
+//        this.name = name;
+//        this.age = age;
+//    }
+//    var p1 = new Person("zs", 18);
+//    var p2 = p1;//复制引用
+//    p2.name = "ls";
+//    console.log(p1.name);//ls
+//    console.log(p2.name);//ls
+
+
+</script>
+</body>
+</html>

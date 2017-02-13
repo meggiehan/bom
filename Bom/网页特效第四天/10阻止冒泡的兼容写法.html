@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+
+    var btn = document.getElementById("btn");
+    btn.onclick = function (event) {
+        alert("按钮被点击啦");
+        var event = event || window.event;
+        //event.stopPropagation();
+        //event.cancelBubble = true;
+        /*if (event.stopPropagation) {
+         event.stopPropagation();//正常浏览器
+         } else {
+         event.cancelBubble = true;//IE678
+         }*/
+        stopPropagation(event);
+
+    };
+    function stopPropagation(event) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        }
+        else {
+            event.cancelBubble = true;
+        }
+    }
+    event.stopPropagation()
+    event.preventDefault()
+    event.cancelBubble
+
+
+    //    function stopPropagation(event) {
+    //        if (event.stopPropagation) {
+    //            event.stopPropagation();
+    //        } else {
+    //            event.cancelBubble = true;
+    //        }
+    //    }
+
+    document.onclick = function () {
+        alert("文档被点击了");
+    };
+</script>
+</body>
+</html>

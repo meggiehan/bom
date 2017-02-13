@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border: 10px solid #000;
+            padding: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    var demo = document.getElementById("demo");
+    console.log("offsetHeight: " + demo.offsetHeight);//160
+    console.log("scrollHeight: " + demo.scrollHeight);//140
+    console.log("clientHeight: " + demo.clientHeight);//140
+</script>
+</body>
+</html>

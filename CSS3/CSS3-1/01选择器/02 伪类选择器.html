@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		 body{
+		 	margin: 0;
+		 	padding: 0;
+		 	background-color: #F7F7F7;
+		 }
+		 ul{
+		 	width: 560px;
+			padding: 0;
+			margin: 100px auto;
+			list-style: none;
+			border-right: 1px solid #CCC;
+			border-bottom: 1px solid #CCC;
+			overflow: hidden;
+		 }
+		 li{
+		 	width: 78px;
+			height: 80px;
+			text-align: center;
+			line-height: 80px;
+			border-left: 1px solid #CCC;
+			border-top: 1px solid #CCC;
+			background-color: #FFF;
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+			float: left;
+		 }
+
+		 /*li:first-child{*/
+		 	/*color: yellow;*/
+		 /*}*/
+		 /*li:last-child{*/
+		 	/*color: blue;*/
+		 /*}*/
+
+		 /*li:nth-child(5),li:nth-child(6){*/
+		 	/*color: green;*/
+		 /*}*/
+
+		 /*li:nth-child(6){
+		 	color:green;
+		 }*/
+		 /*li:nth-child(-n+6){
+		 	color: green;
+		 }
+
+		 li:nth-child(-n+4){
+		 	color: #000
+		 };*/
+		 /*
+		  li:nth-child(12){
+			color:red;
+		 /*}*/
+		 /*li:nth-child(-5n+6){
+		 	color: pink;
+		 }
+*/
+		li:first-child{
+			color: orchid;
+		}
+		li:last-child{
+			color: #0099cc;
+		}
+		li:nth-child(8){
+			color: seagreen;
+		}
+		li:nth-child(7n){
+			color: red;
+		}
+		 li:nth-child(6n){
+			 color: darksalmon;
+		 }
+		 li:nth-child(2n+1){
+			 color: slateblue;
+		 }
+		 li:nth-child(odd){
+			 color: lawngreen;
+		 }
+		li:nth-child(2n){
+			color: red;
+		}
+		 li:nth-child(even){
+			 color: orange;
+		 }
+		li:nth-child(-n+6){
+			color: red;
+		}
+		li:nth-of-type(9){
+			color: slateblue;
+		}
+		 li:nth-last-of-type(3){
+			 color: yellow;
+		 }
+		.ua li:only-child{
+			color: #CC00FF;
+		}
+	</style>
+</head>
+<body>
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+		<li>11</li>
+		<li>12</li>
+		<li>13</li>
+		<li>14</li>
+		<li>15</li>
+		<li>16</li>
+		<li>17</li>
+		<li>18</li>
+		<li>19</li>
+		<li>20</li>
+		<li>21</li>
+		<li>22</li>
+		<li>23</li>
+		<li>24</li>
+		<li>25</li>
+		<li>26</li>
+		<li>27</li>
+		<li>28</li>
+		<li>29</li>
+		<li>30</li>
+		<li>31</li>
+		<li>32</li>
+		<li>33</li>
+		<li>34</li>
+		<li>35</li>
+	</ul>
+
+
+	<ul class="ua">
+		<li>333</li>
+	</ul>
+</body>
+</html>

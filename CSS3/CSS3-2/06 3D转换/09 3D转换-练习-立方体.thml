@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D-立方体</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #77f7f7;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			margin: 200px auto;
+			font-size: 24px;
+			position: relative;
+			transform: rotateX(30deg) rotateY(-30deg);
+			transform-style:preserve-3d; 
+			animation: move 8s linear infinite;
+		}
+		.front,.back ,.left,.right,.top,.bottom {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 0;
+			right: 0;
+		}
+		.front {
+			background-color: yellow;
+			transform: rotateX(0deg) translateZ(-100PX);
+		}
+		.back {
+			background-color: blue;
+			transform: rotateX(0deg) translateZ(100PX);
+		}
+		.left {
+			background-color: red;
+			transform: rotateY(90deg) translateZ(-100PX);
+		}
+		.right {
+			background-color: pink;
+			transform: rotateY(90deg) translateZ(100PX);
+		}
+		.top {
+			background-color: block;
+			transform: rotateX(90deg) translateZ(100PX);
+		}
+		.bottom {
+			background-color: orange;
+			transform: rotateX(90deg) translateZ(-100PX);
+		}
+		@keyframes move {
+			from {
+				transform: rotateX(0deg) rotateY(360deg);
+			}
+			to {
+				transform: rotateX(360deg)  rotateY(0deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="front">front</div>
+		<div class="back">back</div>
+		<div class="left">left</div>
+		<div class="right">right</div>
+		<div class="top">top</div>
+		<div class="bottom">bottoml</div>
+	</div>
+</body>
+</html>

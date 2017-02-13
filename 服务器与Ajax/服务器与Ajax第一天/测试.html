@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+
+
+	function foo(){
+		var num1=123;
+		var num2=456;
+		 // return [123,456];
+	return [
+		 	function (num1){
+		 		return num1;
+		 	},
+		 	function (num2){
+		 		return num2;
+		 	}
+		 ];
+	}
+	var f=foo();
+	console.log(f);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //Num即有数据类型转换的功能 又有构造函数的功能
+    //new 能够让 函数中的this返回 如果这个函数之前返回一个值类型的值 那么就不返回了
+    //一个函数只有一个返回值      //除了string number boolean undifined null 其余的都是引用类型，比如object等。
+    function Num(value) {
+        this.value = parseInt(value);
+        this.name = "number";
+        var num = new Date();
+//        var num = parseInt(value);
+        return num;//这时候返回的则是引用类型。
+    }
+
+    var num1 = Num("1");//当new使用的时候返回this当使用return的时候返回return后的引用类型值，同时使用时决定权在后面那个。
+    var num2 = new Num("1");//当用new和return同时使用的时候，返回this还是return?
+    //return后面是值类型--this
+    //return后面是引用类型--则返回return后面的值
+    console.log(num1);//1
+    console.log(num2);//Num
+
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+            background: skyblue;
+        }
+
+        /* 动画的使用必须要准备
+            1.准备动画 @keyframes 关键字定义
+            2.需要为想要使用动画的dom元素 添加一系列的动画属性
+         */
+
+        /* 1.定义动画 */
+        @keyframes toright {
+            from {
+                /* from中如果不设置 默认使用的是 初始状态 */
+            }
+            to {
+                transform: translateX(800px);
+            }
+        }
+
+        /* 准备一个class 内部定义了动画的各种效果 */
+        .animation {
+            /* 动画的名字 */
+            animation-name: toright;
+
+            /* 动画持续多久 */
+            animation-duration: 2s;
+
+            /* 设置动画的次数
+                动画次数
+                可以给具体的值
+                infinite 无限
+            */
+            animation-iteration-count: 2;
+
+            /* 动画的速度 线型 */
+            animation-timing-function: linear;
+
+            /* 动画的延迟事件 */
+            animation-delay: 0s;
+
+
+            animation-fill-mode: both; /*forwards  backwards*/
+
+            /*
+               alternate 正 反 正
+               reverse  全反
+               alternate-reverse  反 正 反
+               normal 全正
+            */
+            animation-direction: alternate-reverse;
+
+            /*animation-play-state: running; !* paused *!*/
+        }
+
+        /* 动画属性的复合写法 */
+        .animation-oneline {
+            /* 复合写法
+                属性的顺序 是可以随意调换的
+                第一次出现的时间 是持续时间
+                第二次出现的时间 是延迟时间
+                如果只写了一个时间 默认就是 持续时间
+            */
+            /*animation: toright 1s 2s linear infinite ; */
+            /*animation: linear  infinite 1s 2s toright; */
+            animation: linear 12s 0s sadhsakdhaskjd both;
+
+            /* 名称 持续时间  延迟时间  线性  次数  顺序  结束状态 */
+        }
+
+        /* 精确设置动画的过程 */
+
+        @keyframes sadhsakdhaskjd {
+            /* 起始状态 */
+            0% {
+                transform: translateX(0px) translateY(0px);
+            }
+            25% {
+                transform: translateX(1000px) translateY(500px)
+            }
+            50% {
+                transform: translateX(1000px) translateY(-100px)
+            }
+            75% {
+                transform: translateX(1000px) translateY(500px)
+            }
+            /* 动画的一半 移动到屏幕的 最右边 */
+            100% {
+                transform: translateX(1000px) translateY(1000px)
+
+            }
+            /* 返回到起始的位置 */
+            /*100% {*/
+            /*transform: translateX(1000px) translateY(200px);*/
+            /*}*/
+        }
+
+    </style>
+</head>
+<body>
+<div class='animation-oneline'></div>
+</body>
+</html>

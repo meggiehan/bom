@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //创建对象 （要有姓名 年龄 性别 分数 会打招呼）
+    var stu = new Object();
+    //属性
+    //var name = "zs";
+    stu.name = "zs";
+    stu.age = 18;
+    stu.sex = 0;
+    stu.score = 100;
+    //方法
+    stu.sayHi = function () {
+        console.log("大家好我叫" + this.name + "我今年" + this.age);
+    };
+    //console.log(stu.name);
+    stu.sayHi();
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="创建" id="btn"/>
+
+<div id="box"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    btn.onclick = function () {
+        var start = +new Date();
+        var arr = [];
+        for (i = 0; i < 10000; i++) {
+            arr.push("<ul><li>abcdefg</li></ul>");
+        }
+        box.innerHTML += arr.join("");
+        var end = +new Date();
+        console.log(end - start);
+    }
+//
+//    点击按钮后 在box 里面动态创建结构
+//        var btn = document.getElementById("btn");
+//        var box = document.getElementById("box");
+//
+//        btn.onclick = function () {
+//            var start = +new Date();//记录开始时间
+//            var arr = [];
+//            for (var i = 0; i < 1000; i++) {
+//                //拼接字符串
+//                arr.push("<ul><li>aaaaa</li></ul>");
+//            }
+//            //把字符串变为文档对象
+//            //把当前对象挂接到DOM树上
+//            //渲染引擎根据新的DOM树重新渲染
+//            box.innerHTML += arr.join("");
+//            var end = +new Date();
+//            console.log(end - start);
+//        };
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="demo">
+    <input type="text" id="txt"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+</div>
+<input type="button" value="禁用" id="btn"/>
+<script>
+    var txt=document.getElementById("txt");
+    var btn=document.getElementById("btn");
+    var demo=document.getElementById("demo");
+    var inputs=demo.getElementsByTagName("input");
+
+        btn.onclick=function(){
+            for(i=0;i<inputs.length;i++){
+              if(!inputs[i].disabled){
+                  inputs[i].disabled=true;
+              }
+                else{
+                  inputs[i].disabled=false;
+              }
+        }
+    }
+    //字符串的拼接
+    for(i=0;i<inputs.length;i++){
+            inputs[i].value=i;
+        }
+        btn.onclick=function(){
+            var array=[];
+            for(i=0;i<inputs.length;i++){
+                array.push(inputs[i].value);
+            }
+            console.log(array.join("-"));
+        }
+    ////
+    //    var btn = document.getElementById("btn");
+    //    var inputs = document.getElementsByTagName("input")
+    //    btn.onclick = function () {
+    //        for (i = 0; i < inputs.length; i++) {
+    //               if(inputs[i].type==="text" && inputs[i].id==="a" || inputs[i].id==="b"){
+    //                   inputs[i].disabled = !inputs[i].disabled;
+    //               }
+    //            }
+    //
+    //
+    //
+//    //    }
+//    var btn = document.getElementById("btn");
+//    var txt=document.getElementById("txt");
+//    var demo=document.getElementById("demo");
+//    var inputs = document.getElementsByTagName("input")
+//
+//    for (i = 0; i < inputs.length; i++) {
+//        if(inputs[i].type==="text"){
+//            inputs[i].value=i;
+//        }
+//    }
+//    btn.onclick = function () {
+//        var arr = [];
+//        for (i = 0; i <=inputs.length;i++){
+//            arr.push(inputs[i].value);
+//        }
+//        console.log(arr.join("-"));
+//    }
+
+
+</script>
+</body>
+</html>

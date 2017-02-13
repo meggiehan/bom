@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+		}
+		.header a{
+			display: block;
+			width: 100%;
+		}
+		.header a img{
+			display: block;
+			width: 100%;
+		}
+		.section{
+			margin-top: 10px;
+			height: 100px;
+			display: flex;
+		}
+		.section .add{
+			flex: 1;
+			background: orange;
+		}
+		.section .list{
+			flex: 2;
+			margin-left: 5px;
+			background: orange;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.section .list a{
+			width: 50%;
+			text-align: center;
+			line-height: 50px;
+			text-decoration: none;
+			color: white;
+			font-size: 20px;
+			font-weight: 700;
+			border-left: 1px solid white;
+			border-bottom: 1px solid white;
+			box-sizing: border-box;
+		}
+		.section:last-child .list{
+			margin-left: 0px;
+		}
+		.section:last-child .list a{
+			width: 33.33333%;
+		}
+		.footer{
+			display: flex;
+		}
+		.footer a{
+			flex: 1;
+		}
+		.footer a img{
+			display: block;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a href="#"><img src="images/banner.jpg" alt=""></a>
+		</div>
+		<div class="main">
+			<div class="section">
+				<div class="add"></div>
+				<div class="list">
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+				</div>
+			</div>
+			<div class="section">
+				<div class="add"></div>
+				<div class="list">
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+				</div>
+			</div>
+			<div class="section">
+				<div class="add"></div>
+				<div class="list">
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+				</div>
+			</div>
+			<div class="section">
+				<div class="list">
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+					<a href="#">住哪儿?</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="#"><img src="images/extra_1.png" alt=""></a>
+			<a href="#"><img src="images/extra_2.png" alt=""></a>
+		</div>
+	</div>
+</body>
+</html>

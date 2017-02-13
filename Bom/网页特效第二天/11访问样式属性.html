@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+<div id="demo" style="left: 50px;"></div>
+<script>
+    //var demo = document.getElementById("demo");
+    //console.log(demo.style.left);
+    logStyle("demo", "left");
+
+    function logStyle(id, attr) {
+        var demo = document.getElementById(id);
+        console.log(demo.style[attr]);
+    }
+
+</script>
+</body>
+</html>

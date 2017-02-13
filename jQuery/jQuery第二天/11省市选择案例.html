@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        select {
+            width: 200px;
+            background-color: teal;
+            height: 200px;
+            font-size: 20px;
+        }
+
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 1. 向右全选
+            $("#btn-sel-all").click(function() {
+                // 2.获取到左边 select 下的所有子元素
+                var $opts = $("#src-city").children("option");
+
+                // 3. 给右边select追加 左侧选择到的 子元素
+                $("#tar-city").append($opts);
+            });
+
+            // 1. 向左全选
+            $("#btn-sel-none").click(function() {
+                // 2. 获取到右边 select 下的所有子元素
+                var $opts = $("#tar-city").children("option");
+                // 3. 给左边select追加 右侧选择到的 子元素
+                $("#src-city").append($opts);
+            });
+
+            // 1. 向右单选
+            $("#btn-sel").click(function() {
+                // 2. 获取到左侧选中的option
+                // :selected 作用：选择到 select 中被选中的元素
+                var $sel = $("#src-city").children(":selected");
+
+                // 3. 给右边select追加 左侧选择到的 子元素
+                $("#tar-city").append($sel);
+            });
+
+            // 1. 向左单选
+            $("#btn-back").click(function() {
+                // 2. 获取到右侧选中的option
+                var $sel = $("#tar-city").children(":selected");
+
+                // 3. 给右边select追加 左侧选择到的 子元素
+                $("#src-city").append($sel);
+            });
+        });
+
+//
+//       $(function(){
+//           $("#btn-sel-all").click(function(){
+//               var $ops=$("#src-city").children("option");
+//               $("#tar-city").append($ops);
+//           })
+//           $("#btn-sel-none").click(function(){
+//               var $ops=$("#tar-city").children("option");
+//               $("#src-city").append($ops);
+//           })
+//           $("#btn-sel").click(function(){
+//               var $ops=$("#src-city").children(":selected");
+//               $("#tar-city").append($ops);
+//           })
+//           $("#btn-back").click(function(){
+//               var $ops=$("#tar-city").children(":selected");
+//               $("#src-city").append($ops);
+//           })
+//       })
+
+
+
+    </script>
+</head>
+
+<body>
+<h1>城市选择：</h1>
+<select id="src-city" name="src-city" multiple>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">深圳</option>
+    <option value="4">广州</option>
+    <option value="5">西红柿</option>
+</select>
+<div class="btn-box">
+    <button id="btn-sel-all"> &gt;&gt; </button>
+    <button id="btn-sel-none"> &lt;&lt; </button>
+    <button id="btn-sel"> &gt;</button>
+    <button id="btn-back"> &lt; </button>
+</div>
+<select id="tar-city" name="tar-city" multiple>
+</select>
+</body>
+
+</html>

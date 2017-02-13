@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //        var a = "a";
+        //        var b = "b";
+        //        console.log(a);//输出什么结果a
+        //        console.log(b);//输出什么结果b
+        //        fn();
+        //        function fn () {
+        //            console.log(a);//输出什么结果undefined
+        //            console.log(b);//输出什么结果b
+        //            var a = "a1";
+        //            b = "b1";
+        //            console.log(a);//输出什么结果a1
+        //            console.log(b);//输出什么结果b1
+        //        }
+        //        console.log(a);//输出什么结果a
+        //        console.log(b);//输出什么结果b1
+        //把自己定义成一个对象的格式，并且用属性和方法描述一下自己
+        //        var jieShao = {
+        //            name: "mengjun",
+        //            age: 22,
+        //            hobby: "sheying",
+        //            major: function () {
+        //                console.log("dianshang");
+        //            },
+        //            aihao: function () {
+        //                console.log("reading");
+        //            },
+        //        };
+        //        var stu = {
+        //            name: "yy",
+        //            age: 20,
+        //            hobby: "sheying",
+        //            major: function () {
+        //                console.log("dianshang");
+        //            },
+        //            aihao: function () {
+        //                console.log("reading");
+        //            },
+        //        };
+        //                jieShao.classMate = stu;
+        //                console.log(jieShao);
+        //                console.log(jieShao.major());
+        //                console.log(jieShao.aihao());
+
+        //        var mj=new Object();
+        //        mj.name="mengjun";
+        //        mj.age=22;
+        //        mj.hobby="sy";
+        //        mj.major=function(){
+        //            console.log("ds");
+        //        };
+        //        mj.aihao=function(){
+        //            console.log("rd");
+        //        };
+        //        var stu=new Object();
+        //        stu.name="mjn";
+        //        stu.age=12;
+        //        stu.hobby="sy";
+        //        stu.major=function(){
+        //            console.log("ds");
+        //        };
+        //        stu.aihao=function(){
+        //            console.log("rd");
+        //        };
+        //        mj.classMate=stu;
+        //        console.log(mj);
+        //        console.log(mj.major);
+        //        console.log(mj.major());
+
+
+        //        a=function(){
+        //            console.log("a");
+        //        };
+        //        console.log(a());
+        //
+        //  var b=function(){
+        //    console.log("b");
+        //}
+        //        console.log(b());
+        //for in 遍历对象的属性
+        //        var array=[1,3,6,5,9];
+        //        for(var key in array){
+        //            console.log(array[key]);
+        //        }
+        //        var mj=new Object();
+        //        mj.name="mengjun";
+        //        mj.age=22;
+        //        mj.hobby="sy";
+        //        mj.major=function(){
+        //            console.log("ds");
+        //        };
+        //        mj.aihao=function(){
+        //            console.log("rd");
+        //        };
+        //        for(var k in mj){
+        //            console.log(mj[k]);
+        //        }
+        //点号与方括号输出的差别
+        //        var obj={};
+        //        for(var i=0;i<=5;i++){
+        //            obj["n"+i]=i;
+        //        }
+        //        console.log(obj);
+        //回调函数
+        //var fn=function(a,b,fn1){
+        //            console.log(a+b);
+        //            fn1();
+        //        }
+        //       var fn1=function (){
+        //            console.log("123");
+        //        }
+        //        fn(1,2,fn1);
+        //        function fn(x,y){
+        //            return x+y;
+        //        }
+        //        console.log(fn(1, 2));
+        //实参和形参没有关系
+        //        function getsum(a,b){
+        //            a=100;
+        //            console.log(a);
+        //            return a+b;
+        //        }
+        //        var a=10;
+        //        var b=20;
+        //        getsum(a,b);
+        //        console.log(a);
+        //        var sum= getsum(a+b);
+        //        console.log(sum);
+        //匿名函数
+        //        (function(){
+        //            console.log("a");
+        //        })();
+        //递归函数
+        //        var i=1;
+        //        function story(){
+        //            console.log("cqyzs");
+        //            i++;
+        //            if(i<10){
+        //                story();
+        //            }
+        //        }
+        //        story();
+        //回调函数
+        //        function fn(){
+        //            console.log("digui");
+        //        }
+        //        function a(func){
+        //            func();
+        //        }
+        //        a(fn);
+
+        //        var num=10;
+        //        var fn=function(){
+        //            console.log("fndaima");
+        //
+        //        }
+        //        console.log(typeof typeof typeof fn());
+
+        //        var num=10;
+        //        var fn=function(){
+        //            console.log("fndaima");
+        //
+        //        }
+        //        console.log(typeof fn);
+        //        function fn2(a){
+        ////            console.log(a);
+        //            a();
+        //        }
+        //        fn2(fn);
+        //        function fn(){
+        //            console.log("b");
+        //        }
+        //        var obj=new Object();
+        //        var obj1={name:"aa",age:18};
+        //        console.log(obj1);
+        //        console.log(obj1.name1);
+        //        console.log(obj1["name"]);
+        //        function diaosi(){
+        //            console.log("no money");
+        //            return 100;
+        //        }
+        //        function nvshen(fn){
+        //            var money=0;
+        //            money=fn();
+        //            console.log("nvshen" + money);
+        //        }
+        //        nvshen(diaosi);
+        //        var a=function b(){
+        //            console.log("aaa");
+        //
+        //        }
+
+        //        a();
+        //        b();
+
+//        function getResult(a, b, fn) {
+//            return fn(a, b);
+//        }
+//        var result = getResult(5, 6, function (a, b) {
+//            return a + b;
+//
+//        })
+//        console.log(result);
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

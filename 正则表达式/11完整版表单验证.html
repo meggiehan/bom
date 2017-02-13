@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>Q Q</label><input type="text" id="inp1"><span></span><br/>
+    <label>手机</label><input type="text" id="inp2"><span></span><br/>
+    <label>邮箱</label><input type="text" id="inp3"><span></span><br/>
+    <label>座机</label><input type="text" id="inp4"><span></span><br/>
+    <label>姓名</label><input type="text" id="inp5"><span></span><br/>
+</div>
+<script>
+
+    var inpQQ = document.getElementById("inp1");
+    var inpMobile = document.getElementById("inp2");
+    var inpEmail = document.getElementById("inp3");
+    var inpTel = document.getElementById("inp4");
+    var inpName = document.getElementById("inp5");
+
+
+    //QQ的规律 5-11位 开头是不为0的数字
+    var regQQ = /^[1-9]\d{4,10}$/;
+    //regQQ=/^[1-9]\d{4,10}$/;
+    //手机 11位 有号段 13[0-9] 14[57] 15[0-9] 17[0-9] 18[0-9]
+    var regMobile = /^(13[0-9]|14[57]|15[0-9]|17[0-9]|18[0-9])\d{8}$/;
+    //var regMobile=/^(13[0-9]|14[57]|15[0-9]|17[0-9]|18[0-9])\d{8}$/;
+    //邮箱的规律
+    //var regEmail = /^\w+@\w+\.\w+$/;//-
+    //var regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    //barack-hussein-obama@white-house.gov.us
+    var regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    //var regEmail=/^\w+([-+.])\w+*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    //.（预定义）写在中括号里面的时候是表示本意的，放在外面不是。需要\.来转义
+    var regTel = /^0\d{2,3}-\d{7,8}$/;
+    //var regTel=/^0\d{2,3}-\d{7,8}$/;
+    var regName = /^[\u4e00-\u9fa5]{2,}$/;
+    //var regName=/^[\u4e00-\u9fa5]{2,}$/;
+
+    check(inpQQ, regQQ);
+    check(inpMobile, regMobile);
+    check(inpEmail, regEmail);
+    check(inpTel, regTel);
+    check(inpName, regName);
+    function check(inp, reg) {
+        inp.onblur = function () {
+            if (reg.test(this.value)) {
+                this.nextSibling.innerHTML = "输入正确";
+                this.nextSibling.className = "right";
+            } else {
+                this.nextSibling.innerHTML = "输入错误";
+                this.nextSibling.className = "wrong";
+            } };}
+
+
+
+
+</script>
+</body>
+</html>

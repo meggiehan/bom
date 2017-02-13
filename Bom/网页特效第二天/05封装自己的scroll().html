@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    window.onscroll = function () {
+        //console.log(scroll().top);//输出页面被卷去的高度
+        console.log(scroll().top);
+    };
+
+    function scroll(){
+        var scrollTop=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;
+        var scrollLeft=window.pageXOffset||document.documentElement.scrollLeft||document.body.scrollLeft||0;
+        var o={};
+        o.top=scrollTop;
+        o.left=scrollLeft;
+        return o;
+    }
+    //封装一个函数 将来调用的时候调用这个函数
+    // .top就可以获取被卷去的头部的高度
+    // .left就可以获取被卷去的左侧的宽度
+
+    function scroll() {
+        return{
+           Top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+           Left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+    };
+    }
+
+    function scroll() {
+        return {
+            top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+            left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+        };
+    }
+
+</script>
+</body>
+</html>

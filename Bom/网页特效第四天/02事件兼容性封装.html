@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    document.onclick = function (event) {
+        //console.log(event);
+        //谷歌浏览器 即支持传参的形式 有支持属性的形式
+        //FF 只支持 传参的方式
+        //IE678只支持         window.event这种方式
+        var event = event || window.event;
+        //var event = getEvent(event);
+        var event = eventUtil.getEvent(event);
+        console.log(event);
+    };
+
+    function getEvent(event) {
+        return event || window.event;
+    }
+
+
+    document.onclick = function (evt) {
+        //console.log(event);
+        //谷歌浏览器 即支持传参的形式 有支持属性的形式
+        //FF 只支持 传参的方式
+        //IE678只支持         window.event这种方式
+        var e2 = evt || window.event;
+        console.log(e2);
+    };
+
+
+    document.onclick = function (event) {
+        //console.log(event);
+        //谷歌浏览器 即支持传参的形式 有支持属性的形式
+        //FF 只支持 传参的方式
+        //IE678只支持         window.event这种方式
+        //var event = event || window.event;
+        //var event = getEvent(event);
+        var event = eventUtil.getEvent(event);
+        console.log(event);
+    };
+
+    function getEvent(event) {
+        return event || window.event;
+    }
+
+
+    document.onclick = function (evt) {
+        //console.log(event);
+        //谷歌浏览器 即支持传参的形式 有支持属性的形式
+        //FF 只支持 传参的方式
+        //IE678只支持         window.event这种方式
+        var e2 = evt || window.event;
+        console.log(e2);
+    };
+</script>
+</body>
+</html>

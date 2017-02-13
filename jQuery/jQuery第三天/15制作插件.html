@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .cls {
+            height: 200px;
+            width: 200px;
+            background: #999;
+            float: left;
+            margin: 20px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+
+//        $(function(){
+//            $("button").on("click",function(){
+//                var color=$(this).text();
+////                console.log(color);
+//                $(".cls").changebg(color).text("颜色变化中");
+//            })
+//            $.fn.changebg=function(color){
+//                $(this).css("background",color);
+//                return this;
+//            }
+//        })
+
+
+        $(function () {
+            // 实现效果
+            $("button").on("click", function () {
+                // 获取到当前文本内容
+                var color =  $(this).text();
+                // console.log(color);
+
+                // $(".cls").css("background", color);
+                $(".cls").changeBg(color).text("这是内容");
+            });
+
+            // 制作jQuery插件
+            $.fn.changeBg = function (color) {
+                // 插件里面的this 指的是jQUery对象，不需要转换
+                this.css("background", color);
+
+                // 链式编程原理： return this;
+                // 支持链式编程
+                return this;
+            };
+            // 其他的调用方方式
+            /*$.changeBg = function () {
+            }
+            $.changeBg();*/
+            /*var obj = {};
+            obj.sayHello = function () {
+                alert(123);
+            }
+            obj.sayHello();*/
+        });
+    </script>
+</head>
+<body>
+<!--页面中有很多个按钮，给按钮绑顶事件。
+让页面中的div元素 改变背景色-->
+
+<div>
+    <button>red</button>
+    <button>yellow</button>
+    <button>pink</button>
+    <button>green</button>
+    <button>black</button>
+</div>
+
+<div class="cls"></div>
+<div class="cls"></div>
+<div class="cls"></div>
+<div class="cls"></div>
+<div class="cls"></div>
+</body>
+</html>

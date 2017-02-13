@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="变大" id="btn"/>
+
+<div id="box"></div>
+<script>
+    var btn = document.getElementById("btn");
+    var box=document.getElementById("box");
+    btn.onclick=function(){
+        box.style.width="200px";
+        box.style.height="200px";
+        box.style.backgroundColor="pink";
+
+    }
+</script>
+</body>
+</html>

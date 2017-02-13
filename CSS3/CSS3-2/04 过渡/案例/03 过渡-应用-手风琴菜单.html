@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴菜单</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #f7f7f7;
+		}
+		h3{
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 500px;
+			margin: 0 auto;
+			cursor: pointer;
+		}
+		.list h3{
+			height: 35px;
+			line-height: 35px;
+			padding-left: 30px;
+			border-bottom: 2px solid #690;
+			font-size: 14px;
+			color: #fff;
+			background: #369;
+			transition:all .3s ease 0s;
+		}
+		.list .pictxt{
+			height: 0;
+			background: pink;
+			background-color: pink;
+			display: none;
+			transition:all .3s ease 0s;
+		}
+		.list:hover h3{
+			background: #036;
+		}
+		.list:hover .pictxt{
+			height: 150px;
+			display: block;
+		}
+		/*出现的问题：
+		*类名错误；
+		*hover与 字类名必须有空格；
+		*
+		*
+		*/
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="list">
+			<h3>美国新闻</h3>
+			<div class="pictxt">美国人的实力：想打谁就打谁。</div>
+		</div>
+
+
+		<div class="list">
+			<h3>英国新闻</h3>
+			<div class="pictxt">英国人的实力：美国打谁我打谁。</div>
+		</div>
+
+
+		<div class="list">
+			<h3>日本新闻</h3>
+			<div class="pictxt">日本人的实力：谁打我我让美国打谁。</div>
+		</div>
+
+		
+		<div class="list">
+			<h3>韩国新闻</h3>
+			<div class="pictxt">韩国人的实力：谁打我我和美国搞演习。</div>
+		</div>
+		<div class="list">
+			<h3>朝鲜新闻</h3>
+			<div class="pictxt">朝鲜人的实力：谁打我我打韩国。</div>
+		</div>
+	</div>
+</body>
+</html>

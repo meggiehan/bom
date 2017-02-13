@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/* 
+		x轴:从左往右
+		y轴:从上往下
+		z轴:从里向外;
+
+		旋转方向的判断 左手定则
+		大拇指 指向 旋转的 那个轴的方向 
+		剩余的四根手指 弯曲的方向 就是旋转的方向
+
+		为了能够有 3d的 一个透视效果 需要为 旋转对象的 父元素 添加 透视属性
+
+		透视属性
+			设置的是 3d变换的元素 距离 浏览器的 距离
+
+		沿着Z轴缩放 看不出效果
+	 */
+	 	body{
+	 		perspective: 600px;
+	 	}
+		div{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			border: 1px solid gray;
+			background-color: skyblue;
+			/*  这次 改变的是 3个轴 */
+			/* transform: rotateZ(45deg); */
+			/* transform: rotateY(45deg); */
+			/* transform: rotateX(45deg); */
+			transform: translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

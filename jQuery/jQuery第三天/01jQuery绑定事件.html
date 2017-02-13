@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 最原始的事件绑定方式
+            /*// 给按钮绑定事件
+            $("#btnClick").click(function () {
+                alert("按钮被单击了");
+            });
+
+            // 绑定鼠标移上来的事件
+            $("#btnClick").mouseenter(function () {
+                alert("鼠标进入了");
+            });*/
+
+            // bind()
+            // 第一个参数：表示事件类型
+            // 第二个参数：表示事件处理函数
+            /*$("#btnClick").bind("click", function () {
+                alert("按钮被单击了");
+            });*/
+            // 参数：表示要绑定的多个事件，以键值对的形式
+            $("#btnClick").bind({
+                "click": function () {
+                    alert("按钮被单击了");
+                },
+                "mouseenter": function () {
+                    alert("鼠标进入了");
+                }
+            });
+
+//            var i = 0;
+//            // 第一个参数：表示要触发的事件，事件之间用空格分隔
+//            // 第二个参数：表示事件处理函数
+//            $("#btnClick").bind("click mouseenter", function () {
+//                i++;
+//                alert(i);
+//            });
+
+            // 缺点：不能给动态创建出来的元素绑定事件
+        });
+    </script>
+</head>
+<body>
+    <button id="btnClick">按钮</button>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素</title>
+	<style>
+		li li {
+
+		}
+	</style>
+</head>
+<body>
+	<ul class="outer">
+		<li id="">
+			国内新闻
+			<ul>
+				<li>北京新闻</li>
+				<li>天津新闻</li>
+			</ul>
+		</li>
+		<li>国际新闻</li>
+		<li>体育新闻</li>
+		<li>娱乐新闻</li>
+	</ul>
+
+	<script>
+
+		// HTML5还提供了一个新方法
+		// 更加灵活
+
+		// document.querySelectorAll(); 伪数组
+
+		var lis = document.querySelectorAll('li');
+		// var lis = document.querySelectorAll('li li');
+
+		// console.log(lis.length);
+
+		for(var i=0; i<lis.length; i++) {
+			lis[i].style.color = 'red';
+		}
+
+	</script>
+</body>
+</html>

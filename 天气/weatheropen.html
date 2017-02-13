@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#sh{
+			width: 200px;
+			height: 50px;
+			background-color: lightgreen;
+			margin: auto;
+
+			line-height: 50px;
+			margin-top: 30px;
+		}
+		#btn{
+			width: 60px;
+			height: 30px;
+			background-color: lightgreen;
+			margin-top: 10px;
+			margin-left: 55%;
+		}
+	</style>
+	<script src="./jquery.js"></script>
+	<script src="echarts.js"></script>
+	<script>
+		$(function(){
+			var ID=1796236;
+			$('#btn').click(function(){
+				$.ajax({
+				type:'get',
+				url:'http://api.openweathermap.org/data/2.5/forecast',
+				data:{id:ID,appid:'941da64b60e23582fabf95c1b82c9f24'},
+				dataType:'jsonp',
+				success:function(data){
+					console.log(data);
+					var lists=data.list;
+					console.log(lists);
+					var tag='<ul>';
+					$.each(lists,function(i,e){
+						var time=e.dt_txt;
+						console.log(time);
+						var temp_max=Math.floor((e.main.temp_max)-273);
+						var temp_min=Math.floor((e.main.temp_min)-273);
+						tag+='<li>时间：'+time+'</li><li>最高温度：'+temp_max+'</li><li>最低温度：'+temp_min+'</li>'
+					});
+						tag+='</ul>';
+						$('#info').html(tag);
+			 	  }
+			   })
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id='sh'>上海未来5天的数据：</div>
+	<!-- <input type="text" name="" id="ID"> -->
+	<input type="button" value="获取" id='btn'>
+	<div id='info'></div>
+ <div id="main" style="width: 100%;height:600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        option = {
+    title: {
+        text: '上海未来5天的天气：',
+        subtext: ''
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高气温','最低气温']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} °C'
+        }
+    },
+    series: [
+        {
+            name:'最高气温',
+            type:'line',
+            data:[11, 11, 15, 13, 12, 13, 10],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'最低气温',
+            type:'line',
+            data:[1, -2, 2, 5, 3, 2, 0],
+            markPoint: {
+                data: [
+                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'},
+                    [{
+                        symbol: 'none',
+                        x: '90%',
+                        yAxis: 'max'
+                    }, {
+                        symbol: 'circle',
+                        label: {
+                            normal: {
+                                position: 'start',
+                                formatter: '最大值'
+                            }
+                        },
+                        type: 'max',
+                        name: '最高点'
+                    }]
+                ]
+            }
+        }
+    ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>

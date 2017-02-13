@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #ccc;
+		}
+		.linear:nth-child(1){
+			width: 500px;
+			height: 100px;
+			margin: 100px auto;
+			background-image: linear-gradient(
+                   90deg,
+                   red 25%,
+                   green 25%,
+                   yellow 50%,
+                   blue 50%,
+                   #ccc 75%,
+                   pink 75%,
+                   black 100%
+				)
+		}
+		.linear:nth-child(2){
+			width: 500px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: #fff;
+			background-image: linear-gradient(
+                  135deg,
+                   black 25%,
+                   transparent 25%,
+                   transparent 50%,
+                   black 50%,
+                   black 75%,
+                   transparent 75%
+				);
+			/*-webkit-background-size: 100px 100px;*/
+			background-size: 100px 100px;
+			animation: move 1s linear infinite;
+
+		}
+		@keyframes move {
+			from {}
+			to{
+				background-position: 100px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="linear"></div>
+	<div class="linear"></div>
+</body>
+</html>

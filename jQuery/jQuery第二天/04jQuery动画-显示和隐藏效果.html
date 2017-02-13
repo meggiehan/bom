@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background: pink;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 隐藏动画效果
+            $("#btnHide").click(function() {
+                // 获取到div，并让div 以 动画效果隐藏掉
+                // hide() 作用：不带参数，表示无任何动画效果，
+                // 相当于 .css("display", "none");
+                // $("div").hide();
+                // 参数： 数字类型，表示动画执行的时长，单位：毫秒
+                 $("div").hide(4000);
+
+                // slow(600ms) 慢 / fast(200ms)快 / normal(400ms)正常
+                 $("div").hide("normal");
+
+                // 如果传入的不是 预制的字符串，就会以默认情况展示（normal）
+                // $("div").hide("aaaaaa");
+                $("div").hide(1000, function() {
+                    alert("隐藏完毕！！");
+                });
+            });
+
+            // 展示动画效果
+            $("#btnShow").click(function () {
+                // 没有参数，表示无动画效果
+                // .css("display", "block");
+                 $("div").show();
+
+                 $("div").show("fast");
+                 $("div").show(2000);
+
+                // 第一个参数表示：动画执行的时长
+                // 第二个参数表示：动画执行完后，立即执行的回调函数
+                $("div").show(2000, function() {
+                    alert("动画执行完了");
+                });
+            });
+        });
+
+//
+//        $(function(){
+//            $("#btnHide").click(function(){
+//                $("div").hide("fast");
+//            })
+//            $("#btnShow").click(function(){
+//                $("div").show(1000);
+//            })
+//        })
+
+
+
+    </script>
+</head>
+<body>
+<button id="btnShow">展示</button>
+<button id="btnHide">隐藏</button>
+<div></div>
+</body>
+</html>

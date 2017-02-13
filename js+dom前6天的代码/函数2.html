@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //        function fn(){
+        //            console.log("abcdefg");
+        //        }
+        //                fn();
+        //                fn();
+        //                fn();
+        //                fn();
+        //                fn();
+        //                function fn(msg){
+        //                    console.log(msg);
+        //                }
+        //                fn("asdslkf");
+        //function fn(mes){
+        //    console.log(mes);
+        //}
+        //fn("aaa");
+        //        function getSum(x, y) {
+        //            var sum = 0;
+        //                sum =x+y;
+        //            console.log(sum)
+        //        }
+        //        getSum(5, 10);
+        //function getSum(x,y){
+        //    var sum=0;
+        //    sum=x+y;
+        //    console.log(sum);
+        //}
+        //getSum(10,10);
+        //用函数求x-y之间的和
+        //        function getSum(x, y) {
+        //            var sum = 0;
+        //            for (var i = x; i <= y; i++) {
+        //                sum += i;
+        //            }
+        //            console.log(sum)
+        //        }
+        //        getSum(5, 10);
+        //review
+        //function getSum(x,y){
+        //    var sum=0;
+        //    for(var i=x;i<=y;i++){
+        //        sum+=i;
+        //    }
+        //    console.log(sum);
+        //}
+        //getSum(1,5);
+        //用函数求x-y的乘积
+        //        function getChen(x,y){
+        //            var chen=1;
+        //            for(var i=x;i<=y;i++){
+        //                chen*=i;
+        //            }
+        //            console.log(chen);
+        //        }
+        //        getChen(1,5);
+        //function getChen(x,y){
+        //    var chen=1;
+        //    for(i=x;i<=y;i++){
+        //        chen*=i;
+        //    }
+        //    console.log(chen);
+        //}
+        //getChen(1,5);
+        //用函数返回值形式求x-y的乘积
+        //        function getChen(x,y){
+        //            var chen=1;
+        //            for(var i=x; i<=y;i++){
+        //                chen*=i;
+        //            }
+        //            return chen;
+        //        }
+        //        var chen=getChen(1,5)
+        //        console.log(chen);
+        //review
+        //function getChen(x,y){
+        //    var chen=1;
+        //    for(i=x;i<=y;i++){
+        //        chen*=i;
+        //    }
+        //    return chen;
+        //}
+        //var chen1=getChen(1,6);
+        //console.log(chen1);
+        //        function getChen(x,y){
+        //            var chen=1;
+        //            for(var i=x; i<=y;i++){
+        //                chen*=i;
+        //            }
+        //            return chen;
+        //        }
+        //        console.log(getChen(1,5));
+        //求任意半径的圆的面积（圆的面积公式：π*r*r）
+        //        function getArea(r){
+        //            var area=0;
+        //            area=Math.PI*Math.pow(r,2);
+        //            return area;
+        //        }
+        //        console.log(getArea(2));
+        //
+        //        //求任意半径的圆的周长（半径的周长公式：π*2r）
+        //        function getZhou(r){
+        //            var zhou=0;
+        //            zhou= Math.PI*2*r;
+        //            return zhou;
+        //        }
+        //        console.log(getArea(3));
+        //        //求任意2个数中的最大值
+        //        function getMax(x,y){
+        //            var max=0;
+        //            if(x<y){
+        //                max=y;
+        //            }
+        //            return max;
+        //        }
+        //        console.log(getMax(3, 6));
+        //        //求任意3个数中的最大值
+        //        function getMax1(x,y,z){
+        //            var max=0;
+        //            max=((x>y)?x:y)>z?((x>y)?x:y):z;
+        //            return max;
+        //        }
+        //        console.log(getMax1(3, 7, 9));
+
+        //求任意数组中的最大值
+
+        //        function getArray(array){
+        //            var max=array[0];
+        //           for(var i=0;i<array.length;i++){
+        //               if(max<array[i]){
+        //                   max=array[i];
+        //               }
+        //           }
+        //            return max;
+        //        }
+        //        var array=[1, 2, 3, 4, 5];
+        //        console.log(getArray(array));
+        //review
+        //            function getArray(array){
+        //                var max=array[0];
+        //                for(i=0;i<array.length;i++){
+        //                    if(max<array[i]){
+        //                        max=array[i];
+        //                    }
+        //                }
+        //                return max;
+        //            }
+        //        var array=[2,3,7,8,9];
+        //     console.log(getArray(array));
+        //求任意数组中的最小值
+        //        function getArray(array){
+        //            var min=array[0];
+        //            for(i=0;i<array.length;i++){
+        //                if(min>array[i]){
+        //                    min=array[i];
+        //                }
+        //            }
+        //            return min;
+        //        }
+        //        var  array=[1, 2, 3, 4, 5];
+        //        console.log(getArray(array));
+        //翻转任意数组，返回一个新的数组
+        //        function getFan(array){
+        //            var newarray=[];
+        //            for(i=array.length-1;i>=0;i--){
+        //                newarray[newarray.length]=array[i];
+        //            }
+        //            return newarray;
+        //        }
+        //        console.log(getFan([1, 2, 3, 4, 5]));
+        //review
+        //            function getFan(array){
+        //                var newarray=[];
+        //                for(i=array.length-1;i>=0;i--){
+        //                    newarray[newarray.length]=array[i];
+        //                }
+        //                return newarray;
+        //            }
+        //        var array=[1,2,3,4,5,6];
+        //    console.log(getFan(array));
+        //对任意数组从小到大排序
+        //      function sort(array){
+        //          for(i=0;i<array.length-1;i++){
+        //               var issort=true;
+        //              for(j=0;j<array.length-1;j++){
+        //                  if(array[j]>array[j+1]){
+        //                      var temp=array[j];
+        //                      array[j]=array[j+1];
+        //                      array[j+1]=temp;
+        //                      issort=false;
+        //                  }
+        //              }
+        //              if(issort){
+        //                  break;
+        //              }
+        //          }
+        //          return array;
+        //      }
+        //        console.log(sort([5, 6, 77, 22, 3, 9]));
+        //函数的调用
+//                function fn1(){
+//                    console.log('忧伤');
+//                    fn2();
+//                    console.log('.......');
+//                }
+//                fn1();
+//                function fn2(){
+//                    console.log("ing");
+//                    fn3();
+//                }
+//                function fn3(){
+//                    console.log('123');
+//                }
+        //函数的表达式声明（函数的字面量）-匿名函数
+        //        var fn=function(a,b){
+        //            return a+b;
+        //        };
+        //        console.log(fn(2, 3));
+        //        //函数的声明
+        //        function fn1(){
+        //            return a+b;
+        //        }
+        //        console.log(fn1(1, 2));
+        //        //匿名函数
+        //        var fn2=new Function("x","y","console.log(x+y);");
+        //        fn2(2,3);
+                var a="a";
+                    b="b";
+                console.log(a);//a
+                console.log(b);//b
+                fn();
+                function fn(){
+                    console.log(a);//undefined
+                    console.log(b);//b
+                    var a="a1";
+                    b="b1";
+                    console.log(a);//a1
+                    console.log(b);//b1
+                }
+                console.log(a);//a
+                console.log(b);//b1
+
+        //冒泡复习练习
+//        var out = 0;
+//        var inner = 0;
+//        function getArray(array) {
+//            for (i = 0; i < array.length - 1; i++) {
+//                var issort=true;
+//                for (j = 0; j < array.length - 1-i; j++) {
+//                    if (array[j] > array[j + 1]) {
+//                        var temp = array[j];
+//                        array[j] = array[j + 1];
+//                        array[j + 1] = temp;
+//                        issort=false;
+//                    }
+//                    inner++;
+//                }
+//
+//                if(issort){
+//                    break;
+//                }
+//                out++;
+//            }
+//
+//            return array;
+//        }
+//        var array = [2, 5, 66, 78, 1, 99,789];
+//        console.log(getArray(array));
+//        console.log(inner);
+//        console.log(out);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name, age, job){
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function(){
+            alert(this.name);
+        };
+    }
+
+    Person.prototype.hobby=function(){
+        alert("hobby");
+    }
+
+    var o = new Object();
+    Person.call(o, "Kristen", 25, "Nurse");
+    o.sayName(); //"Kristen"
+
+    //当在全局作用域中调用一个函数时， this 对象总是指向 Global 对象（在
+   // 浏览器中就是 window 对象） 。
+</script>
+</body>
+</html>

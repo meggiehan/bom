@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //引用类型做参数
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    function f1(p) {
+        p.name = "ls";
+        console.log(p.name);//ls
+    }
+    var p1 = new Person("zs", 18);
+    console.log(p1.name);//zs
+    f1(p1);
+    console.log(p1.name);//ls
+
+    //zs ls ls
+
+</script>
+</body>
+</html>

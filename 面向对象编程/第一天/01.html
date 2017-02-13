@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>div1</div>
+<p>p</p>
+<div>div2</div>
+<script>
+//    var divs=document.getElementsByTagName('div');
+//    var ps=document.getElementsByTagName('p');
+//
+//    function tag(Tagname){
+//        return document.getElementsByTagName(Tagname);
+//    }
+//    for(var i= 0;i<divs.length;i++){
+//        divs[i].style.border="1px solid red";
+//        divs[i].style.width="100px";
+//        divs[i].style.height="50px";
+//    }
+//    for(var i= 0;i<ps.length;i++){
+//        ps[i].style.border="1px solid blue";
+//        ps[i].style.width="100px";
+//        ps[i].style.height="50px";
+//    }
+
+//    function addCss(array,styles){
+//        for(var i= 0;i<array.length;i++){
+//           for(var k in styles){
+//               array[i].style[k]=styles[k];
+//           }
+//     }
+//    }
+
+var hmj={
+    tag:  function tag(Tagname){
+        return document.getElementsByTagName(Tagname);
+    },
+    addCss: function addCss(array,styles){
+        for(var i= 0;i<array.length;i++){
+            for(var k in styles){
+                array[i].style[k]=styles[k];
+            }
+        }
+    }
+}
+
+    var divs=hmj.tag("div");
+    var ps=hmj.tag("p");
+
+    hmj.addCss(divs,{
+        border:"1px solid red",
+        background:"pink"
+    })
+    hmj.addCss(ps,{
+        border:"1px dashed green",
+        background:"hotpink"
+    })
+</script>
+</body>
+</html>

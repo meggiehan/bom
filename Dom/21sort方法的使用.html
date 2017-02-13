@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    /*var arr = ["aaaa", "adsf", "adaeweqr", "aa", "a"];
+     var arr = [
+     {name: "linlin", age: 18},
+     {name: "xiaolonglong", age: 8},
+     {name: "sudongpo", age: 3000}
+     ];*/
+
+    var arr2 = [3, 6, 1, 5, 10, 2,21];
+    arr2.sort(function(a,b){//这里可以不用定义函数名，因为在外面并没有调用它，所以可以直接使用匿名函数
+        return a-b;
+    });//如果不传参 默认按照每一项 的第一个字符的unicode编码
+    console.log(arr2);
+
+    //如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+    //如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。
+    //如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+    arr.sort(function (a, b) {
+     return a - b;//从小到大
+     return -(a - b);//从大到小
+     });
+     console.log(arr);
+
+    var arr = ["aaaa", "adsf", "adaeweqr", "aa", "a"];
+     arr.sort(function (a, b) {
+     return a.length - b.length;
+     });
+     console.log(arr);
+
+    var arr = [
+        {name: "linlin", age: 18},
+        {name: "xiaolonglong", age: 8},
+        {name: "sudongpo", age: 3000}
+    ];
+
+    arr.sort(function (a, b) {
+        return a.age - b.age;
+    });
+    console.log(arr);
+
+</script>
+</body>
+</html>

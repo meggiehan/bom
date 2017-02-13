@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //onload 加载完成 指的是 包括外部资源（图片、样式、脚本）等所有资源都加载完成
+        /*window.onload = function () {
+         var box = document.getElementById("box");
+         console.log(box);
+         };*/
+    </script>
+</head>
+<body>
+<div id="box"></div>
+<img src="0.jpg" id="img" alt=""/>
+<script>
+    //Window.onload重点，页面所有资源加载完成之后（包括外部资源，样式，脚本等）才
+   // 会执行onload事件：涉及到图片的内容，一定要写在onload里面。
+    //执行到这里 只是结构加在完成了  很多外部资源 因为浏览器对效率有优化 所以不一定是加载结构的时候加载的
+    var img = document.getElementById("img");
+    console.log(img.height);
+    //涉及到图片内容的 一定要写在onload里面
+    window.onload = function () {
+        var img = document.getElementById("img");
+        console.log(img.height);
+    };
+</script>
+</body>
+</html>

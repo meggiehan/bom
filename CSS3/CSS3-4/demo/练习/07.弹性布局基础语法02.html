@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			list-style: none;
+			padding: 0;
+			height: 400px;
+			border: 1px solid gray;
+
+			/* 1. 使用弹性布局 需要在 父盒子中 开启 弹性布局
+				弹性布局 开启以后 元素默认分为 两个轴排布
+					主轴 默认是x方向
+					副轴 默认是 y方向
+			 */
+			display: flex;
+
+			/*  调整主轴方向 变为 垂直
+				主轴 变为是y方向
+				副轴 变为是x方向
+			 */
+			flex-direction: row;
+
+			/* 设置主轴的排布  哪怕方向改变  */
+			/*justify-content: flex-end;*/
+
+			/*  设置副轴的排布 方向改变之后 依旧是设置副轴 */
+			/*align-items: center;*/
+		}
+
+		li{
+			width: 100px;
+			height: 100px;
+			margin: 5px;
+			border: 1px solid gray;
+			text-align: center;
+			line-height: 100px;
+			font-size: 30px;
+			font-weight: 900;
+		}
+
+		/* order:改变盒子的排列顺序  默认是order:1 */
+		li:nth-child(1){
+			/*align-self: flex-start;*/
+			/*order: 3;*/
+		}
+		li:nth-child(2){
+			/*align-self: flex-end;*/
+			/*order: 1;*/
+		}
+		li:nth-child(3){
+			/*align-self: flex-end;*/
+			/*order: 2;*/
+		}
+		
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

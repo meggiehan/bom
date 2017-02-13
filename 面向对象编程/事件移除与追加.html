@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16-闭包的应用-带有事件移除与追加的对象</title>
+</head>
+<body>
+</body>
+<script>
+	var itcastload = (function () {
+		var data = [];
+		window.onload = function () {
+			for ( var i = 0; i < data.length; i++ ) {
+				data[ i ]();
+			}
+		};
+		return {
+			addEvent: function ( fn ) {
+				data.push( fn );
+			}, removeEvent: function ( fn ) {
+				for ( var i =data.length-1; i>=0 ; i-- ) {
+					if ( data[ i ] == fn ) {
+						data.pop();  //data.shift()  //data.splice(i,1)
+						console.log(data.length);
+					}
+				}
+			},
+			// dayin:function(){
+				// console.log(data);
+			// }
+		};
+		
+	})();
+
+    itcastload.addEvent(function(){
+		console.log( '我加载了1' );
+	});
+	
+	itcastload.addEvent(function(){
+		console.log( '我加载了2' );
+	});
+	function f() {
+		console.log( '我加载了3' );
+	}
+
+	itcastload.addEvent(f);
+	itcastload.removeEvent(f);
+
+</script>
+</html>

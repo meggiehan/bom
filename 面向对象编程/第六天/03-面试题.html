@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+</body>
+<script>
+	var length = 10;//这时候是在全局里定义了一个Window.length为10的属性。
+	function fn() {
+		console.log(this.length);//如果这里刚好是方法调用并且是obj.length那么就返回5。
+	}
+	var obj = {
+		length: 5,
+		method: function ( fn ) {//函数名.length
+			fn();//函数调用模式
+			arguments[ 0 ]();//方法调用模式（这个伪数组就相当于宿主对象，此时的this指向的就是这个对象。）
+		}//arguments.length
+	};
+	obj.method( fn, 1, 2, 3 );//传入的实参只能通过arguments来表示。
+    //arguments是对象，而fn作为arguments的属性，函数也可以作为数组的属性，
+    // 把fn放进伪数组里就是通过对象的方法访问。此时this表示的是arguments，因为arguments也有length属性，返回2。
+
+
+
+//	var length=10;
+//	function fn(){
+//		console.log(this.length);
+//	}
+//	var obj={
+//		length:5,
+//		method:function(fn){
+//			fn();
+//			arguments[0]();
+//		}
+//	}
+//	obj.method(fn,1,2);
+</script>
+</html>

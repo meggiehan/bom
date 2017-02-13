@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		.container{
+			border: 1px solid gray;
+			overflow: hidden;
+			
+			/*  距离 浏览器 的距离  */
+			perspective: 1000px;
+
+			
+		}
+		.container>img{
+			width: 33.333%;
+			display: block;
+			float: left;
+			/* transition: all 5s linear; */
+		}
+		.container:hover img:nth-child(1){
+			transform: rotateX(360deg);
+		}
+		.container:hover img:nth-child(2){
+			transform: rotateY(360deg);
+		}
+		.container:hover img:nth-child(3){
+			transform: rotateZ(360deg);
+		}
+		.container>img:nth-child(1){}
+		.container>img:nth-child(2){}
+		.container>img:nth-child(3){}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="images/宋仲基.jpg" alt="">
+		<img src="images/宋仲基.jpg" alt="">
+		<img src="images/宋仲基.jpg" alt="">
+	</div>
+	<input type="range" value=0 id='range'>
+	<br>
+	<output id='output'></output>
+</body>
+</html>
+<script type="text/javascript">
+	// 获取 一些必要的变量
+	var imgs = document.querySelectorAll('img');
+	var output = document.querySelector('output');
+
+	// 输入的 时候触发
+	document.querySelector('#range').oninput = function (){
+		// 获取 当前的值
+
+		// 计算为角度  0-360的旋转 range 0-100
+		var deg = Math.floor(this.value / 100 * 360);
+
+		// 分别设置给三个img标签
+		imgs[0].style.transform = 'rotateX('+deg+'deg)';
+		imgs[1].style.transform = 'rotateY('+deg+'deg)';
+		imgs[2].style.transform = 'rotateZ('+deg+'deg)';
+
+		// 修改 output的文本质
+		output.innerHTML = deg;
+	}
+</script>

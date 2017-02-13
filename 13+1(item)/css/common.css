@@ -1,0 +1,116 @@
+*,
+::before,
+::after{
+	padding: 0;
+	margin: 0;
+	-webkit-tap-highlight-color:transparent;
+	box-sizing:border-box;
+}
+body{
+	font-size: 0.186667rem;
+	color: #333;
+	font-family: "MicroSoft YaHei","sans-serif";
+}
+ul,ol{
+   list-style: none;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+a:hover{
+	color: #333;
+}
+input,textarea{
+	border: none;
+	outline: none;
+	resize: none;
+	-webkit-appearance:none;
+}
+.f_left{
+	float: left;
+}
+.f_right{
+	float: right;
+}
+.clearfix::after,
+.clearfix::before{
+	content: ".";
+	line-height: 0;
+	height: 0;
+	display:block;
+	visibility: hidden;
+	clear: both;
+}
+.m_r10{
+	margin-right: 0.133333rem;
+}
+.m_l10{
+	margin-left: 0.133333rem;
+}
+.m_t10{
+	margin-top: 0.133333rem;
+}
+.m_b10{
+	margin-bottom: 0.133333rem;
+}
+.b_top{
+	border-top: 1px soild #DDDDDD;
+}
+.b_bottom{
+	border-bottom: 1px soild #DDDDDD;
+}
+.b_left{
+	border-left: 1px soild #DDDDDD;
+}
+.b_right{
+	border-right: 1px soild #DDDDDD;
+}
+    
+.head [class^="icon_"]{
+	background: url("../images/sprite.png") no-repeat;
+	background-size:6.666667rem 6.666667rem;
+    width: 1.066667rem;
+    height:  1.173333rem;
+    position: absolute;
+    padding: 0.266667rem 0.293333rem;
+    /*按钮大小需要设置偏大  用户体验*/
+    top: 0;
+    background-origin: content-box;/*定位以内容开始定位*/
+    background-clip: content-box;/*显示背景 从内容开始显示*/
+}
+.head .icon_arrow{
+	float: left;
+	left: 0.133333rem;
+	margin-top: 0.133333rem;
+	background-position: -1.466667rem 0;
+}
+.head .icon_star{
+	float: right;
+	right: 0.933333rem;
+	margin-top: 0.133333rem;
+	background-position: 0 0;
+}
+.head .icon_send{
+	width: 1.2rem;
+	float: right;
+	right: 0;
+	/*padding:  0.666667rem 0.666667rem;*/
+	background-position: 0 -0.533333rem;
+}
+.nav .nav_right .road{
+    background: url("../images/sprite.png") no-repeat;
+	background-size:6.666667rem 6.666667rem;
+    width: 0.6rem;
+    height:  0.64rem;
+    display: block;
+    margin-right:0.666667rem;
+    /*按钮大小需要设置偏大  用户体验*/
+    background-origin: content-box;/*定位以内容开始定位*/
+    background-clip: content-box;/*显示背景 从内容开始显示*/
+    float: right;
+	background-position: 0 -1.2rem;
+}

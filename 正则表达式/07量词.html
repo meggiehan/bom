@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //边界和量词一般都是一起使用的
+    console.log(/^a$/.test("a"));//true
+    console.log(/^a$/.test("aa"));//false
+    //量词
+    console.log("----*----");// x>=0
+    console.log(/^a*$/.test("a"));//一次可以  //true
+    console.log(/^a*$/.test("aaaaaaa"));//多次可以  //true
+    console.log(/^a*$/.test(""));//零次可以    //true
+    console.log(/^a*$/.test("d"));//false 注意现在是严格模式必须我要的 你才能给我
+
+    console.log("----+----");// x>=1
+    console.log(/^a+$/.test("a")); //true
+    console.log(/^a+$/.test("aaaaaa"));//true
+    console.log(/^a+$/.test(""));//false 一次或多次 零次不行
+
+    console.log("----?----");// 0或1
+    console.log(/^a?$/.test("a"));//true
+    console.log(/^a?$/.test(""));//true
+    console.log(/^a?$/.test("aaaa"));//false 零次或一次 多次不行
+
+    console.log("----{}----");//自定义次数
+    console.log(/^a{2}$/.test("aa"));//前面的内容必须出现2次,而且只能是两次。//true
+    console.log(/^a{2,}$/.test("aa"));//表示出现的次数必须等于或多于2次     //true
+    console.log(/^a{2,}$/.test("aaaaa"));//表示出现的次数必须等于或多于2次  //true
+    console.log(/^a{2,5}$/.test("aa"));//表示出现的次数[2,5]              //true
+    console.log(/^a{2,5}$/.test("aaaaa"));//表示出现的次数[2,5]           //true
+
+    console.log("----小练习----");//* + ?
+    console.log(/^a*$/.test("a"));// x>=0      //true
+    console.log(/^a{0,}$/.test("a"));// x>=0   //true
+    console.log(/^a*$/.test("a"));// x>=1      //true
+    console.log(/^a{1,}$/.test("a"));// x>=0   //true
+    console.log(/^a?$/.test("a"));// 0或1      //true
+    console.log(/^a{0,1}$/.test("a"));//       //true
+</script>
+</body>
+</html>

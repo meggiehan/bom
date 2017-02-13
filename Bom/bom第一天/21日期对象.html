@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var date = new Date();
+    console.log(date);
+    console.log(date.toString());
+    console.log(date.valueOf());//这是一个13位的数字 万亿
+    //从1970-1-1 00:00:00:000 开始到现在的毫秒值 方便计算
+
+    var date = Date.now();
+    console.log(date);//这个会返回一个13位的数字。
+    var date = +new Date();
+    console.log(date);//这个会返回一个13位的数字。
+//    console.log(date.getTime());//这个会返回一个13位的数字。
+    //
+    console.log(date.toDateString());//标准的时间
+    console.log(date.toTimeString());//标准的时间
+    console.log(date.toLocaleDateString());//本地的显示样式
+    console.log(date.toLocaleTimeString());//本地的显示样式
+    var date=Date.now();
+    data.toDateString();
+    date.toLocaleDateString();
+    date.toTimeString();
+    date.toLocaleTimeString()
+
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频播放器</title>
+	<link rel="stylesheet" href="./css/font-awesome.css">
+	<link rel="stylesheet" href="./css/player.css">
+</head>
+<body>
+	<figure>
+		<figcaption>视频播放器</figcaption>
+		<div class="player">
+			<video src="./video/fun.mp4"></video>
+			<div class="controls">
+				<!-- 播放/暂停 -->
+				<a href="javascript:;" class="switch fa fa-play"></a>
+				<!-- 全屏 -->
+				<a href="javascript:;" class="expand fa fa-expand"></a>
+				<!-- 进度条 -->
+				<div class="progress">
+					<div class="loaded"></div>
+					<div class="line"></div>
+					<div class="bar"></div>
+				</div>
+				<!-- 时间 -->
+				<div class="timer">
+					<span class="current">00:00:00</span> /
+					<span class="total">00:00:00</span>
+				</div>
+				<!-- 声音 -->
+			</div>
+		</div>
+	</figure>
+	<script src="./js/jquery.min.js"></script>
+	<script>
+
+		// 获取原生DOM对象
+		var video = $('video')[0],
+
+			// 进度条
+			line = $('.line'),
+
+			// 时间进度
+			current = $('.current');
+
+		// 检测视频可以播放时触发
+		video.oncanplay = function () {
+			// alert(1);
+
+			// 将视频元素显示
+			this.style.display = 'block';
+
+			// 当视频可以播放时我们可以获得总时长
+			// alert(video.duration);
+
+			var duration = video.duration;
+
+			// 时分秒
+			var h = Math.floor(duration / 3600);
+			var m = Math.floor(duration / 60);
+			var s = Math.floor(duration % 60);
+
+			h = h > 10 ? h : '0' + h;
+			m = m > 10 ? m : '0' + m;
+			s = s > 10 ? s : '0' + s;
+
+			console.log(h, m, s);
+
+			// 总时长
+			$('.total').text(h + ':' + m + ':' + s);
+		}
+
+		// 点击播放/暂停
+		$('.switch').on('click', function () {
+
+			// 控制播放或暂停
+			if(video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}
+
+			// 切换按扭状态
+			$(this).toggleClass('fa-play fa-pause');
+
+		});
+
+		// 监听播放进度
+		video.ontimeupdate = function () {
+			// currentTime获得当前的播放进度
+			console.log(video.currentTime);
+
+			var duration = video.currentTime;
+
+			// 时分秒
+			var h = Math.floor(duration / 3600);
+			var m = Math.floor(duration / 60);
+			var s = Math.floor(duration % 60);
+
+			h = h > 10 ? h : '0' + h;
+			m = m > 10 ? m : '0' + m;
+			s = s > 10 ? s : '0' + s;
+
+			console.log(h, m, s);
+
+			// 时间进度
+			current.text(h + ':' + m + ':' + s);
+
+			// 当前播放时长/总时长=百分比
+			var percent = video.currentTime / video.duration;
+
+				percent = percent * 100 + '%';
+
+			// 设置可视化进度
+			line.css('width', percent);
+
+		}
+
+		// 跳播
+		$('.bar').on('click', function (ev) {
+
+			console.log(ev);
+
+			var offset = ev.offsetX;
+
+			// 计算跳播进度面分比
+			var currentPercent = offset / $(this).width();
+
+			console.log(currentPercent);
+
+			// 百分比 * 总时长 = 当前时间（以秒计）
+			var currentTime = currentPercent * video.duration;
+
+			// 设置跳播时间
+			video.currentTime = currentTime;
+		});
+
+		video.onended = function () {
+			// alert(1);
+
+			// 将播放进度设置为0
+			video.currentTime = 0;
+
+			// 还原按扭
+			$('.switch').removeClass('fa-pause').addClass('fa-play');
+		}
+
+		// 全屏播放
+		$('.expand').on('click', function () {
+			video.webkitRequestFullScreen();
+		});
+		
+	</script>
+</body>
+</html>

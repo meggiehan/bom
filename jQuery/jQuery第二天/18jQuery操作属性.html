@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+
+            // 属性操作
+            // 读取属性
+            $("#btnGet").click(function () {
+                // attr() 作用：传入一个参数，表示获取属性，返回值：要获取的属性的值
+
+                 var href = $("a").attr("href");
+                 console.log(href);
+
+                var n = $("a").attr("n");
+                console.log(n);
+            });
+
+            // 设置属性
+            $("#btnSet").click(function() {
+                // 用法跟 css 这个方法相同
+                $("a").attr("title", "传智播客就是牛");
+
+                $("a").attr("n", "这是自定义属性");
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btnSet">设置属性</button>
+<button id="btnGet">读取属性</button>
+<a href="http://web.itcast.cn/">传智播客-前端学院</a>
+</body>
+</html>

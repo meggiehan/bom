@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //通过构造函数创建正则对象
+    var regEx = new RegExp(/\d/);// 双斜线是注释 里面写了东西就是正则
+    // \d digit 数字 表示数字
+    console.log(regEx.test("1"));//true 可以匹配数字
+    console.log(regEx.test("a"));//false 可以匹配数字 字母不行
+    //我们现在只是学习基本语法 不做精确匹配 只要有我想要的就可以
+    console.log(regEx.test("a1"));//true 只要有我想要的就是true
+
+    //直接量
+    //我们一般都使用直接量来声明正则对象 因为它 简单方便
+    var regEx2 = /\d/;
+    //甚至 如果我们的正则表达式 只使用一次 那直接写就可以了
+    console.log(/\d/.test("1"));//true
+    console.log(/\d/.test("ds1"));//true
+
+    var regEx=new RegExp(/\d/);
+    console.log(regEx.test("1"));//true
+    console.log(regEx.test("s"));//false
+    console.log(regEx.test("1s"));//true
+    console.log(regEx.test("s1"));//true
+    //目前只学习基本语法，所以不做精确匹配在，只要有我们想要的都是true.
+
+
+
+</script>
+</body>
+</html>

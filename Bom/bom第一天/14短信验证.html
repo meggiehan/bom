@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" value="请输入短信验证码"/>
+<input type="button" id="btn" value="点击发送验证码"/>
+<script>
+    var num=6;
+    var timer=null;
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+        btn.disabled=true;
+        timer=setInterval(function(){
+            num--;
+            btn.value=num+"秒后可再次发送";
+            if(num===0){
+                clearInterval(timer);
+                btn.value="点击发送验证码";
+                btn.disabled=false;
+                num=6;
+            }
+        },1000)
+
+    }
+
+
+//    var timer=null;
+//    var btn=document.getElementById("btn");
+//    var num=6;
+//    btn.onclick=function(){
+////        btn.disabled=true;
+//        this.disabled=true;
+//        timer=setInterval(function(){
+//            num--;
+//            btn.value=num+"秒后可再次发送";
+//            if(num===0){
+//                clearInterval(timer);
+//                btn.value="点击发送验证码";
+//                btn.disabled=false;
+//                num=6;
+//            }
+//        },1000)
+//    }
+
+
+
+    //点击按钮 让按钮中的文字倒计时
+    var btn = document.getElementById("btn");
+    var num = 5;
+    var timer = null;
+
+    btn.onclick = function () {
+        //1禁用按钮
+        //btn.disabled = true;
+        this.disabled = true;
+        //2设置按钮的值
+        timer = setInterval(function () {
+            num--;
+            btn.value = num + "秒后可再次发送";
+            //this.value = num + "秒后可再次发送";//这里的this指向的是Window窗体。
+            //console.log(this);//一定要注意!!!定时器的回调函数是被window调用的
+            if (num === 0) {
+                clearInterval(timer);
+                btn.value = "点击发送验证码";
+                btn.disabled = false;//不要再禁用了
+                num = 5;//这里必须重新设置倒计时，因为上面num记录的值会一直自减。
+            }
+        }, 1000);
+    };
+</script>
+</body>
+</html>

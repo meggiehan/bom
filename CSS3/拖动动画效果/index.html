@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 501px;
+            height:600px;
+            margin:0px auto;
+            background-color: salmon;
+            border: 1px solid silver;
+            display: flex;
+            position: relative;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+        .box .common{
+            /*flex-direction: column;*/
+            width: 167px;
+            height: 200px;
+            /*border: 1px solid wheat;*/
+        }
+        .one{
+            background: url("images/car.jpg")no-repeat center /cover;
+        }
+        .two{
+            background: url("images/3.jpg")no-repeat center/cover;
+        }
+        .three{
+            background: url("images/8.jpg")no-repeat center/cover;
+        }
+        .four{
+            background: url("images/5.jpg")no-repeat center/cover;
+        }
+        .five
+        {
+            background: url("images/2.jpg") no-repeat center/cover;
+        }
+        .six{
+            background: url("images/7.JPG") no-repeat center/cover;
+        }
+        .seven{
+            background: url("images/88.jpg") no-repeat center/cover;
+        }
+        .eight{
+            background: url("images/99.jpg") no-repeat center/cover;
+        }
+        .nine{
+            background: url("images/9.jpg") no-repeat center/cover;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="common one"></div>
+    <div class="common two"></div>
+    <div class="common three"></div>
+    <div class="common four"></div>
+    <div class="common five"></div>
+    <div class="common six"></div>
+    <div class="common seven"></div>
+    <div class="common eight"></div>
+    <div class="common nine"></div>
+</div>
+<script type="text/javascript" src="jquery-1.12.2.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script>
+    $(function(){
+       $(".common").drag(function(){
+
+       })
+    })
+</script>
+</body>
+</html>

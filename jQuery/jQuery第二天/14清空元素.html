@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 通过现有的知识，将div的内容清空？？
+            $("#btnEmpty").click(function() {
+                // html() 方法，如果传入的是空字符串，那么就会将被选择到的元素内容清空
+                // $("div").html("");
+
+                // empty() 作用：清空元素
+                $("div").empty();
+            });
+
+            // 移除元素
+            $("#btnRemove").click(function() {
+                // remove() 作用：将被选中的元素从页面中移除（其子元素也会被移除）
+                $("div").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnEmpty">清空元素</button>
+    <button id="btnRemove">移除元素</button>
+
+    <div>
+        <h2>这是div的标题</h2>
+        <p>这是一段很优美的文章~  很美~</p>
+    </div>
+</body>
+</html>

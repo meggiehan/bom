@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //代码块不会阻挡变量的作用范围
+    //1代码块
+    /*{
+     var num1 = 5;
+     //在某些语言中，代码块中定义的变量，外部是访问不到的
+     }
+     console.log(num1);//但是JavaScript中没有块级作用域*/
+
+    //2if的代码块
+    /*if (true) {
+     var sum = 7;}
+     console.log(sum);*/
+    //sum = undefined
+    /*if (false) {
+     var sum = 7; }
+     console.log(sum);*/
+    //3for的代码块
+    /*for (var i = 0; i < 10; i++) {
+     var ccc = "abc";
+     }
+     console.log(ccc);
+     console.log(i);*/
+    //某些语言中变量i只能在for循环内部访问（局部变量）
+    //没有块级作用域 但是有函数作用域
+
+</script>
+</body>
+</html>

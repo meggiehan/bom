@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background: #000;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 触发事件
+            // 给div绑定事件
+            $("div").on("click", function () {
+                alert("这是div的事件处理函数");
+            });
+
+            // 单击按钮 触发div的单机事件
+            $("button").on("click", function () {
+                // click() 不传参数，表示触发事件
+                // $("div").click();
+
+                // jQuery触发事件的方式一：
+                // trigger() 作用：触发指定的事件
+                // 参数：表示要触发事件的名称
+                // $("div").trigger("click");
+
+                // jQuery触发事件的方式二：
+                // triggerHandler() 作用：触发指定的事件
+                // 参数：表示要触发事件的名称
+                $("div").triggerHandler("click");
+            });
+
+
+            // 让按钮 触发文本框的获得焦点事件
+            $("#btn").on("click", function () {
+                // 效果：文本框获得焦点，并且事件被触发
+//                 $("#txt").trigger("focus");
+                // 效果：文本框没有获得焦点，但是事件被触发了
+//                 $("#txt").triggerHandler("focus");
+                $("a").trigger("click");
+
+                // 文本框获得焦点 是 浏览器的默认行为
+                // 以上两种触发事件的区别：
+                // trigger：会触发浏览器的默认行为，并执行事件
+                // triggerHandler：不会触发浏览器的默认行为，只触发事件
+            });
+
+            // 给文本框绑定获得焦点事件
+            $("#txt").on("focus", function () {
+                $(this).next().text("文本框获得焦点了！！！！");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <button>按钮</button>
+    <input type="button" id="btn" value="触发文本框的获得焦点事件"/>
+    <div></div>
+    <input type="text" id="txt"/><span></span>
+</body>
+</html>

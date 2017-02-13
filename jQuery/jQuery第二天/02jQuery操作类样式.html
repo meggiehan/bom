@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            font-size: 30px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function () {
+//            // 如何给div设置类样式？
+//            // addClass() 作用：给选择的元素来添加指定类
+//            // 注意点：类名 不带点
+             $("div").addClass("box");
+//            // xxx.className = xxx.className + " box";
+//
+//            // 移除类
+//            // removeClass() 作用：移除指定的类
+//            // 参数：要移除的类名；如果没有参数，表示移除所有的类名
+             $("div").removeClass("abc");
+             $("div").removeClass();
+//
+//            // 判断有没有指定的类
+//            // hasClass() 作用：判断有没有指定的类
+//            // 参数：表示要判断的类名，如果有就返回：true，如果没有则返回：false
+             var hc = $("div").hasClass("box");
+             console.log(hc);
+//
+//            // 案例：实现场景切换
+            $("#btnChange").click(function() {
+                // 判断下 有没有指定的场景（类）
+                var hasBox = $("div").hasClass("box")
+                if(hasBox) {
+                    // 如果有，那么就移除掉这个类
+                    $("div").removeClass("box");
+                } else {
+                    // 如果没有，那么久添加这个类
+                    $("div").addClass("box");
+                }
+            });
+//
+            $("#btnChange").click(function() {
+                // toggleClass() 作用：切换指定的类，如果有就移除，没有就添加
+                $("div").toggleClass("box");
+            });
+        });
+////
+//        $(function(){
+//            $("div").addClass("box");
+//            $("div").removeClass("abc");
+//            console.log($("div").hasClass("box"));
+//            $("#btnChange").click(function(){
+//                $("div").toggleClass("box");
+//            })
+//
+//        })
+
+
+    </script>
+</head>
+<body>
+    <button id="btnChange">切换场景</button>
+    <div class="abc">这是一个div</div>
+</body>
+</html>

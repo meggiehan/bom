@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+
+        }
+
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+    <script src="../jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 1. 给div下面的所有li元素绑定鼠标移上来的事件
+            $(".wrap li").mouseenter(function() {
+                // 2. 让当前这个元素 变为高亮状态，让其他的兄弟元素变为暗的状态
+                // opacity: 1 全不透（亮）    0 全透（暗）
+                $(this).css("opacity", 1).siblings("li").css("opacity", 0.5);
+
+            });
+
+            // 1. 给div绑定鼠标离开的事件
+            $(".wrap").mouseleave(function() {
+                // 2. 让当前这个元素（div）的儿子元素ul的儿子元素变为 高亮
+                 $(this).children("ul").children("li").css("opacity", 1);//第一种方法
+                // > 空格
+                // find() 作用：跟后代选择器的功能一样，选择指定元素下面的所有指定的后代元素
+                $(this).find("li").css("opacity", 1);//第二种方法，这里的this指的是.wrap
+            });
+        });
+//
+//        $(document).ready(function(){
+//            $(".wrap li").mouseenter(function(){
+//                $(this).css("opacity",1).siblings("li").css("opacity",0.5);
+//            })
+//            $(".wrap").mouseleave(function(){
+//                $(this).children("ul").children("li").css("opacity",1);
+////                $(this).find("li").css("opacity",1);
+//            })
+//        })
+
+
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+        <li><a href="#"><img src="images/06.jpg" alt=""/></a></li>
+    </ul>
+</div>
+</body>
+</html>

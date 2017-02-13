@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.min.js"></script>
+    <script>
+        // $ 是什么？
+        // 命名规范：数字、字母、下划线、$
+        // 注意点：不能以 数字 ，作为 命名的开头
+        // var $ = 123;
+        // var $ = "string";
+        // console.log($);
+        /*function $() {
+            console.log("这是自定义的$");
+        }
+        // $();
+        console.log(typeof $);*/
+        // $在jQuery中的含义
+        // 其实$ 在jQuery里面就是一个函数
+        // console.log(typeof $);
+        // $的使用方式
+        /*$(document).ready(function () {
+        });
+
+        $(function() {});
+
+        $("#btn")*/
+
+        // 优势：会根据传入参数类型的不同，分别进行不同的处理，来实现不同的功能
+        // 获取div元素：$("div")
+        // 获取id为 btn的元素：$("#btn")
+
+
+        // 还提供了另外一个： jQuery
+        // jQuery的作用跟$的作用完全相同：jQuery === $ // true
+        jQuery(document).ready(function () {
+            // $("#btn")
+            jQuery("#btn").click(function() {
+                alert("1231");
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

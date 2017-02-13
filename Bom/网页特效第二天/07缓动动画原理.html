@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">去吧皮卡段</button>
+<div id="demo"></div>
+<script>
+
+    var btn=document.getElementById("btn");
+    var demo=document.getElementById("demo");
+    var timer=null;
+    btn.onclick=function(){
+//        clearInterval(timer);
+//        timer=setInterval(function(){
+//            var target=400;
+//            var leader=demo.offsetLeft;
+//            var step=(target-leader)/10;
+//            step=step>0?Math.ceil(step):Math.floor(step);
+//            leader=leader+step;
+//            demo.style.left=leader+"px";
+//            console.log("zhixinging");
+//            if(leader===target){
+//                clearInterval(timer);
+//            }
+//        },15)
+        animate(demo,200);
+    }
+    function animate(obj,target){
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function(){
+            var leader=obj.offsetLeft;
+            var step=(target-leader)/10;
+            step=step>0?Math.ceil(step):Math.floor(step);
+            leader=leader+step;
+            obj.style.left=leader+"px";
+            if(leader===target){
+                clearInterval(obj.timer);
+            }
+        },15)
+    }
+
+//    function animate(obj, target) {
+//        clearInterval(obj.timer);
+//        obj.timer = setInterval(function () {
+//            var leader = obj.offsetLeft;
+//            var step = (target - leader) / 10;
+//            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+//            leader = leader + step;
+//            obj.style.left = leader + "px";
+//            if (leader === target) {
+//                clearInterval(obj.timer);
+//            }
+//        }, 15);
+//    }
+
+
+
+//    var btn = document.getElementById("btn");
+//    var demo = document.getElementById("demo");
+//    var timer = null;
+//
+//    btn.onclick = function () {
+//        clearInterval(timer);
+//        timer = setInterval(function () {
+//            //step = (target - leader) / 10
+//            //leader = leader + step
+//            var target = 400;
+//            var leader = demo.offsetLeft;
+//            //var step = 10;
+//            var step = (target - leader) / 10;
+//            leader = leader + step;
+//            demo.style.left = leader + "px";
+//        }, 15);
+//    };
+</script>
+</body>
+</html>

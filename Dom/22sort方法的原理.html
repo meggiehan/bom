@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr = [3, 6, 1, 5, 10, 2];
+    function sort(arr, fn) {//sort方法的原理
+        for (var i = 0; i < arr.length - 1; i++) {
+            var flag = true;
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (fn(arr[j], arr[j + 1]) > 0) {//把我们要用到的函数传进来，然后去执行
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return arr;
+    }
+    console.log(sort(arr, function (a, b) {
+     //return a - b;
+     return -(a - b);
+     }));
+
+    var arr = ["aaaa", "adsf", "adaeweqr", "aa", "a"];
+     console.log(sort(arr, function (a, b) {
+     return -(a.length - b.length);
+     }));
+
+    var arr = [
+        {name: "linlin", age: 18},
+        {name: "xiaolonglong", age: 8},
+        {name: "sudongpo", age: 3000}
+    ];
+    console.log(sort(arr, function (a, b) {
+        //return a.age - b.age;
+        return -(a.age - b.age);
+    }));
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: mistyrose;
+        }
+        .clearfix::before,.clearfix::after{
+            content: "";
+            display: block;
+            height: 0;
+            line-height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        ul{
+            list-style:none;
+        }
+        li{
+            width: 100px;
+            height: 50px;
+            border: 1px solid pink;
+            float: left;
+            margin: 5px;
+            background: pink;
+            line-height: 50px;
+            text-align: center;
+        }
+        input{
+            display: block;
+            width: 150px;
+            height: 50px;
+            background: lightsalmon;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div clas="container">
+        <ul class="clearfix">
+        </ul>
+    </div>
+    <input type="button" value="开始点名"/>
+    <script>
+        var str='刘潞,孙媛,朱尧,陈伟康,李斯杨,鞠永霞,李冠华,王斌,杨才生,韩孟君,胡青青,石敬,孙和斌,於科远,项永春,杨大培,马煜鑫,吴苏州,蔡公泽,吴震刚,龚飞菲,储堃,张沐臻,邵忆乐,徐小豪,王德磊,余伟,高玉亮,黄龙龙,陈亚茹,吴磊,陈俊迪,张青,刘启森,王耀,张策,曹小燕,韩建亮,李刘玉,乔子齐,励瑜科,邵超勇,朱佳骏,张树杰,赵博,张震,魏然,栗严严,韩敏,熊梦,李直,周明晔,袁晓奇,李盈平,康志恒,吴明,陈盼,张翊文,杜典博,侯少鹏,何磊,张路,单振兴,刘龙,陈元,马戬宇,刘元圣,刘晓峰,曹言,李成隆,沈益亮,杨启岩,赵文敬,赵镇,杨朝杰,高君杰,董波,薛赛,孙淑娴,李恩庆,王述波,龙波,张明明';
+        var arr=str.split(",");
+        console.log(arr);
+        var ul=document.getElementsByTagName("ul")[0];
+        var lis=document.getElementsByTagName("li");
+        btn=document.getElementsByTagName("input")[0];
+        for (var i = 0; i < arr.length; i++) {
+           var li=document.createElement("li");
+            li.innerHTML=arr[i];
+            ul.appendChild(li);
+        }
+        btn.onclick= function () {
+        };
+    </script>
+</body>
+</html>

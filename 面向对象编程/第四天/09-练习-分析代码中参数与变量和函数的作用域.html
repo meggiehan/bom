@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+</body>
+<script>
+	//var a ; a =100; a= 函数引用
+
+	(function ( a ) {//最开始a传进来的时候，自动强制声明并且传入了100的值给他，所以之后的声明就被覆盖了。
+		console.log( a );//此时打印的是函数体
+		var a = 10;
+		console.log( a );//给a重新赋值了10.
+		function a () {
+			console.log( a );
+		}
+		a();//此时的a已经不是函数体了，而是10，所以会报错。
+	})( 100 );
+</script>
+</html>

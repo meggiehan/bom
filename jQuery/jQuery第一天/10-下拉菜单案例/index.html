@@ -1,0 +1,117 @@
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-image: url(imgs/bg.jpg);
+        }
+
+        .wrap li{
+            background-image: url(imgs/libg.jpg);
+        }
+
+        .wrap > ul > li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+
+    </style>
+    <script src="../jquery-1.12.2.js"></script>
+    <script>
+        $(function () {
+            // 1. 获取到所有的一级菜单，并绑定鼠标移上来的事件
+            $(".wrap > ul > li").mouseenter(function () {
+                // alert(123);
+                // 2. 让当前一级菜单下面的 二级菜单展示出来
+                // 当前元素？ this -> DOM对象
+                // children() 作用：选择指定元素下面的子元素（>）
+                $(this).children("ul").show();
+            });
+
+            // 获取到所有的一级菜单，并绑定鼠标离开的事件
+            $(".wrap > ul > li").mouseleave(function () {
+                // 让当前一级菜单下面的 二级菜单隐藏掉
+                // hide() :隐藏的意思
+                $(this).children("ul").hide();
+            });
+        });
+//
+////
+//       $(function(){
+//           $(".wrap > ul > li").mouseenter(function(){
+//               $(this).children("ul").show();
+//           })
+//           $(".wrap>ul>li").mouseleave(function(){
+//               $(this).children("ul").hide();
+//           })
+//       })
+
+
+
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul>
+                <li><a href="javascript:void(0);">二级菜单1</a></li>
+                <li><a href="javascript:void(0);">二级菜单2</a></li>
+                <li><a href="javascript:void(0);">二级菜单3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

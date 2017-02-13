@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<!-- 导入插件 -->
+	<script type="text/javascript" src='js/jquery-3.0.0.min.js'></script>
+	<script type="text/javascript" src='js/jquery.fullPage.min.js'></script>
+	
+	<!--  调用插件方法 -->
+	<script type="text/javascript">
+		$(function(){
+			$('#Demo').fullpage({
+				afterLoad:function(anchorLink ,index){
+					// 删掉所有的 animationclass
+					$('.section').removeClass('animation');
+
+					// 为当前页添加animationclass
+					// 首页 默认执行的速度太快了 还没看到 就执行完毕了 所以延迟一点
+					setTimeout(function(){
+						$('.section').eq(index-1).addClass('animation');
+					},10)
+		    			
+		    		}
+			});
+		})
+		
+	</script>
+
+</head>
+<body>
+	<div id="Demo">
+	<!--  第一页 -->
+	    <div class="section one">
+	    	<div class="logo"></div>
+	    	<div class="text">
+	    		<img src="images/text_1.png" alt="">
+	    		<img src="images/text_2.png" alt="">
+	    		<img src="images/text_3.png" alt="">
+	    		<img src="images/text_4.png" alt="">
+	    		<img src="images/text_5.png" alt="">
+	    		<img src="images/text_6.png" alt="">
+	    		<img src="images/text_7.png" alt="">
+	    		<img src="images/text_8.png" alt="">
+	    	</div>
+	    	<div class="info"></div>
+	    </div>
+	    <!-- 第二页 -->
+	    <div class="section two">
+	    	<div class="shield">
+	    		<img src="images/shield_1.png" alt="">
+	    		<img src="images/shield_2.png" alt="">
+	    		<img src="images/shield_3.png" alt="">
+	    		<img src="images/shield_4.png" alt="">
+	    		<img src="images/shield_5.png" alt="">
+	    		<img src="images/shield_6.png" alt="">
+	    		<img src="images/shield_7.png" alt="">
+	    		<img src="images/shield_8.png" alt="">
+	    		<img src="images/shield_9.png" alt="">
+	    	</div>
+	    	<div class="info"></div>
+	    </div>
+	    <!-- 第三页 -->
+	    <div class="section three">
+	    	<div class="info"></div>
+	    	<div class="circle"></div>
+	    	<div class="rocket"></div>
+	    </div>
+	    <!-- 第四页 -->
+	    <div class="section four">
+		<div class="searchBox">
+			<div class="search"></div>
+			<div class="key"></div>
+			<div class="result"></div>
+		</div>
+		<div class="info"></div>
+	    </div>
+	    <!-- 第五页 -->
+	    <div class="section five">
+	    	<div class="info"></div>
+	    	<div class="browser">
+	    		<!-- 设置四根线段 -->
+	    		<div class="line top"></div>
+	    		<div class="line bottom"></div>
+	    		<div class="line left"></div>
+	    		<div class="line right"></div>
+	    	</div>
+	    </div>
+	</div>
+</body>
+</html>

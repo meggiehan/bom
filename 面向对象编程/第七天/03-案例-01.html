@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+</body>
+<script>
+	var reg = /^a+$/;//以a开头，后面可以跟上1个或者多个a，最后要以a结尾。
+
+	console.log( reg.test( 'aaaaaaaaaaaaaaaaaaaaaaaaaa' ) );
+
+	var str = "vistiver bwxking";
+	var s = "bwxking";
+	var n = str.search(s);
+	console.log(n);//9
+
+	var w = str.search(/bwxking/);
+	console.log(w);//9
+
+</script>
+</html>

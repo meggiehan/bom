@@ -1,0 +1,247 @@
+body{
+    margin: 0;
+}
+/*第一页的css样式*/
+.one{
+    background-color: skyblue;
+    text-align: center;
+    padding-top: 100px;
+
+}
+.one .logo{
+    background: url("../images/logo.png") no-repeat center;
+
+    height: 186px;
+}
+.one .text{
+    text-align: center;
+    margin: 50px 0;
+}
+.one .info{
+    background: url("../images/info_1.png") no-repeat center;
+    height: 96px;
+}
+/*第二页的css样式*/
+.two{
+    background-color: yellowgreen;
+}
+.two>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.two .shiled{
+    width: 480px;
+}
+.two .info{
+    background: url("../images/info_2.png")no-repeat center;
+    width: 635px;
+    height: 309px;
+}
+/*第三页的css样式*/
+.three{
+    background-color: salmon;
+}
+.three>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.three .info{
+    background: url("../images/info_3.png") no-repeat center;
+    width: 631px;
+    height: 278px;
+}
+.three .circle{
+    background: url("../images/circle.png") no-repeat center;
+    width: 453px;
+    height: 449px;
+}
+.three .rocket{
+    background: url("../images/rocket.png") no-repeat center;
+    width: 203px;
+    height: 204px;
+    position: absolute;
+    left: 0px;
+    bottom: -204px;
+
+}
+/*第四页的css样式*/
+.four{
+    background-color: purple;
+}
+.four>div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.four .searchbox{
+    width: 529px;
+    height: 480px;
+    align-self: flex-end;
+    position: relative;
+}
+.four .searchbox>div{
+    position: absolute;
+}
+.four .searchbox .search{
+    background: url("../images/search.png")no-repeat center;
+    width: 529px;
+    height: 66px;
+}
+.four .searchbox .key{
+    background: url("../images/key.png")no-repeat;
+    width: 99px;
+    height: 22px;
+    top:22px;
+    left: 15px;
+}
+.four .searchbox .result{
+    background: url("../images/result.png")no-repeat;
+    width: 529px;
+    height: 372px;
+    top:66px;
+    left: 0px;
+}
+.four .info{
+    background: url("../images/info_4.png")no-repeat center;
+    width: 612px;
+    height: 299px;
+}
+/*第五页的css样式*/
+.five{
+    background-color: rosybrown;
+}
+.five>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.five .info{
+    background: url("../images/info_5.png")no-repeat center;
+    width: 100%;
+    height: 134px;
+}
+.five .brower{
+    background: url("../images/toolbar.png") no-repeat top,
+     url("../images/extra.png") no-repeat  bottom right;
+    width: 1004px;
+    flex: 1;
+    position: relative;
+}
+.five .brower .line{
+    position: absolute;
+    background-color: wheat;
+}
+.five .brower .top{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+}
+.five .brower .bottom{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+}
+.five .brower .left{
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+}
+.five .brower .right{
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+}
+
+/*第一页的动画*/
+
+.one .text img{
+    opacity: 0;
+    margin: 0 15px;
+}
+.one.animation .text img{
+    opacity: 1;
+    margin: 0;
+    transition: all 1s;
+}
+
+/*第二页的动画*/
+
+.two .shiled img:nth-child(5){
+    transform: rotateZ(60deg) translate(100px,50px);
+}
+.two.animation .shiled img:nth-child(5){
+    transform:rotateZ(0deg) translate(0px,0px) ;
+    transition: all 1s;
+}
+
+/*第三页的动画*/
+.three.animation .rocket{
+    transform: translateX(970px) translateY(-420px);
+    transition: all 1s;
+}
+
+/*第四页的动画*/
+.four .searchbox{
+    transform: translateX(-150%);
+}
+.four .searchbox .key{
+    width: 0;
+}
+.four .searchbox .result{
+    height: 0;
+}
+.four.animation .searchbox{
+    transform: translateX(0);
+    transition: all 1s;
+}
+.four.animation .key{
+    transition: all 1s 1.5s;/*这里必须放在最前面，否则达不到一个字一个字出现的效果*/
+    transition-timing-function: steps(5);
+    width: 99px;
+}
+.four.animation .result{
+    height: 372px;
+    transform: translateX(0);
+    transition: all 1s 3s;
+}
+
+/*第五页的动画*/
+.five{
+    overflow: hidden;
+}
+/*.five .top{*/
+    /*transform: translateX(200%);*/
+/*}*/
+/*.five .bottom{*/
+    /*transform: translateX(-200%);*/
+/*}*/
+/*.five .left{*/
+    /*transform: translateY(-200%);*/
+/*}*/
+/*.five .right{*/
+    /*transform: translateY(200%);*/
+/*}*/
+.five .top{
+    transform: translateX(-200%);
+}
+.five .bottom{
+    transform: translateX(200%);
+}
+.five .left{
+    transform: translateY(200%);
+}
+.five .right{
+    transform: translateY(-200%);
+}
+.five.animation .line{
+    transition: all 1s;
+    transform: translate(0,0);
+}

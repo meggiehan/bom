@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .highlight {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="txt"/>
+<input type="button" value="注册" id="btn"/>
+<script>
+    var txt=document.getElementById("txt");
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+        if(txt.value.length<3||txt.value.length>6){
+            alert("用户名只能是3-6之间的字符");
+            txt.className="highlight";
+            return;//若不返回值，则会执行后面的程序
+        }
+        else{
+            txt.className="";
+        }
+        alert("向后台发送数据");
+
+    }
+//    //点击注册后 验证文本框中的内容 如果符合要求就想后台发送数据
+//    var txt = document.getElementById("txt");
+//    var btn = document.getElementById("btn");
+//    btn.onclick = function () {
+//        //验证文本框中的内容 如果符合要求就想后台发送数据
+//        //要求 用户名必须在3-6位之间
+//        if (txt.value.length < 3 || txt.value.length > 6) {
+//            alert("用户名必须在3-6位之间");
+//            txt.className = "highlight";
+//            return;
+//        } else {
+//            txt.className = "";
+//        }
+//
+//        alert("想后台发送数据");
+//    };
+
+</script>
+</body>
+</html>

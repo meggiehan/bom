@@ -1,0 +1,274 @@
+<!-- This script has been in the http://www.javascripts.com Javascript Public Library! -->
+<!-- Note that though this material may have been in a public depository, certain author copyright restrictions may apply. -->
+<!--DO NOT REMOVE THESE LINES-->
+<!--COPYRIGHT OF SCHUBERT - [schubert_94_2000@yahoo.com]-->
+<!--SALE OR DISTRIBUTION IS PROHIBITED-->
+<html>
+<head>
+	<title>Typing Speed Test 1.1</title>
+<style type="text/css">
+.textinp{font-family:ms sans serif;font-size:9pt}
+.textreadable{font-family:arial;font-size:11pt;font-weight:bold}
+a{text-decoration:none}
+</style>
+<script language="JavaScript">
+<!--i dun think this will work for u
+function yeahok()
+{
+alert("Copyright of Schubert - [schubert_94_2000@yahoo.com]");
+}
+function restartest()
+{
+history.go(0);
+document.testform.test.value="";
+document.testform.name.value="";
+document.testform.scnds.value="60";
+}
+done="no";
+function writedown()
+{
+var name=document.testform.name.value;
+if(name.length!=0)
+{
+correctname=name;
+}
+else
+{
+correctname="you";
+}
+if(done=="yes")
+{
+your_results=window.open("","","resizable=1;width=400,height=400");
+your_results.document.write("<html><head><title>Typing Test Results</title><style type=\"text/css\">.aclass{font-family:ms sans serif;font-size:9pt}</style></head>");
+your_results.document.write("<body><h3 align=\"center\">Results for "+correctname+"</h3><hr color=\"#000000\" size=1>");
+your_results.document.write("<p>Percentage Accuracy : "+accuracy+"%<br>Percentage Inaccuracy : "+inaccuracy+"%<br>Characters per minute : <font color=\"#ff0000\">"+cpm+" cpm</font><br>Characters per second : <font color=\"#ff0000\">"+cps+" cps</font><br>Words per minute : "+wpm+" wpm<br>Words per second : "+wps+" wps<br>Total Speed status : "+status+"<br>Overall Accuracy : "+accstats+"<hr color=\"#000000\" size=1><input type=\"Button\" onclick=\"window.close()\" value=\"Close\"><hr color=\"#000000\" size=1>NOTE : Characters per minute is important</p>");
+}
+else
+{
+alert("You didn't start a test.");
+}
+}
+function graph()
+{
+var name=document.testform.name.value;
+if(name.length!=0)
+{
+correctname=name;
+}
+else
+{
+correctname="you";
+}
+if(done=="yes")
+{
+var c=parseInt(accuracy+cps/2);
+var a=parseInt(accuracy*100/c);
+var b=parseInt(cps*100/c);
+
+your_results=window.open("","","resizable=1;width=400,height=400");
+your_results.document.write("<html><head><title>Typing Test Results - [Graph]</title><style type=\"text/css\">.aclass{font-family:ms sans serif;font-size:9pt}</style></head>");
+your_results.document.write("<body><h3 align=\"center\">Graph for "+correctname+"</h3><hr color=\"#000000\" size=1>");
+your_results.document.write("Accuracy<table bgcolor=\"#ff0000\" width=\""+a+"\"><tr><td width=\"100%\"><br></td></tr></table>");
+your_results.document.write("Speed<table bgcolor=\"#0000ff\" width=\""+b+"\"><tr><td width=\"100%\"><br></td></tr></table><hr color=\"#000000\" size=1><input type=\"Button\" onclick=\"window.close()\" value=\"Close\"><hr color=\"#000000\" size=1>Note : This will not be very accurate sometimes.");
+}
+else
+{
+alert("You didn't start a test.");
+}
+}
+function get()
+	{
+	chars=document.testform.test.value.length;
+	document.testform.chars.value=chars;
+	}
+function ok()
+{
+if(document.testform.scnds.value.indexOf('0',0)!=-1 || document.testform.scnds.value.indexOf('1',0)!=-1 || document.testform.scnds.value.indexOf('2',0)!=-1 || document.testform.scnds.value.indexOf('3',0)!=-1 ||
+document.testform.scnds.value.indexOf('4',0)!=-1 || document.testform.scnds.value.indexOf('5',0)!=-1 ||
+document.testform.scnds.value.indexOf('6',0)!=-1 || document.testform.scnds.value.indexOf('7',0)!=-1 ||
+document.testform.scnds.value.indexOf('8',0)!=-1 || document.testform.scnds.value.indexOf('9',0)!=-1)
+{
+start=0;
+stop=document.testform.scnds.value;
+document.testform.scnds.disabled=true;
+document.testform.name.disabled=true;
+document.testform.bresults.disabled=true;
+document.testform.sgraph.disabled=true;
+document.testform.test.disabled=false;
+alert("Be sure to aim your cursor at the text area now.\nReady, get set, ..........click OK");
+keepcountin();
+}
+else
+{
+alert("Invalid seconds sppecified!");
+}
+}
+function keepcountin()
+	{	
+	if(start == stop)
+	{
+	alert("Your time is up.");
+	alert("Click \"Results\" to view your speed and accuracy results.");
+	getallres();
+	}
+else
+	{
+	start++;
+	setTimeout("keepcountin()",1000)
+	}
+}
+function getallres()
+{
+	//results
+	document.testform.test.disabled=true;
+	document.testform.bresults.disabled=false;
+	document.testform.sgraph.disabled=false;
+	utyped=document.testform.test.value;
+	ityped="Soccer is one of the world's most popular sport, and this is evident in the faces of over 2 billion fans gathered to watch the World Cup, held every 4 years. The dominate forces of soccer have traditionally been Brazil and Germany, with Brazil holding the record for the most World Cup Championship wins in the history of this sport. In 1998, the World Cup was held in France, with the host team, France, and the visitor Brazil, going for the gold. Brazil was generally favored in this match, while France looked to its first World Cup championship ever. The outcome of the match was shocking for most, with France decisively beating Brazil, 3-0.";
+	spcs=document.testform.test.value;
+	charcs=document.testform.test.value.length;
+	words=spcs.split(' ');
+	mywords=ityped.split(' ');
+	yourwords=utyped.split(' ');
+	gotcha=words.length;
+	seconds=stop;
+	mins=seconds/60;
+	wpm=parseInt(gotcha/mins);
+	wps=parseInt(gotcha/seconds);
+	cpm=parseInt(charcs/mins);
+	cps=parseInt(charcs/seconds);
+	y=0;
+	done="yes";
+	//nu line
+	acc=0;
+	inac=0;
+	for(x=0;x<utyped.length;x++)
+	{
+	if(utyped.charAt(x)!=ityped.charAt(x+y))
+		{
+		if(utyped.charAt(x)==ityped.charAt(x+1))
+			{y++;}
+		else if(utyped.charAt(x)==ityped.charAt(x+y-1))
+			{y--;}
+		}
+	if(ityped.substring(x+y,x+1+y)==utyped.substring(x,x+1))
+		{
+		acc++;
+		}
+		else
+		{
+		inac++;
+		}
+	}
+	//ok
+	accuracy=acc*100/utyped.length;
+	inaccuracy=inac*100/utyped.length;
+	if(cpm<150)
+	{
+	status="Poor";
+	}
+	else if(cpm>=150 && cpm<=280)
+	{
+	status="Okay";
+	}
+	else if(cpm>280 && cpm<=330)
+	{
+	status="Good";
+	}
+	else if(cpm>330 && cpm<=600)
+	{
+	status="Too Good";
+	}
+	else if(cpm>600 && cpm<=700)
+	{
+	status="Absolute Top Class";
+	}
+	else if(cpm>700)
+	{
+	status="You weren't serious";
+	}
+	if(accuracy<10)
+	{
+	accstats="Very very Bad";
+	}
+	else if(accuracy>=10 && accuracy<40)
+	{
+	accstats="Very Bad";
+	}
+	else if(accuracy>=40 && accuracy<60)
+	{
+	accstats="Bad";
+	}
+	else if(accuracy>=60 && accuracy<80)
+	{
+	accstats="Poor";
+	}
+	else if(accuracy>=80 && accuracy<90)
+	{
+	accstats="Okay";
+	}
+	else if(accuracy>=90 && accuracy<92)
+	{
+	accstats="Good";
+	}
+	else if(accuracy>=92 && accuracy<94)
+	{
+	accstats="Very Good";
+	}
+	else if(accuracy>=94 && accuracy<96)
+	{
+	accstats="Very very good";
+	}
+	else if(accuracy>=96 && accuracy<98)
+	{
+	accstats="Too Good";
+	}
+	else if(accuracy>=98 && accuracy<=99)
+	{
+	accstats="Brilliant";
+	}
+	else if(accuracy=100)
+	{
+	accstats="Absolutely Spot on";
+	}
+}
+//sorry cum back-->
+</script>
+</head>
+<body bgcolor="#800000">
+<table width="100%" bgcolor="#c0c0c0" cellpadding="5" cellspacing="2" border="5">
+<tr>
+<td align="center">
+<font size="+2"><b>Typing Speed Test 1.1</b></font>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+<form name="testform">
+<input name="chars" type="hidden" value="">
+Name: <input class="textinp" name="name" type="text" value="" size="20">&nbsp;&nbsp;&nbsp;&nbsp;
+Duration (seconds): <input class="textinp" name="scnds" type="text" value="60" size="5" maxlength="3"></td>
+</tr>
+<tr>
+<td class="textinp">
+<center><b>READ THIS</b></center>
+Enter your name above. Specify the duration in seconds. Scroll down, click the start button at the bottom of the page. As soon as you click start an alert message will appear telling you to get ready, click ok, place your cursor on the text-area and start typing whatever is written in the paragraph below. After the duration you specified elapses, you will be stopped. Click the "Results" button at the bottom to view your results. You may also view a graph of your results.
+</td>
+</tr>
+<tr>
+<td width="100%" class="textreadable">
+<p>Soccer is one of the world's most popular sport, and this is evident in the faces of over 2 billion fans gathered to watch the World Cup, held every 4 years. The dominate forces of soccer have traditionally been Brazil and Germany, with Brazil holding the record for the most World Cup Championship wins in the history of this sport. In 1998, the World Cup was held in France, with the host team, France, and the visitor Brazil, going for the gold. Brazil was generally favored in this match, while France looked to its first World Cup championship ever. The outcome of the match was shocking for most, with France decisively beating Brazil, 3-0.</p>
+</td>
+</tr>
+<tr><td width="100%" align="center">
+<textarea disabled style="width:100%" rows="5" cols="50" name="test" onblur="get()" onchange="get()" onclick="get()" ondblclick="get()" onfocus="get()" onkeydown="get()" onkeypress="get()" onkeyup="get()" onmousedown="get()" onmousemove="get()" onmouseout="get()" onmouseover="get()" onmouseup="get()" onselect="get()"></textarea><br>
+<input type="button" value="Start Test" onclick="ok()" class="textinp"><input type="button" value="Results" onclick="writedown()" name="bresults" class="textinp"><input type="button" name="sgraph" value="Show Graph" onclick="graph()" class="textinp"><input type="button" value="Stop or Restart" onclick="restartest()" class="textinp"><input type="button" value="About" onclick="yeahok()" class="textinp"><input type="button" value="Cancel" onclick="history.go(-1)" class="textinp">
+</form>
+</td>
+</tr>
+</table>
+</body>
+</html>
+
+<!-- Simba says Roar. -->
+

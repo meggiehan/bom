@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 90px;
+            background-color: hotpink;
+            border-top: 10px solid skyblue;
+            position: absolute; /*一定要记得加定位*/
+        }
+    </style>
+</head>
+<body>
+<button id="btn">奔跑吧老段</button>
+<div id="demo"></div>
+<script>
+    //首先获取元素的对象
+    //单击按钮获取事件
+    //设置计时器，间隔时间，和目标，步数，当前位置，判断如果小于目标则执行代码，并且赋值给行内样式，如果不满足就清除计时器。
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+    var timer = null;
+    //1.点击按钮 到400
+    //2.点一次动一点
+    btn.onclick = function () {
+        //demo.style.left = "400px";
+        //leader = leader + step
+        clearInterval(timer);//防止重复调用,比如一直点击按钮，计时器会重叠，所以做好一开始就清理计时器。
+        timer = setInterval(function () {
+            var target = 400;
+            var leader = demo.offsetLeft;//当前位置
+            var step = 10;
+            if (leader < target) {
+                leader = leader + step;
+                demo.style.left = leader + "px";//一定要记得加单位
+            } else {
+                //到达目标就要清理定时器
+                clearInterval(timer);//这里若不清理，代码就会一直运行，影响客户端的性能。
+            }
+            console.log("代码还在运行");
+        }, 15);//动画 一秒钟25帧就有动画效果了 60帧动画效果就很细腻了
+
+
+
+
+
+//var btn=document.getElementById("btn");
+//var demo=document.getElementById("demo");
+//var timer=null;
+//btn.onclick=function(){
+//    clearInterval(timer);
+//    timer=setInterval(function(){
+//        target=400
+//        var step=10;
+//        var leader=demo.offsetLeft;
+//
+//        if(leader<target){
+//            leader=leader+step;
+//            demo.style.left=leader+"px";
+//        }
+//        else{
+//            clearInterval(timer);
+//        }
+//        console.log("sddsd");
+//    },15)
+
+}
+</script>
+</body>
+</html>

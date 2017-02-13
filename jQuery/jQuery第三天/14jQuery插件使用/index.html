@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background: pink;
+        }
+    </style>
+    <!--1、把jQuery文件引到页面里面来-->
+    <script src="../jquery-1.12.2.js"></script>
+    <!--2、把插件引导页面里面来-->
+    <script src="jquery.color.js"></script>
+    <!--3、入口函数，然后使用插件-->
+    <script>
+        $(function () {
+            /*$div./!*animate({"background-color": "#ffff00"}, 300).*!/
+                    animate({"background-color": 'transparent'}, 2000);*/
+
+            $("button").on("click", function () {
+
+                // 引入插件后，直接调用aniamte这个方法就能实现背景动画
+                $("div").animate({
+                    "background-color": 'green'
+                }, 2000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>背景动画</button>
+    <div></div>
+</body>
+</html>

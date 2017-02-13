@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //window.alert()
+    window.alert("aaa");
+    //window.console
+    window.console.log("bbb");
+    //window.document
+    window.document.write("ccc");
+    //这些都属于window
+
+    function fn() {
+        console.log("fn");
+    }
+    //fn();
+    window.fn();
+
+    //没有归属的方法和变量都是属于Window的。
+    var a = "a";
+    var top = "t";
+    console.log(a);
+    console.log(window.a);
+    console.log(top);
+    console.log(window.top);//这个是Window的内置方法，这里用会冲突的。Window.top特殊
+
+    window.onload//Window.onload重点
+
+</script>
+</body>
+</html>

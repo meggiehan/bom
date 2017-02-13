@@ -1,0 +1,1 @@
+function on(d,b,a,c){d["on"+b]=function(f){if(f.target.tagName===a.toUpperCase()){f.target.fn=c;f.target.fn()}}};

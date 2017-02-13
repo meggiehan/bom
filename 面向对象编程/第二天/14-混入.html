@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14-混入</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+//	 function __mix__ ( obj, obj1 ) {
+//	 	for ( var k in obj1 ) {
+//	 		// console.log( 'k = ' + k + ', typeof k = ' + typeof k );
+//	 		obj[ k ] = obj1[ k ];
+//	 	}
+//	 }
+//	 var o1 = { name: '张三', age: 19 };
+//	 var o2 = { gender: '男' };
+//	 __mix__( o2, o1 );
+
+
+
+
+
+	 //希望混入是一个方法, 将别人的东西加到我身上
+	// __mix__( 原对象, 新对象 )
+	// 原对象.__mix__( 新对象 )
+//	 var o = {
+//	 	__mix__: function ( obj ) {
+//	 		// 将 obj 中的成员 加到 当前对象 this 上
+//	 		for ( var k in obj ) {
+//	 			this[ k ] = obj[ k ];
+//	 		}
+//	 	}
+//	 };
+	
+	// 一般现在很多开发库, 都使用 extend 名字
+	// var o = {
+	// 	extend: function ( obj ) {
+	// 		// 将 obj 中的成员 加到 当前对象 this 上
+	// 		for ( var k in obj ) {
+	// 			this[ k ] = obj[ k ]; 
+	// 		}
+	// 	}
+	// };
+
+	// 我的 extend 方法可以带多个参数. 如果是多个参数, 要求将所有对象的成员
+	// 都加到 this 当前对象上.
+	
+	// 在函数中有一个默认的对象存在 即 arguments 它里面存储着所有的传入的参数
+	var o = {
+		extend: function ( obj ) {
+			// 将 obj 中的成员 加到 当前对象 this 上
+			for ( var i = 0; i < arguments.length; i++ ) {
+				for ( var k in arguments[ i ] ) {
+					this[ k ] = arguments[ i ][ k ]; 
+				}
+			}
+		}
+	};
+ 
+
+	o.extend({
+		name: '李四'
+	}, {
+		age: 19,
+		gender: '男'
+	}, {
+		sayHello: function () {
+			console.log( 'Hello JS' );
+		}
+	});
+
+
+	//arguments与length
+
+	console.log(fn5.arguments);//把实参放到了arguments数组中，你传了多少参数就有多少
+	function fn5(a, b) {
+		console.log(fn5.arguments);//把实参放到了arguments数组中，比如这里的arguments为一个数组[1,2,3,4,5]
+		console.log(fn5.length);//指的就是形参的个数这里有两个
+		console.log("fn5");
+	}
+	fn5(1, 2, 3, 4, 5);
+
+	//arguments 凡是函数调用, 都会默认含有一个 arguments 对象. 可以将其看做为 "数组". 里面存储着调用时
+	//传入的所有参数. 可以使用数组的索引访问这些参数.
+	//		例如: 写一个函数, 在参数中写任意个参数, 最后求其和
+	function sum () {
+		// 所有的参数都会存储到 arguments 中
+		var sum = 0;
+		for ( var i = 0; i < arguments.length; i++ ) {
+			sum += arguments[ i ];
+		}
+		return sum;
+	}
+	sum([1,2,3]);
+	console.log(sum);
+</script>
+</html>

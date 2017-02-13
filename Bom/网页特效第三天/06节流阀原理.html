@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var timer = null;
+    //当页面宽度 大于 960 像素的时候 页面为红色并显示computer
+    //当页面宽度 大于 640 小于 960 页面为绿色并显示tablet
+    //剩下的情况为黄色并显示mobile
+    //onresize onmousemove
+    window.onresize = function () {
+        //responsive();
+        clearTimeout(timer);//所以要清除计时器，这样一来的话，当重复执行同一个事件的时候，
+                            // 会自动清楚上一个计时器，所以最后只执行一次。
+        timer = setTimeout(responsive, 500);//设置每0.5秒的时候，在执行事件，
+                                            // 但是，依旧会消耗性能，只要触发几次就会执行几次。
+    };
+    responsive();
+    function responsive() {
+        console.log("非常消耗性能的代码");
+        if (client().width > 960) {//是电脑
+            document.body.style.backgroundColor = "red";
+            document.body.innerHTML = "computer";
+        } else if (client().width > 640) {//是平板
+            document.body.style.backgroundColor = "green";
+            document.body.innerHTML = "tablet";
+        } else {//手机
+            document.body.style.backgroundColor = "yellow";
+            document.body.innerHTML = "mobile";
+        }
+    }
+
+    function client() {
+        return {
+            width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0,
+            height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0
+        };
+    }
+</script>
+</body>
+</html>

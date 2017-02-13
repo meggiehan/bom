@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #one {
+            position: absolute;
+        }
+
+        #two {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="one">
+    <div id="two">
+        <div id="three"></div>
+    </div>
+</div>
+<script>
+    var three = document.getElementById("three");
+    console.log(three.parentNode);//父节点 只和结构有关
+    console.log(three.offsetParent);//距离自身最近的带有定位的父级
+    //如果父级没定位 继续往上找 找到body为止
+    //offsetParent返回该对象距离最近的带有定位的父级
+    //如果当前元素的所有父级元素都没有定位（position为absolute或relative），offsetParent为body
+    //如果当前元素的父级元素中有定位（position为absolute或relative），offsetParent取最近的那个父级元素
+    //另外注意offsetParent与parentNode的区别parentNode只找自己的上一级（亲爹）offsetParent是找（干爹）。
+
+
+
+</script>
+</body>
+</html>

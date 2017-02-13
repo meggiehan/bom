@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //从前有座山，山里有座庙
+    //求n个数的累加
+    //1
+    //2+1
+    //3+2+1
+    //3+getSum(2)
+    //n+getSum(n-1)
+//    function getSum(n) {
+//        if (n === 1) {//递归函数一定要有判断条件
+//            return 1;
+//        }
+//        var sum = n + getSum(n - 1);
+//        return sum;
+//    }
+//    console.log(getSum(5));
+
+    //求n的阶乘
+    //1
+    //2*1
+    //3*2*1
+    //3*getJC(2)
+    //n*getJC(n-1)
+//    function getJC(n) {
+//        if (n === 1) {
+//            return 1;
+//        }
+//        var jc = n * getJC(n - 1);
+//        return jc;
+//    }
+//    console.log(getJC(5));
+
+    //求Fibonacci的第n个数1 1 2 3 5 8 13 21...
+    //斐波那契数列
+    //2=1+1
+    //3=2+1
+    //5=3+2
+    //getFib(n) = getFib(n-1)+getFib(n-2)
+    function getFib(n) {
+            if (n === 1 || n === 2) {
+                return 1;
+            }
+            var fib = getFib(n - 1) + getFib(n - 2);
+            return fib;
+        }
+    console.log(getFib(12));
+
+    //能不用递归尽量不用递归 递归非常消耗资源
+    //我们一般用递归的情况也不多 但是回调就很常用了
+
+</script>
+</body>
+</html>

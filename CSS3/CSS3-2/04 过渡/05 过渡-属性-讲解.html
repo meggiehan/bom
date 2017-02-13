@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>位置过渡</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #ccc;
+			position: relative;
+		}
+		.pos{
+			height: 200px;
+			width: 200px;
+			/*margin: 100px auto;*/
+			background-color: red;
+			position: absolute;
+			left: 50px;
+			top: 40px;
+			/*设置过渡所需要的属性*/
+			transition-property: background-color, left;
+			/*设置过渡持续时间*/
+			transition-duration: 1s;
+			/*设置过渡的延时时间*/
+			transition-delay: 1s;
+			/*设置过渡执行的速度*/
+			transition-timing-function: ease-in-out;
+			/*transition: linear all 2s 1s;*/
+		}
+		.pos:hover {
+			left: 400px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="pos">
+		
+	</div>
+</body>
+</html>

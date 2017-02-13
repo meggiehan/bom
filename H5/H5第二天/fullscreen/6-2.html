@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全屏</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		
+		/*当盒子处在全屏状态时会被选中*/
+		.box:-webkit-full-screen {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<input type="button" class='open' value="全屏">
+		<input type="button" class='cancel' value="关闭">
+		<input type="button" class='check' value="是否全屏">
+	</div>
+	
+	<script>
+
+		 //打开全屏按钮
+		var open = document.querySelector('.open');
+		// 关闭全屏按钮
+		var cancel = document.querySelector('.cancel');
+		// 检测是否处在全屏按钮
+		var check = document.querySelector('.check');
+		// 任意盒子
+		var box = document.querySelector('.box');
+
+		// 全屏
+		open.addEventListener('click', function () {
+
+			// html全屏
+			// document.documentElement.webkitRequestFullScreen();
+
+			//  任意盒子全屏
+			box.webkitRequestFullScreen();
+		});
+
+		// 关闭全屏
+		cancel.addEventListener('click', function () {
+
+			// document.documentElement.webkitCancelFullScreen();
+
+			// box.webkitCancelFullScreen();
+
+			// 只能通过document才能调用关闭方法
+			document.webkitCancelFullScreen();
+
+		});
+
+		// 检测当前是否处于全屏
+		check.addEventListener('click', function () {
+			// 返回值为true或false
+			 alert(document.webkitIsFullScreen);
+//			console.log(document);
+		});
+
+
+//
+//		var open=document.querySelector('.open');
+//		var cancel=document.querySelector('.cancel');
+//		var check=document.querySelector('.check');
+//		var box=document.querySelector('.box');
+//
+//		open.addEventListener('click',function(){
+//			document.documentElement.webkitRequestFullScreen();
+//		})
+//		cancel.addEventListener('click',function(){
+////		   document.documentElement.webkitCancelFullScreen();
+//			document.webkitCancelFullScreen();
+//		})
+//		check.addEventListener('click',function(){
+//			console.log(document.webkitIsFullScreen);
+//		})
+	</script>
+</body>
+</html>

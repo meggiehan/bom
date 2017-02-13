@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            border: 1px solid #332;
+            width: 60px;
+            height: 60px;
+            border-radius: 60px;
+            background: red;
+            -webkit-animation: ani 3s 3s ease-in 1 alternate forwards;
+        }
+/*backwards是从第一帧开始延迟的，执行完后回到最初始的状态*/
+/*forwards是从最开始的位置或者最初的位置进行延迟的，执行完后留到最后一帧的状态*/
+/*both是从第一帧开始延迟的，执行完后回到最后一帧的状态*/
+
+ /*
+backwards：动画开始状态是从动画的第一帧开始而不是原始状态开始，动画结束后回到最原始状态
+forwards：动画从最原始状态开始，而不是第一帧，动画结束后就留在最后的状态
+both：动画开始状态是从动画的第一帧开始而不是原始状态开始，动画结束后就留在最后的状态
+*/
+
+        @-webkit-keyframes ani {
+            0% {
+                -webkit-transform: translateX(100px);
+                background: orange;
+            }
+            50% {
+                -webkit-transform: translateX(200px);
+            }
+            75% {
+                -webkit-transform: translateX(200px) translateY(100px);
+            }
+            100% {
+                -webkit-transform: translateX(150px) translateY(50px);
+                background: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

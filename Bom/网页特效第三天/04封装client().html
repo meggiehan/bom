@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    window.onresize=function(){
+//        clientwidth=Client().Width;
+//        console.log(clientwidth);A
+        console.log(Client().Width);
+    }
+
+
+function Client(){
+    return{
+        Width:window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth||0,
+        Height:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight||0
+    }
+}
+
+
+
+        //窗体大小发生改变的事件 onresize
+    window.onresize = function () {
+        var clientWidth = client().width;
+        console.log(clientWidth);
+    };
+
+    function client() {
+        var clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+        var clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+        var o = {};
+        o.width = clientWidth;
+        o.height = clientHeight;
+        return o;
+    }
+
+    function client() {
+        return {
+            width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0,
+            height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0
+        };
+    }
+
+</script>
+</body>
+</html>

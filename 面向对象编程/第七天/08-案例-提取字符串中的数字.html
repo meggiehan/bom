@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+</body>
+<script>
+//	// 案例： 在 'abc123def456ghij789klum' 提取数字
+//
+//	var str = 'abc123def456ghij789klum';
+//	// 要提取数字, 但是没有规定数字是什么. 可以使用 \d+ 表示数字
+//	var r = /\d+/;
+//
+//	var result = r.exec( str );
+
+//
+//	var str='abc123def456ghij789klum';
+//	var r=/\d+/g;
+////	var result= r.exec(str);
+//
+//	var res;
+//	while(res= r.exec(str)){
+//		console.log(res);
+//	}
+
+	var str='abc123def456ghij789klum';
+	var r=/\d+/g;
+	var res;
+
+	while(res= r.exec(str)){
+		console.log(res);
+	}
+</script>
+</html>

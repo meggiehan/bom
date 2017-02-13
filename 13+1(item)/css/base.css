@@ -1,0 +1,19 @@
+
+.head [class^="icon_"]{
+    background: url("../images/sprite.png") no-repeat;
+    /*压缩背景图*/
+    background-size: 65px 115px;
+}
+.head [class^="icon_"]{
+    width: 40px;
+    height: 44px;
+    position: absolute;
+    padding: 12px 10px;
+    /*按钮大小需要设置偏大  用户体验*/
+    top: 0;
+    background-origin: content-box;/*定位以内容开始定位*/
+    background-clip: content-box;/*显示背景 从内容开始显示*/
+}
+.head .icon_arrow{
+	background-position: -55px 0px;
+}

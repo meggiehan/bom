@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>体验过渡</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: "microsoft yahei";
+			background-color: #0da5d6;
+		}
+		p{
+			text-align: center;
+			font-size: 100px;
+			color: #FFF;
+		}
+		p span{
+			margin: 0 34px;
+			opacity: .2;
+			/*过渡使用transition;
+			*中间用逗号分开
+			*除了使用：hover伪元素的方式还可以用js来实现。
+			*/
+			transition: margin 3s, opacity 4s; 
+		}
+		/*p:hover span{
+			margin: 0 5px;
+			opacity: 1;
+		}*/
+		p:hover span{
+			margin: 0 5px;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<p><span>4</span><span>亿</span><span>网</span><span>友</span><span>共</span><span>同</span><span>信</span><span>赖</span></p>
+
+	<button>变换</button>
+	<script>
+		// /*获取按钮*/
+		// var btn = document.querySelector("button");
+		// /*获取p标签*/
+		// var varp = document.querySelector("p");
+		// /*给按钮绑定时间*/
+		// btn.onclick= function () {
+		// 	// 增加样式
+		// 	varp.classList.add("hover");
+		// }
+	</script>
+</body>
+</html>

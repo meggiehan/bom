@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01-是低版本浏览器支持__proto__</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+		// 1, 判断系统是否支持 __proto__
+		// if ( {}.__proto__ ) {
+		// 	console.log( '支持' );
+		// } else {
+		// 	console.log( '不支持' );
+		// }
+
+
+		// 2, 为了模拟该用法, 不使用 __proto__ 去访问原型
+		// 要访问原型最保险的办法就是 利用 构造函数
+		// 只要实例对象, 可以访问到 constructor 就可以了
+		function __getProto__( instance ) {
+			return instance.constructor.prototype;
+		}
+
+		function Person () {}
+
+		var p = new Person();
+
+		console.log( __getProto__( p ) === p.__proto__ );
+
+
+</script>
+</html>

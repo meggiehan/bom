@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .current{
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<script>
+    var inputs = document.getElementsByTagName("input");
+    for(i=0;i<inputs.length;i++){//让每一个获取事件
+        inputs[i].onclick=function(){
+            for(i=0;i<inputs.length;i++){
+                inputs[i].className="";
+            }
+            this.className="current";
+        }
+    }
+//    var inputs= document.getElementsByTagName("input");
+//    for(i=0;i<inputs.length;i++){
+//        inputs[i].onclick=function(){
+//            for(i=0;i<inputs.length;i++){
+//                inputs[i].className="";
+//            }
+//            this.className="current";
+//        }
+//    }
+</script>
+</body>
+</html>

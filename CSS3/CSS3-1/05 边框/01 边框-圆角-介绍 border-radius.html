@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #fff;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			background-color: red;
+			border-radius: 150px;
+
+		}
+		.box::before{
+
+			font-size: 4em;
+			text-align: center;
+			height: 100px;
+			width: 100px;
+			color: black;
+			float: left;
+			position: absolute;
+			top: 70px;
+			left: 0;
+		}
+		.box::after{
+
+			font-size: 4em;
+			text-align: center;
+			height: 100px;
+			width: 100px;
+			color: black;
+			float: left;
+			position: absolute;
+			top: 70px;
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select name="" id="sel">
+    <option value="">西施</option>
+    <option value="">貂蝉</option>
+    <option value="" id="gf">杨贵妃</option>
+    <option value="">昭君</option>
+    <option value="">小花</option>
+    <option value="">小明</option>
+    <option value="">薛贵妃</option>
+    <option value="">徐贵妃</option>
+</select>
+<input type="button" value="翻牌" id="btn"/>
+<script>
+//    var sel=document.getElementById("sel");
+//    var btn=document.getElementById("btn");
+//    var options=sel.children;
+//    for(i=0;i<options.length;i++){
+//        btn.onclick=function(){
+////            var num=parseInt(Math.random()*options.length);
+////            options[num].selected=true;
+//            options[parseInt(Math.random()*options.length)].selected=true;
+//        }
+//    }
+
+    var btn = document.getElementById("btn");
+    var sel = document.getElementById("sel");
+    var options = sel.children;//子元素
+    //点击按钮 让其中一个被选中
+    btn.onclick = function () {
+        //console.log(options);
+        //通过随机数产生随机效果
+        //我们要的是 0 1 2 3    一共4个
+        //Math.random() [0,1)
+        //要n个就乘以n 从x开始就加x
+        //[0,1) *4  [0,4) parseInt [0,3]
+        var random = parseInt(Math.random() * options.length);
+        options[random].selected = true;
+    };
+
+//       function addEvent(idName,eventType,func){
+//           var btn=getObj(idname);
+//           btn=[eventType]=func;
+//       }
+//    function fn(){
+//        console.log("sj");
+//    }
+//    addEvent(btn,"onclick",fn);
+
+//    var btn=document.getElementById("btn");
+//    var gf=document.getElementById("gf");
+//    var sel=document.getElementById("sel");
+//    var sels=sel.getElementsByTagName("option")
+//    var values=sel.getElementsByTagName("value")
+//    btn.onclick=function(){
+////        gf.selected=true;
+//          for(i=0;i<sels.length;i++){
+//              sels[i].index=i;
+//              for(i=0;i<sels.length;i++){
+//                  sels[i].index=Math.random()*sels.length;
+//                  sels[i].selected=true;
+//              }
+//
+//          }
+//    }
+
+</script>
+</body>
+</html>

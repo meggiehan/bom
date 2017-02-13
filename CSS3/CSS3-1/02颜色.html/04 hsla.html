@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 颜色</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		/**
+		 * 通过hsla我们可以对颜色的透明度进行控制
+		 */
+/*hue*/
+/*strantion*/
+
+		.box {
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			background: hsla(120, 50%, 50%, 0.7);
+			border: 20px solid red;
+			/*border: 20px solid rgba(255, 0, 0, 0.2);*/
+		}
+
+		.inner {
+			width: 150px;
+			height: 150px;
+			/*background: hsl(255, 255%, 255%);*/
+		}	
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

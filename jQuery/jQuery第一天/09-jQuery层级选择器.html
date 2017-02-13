@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $("li").css("background", "pink");
+            // 层级选择器:
+            // 1. 子代选择器，子代： 父亲跟亲儿子的关系
+            // 符号：>
+            // 作用：选择指定父元素下面的直接子元素（li）
+            $("#ulItem > li").css("background", "pink");
+             $("#ulItem > .liItem").css("background", "pink");
+
+            // 2. 后代选择器，后代： 爷爷跟孙子（重孙子）的关系
+            // 符号：空格（ ）
+            // 作用：选择指定祖先元素下面的后代元素
+             $("#ulItem li").css("background", "green");
+
+        });
+    </script>
+</head>
+<body>
+<ul id="ulItem" class="ul">
+    <li>这是第一个ul下面的li元素1</li>
+    <li>这是第一个ul下面的li元素2</li>
+    <li class="liItem">这是第一个ul下面的li元素3</li>
+    <li>
+        这是第一个ul下面的li元素4
+        <ul>
+            <li>这是后代li元素</li>
+            <li>这是后代li元素</li>
+        </ul>
+    </li>
+    <li class="liItem">这是第一个ul下面的li元素5</li>
+    <li>这是第一个ul下面的li元素6</li>
+    <li class="liItem">这是第一个ul下面的li元素7</li>
+    <li>这是第一个ul下面的li元素8</li>
+</ul>
+<ul>
+    <li>这是第二个ul下面的li元素</li>
+    <li>这是第二个ul下面的li元素</li>
+    <li>这是第二个ul下面的li元素</li>
+    <li>这是第二个ul下面的li元素</li>
+</ul>
+</body>
+</html>

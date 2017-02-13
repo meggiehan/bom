@@ -1,0 +1,115 @@
+html,body{
+    height: 100%;
+}
+/*顶部通栏*/
+.jd_topBar{
+    height: 45px;
+    background: url("../images/header-bg.png") repeat-x;
+    background-size: 1px 44px;
+    border-bottom: 1px solid #e0e0e0;
+    position: absolute;
+    width: 100%;
+}
+.jd_topBar a[class^="icon_"]{
+    float: left;
+    width: 40px;
+    height: 44px;
+    position: absolute;
+    padding: 12px 10px;
+    /*按钮大小需要设置偏大 用户体验*/
+    background-origin: content-box;/*定位以内容开始定位*/
+    background-clip: content-box;/*显示背景 以内容开始显示*/
+    top:0;
+}
+/*按钮大小不变，但是显示的背景区域要变小*/
+.jd_topBar .icon_back{
+    left: 0;
+    background-position: -20px 0px;
+}
+.jd_topBar .icon_menu{
+    right: 0;
+    background-position: -60px 0px;
+}
+.jd_topBar form{
+    width: 100%;
+    padding: 0px 40px;
+}
+.jd_topBar form input{
+    width: 100%;
+    height: 30px;
+    margin-top: 7px;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+/*分类主体*/
+.jd_category{
+    height: 100%;
+    padding-top: 45px;
+    overflow: hidden;
+}
+/*左侧菜单*/
+.jd_category_left{
+    width: 90px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+.jd_category_left ul{
+    width: 100%;
+}
+.jd_category_left ul li{
+    height: 50px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #f3f4f6;
+    line-height: 50px;
+    text-align: center;
+}
+.jd_category_left ul li.now{
+    border-right: none;
+    background: #fff;
+}
+.jd_category_left ul li a{
+    display: block;
+}
+.jd_category_left ul li.now a{
+    color:#d8505c;
+}
+/*右内容*/
+.jd_category_right{
+    overflow: hidden;
+    height: 100%;
+}
+.jd_category_right_box .banner{
+    display: block;
+    padding: 10px;
+    width: 100%;
+
+}
+.jd_category_right_box .banner img{
+    width: 100%;
+    display: block;
+}
+.jd_category_right_box .product_box{
+    padding: 0 10px;
+}
+.jd_category_right_box .product_box h3{
+    font-size: 12px;
+    line-height: 30px;
+}
+.jd_category_right_box .product_box ul li{
+    width: 33.33333%;
+    float: left;
+
+}
+.jd_category_right_box .product_box ul li img{
+    width: 62px;
+    height: 62px;
+    display: block;
+    margin: 0 auto;
+}
+.jd_category_right_box .product_box ul li p{
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+}

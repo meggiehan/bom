@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="19history对象.html">这个是18我要去19</a>
+<button id="btn">前进</button>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        history.forward();
+    };
+    window.history
+    history.forward();//前进
+    history.back();//后退
+    history.go();
+    history.go(1);//前进
+    history.go(-1);//后退
+    history.go(0);//停留
+
+</script>
+</body>
+</html>

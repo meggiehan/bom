@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 单击按钮比，实现：如果复选框是选中的，那么就让其不选中
+            // 如果是不选中，那就让其选中
+            $("#btn").click(function () {
+                // attr -> attribute
+                /*var checked = $("#cbx").attr("checked");
+                // console.log(checked);
+                if(checked == undefined) {
+                    console.log("没选中");
+                    $("#cbx").attr("checked", true);
+                } else {
+                    console.log("已经选中");
+                    $("#cbx").attr("checked", false);
+                }*/
+
+                // prop -> property
+                // prop 用法 跟 attr 完全相同
+                var checked = $("#cbx").prop("checked");
+                $("#cbx").prop("checked",!checked);//第一种设置的方法。
+                // 未选中：false
+//                // console.log(checked);
+                if (!checked) {//第二种设置的方法。
+                    console.log("没选中");
+                    $("#cbx").prop("checked", true);
+                } else {
+                    console.log("已经选中");
+                    $("#cbx").prop("checked", false);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn">选中和反选</button>
+<input type="checkbox" id="cbx"/>
+</body>
+</html>

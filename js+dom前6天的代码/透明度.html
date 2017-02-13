@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*0-1 0全透明 1不透明 IE678不支持 子元素不继承*/
+            /*background-color: rgba(255, 0, 0, 0.3);*/
+            /*0-1 0全透明 1不透明 IE678不支持 子元素会继承透明度*/
+            /*opacity: 0.5;*/
+            /*0-100 0全透明 100不透明 IE678只支持filter*/
+            /*filter: alpha(opacity=100);*/
+        }
+
+        .son {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="son"></div>
+</div>
+</body>
+</html>

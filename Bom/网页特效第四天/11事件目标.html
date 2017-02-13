@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <button id="btn">按钮</button>
+</div>
+<script>
+    document.onclick = function (event) {
+        //alert("文档被点击了");//但是不知道到底是哪个元素触发的
+        var event = event || window.event;
+        console.log(event);
+        console.log(event.target);//通过事件目标可以找到事件的源头
+        var target = event.target || event.srcElement;//兼容写法
+        console.log(target);
+    };
+
+//    function getTarget(event){
+//        return event.target||event.srcElement;
+//    }
+    function getTarget(event) {
+        return event.target || event.srcElement;
+    }
+</script>
+</body>
+</html>

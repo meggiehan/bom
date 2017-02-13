@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //["c", "a", "z", "a", "x", "a"]找到数组中第一个a出现的位置
+    //["c", "a", "z", "a", "x", "a"]找到数组中最后一个a出现的位置
+    var arr = ["c", "a", "z", "a", "x", "a"];
+    console.log(arr.indexOf("a"));//从左往右找到第一个
+    // 把这个元素的索引返回 然后就没有然后了
+    console.log(arr.lastIndexOf("a"));//找的是最后一个
+    //["c", "a", "z", "a", "x", "a"]找到数组中每一个a出现的位置
+    console.log(arr.indexOf("a", 0));
+    console.log(arr.indexOf("a", 1));//从1开始 包括1
+    console.log(arr.indexOf("a", 2));//
+    console.log(arr.indexOf("a", 0));//1
+    console.log(arr.indexOf("a", 1 + 1));//3
+    console.log(arr.indexOf("a", 3 + 1));//5
+    console.log(arr.indexOf("a", 5 + 1));//-1
+
+    var index = -1;
+     do {
+     index = arr.indexOf("a", index + 1);
+     if (index != -1) {
+     console.log(index);
+        }
+     } while (index != -1);
+
+
+    //["c", "a", "z", "a", "x", "a"]获取数组中每个元素出现的次数
+    //c出现了1 a出现了3
+
+    var arr = ["c", "a", "z", "a", "x", "a"]
+//    //对象就是键值对 用这个数据类型来保存 谁出现几次 比较方便
+    var o = {};//属性名 元素 属性值 次数
+//    //{ c:1,a:3,z:1,x:1 }
+    for (var i = 0; i < arr.length; i++) {
+        var item = arr[i];//每一个项目
+        //o[item]//o["c"] 如果没有这个属性 就说明之前没出现过
+        if (o[item]) {//o["c"]
+            //能进来说明有值
+            //o[item] = o[item] + 1;
+            //o[item] += 1;
+            o[item]++;
+        } else {
+            //能进来 说明是undefined 也就说明之前没出现过
+            //那这就是他第一次出现
+            o[item] = 1;
+        }
+    }
+    //console.log(o);
+    for (var k in o) {
+        console.log(k + "出现了" + o[k] + "次");
+        //console.log(o[k]);
+    }
+//    console.log(arr.indexOf("a"));
+//    console.log(arr.lastIndexOf("a"));
+//    console.log(arr.indexOf("a",2));
+//    console.log(arr.indexOf("a",1+1));
+//    console.log(arr.indexOf("a",3+1));
+//    console.log(arr.indexOf("a",5+1));
+//    var index=-1;
+//    do{
+//        index=arr.indexOf("a",index+1);
+//        if(index!=-1){
+//            console.log(index);
+//        }
+//    }while(index!=-1)
+    var arr = ["c", "a", "z", "a", "x", "a"];
+    var o={};
+    for(i=0;i<arr.length;i++){
+        var item=arr[i];
+        if(o[item]){
+            o[item]++;
+        }
+        else{
+            o[item]=1;
+        }
+    }
+    for(var k in o){
+        console.log(k + "出现了" + o[k] + "次");
+    }
+</script>
+</body>
+</html>

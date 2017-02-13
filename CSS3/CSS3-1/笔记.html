@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //~=找到完全匹配的
+    //引号可以加，也可以不加，最好加上
+    //可以在[]前面加上标签名：看看效果
+    //=号匹配的时候，表示对应属性中有且只有一个属性值符合条件，如果有动态添加的类名，这时候是不生效的。
+    //child是相对于当前li的父元素，这点语法很重要。
+    //:first-child
+    //:last-child
+    //li:nth-child(10)
+    //li:nth-child(7n)   n的取值范围为0,1,2......
+    //li:nth-child(2n+1)  ===  li:nth-child(odd)
+    //li:nth-child(2n)    ===  li:nth-child(even)
+    //li:nth-child(-n+5)  必须符合这个格式kn+b的格式。
+    //若指定的元素没有，那么会停止，不会往后找
+    //li:nth-of-type(6)
+    //li:nth-last-of-type(6)
+    //li:only-child{}
+    //empty
+    //target
+    //了解jquery中的not方法（）
+    //::before ::after
+    //content里面只能加入文本语言，不能加入超文本语言，也就是加标签不好使。
+    //::first-line 是相对的
+    //::first-letter
+    //::selection{}改变当前选中的内容样式，但是字号不可以改变。
+    //日历的案例可以改成dt与否
+
+    //颜色（通过角度也可以来设置颜色）
+    //透明度的缺点，继承性，子盒子会继承父盒子的透明度。兼容性。
+    //transparent 特点纯透明，缺点不能设置透明度
+    //rgba既可以设置颜色也可以设置透明度，并且子盒子不会继承父盒子的颜色。
+    //hsla（色调，饱和度，亮度，透明度）第二个和第三个的值可以取值为0，但是必须加%号，不然会出错。
+    //hsl()   rgb()
+
+//top:0  left:0   right:0   bottom:0
+    //transition过度属性必须依靠在伪元素里，也就是必须依靠于content和display：block
+    //margin:auto
+    //white-space
+    //word-break
+    //em的单位表示
+
+    //设置阴影是不会影响整体的布局的。
+    //border-image: url 27 repeat stretch(拉伸)
+    //border-image: url 27 stretch  repeat（平铺,会有被切掉的不完整图片）
+    //round(平铺,不会有被切掉的不完整图片，浏览器会自动调整显示整个小图片)
+   //border-width   border-image-width
+    //border-image-output 的使用方法和border-image-width的使用方法。
+</script>
+</body>
+</html>

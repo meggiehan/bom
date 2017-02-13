@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    function Person (name,age){
+        this.name = name;
+        this.age = age;
+        this.sayHi = function(){
+            console.log(this.name);
+        }
+        // return this.name;	//返回this
+        return this.sayHi; 		//返回函数体
+    }
+
+    var p = new Person('leo',22);
+    console.log(p);
+</script>
+</body>
+</html>

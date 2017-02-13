@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(){
+    }
+    Person.prototype.name = "Nicholas";
+    Person.prototype.age = 29;
+    Person.prototype.job = "Software Engineer";
+    Person.prototype.sayName = function(){
+        alert(this.name);
+    };
+    var person1 = new Person();
+    var person2 = new Person();
+    alert(person1.hasOwnProperty("name")); //false
+    alert("name" in person1); //true
+    person1.name = "Greg";
+    alert(person1.name); //"Greg" ——来自实例
+    alert(person1.hasOwnProperty("name")); //true
+    alert("name" in person1); //true
+    alert(person2.name); //"Nicholas" ——来自原型
+    alert(person2.hasOwnProperty("name")); //false
+    alert("name" in person2); //true
+    delete person1.name;
+    alert(person1.name); //"Nicholas" ——来自原型
+    alert(person1.hasOwnProperty("name")); //false
+    alert("name" in person1); //true
+</script>
+</body>
+</html>

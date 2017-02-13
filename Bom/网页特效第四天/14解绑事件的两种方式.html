@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    //第一个人的代码
+    btn1.onclick = function () {
+        console.log("第一个人的代码");
+    };
+    //第二个人的代码
+    btn1.onclick = function () {
+        console.log("第二个人的代码");
+    };
+    btn1.onclick = null;//解绑事件的代码
+    //通过添加事件监听器的方式注册事件
+    //type,listener,useCapture
+    //1事件的类型 2事件处理函数 3是否使用捕获
+    btn2.addEventListener("click", function () {
+        console.log("第一个人的代码");
+    }, false);
+    btn2.addEventListener("click", fn, false);
+    function fn() {
+        console.log("第二个人的代码");
+    }
+    btn2.removeEventListener("click", fn, false);//解绑事件的代码
+//    btn2.removeEventListener("click",fn,false);
+
+
+    onclick()  addeventlistener()
+    btn.onclick=null;
+    btn.removeEventListener()
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>opacity</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+		.box{
+			width: 400px;
+			height: 400px;
+			background-color: orange;
+			opacity: .2;
+			margin: 0 auto;
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+		/*当给父元素设置opacity的时候，他的子元素及内容会继承这个透明度*/
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

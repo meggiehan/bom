@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素</title>
+	<style>
+		li {}
+		.first {}
+		#second {}
+
+		.first:first-child a {
+
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="first"><a href="">国内新闻1 <a href="">dsfasd</a></a></li>
+		<li class="first"><a href="">国内新闻2</a></li>
+		<li id="second">国际新闻</li>
+		<li>体育新闻</li>
+		<li>娱乐新闻</li>
+	</ul>
+	<script>
+
+		// HTML5还提供了更加灵活的获取方式
+
+		// doucment.querySelector(); 
+		// 通过CSS选择器来获取元素
+		// 标签、类、ID、后代、子代....
+
+		
+		// 获取到是符合条件（选择器）的第一个元素
+
+		// var lis = document.querySelector('.first');
+		// var lis = document.querySelector('#second');
+
+		var lis = document.querySelector('.first > a');
+
+		lis.style.color = 'red';
+
+		console.log(lis);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid grey;
+            margin: 100px auto;
+            background: url("images/8.JPG")no-repeat center/cover;
+            position: relative;
+            perspective: 500px;
+            transform-style: preserve-3d;
+        }
+        .left{
+            float: left;
+            width: 50%;
+            height: 100%;
+            background-color: darksalmon;
+            transition: all 1s;
+            transform-origin: left top;
+            position: relative;
+            /*backface-visibility: hidden;*/
+        }
+        .left::before{
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: gold;
+            border-radius: 50%;
+            position: absolute;
+            right: 10px;
+            bottom: 50%;
+        }
+        .box:hover .left{
+            transform: rotateY(-90deg);
+        }
+
+        .right{
+            float: left;
+            width: 50%;
+            height: 100%;
+            background-color: darksalmon;
+            transition: all 1s;
+            transform-origin: right center;
+            position: relative;
+            /*backface-visibility: hidden;*/
+        }
+        .right::before{
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: gold;
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+            bottom: 50%;
+        }
+        .box:hover .right{
+            transform: rotateY(90deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

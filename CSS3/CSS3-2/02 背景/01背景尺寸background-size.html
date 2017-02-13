@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #f7f7f7;
+		}
+		.pic{
+			height: 400px;
+			width: 600px;
+			margin: 100px auto;
+			border: 1px solid #ccc;
+			background: url(./images/2.jpg) no-repeat;
+			/*设置图片的大小*/
+			/*background-size: 600px 400px;*/
+			/*相对于盒子本身的*/
+			/*background-size: 100% 100%;*/
+			/*图片没有被拉长或者是被压缩，按照最大的宽高铺在盒子中，少的一部分会空出来了*/
+			/*background-size: contain;*/
+			/*直接覆盖在盒子里面，超出部分被剪切*/
+			background-size: cover;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="pic"></div>
+</body>
+</html>

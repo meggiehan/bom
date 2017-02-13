@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //var arr = new Array();
+    var arr = [1, 2, 3];
+//    console.log(arr);
+//    console.log(arr.valueOf());
+//    console.log(arr.toString());
+//    console.log(arr.join());
+//    console.log(arr.join("|"));
+//    console.log(typeof arr);
+//    console.log(typeof []);
+//    console.log(arr instanceof Array);
+//    console.log({} instanceof Array);
+//    console.log(Array.isArray([]));
+//    console.log(Array.isArray({}));
+//    console.log(Array.isArray(arr));
+    //转换数组
+//    console.log(arr);//先以对象的形式输出 刷新把直接量输出 其实就是调用了valueOf
+//    console.log(arr.valueOf());//某种程度上说 它就是调用了toString
+//    console.log(arr.toString());//toString就是调用了join 把每一项的值取出来用逗号拼接
+//    console.log(arr.join());//如果不传参数 默认使用逗号拼接
+//    console.log(arr.join("-"));//传入参数 会用这个参数去拼接每一项
+//
+//    //检测数组
+//    console.log(typeof arr);
+//    console.log(arr instanceof Array);
+//    console.log({} instanceof Array);
+//    console.log(Array.isArray([]));
+//    console.log(Array.isArray({}));
+    //Array.prototype.isArray//这是有错的
+    //Array.isArray//这是正确的。
+    console.log(Object.prototype.toString.call(arr));//这里的a是通过call来调用前面的对象函数的。
+    console.log(arr);
+</script>
+</body>
+</html>

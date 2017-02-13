@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="txtName"><span></span><!--span的位置很关键-->
+<br>
+<input type="text" id="txtPwd">
+<span></span><br>
+<input type="button" id="btn" value="注册">
+<script>
+    var txtName=document.getElementById("txtName");
+    var txtPwd=document.getElementById("txtPwd");
+    txtName.onkeyup=function(){
+        if(this.value.length<3||this.value.length>6){
+//            this.nextElementSibling.innerHTML="用户名必须在3-6位之间";
+            getNextElement(txtName).innerHTML="用户名必须在3-6位之间";
+        }
+        else{
+//            this.nextElementSibling.innerHTML="";
+            getNextElement(txtName).innerHTML="";
+        }
+    }
+    txtPwd.onkeyup=function(){
+        if(this.value.length<3||this.value.length>6){
+            this.nextElementSibling.innerHTML="密码必须在3-6位之间";
+        }
+        else{
+            this.nextElementSibling.innerHTML="";
+        }
+    }
+
+//    var txtName=document.getElementById("txtName");
+//    txtName.onkeyup=function(){
+//        if(this.value.length<3||this.value.length>6){
+//            this.nextSibling.innerHTML="用户名必须在3-6位之间";
+//        }
+//        else{
+//            this.nextSibling.innerHTML="";
+//        }
+//    }
+// var txtPwd=document.getElementById("txtPwd");
+//     txtPwd.onkeyup=function(){
+//         if(this.value.length<3||this.value.length>6){
+////             this.nextElementSibling.innerHTML="密码必须在3-6位之间";
+//             getNextElement(this).innerHTML="密码必须在3-6位之间";
+//         }
+//         else{
+////             this.nextElementSibling.innerHTML="";//必须放在循环语句里面，否则不执行。
+//             getNextElement(this).innerHTML="";
+//         }
+//     }
+//    function getNextElement(element){
+//        if(element.nextElementSibling){
+//            return element.nextElementSibling;
+//        }
+//        var next=element.nextSibling;
+//        while(next && next.nodeType!==1){
+//            next=element.nextSibling;
+//        }
+//        return next;
+//    }
+//    function getpreviousElement(element){
+//        if(element.previousElementSibling){
+//            return element.previousElementSibling;
+//        }
+//        var prev=element.previousSibling;
+//        while(prev && 1!==prev.nodeType){
+//            prev=element.previousSibling;
+//        }
+//        return prev;
+//    }
+//    //用户输入的时候做判断 如果太短或者太长 就在后面的span里做警告
+//    //onkeyup 键盘弹起事件 onkeydown 键盘按下事件
+//    var txtName = document.getElementById("txtName");
+//    txtName.onkeyup = function () {
+//        //如果太短或者太长 就在后面的span里做警告
+//        if (this.value.length < 3 || this.value.length > 6) {
+//            //next 下一个  Sibling兄弟 nextSibling
+//            //this.nextElementSibling.innerHTML = "用户名必须在3-6位之间";
+//            getNextElement(this).innerHTML = "用户名必须在3-6位之间";
+//        } else {
+//            //this.nextElementSibling.innerHTML = "";
+//            getNextElement(this).innerHTML = "";
+//        }
+//    };
+//    var txtPwd = document.getElementById("txtPwd");
+//    txtPwd.onkeyup = function () {
+//        //如果太短或者太长 就在后面的span里做警告
+//        if (this.value.length < 3 || this.value.length > 6) {
+//            //nextSibling下一个兄弟节点 我们想要的是元素
+//            //nextElementSibling下一个兄弟元素 (IE678不兼容)
+//            //this.nextElementSibling.innerHTML = "密码必须在3-6位之间";
+//            getNextElement(this).innerHTML = "密码必须在3-6位之间";
+//        } else {
+//            //this.nextElementSibling.innerHTML = "";
+//            getNextElement(this).innerHTML = "";
+//        }
+//    };
+//
+    //封装 获取下一个兄弟元素 的兼容方法
+    function getNextElement(element) {
+        if (element.nextElementSibling) {//能找到
+            return element.nextElementSibling;
+        } else {
+            var next = element.nextSibling;//下一个兄弟节点
+            //如果next是我们想要的 就返回 如果不是我们先要的 就一直找
+            while (next && next.nodeType !== 1) {//有 并且 不是我们要的
+                next = next.nextSibling;
+            }
+            return next;
+        }
+    }
+
+</script>
+</body>
+</html>

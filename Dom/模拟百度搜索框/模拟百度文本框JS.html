@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        fieldset, img, input, button {
+            border: none;
+            padding: 0;
+            margin: 0;
+            outline-style: none;
+        }
+
+        ul, ol {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box {
+            width: 405px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        #txtSearch {
+            float: left;
+            width: 300px;
+            height: 32px;
+            padding-left: 4px;
+            border: 1px solid #b6b6b6;
+            border-right: 0;
+        }
+
+        #btnSearch {
+            float: left;
+            width: 100px;
+            height: 34px;
+            font: 400 14px/34px "microsoft yahei";
+            color: white;
+            background: #3385ff;
+            cursor: pointer;
+        }
+
+        #btnSearch:hover {
+            background: #317ef3;
+        }
+
+        #pop {
+            width: 303px;
+            border: 1px solid #ccc;
+            padding: 0px;
+            position: absolute;
+            top: 34px;
+        }
+
+        #pop ul li {
+            padding-left: 5px;
+        }
+
+        #pop ul li:hover {
+            background-color: #CCC;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="text" id="txtSearch">
+    <input type="button" value="百度一下" id="btnSearch">
+</div>
+<script>
+    //真正的业务逻辑是 根据我们的输入 向有台发送数据 在后台匹配 把匹配好的发给我们
+    var datas = ["a", "abc", "abbbb", "abxxxx", "xyz", "abcdef", "abzzzz"];
+    //我们这里为了效果好看就在前台匹配了
+    //匹配的逻辑就是 从集合中找 如果 集合中的字符串是以我输入的字符串开头的就算匹配
+
+    //在文本框中输入 按照输入的内容 到datas里面 找匹配的项目 将匹配的项目放到新数组中
+    //输入的时候 判断匹配
+    var box = document.getElementById("box");
+    var text = document.getElementById("txtSearch");
+    text.onkeyup = function () {
+        var filterArr = [];
+        var val = this.value;//文本框中的内容
+        //遍历datas 判断每一项是否匹配
+        for (var i = 0; i < datas.length; i++) {
+            var data = datas[i];//每一项数据
+            if (data.indexOf(val) === 0) {//当前这个数据 是以val开头的
+                filterArr.push(data);//把匹配的项目 放到新数组中
+            }
+        }
+        //console.log(filterArr);
+        //1.判断之前有没有popDiv 如果有就移除
+        var popDiv = document.getElementById("pop");
+        if (popDiv) {
+            box.removeChild(popDiv);//如果有 就把之前的移除
+        }
+        //2.如果没有匹配项 就不需要产生 popDiv
+        if (filterArr.length === 0) {
+            return;
+        }
+        //3.如果 文本框中是空字符串 不应该产生 popDiv
+        if (val === "") {
+            return;
+        }
+
+        //根据filterArr动态生成结构
+        popDiv = document.createElement("div");
+        popDiv.id = "pop";
+        box.appendChild(popDiv);
+        var ul = document.createElement("ul");
+        popDiv.appendChild(ul);
+        //根据匹配数组 动态产生li
+        for (var i = 0; i < filterArr.length; i++) {
+            var item = filterArr[i];
+            var li = document.createElement("li");
+            li.innerText = item;
+            ul.appendChild(li);
+        }
+    };
+
+    //todo:当前高亮
+    //todo:点击当前li当前li中的文字会到输入框中
+    //todo:按上下键 可以切换（涉及到事件对象了，可以先了解一下试一下）
+    //todo:可以自己看看百度搜索框还有哪些功能
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            // 如何获取到文本框的值？
+            $("#btnSub").click(function() {
+                // 获取用户名
+                var txtName = $("#txtName").val(); // js -> txtName.value
+                console.log("用户名：" + txtName);
+
+                // 获取密码
+                var txtPwd = $("#txtPwd").val();
+                console.log("密码：" + txtPwd);
+
+                // 获取文本域的值
+                var txtArea = $("#txtArea").val();
+                console.log("文本域的值：" + txtArea);
+
+                // 还可以用val方法获取到： input radio / select
+            });
+
+            // 设置值
+            // html() -> 不传参数表示获取值
+            // html("123") -> 传入参数表示设置内容
+            $("#btnSetVal").click(function() {
+                // 给用户名设置值
+                 $("#txtName").val("小明");
+
+                // 给select 设置值
+                $("#selPro").val(2);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <button id="btnSetVal">设置值</button>
+    <div>
+        <!--这里的for是用来方便获取文本框的焦点的，例如点击用户名则可以获得焦点-->
+        <label for="txtName">用户名：</label><input type="text" id="txtName"/>
+        <br/>
+        <label for="txtPwd">密码：</label><input type="text" id="txtPwd"/>
+        <br/>
+        <textarea name="" id="txtArea" cols="30" rows="10"></textarea>
+        <br/>
+        <select name="" id="selPro">
+            <option value="1">北京</option>
+            <option value="2">广州</option>
+        </select>
+        <input type="submit" value="立即注册" id="btnSub"/>
+    </div>
+</body>
+</html>

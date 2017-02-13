@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: "microsft yahei";
+			background-color: #F7F7F7;
+		}
+		li{
+			font-size: 20px;
+			list-style:none;
+		}
+		li .before,
+		li .after{
+			display: block;
+			height: 200px;
+			width: 200px;
+			background-color: green;
+			margin: 10px;
+			text-align: center;
+			line-height: 200px
+		}
+		li::before{
+			/*
+			1.字符串
+			2.图片
+			3.可以为空:清除浮动的时候;
+			*/
+			content: "itcast";
+			display: block;
+			height: 100px;
+			width: 100px;
+			background-color: blue;
+
+		}
+		li::after{
+			content: "";
+			display: block;
+			height: 100px;
+			width: 100px;
+			background-color: yellow;
+		}
+		/*
+        ::before/::after是一对CSS3伪元素，使用::before/::after，你可以从CSS里往页面上新增内容(不再 在HTML里有相应的东西)。
+        虽然最终生成的东西并不是真正的DOM里的内容，但这些内容能像普通内容一样显示;
+		*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<span class="before">原始添加的</span>
+			<span class="add"></span>
+			<span class="after">原始添加的后面的</span>
+		</li>
+	</ul>
+</body>
+</html>
