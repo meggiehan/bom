@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>each</title>
+    <script src="./select3.js"></script>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+    <script>
+    function each(arr,func){
+         for(var i=0;i<arr.length;i++){
+            func.call(arr[i],i,arr[i]);
+        //jQuery里面this是指向当前遍历的那个对象。所以我们封装的时候也是一样的。我们封装时function，this是指向Window的，所以要让this指向当前的对象。
+         }
+    }
+
+    var list=select('div')
+    each(list,function(i,v){
+        v.style.border='1px solid lightgreen';
+        v.style.padding='5px';
+        v.style.margin='5px';
+    })
+    </script>
+</body>
+</html>

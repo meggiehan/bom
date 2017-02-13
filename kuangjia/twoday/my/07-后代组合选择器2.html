@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <div>
+        <p>
+            <span class="c">123</span>
+        </p>
+    </div>
+    <div>
+
+    </div>
+</head>
+<body>
+    <script>
+        function select2(selector,results){
+            results=results||[];
+            var selectors=selector.split(' ');
+
+            var arr=[],node=[document];
+
+            for(var j=0;j<selectors.length;j++){
+                for(var i=0;i<node.length;i++){
+                arr.push.apply(arr,node[i].document.getElementsByTagName(selector[j]));
+                 }
+            node=arr;
+            arr=[];
+            }
+        }
+        var abc=[document];
+        console.log(abc);
+    </script>
+</body>
+</html>

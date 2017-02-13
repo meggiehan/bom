@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>toggle</title>
+    <style type="text/css">
+        .c{
+            background-color:orange;
+        }
+        .a{
+            background-color:lightgreen;
+        }
+    </style>
+    <script type="text/javascript" src="hmj02.js"></script>
+</head>
+<body>
+    <input type="button" name="" id='btn' value="click">
+    <script>
+        H('#btn').click(function(){
+            H(document.body).toggleClass('c');
+        });
+    </script>
+</body>
+</html>

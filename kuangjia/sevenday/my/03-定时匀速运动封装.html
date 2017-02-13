@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 300px;
+            height: 300px;
+            position:absolute;
+            background-color:lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name="" value='test' onclick="fn()">
+    <div id="dv"></div>
+    <script>
+        var dv=document.getElementById('dv');
+
+        function fn1(){
+            var start=parseInt(dv.style.left || dv.offsetLeft);
+            var starttime=+new Date();
+
+            var timer=setInterval(function(){
+
+            var currenttime=+new Date();
+            var time=currenttime-starttime;
+            console.log(time);
+            if(time>=2000){
+                clearInterval(timer);
+                time=2000;
+            }
+            var wy=time * 0.25;
+            dv.style.left=start+wy+'px';
+
+          },20)
+        }
+
+        function move(node,x,time){
+            var startx=parseInt(node.style.left||node.offsetLeft);
+            var distance=x-startx;
+            var speed=distance/time;
+
+            var starttime=+new Date();
+            var timer=setInterval(function(){
+                var currenttime=+new Date();
+                var deltatime=currenttime-starttime;
+
+                if(deltatime>=time){
+                    clearInterval(timer);
+                    deltatime=time;
+                }
+
+                node.style.left=startx+speed*deltatime+'px';
+            },20)
+        }
+
+        function fn(){
+            move( dv, 900, 2000 );
+        }
+    </script>
+</body>
+</html>

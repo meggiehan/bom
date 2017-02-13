@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>map</title>
+    <script src="./select3.js"></script>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+    <script>
+
+    //     function map(arr,func){
+    //         var tmp,res=[];
+    //         if(arr instanceof Array || arr.length>=0){
+    //             for(var i=0;i<arr.length;i++){
+    //                 tmp=func(arr[i],i);
+    //                 if(tmp!=null){
+    //                     res.push(tmp);
+    //                 }
+    //             }
+    //         }else {
+    //             for( i in arr){
+    //                 tmp=func(arr[i],i);
+    //                 if(tmp!=null){
+    //                     res.push(tmp);
+    //                 }
+    //             }
+    //         }
+    //         return res;
+    //     }
+
+    // var list=map([1,2,3,4,5],function(v,i){
+    //     return "a";
+    // })
+
+
+    function map(arr,func){
+        var res=[],temp,i;
+        if(arr instanceof Array || arr.length>=0){
+            for(i=0;i<arr.length;i++){
+                temp=func(arr[i],i);
+                if(temp!=null){
+                    res.push(temp);
+                }
+
+            }
+        }else {
+            for(i in arr){
+                temp=func(arr[i],i);
+                if(temp!=null){
+                    res.push(temp);
+                }
+            }
+        }
+        return res;
+    }
+     var list=map([1,2,3,4,5],function(v,i){
+        return "a";
+    })
+
+    </script>
+</body>
+</html>

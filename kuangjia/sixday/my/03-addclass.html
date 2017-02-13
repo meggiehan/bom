@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>addclass</title>
+    <script src="hmj02.js"></script>
+
+          <script>
+
+          hmj.extend({
+            getStyle:function(o,name){
+                 if(o.currentStyle){
+                    return o.currentStyle;
+                }else{
+                    return window.getComputedStyle(o)[name];
+                }
+            }
+          })
+
+
+        hmj.fn.extend({
+            css1:function(option){
+                for(var i=0;i<this.length;i++){
+                    for( k in option){
+                        this[i].style[k]=option[k];
+                    }
+                }
+                return this;
+            },
+            css:function(option){
+                var len=arguments.length;
+                var args=arguments;
+                if(len===2){
+                    if(hmj.isString(args[0])&&hmj.isString(args[1])){
+                      return this.each(function(){
+                            this.style[args[0]]=args[1];
+                        })
+                    }
+                }else if(len===1){
+                    if(hmj.isString(args[0])){
+                        return this[0].style[option]|| hmj.getStyle(this[0],option);
+                    }else if(hmj.isObject(args[0])){
+                        return this.each(function(){
+                            for(var k in option){
+                                this.style[k]=option[k];
+                            }
+                        })
+                    }
+                }
+                return this;
+            },
+            addClass1:function(name){
+                var classTxt=this.className;
+                if(classTxt){
+                    //有
+                    var arr=classTxt.split('');
+                    for(var i=0;i<arr.length;i++){
+                        if(arr[i]===name){
+                            break;
+                        }
+                    }
+                    //没有
+                    if(i===arr.length){
+                        this.className+=' '+name;
+                    }else{
+
+                    }
+                    this.className=name;
+            }
+          },
+          addClass: function ( name ) {
+
+                // 判断有没有
+                // += ' ' + name
+                return this.each(function () {
+                    // this 表示 每一个 dom 元素
+                    var classTxt = this.className;
+
+                    // undefined, null, ""
+                    if ( classTxt ) {
+                        // 有, 是否含有该类样式
+                        var arr = classTxt.split( ' ' );
+                        if ((' '+classTxt+' ').indexOf(' '+name+' ')) {
+                            // 正常跳出, 就是没有找到该样式
+                            this.className += ' ' + name;
+                        } else {
+                            // 中间跳出, 已经存在该类样式
+                        }
+
+                    } else {
+                        // 没有
+                        this.className = name;
+                    }
+
+
+                });
+
+            }
+        })
+    </script>
+</head>
+<body>
+    <div id='dv' class='aa cc'></div>
+    <div></div>
+    <script>
+       H('div').addClass('bb');
+       // H('#dv').removeClass('cc');
+        // console.log(di.class);
+    </script>
+</body>
+</html>

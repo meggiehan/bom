@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>test</title>
+    <script src="./Sizzle.js"></script>
+    <script src="./hmj3.js"></script>
+</head>
+<body>
+<div></div>
+<div class="c"></div>
+<div></div>
+    <script>
+        // var list=Sizzle('[class]');
+
+         hmj.select=Sizzle;
+         //这里就是为什么要在封装的选择器后面写上hmj.select=select;目的就是便于使用第三方的接口。
+         var o=H('[class]');
+    </script>
+</body>
+</html>

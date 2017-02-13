@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="./hmj3.js"></script>
+</head>
+<body>
+<div>1</div>
+<p></p>
+<div>2</div>
+<p></p>
+<div>3</div>
+<p class="c"></p>
+    <script>
+     // var i=hmj('div');
+     // i.forEach(function(v){
+     //    v.style.backgroundColor='lightgreen';
+     // })
+    var list = hmj( 'div' );
+
+    for ( var i = 0; i < list.length; i++ ) {
+        list[ i ].style.backgroundColor = 'lightgreen';
+        list[ i ].style.border = '3px dashed orange';
+
+    }
+     console.log(hmj('.c'))
+    hmj('<div>dsds</div>').appendTo(hmj('.c')[0]);
+
+    // document.body.appendChild();
+
+    </script>
+</body>
+</html>

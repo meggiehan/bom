@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 400px;
+			height: 100px;
+			border: 1px solid red;
+			margin: 10px;
+		}
+	</style>
+	<script src="itcast.js"></script>
+	<script>
+	// 要求每一个 itcast 对象有一个 events 属性, 该属性存储事件
+	// 与对应的函数数组
+
+	// 事件处理( onclick, addEventListener, attachEvent ) 不再是绑定
+	// 直接循环对应数组
+
+
+	// 需要修改构造函数, 来初始化事件数组对象
+	// 还需要添加事件处理函数
+
+	// 添加什么事件就增加什么属性
+
+
+	itcast.fn.extend({
+		click: function ( fn ) {
+
+			if ( !this.events[ 'click' ] ) {
+				//首先判断在一次的情况下，进行初始化操作。
+				this.events[ 'click' ] = [];
+
+				// 给当前dom元素添加 处理事件
+
+				    var that = this;
+				    //这句是遍历有多少个div
+				    this.each(function () {
+				    //这句是给每个dom对象添加一个onclick事件，并且进行遍历实现事件的累加。
+					this.onclick = function () {
+					// 遍历对应的数组, 依次调用方法
+					// 为啥不能在下面用this，因为函数里的this表示的是每一个dom元素，而此时加的判断条件是外面的itcast对象的长度，所以要在外面加上一句that=this，或者可以直接使用对象.events['click'].length
+						for ( var i = 0; i < that.events[ 'click' ].length; i++ ) {
+							that.events[ 'click' ][ i ]();
+
+					//给每一个 itcast 对象添加一个 events 的属性
+                    //该属性存储每一个事件中可以有的事件处理函数
+                    //<itcast>.events = {
+                    //  click: [ f1, f2, f3 ]
+                    //}
+						}
+
+					};
+				});
+			}
+
+			//最后把这些函数依次添加到数组里面去。
+			this.events[ 'click' ].push( fn );
+
+			return this;
+		}
+	});
+
+
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	var iObj = I( 'div' )
+
+	iObj.events = {};
+	// 应该给每一个对象都处理好事件
+	// iObj.each(function () {
+	// 	var that = this;
+	// 	this.onclick = function () {
+	// 		// 遍历对应的数组, 依次调用方法
+	// 		for ( var i = 0; i < iObj.events[ 'click' ].length; i++ ) {
+	// 			iObj.events[ 'click' ][ i ]();
+	// 		}
+
+	// 	};
+	// });
+
+
+
+	iObj.click(function () {
+		alert( '点击了' );
+	}).click( function () {
+		alert( '第二次点击' );
+	});
+//当我第一次将"点击了"这个函数执行时，此时，events里面并没有函数数组，所以进行初始化，同时进行遍历，将事件绑定到对象上，当第一次执行完后，没有方法可以调用，那么就直接执行追加的操作，那么，"第二次点击"的时候，就直接追加到事件数组里面。
+</script>
+</html>

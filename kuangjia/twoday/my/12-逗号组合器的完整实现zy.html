@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>selectfirst</title>
+</head>
+<body>
+ <div class="c">1</div>
+  <div id="dv">2</div>
+  <p>p1</p>
+  <p>p2</p>
+  <p>p3</p>
+    <script>
+    // var select=
+    // (function (){
+            //这里是判断内置方法的返回值的正则表达式。
+            //这里是判断基本选择器的正则表达式，以分组的形式。
+            var rantive=/\{\s*\[native \w/;
+            var rbselector=/^(?:\#([\w\-]+)|\.([\w\-]+|)|(\*)|(\w+))$/;
+            var rtrim=/^\s+|\s+$/g;
+
+
+            //首先判断浏览器是否支持该方法，任何一个内置方法的返回值都是function 函数名(){[native code]}
+            //首先创建一个support对象，用来测试是否支持该方法，返回值为Boolean。
+            var support={};
+
+            support.qsa=rantive.test(document.querySelectorAll+'');
+            support.getElementsByClassName=rantive.test(document.getElementsByClassName+'');
+            support.trim=rantive.test(String.prototype.trim+'');
+            //所以这里是把返回的所有+''则表示这时候就是一个字符串了，同时可以进行测试是否支持该对象了。
+            //----------------------------------------------------------------------------------
+            function getClassName(className,node){
+              //首先封装getElementByClassName,传入要遍历的类名和节点。
+               node=node||document;
+               //这里是如果传进来了node就用传进来的，否则就用document。
+               var ele,i,res=[];
+               //这时候判断浏览器是否支持该方法，支持直接返回，如果不支持进入else。
+               if(support.getElementsByClassName){
+                return node.getElementsByClassName(className);
+               }else{
+                //首先获取到所有的类名，存入到ele中。
+                ele=node.getElementsByTagName('*');
+                //开始遍历
+                for(i=0;i<ele.length;i++){
+                  //判断当值>-1时，说明已经匹配到了，这时候就把他追加到res数组中。
+                    if((' '+ele[i].className+' ').indexOf(' '+className+' ')>-1){
+                        res.push(ele[i]);
+                    }
+                 }
+               }
+                 return res;//将获取到的类名返回。
+            }
+
+            //----------------------------------------------------------------------------------
+
+      function mytrim(str){
+        if(support.trim){
+          //首先判断系统是否支持该方法，不支持使用自己创建的方法
+          return str.trim();
+        }else{
+          return str.replace(rtrim,'');
+          //这里表示把两边所有的空格替换了
+        }
+      }
+
+            //----------------------------------------------------------------------------------
+        function select(selector,results){
+            results=results||[];
+            var m,tem,i,selectors,subselector;
+            if(typeof selector!='string') return results;
+
+            selectors=selector.split(',');
+            //首先将字符串通过逗号进行分割，得到一个数组。
+
+            if(support.qsa){
+                results.push.apply(results,document.querySelectorAll(selectors));
+                return results;
+            }
+            //这里是判断系统是否支持querySelectAll方法。
+
+            for(i=0;i<selectors.length;i++){
+              subselector=mytrim(selectors[i]);
+              //这里调用mytrim方法，用来去除两边多余的空格。
+               m=rbselector.exec(selectors[i]);
+            //这里是通过exec来将传入的数组进行分组，如同['','','',''];
+            if(m){
+              //如果m匹配到了数据，那么就进入下面的判断。
+                if(m[1] && (tem=document.getElementById(m[1]))){
+              //m[1]中存储的就是id的匹配，用tem判断是否获取到了数据。
+                    results.push(tem);
+                }else if(m[2]){
+              //m[2]中存储的是类名
+                    results.push.apply(results,getClassName(m[2]));
+                }else if(m[3]){
+              //m[3]中存储的是所有的
+                    results.push.apply(results,document.getElementsByTagName(m[3]));
+                }else{
+              //m[4]中存储的是标签名
+                    results.push.apply(results,document.getElementsByName(m[4]));
+                }
+              }
+            }
+            return results;
+        }
+//   return select;
+
+// })();
+         var list1=select('   .c  ,  #dv  ');
+        list1.forEach(function(v){
+            v.style.border='1px solid orange';
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div class="c"></div>
+    <div class="c1 c"></div>
+    <div class="c"></div>
+    <div></div>
+   <script type="text/javascript">
+//这种方法的好处是不会修改原生的对象，但是缺点是性能较差，因为document本身是没有getelement方法的额，他是去他的原型对象上去找，每次传入一个类名，都要去遍历原型链一次，所以就会消耗大量的性能。
+      function getbyclass(className){
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(className);//在谷歌浏览器中，这里一定要返回的有值，所以要加上(className);
+        }
+          else{
+            var list=document.getElementsByTagName("*");
+            //这里获取所以的类名时，要注意使用的是getElementsByTagName属性。
+            var res=[];
+            for(var i=0;i<list.length;i++){
+                if((' '+list[i].className+' ').indexOf(' '+className+' ')>-1){
+                    res.push(list[i]);
+                }
+            }
+            return res;
+          }
+      }
+      var list1=new getbyclass('c');
+      console.log(list1);
+   </script>
+</body>
+</html>

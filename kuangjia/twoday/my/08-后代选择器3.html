@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+   <div>
+       div1
+            <div>
+            <p>
+                <span class="c">123</span>
+            </p>
+        </div>
+   </div>
+    <div>
+
+    </div>
+</head>
+<body>
+    <script>
+
+
+        var rbselector=/^(?:\#([\w\-]+)|\.([\w\-]+)|(\*)|(\w+))$/;
+
+        function basicSelect(selector,node){
+           node = node || document;
+            var m,res;
+            var results=[];
+            if(typeof selector!='string') return node;
+            m=rbselector.exec(selector);
+
+            if(m){
+              if(m[1]&&(res=document.getElementById(m[1]))){
+                results.push(res);
+              }else if(m[2]){
+                  results.push.apply(results,node.getElementsByClassName(m[2]));
+              }else if(m[3]){
+                  results.push.apply(results,node.getElementsByTagName(m[3]));
+              }else if(m[4]){
+                  results.push.apply(results,node.getElementsByTagName(m[4]));
+            }
+          }
+            return results;
+        }
+
+        function select2(selector,results){
+            results=results||[];
+            var selectors=selector.split(' ');
+
+            var arr=[],node=[document];
+
+            for(var j=0;j<selectors.length;j++){
+                for(var i=0;i<node.length;i++){
+                arr.push.apply(arr,basicSelect(selectors[j],node[i]));
+                 }
+            node=arr;
+            arr=[];
+            }
+            results.push.apply(results,node);
+            return results;
+        }
+      var list=select2('div p .c');
+
+
+
+    </script>
+</body>
+</html>

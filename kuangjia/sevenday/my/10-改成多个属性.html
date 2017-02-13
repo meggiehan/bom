@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 150px;
+            height: 150px;
+            position:absolute;
+            border-radius:50%;
+            background-color:orange;
+            left: 0px;
+            top: 0px;
+            border:1px solid red;
+        }
+        input {
+            margin-top: 150px;
+        }
+    </style>
+    <script type="text/javascript" src="hmj02.js"></script>
+</head>
+<body>
+    <input type="button" name="" value='test' onclick="">
+    <div id="dv"></div>
+    <script>
+        // var div=document.getElementById('dv');
+
+        var easingObj={
+            line:function(x,t,b,c,d){
+                var speed=(c-b)/d;
+                return speed*t;
+
+            },
+            change:function(x,t,b,c,d){
+                return Math.log(t+1)/Math.log(d+1)*(c-b);
+            }
+        }
+
+
+        function animate(x,props,dur,easing){
+            var start={};
+            for(var k in props){
+                start[k]=hmj.getStyle(x,k);
+            }
+
+            console.log(start);
+
+            var starttime=+new Date();
+            var timer=setInterval(function(){
+                var currenttime=+new Date();
+                var t=currenttime-starttime;
+
+                if(t>=dur){
+                    clearInterval(timer);
+                    t=dur;
+                }
+
+                easing=easing||'change';
+
+               for(var k in props){
+                x.style[k]=parseInt(start[k])+easingObj[easing](null,t,parseInt(start[k]),parseInt(props[k]),dur)+'px';
+               }
+
+            },20);
+            console.log(start);
+        }
+
+        H( 'input' ).click(function () {
+
+        animate( H( 'div' )[ 0 ], {
+            left: '700px',
+            top: '300px',
+            width:'300px',
+            height:'300px',
+            border:'3px solid red'
+        },4000);
+
+    });
+
+
+    </script>
+</body>
+</html>

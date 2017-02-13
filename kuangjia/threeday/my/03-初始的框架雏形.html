@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>kuangjia</title>
+</head>
+<body>
+    <script>
+         function parseHTML(html){
+             var div=document.createElement('div');
+
+             div.innerHTML=html;
+             var res=[];
+             for(var i=0;i<div.childNodes.length;i++){
+                res.push(div.childNodes[i]);
+             }
+             return res;
+        }
+
+        function $(html){
+            return new F(html);
+        }
+
+        function F(html){
+            [].push.apply(this,parseHTML(html));
+            //这里的this是有长度的。与原型无关。
+        }
+
+        F.prototype={
+            length:0,//这里是一个标识符，让所有由F构造的方法都拥有这个标识，让别人一看就会以为是数组或者是伪数组，这里的length是不会变得。并且必须要有，否则会报错。
+            appendTo:function(dom){
+                for(var i=0;i<this.length;i++){
+                    dom.appendChild(this[i]);
+                }
+            }
+        }
+
+        var $1=$('<div>123</div>');
+        $1.appendTo(document.body);
+    </script>
+</body>
+</html>

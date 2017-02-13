@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>each</title>
+    <script src="./select3.js"></script>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+    <script>
+    function each(arr,func){
+        // 在 ES5 中还引入了 Array.isArray 的方法专门来判断数组
+        if(arr instanceof Array || arr.length>=0){
+            //arr.length>=0为什么要有这句，因为下面获取div的是一个伪数组，那么在遍历的时候，就会把他当成一个对象来使用，进入下面，然后遍历到最后的时候，会把length属性也当做对象进行遍历，那么这时候的this表示的是number，number是没有style方法的，所以找到的是空，那么最后就会报错。这里如果加上这句，则表示伪数组。
+
+            for(var i=0;i<arr.length;i++){
+                func.call(arr[i],i,arr[i]);
+            }
+        }else{
+            for( i in arr){
+                func.call(arr[i],i,arr[i]);
+            }
+        }
+    }
+
+    var list=select('div');
+    each(list,function(i,v){
+        v.style.border='1px solid orange';
+        v.style.padding='5px';
+        v.style.margin='5px';
+    })
+
+    var list1=document.getElementsByTagName('div');
+
+    each(list1,function(i,v){
+        v.style.backgroundColor='lightgreen';
+
+    })
+    </script>
+</body>
+</html>

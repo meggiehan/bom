@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="hmj01.js"></script>
+</head>
+<body>
+    <input type="button" id="btn" value=" 点击 " >
+</body>
+<script>
+
+            hmj.fn.extend({
+                toggle:function(){
+                    var i=0;
+                    var args=arguments;
+                    this.on('click',function(e){
+                        args[i%args.length].call(this,e);
+                        i++;
+                    })
+                    return this;
+                }
+            })
+
+
+    H( '#btn' ).toggle(function ( e ) {
+
+        console.log( this );
+        console.log( e );
+        alert( 11 );
+    }, function () {
+        alert( 22 );
+    }, function () {
+        alert( 33 );
+    });
+
+
+</script>
+</html>

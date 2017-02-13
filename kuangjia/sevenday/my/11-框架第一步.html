@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 150px;
+            height: 150px;
+            position:absolute;
+            border-radius:50%;
+            background-color:orange;
+            left: 0px;
+            top: 0px;
+            border:1px solid red;
+        }
+        input {
+            margin-top: 150px;
+        }
+    </style>
+    <script type="text/javascript" src="hmj02.js"></script>
+</head>
+<body>
+    <!-- <input type="button" name="" value='test' onclick=""> -->
+    <input type="button" value=" click " id="b1" />
+    <input type="button" value=" over " id="b2" />
+    <div id="dv"></div>
+    <script>
+
+
+            hmj.Easing={
+                    line:function(x,t,b,c,d){
+                        var speed=(c-b)/d;
+                        return speed*t;
+                    },
+                    change:function(x,t,b,c,d){
+                        return Math.log(t+1)/Math.log(d+1)*(c-b);
+                    },
+                    easeInQuad: function (x, t, b, c, d) {
+                        return c*(t/=d)*t + b;
+                    },
+                    easeOutQuad: function (x, t, b, c, d) {
+                        return -c *(t/=d)*(t-2) + b;
+                    },
+                    easeInOutQuad: function (x, t, b, c, d) {
+                        if ((t/=d/2) < 1) return c/2*t*t + b;
+                        return -c/2 * ((--t)*(t-2) - 1) + b;
+                    },
+                    easeInCubic: function (x, t, b, c, d) {
+                        return c*(t/=d)*t*t + b;
+                    },
+                    easeOutCubic: function (x, t, b, c, d) {
+                        return c*((t=t/d-1)*t*t + 1) + b;
+                    },
+                    easeInOutCubic: function (x, t, b, c, d) {
+                        if ((t/=d/2) < 1) return c/2*t*t*t + b;
+                        return c/2*((t-=2)*t*t + 2) + b;
+                    },
+                    easeInQuart: function (x, t, b, c, d) {
+                        return c*(t/=d)*t*t*t + b;
+                    },
+                    easeOutQuart: function (x, t, b, c, d) {
+                        return -c * ((t=t/d-1)*t*t*t - 1) + b;
+                    },
+                    easeInOutQuart: function (x, t, b, c, d) {
+                        if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+                        return -c/2 * ((t-=2)*t*t*t - 2) + b;
+                    },
+                    easeInQuint: function (x, t, b, c, d) {
+                        return c*(t/=d)*t*t*t*t + b;
+                    },
+                    easeOutQuint: function (x, t, b, c, d) {
+                        return c*((t=t/d-1)*t*t*t*t + 1) + b;
+                    },
+                    easeInOutQuint: function (x, t, b, c, d) {
+                        if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+                        return c/2*((t-=2)*t*t*t*t + 2) + b;
+                    },
+                    easeInSine: function (x, t, b, c, d) {
+                        return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+                    },
+                    easeOutSine: function (x, t, b, c, d) {
+                        return c * Math.sin(t/d * (Math.PI/2)) + b;
+                    },
+                    easeInOutSine: function (x, t, b, c, d) {
+                        return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+                    },
+                    easeInExpo: function (x, t, b, c, d) {
+                        return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+                    },
+                    easeOutExpo: function (x, t, b, c, d) {
+                        return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+                    },
+                    easeInOutExpo: function (x, t, b, c, d) {
+                        if (t==0) return b;
+                        if (t==d) return b+c;
+                        if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+                        return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+                    },
+                    easeInCirc: function (x, t, b, c, d) {
+                        return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+                    },
+                    easeOutCirc: function (x, t, b, c, d) {
+                        return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+                    },
+                    easeInOutCirc: function (x, t, b, c, d) {
+                        if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+                        return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+                    },
+                    easeInElastic: function (x, t, b, c, d) {
+                        var s=1.70158;var p=0;var a=c;
+                        if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+                        if (a < Math.abs(c)) { a=c; var s=p/4; }
+                        else var s = p/(2*Math.PI) * Math.asin (c/a);
+                        return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+                    },
+                    easeOutElastic: function (x, t, b, c, d) {
+                        var s=1.70158;var p=0;var a=c;
+                        if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+                        if (a < Math.abs(c)) { a=c; var s=p/4; }
+                        else var s = p/(2*Math.PI) * Math.asin (c/a);
+                        return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+                    },
+                    easeInOutElastic: function (x, t, b, c, d) {
+                        var s=1.70158;var p=0;var a=c;
+                        if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+                        if (a < Math.abs(c)) { a=c; var s=p/4; }
+                        else var s = p/(2*Math.PI) * Math.asin (c/a);
+                        if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+                        return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+                    },
+                    easeInBack: function (x, t, b, c, d, s) {
+                        if (s == undefined) s = 1.70158;
+                        return c*(t/=d)*t*((s+1)*t - s) + b;
+                    },
+                    easeOutBack: function (x, t, b, c, d, s) {
+                        if (s == undefined) s = 1.70158;
+                        return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+                    },
+                    easeInOutBack: function (x, t, b, c, d, s) {
+                        if (s == undefined) s = 1.70158;
+                        if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+                        return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+                    },
+                    easeOutBounce: function (x, t, b, c, d) {
+                        if ((t/=d) < (1/2.75)) {
+                            return c*(7.5625*t*t) + b;
+                        } else if (t < (2/2.75)) {
+                            return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+                        } else if (t < (2.5/2.75)) {
+                            return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+                        } else {
+                            return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+                        }
+                    }
+             };
+
+             hmj.fn.extend({
+                animate:function( props, dur, easing, fn){
+                        var x=this[0];
+                        var start={},
+                             isOver=false,
+                             that=this;
+                        for(var k in props){
+                            start[k]=hmj.getStyle(x,k);
+                        }
+
+                        console.log(start);
+
+                        var starttime=+new Date();
+                        this.timer=setInterval(function(){
+                            var currenttime=+new Date();
+                            var t=currenttime-starttime;
+
+                            if(t>=dur){
+                                clearInterval(timer);
+                                t=dur;
+                                isOver=true;
+                            }
+
+                            easing=easing||'change';
+
+                           for(var k in props){
+                            x.style[k]=parseInt(start[k])+hmj.Easing[easing](null,t,parseInt(start[k]),parseInt(props[k]),dur)+'px';
+                           }
+
+                           if(isOver && fn){
+                            fn.apply(that);
+                           }
+                        },20);
+                     },
+                     timer:null,
+                     stop:function(){
+                        clearInterval(this.timer);
+                        this.timer=null;
+                     }
+                 })
+
+
+
+             var iobj=H('div');
+
+     H( '#b1' ).click(function () {
+
+        iobj.animate( {
+            left: '700px',
+            top: '200px',
+            width:'150px',
+            height:'150px'
+        },4000,'line',function(){
+            alert('is over');
+        });
+
+    H('#b2').click(function(){
+        iobj.stop();
+    });
+
+
+
+
+
+
+
+
+        // H( 'input' ).click(function () {
+
+        // H( 'div' ).animate( {
+        //     left: '700px',
+        //     top: '200px',
+        //     width:'150px',
+        //     height:'150px'
+        // },4000,'easeOutBounce',function(){
+        //     alert('is over');
+        // });
+
+    });
+
+
+    </script>
+</body>
+</html>

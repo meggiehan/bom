@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>parseHTML</title>
+</head>
+<body>
+    <script>
+        function parseHTML(html){
+            var div=document.createElement('div');
+            div.innerHTML=html;
+
+            var res=[];
+            for(var i=0;i<div.childNodes.length;i++){
+                res.push(div.childNodes[i]);
+            }
+            return res;
+        }
+
+        var list=parseHTML('<div>hello world</div>');
+        document.body.appendChild(list[0]);
+    </script>
+</body>
+</html>

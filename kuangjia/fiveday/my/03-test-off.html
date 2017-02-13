@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="./hmj01.js"></script>
+    <style type="text/css">
+        div{
+            width: 300px;
+            height: 300px;
+            border:1px solid green;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    <div></div>
+    <script>
+
+        // H('div').click(function(){
+        //     alert('aaa');
+        // })
+        //  H('div').click(function(){
+        //     alert('bbb');
+        // });
+
+
+       // var h1= H('div').click(function(){
+       //      alert('aaa');
+       //  }).click(function(){
+       //      alert('bbb');
+       //  });
+
+         // var i = H(H( 'div' ));
+     var i = H( document.getElementsByTagName( 'div' )[ 0 ] )
+        var f = function () {
+        alert( '1111111111111111111' );
+            };
+        i.click( f );
+        i.click( function () {
+            alert( '222222222222222' );
+        });
+
+        i.off( 'click', f );
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>finallytest</title>
+    <script src="./selectzy.js"></script>
+</head>
+<body>
+    <div>
+        <p class='c'>p1
+            <span class="c">span</span>
+        </p>
+        <div>
+            <p class='c'>p3</p>
+            <div>
+                <p>p4</p>
+            </div>
+        </div>
+    </div>
+    <div id="dv">
+        <p>p2</p>
+    </div>
+    <p></p>
+    <script>
+        var list=select("div,p");
+    </script>
+</body>
+</html>

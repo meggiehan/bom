@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="c"></div>
+    <div class="c1 c2 c"></div>
+    <div class="c1 c c2"></div>
+    <div class="c1 c2"></div>
+    <div class="c1 c c"></div>
+    <div class="c1 c c3"></div>
+    <div class="c c c"></div>
+<script>
+    function getbyclass(className){
+     var res=[];
+     var list=document.getElementsByTagName('*');
+     for(var i=0;i<list.length;i++){
+        if(list[i].className==className){
+          res.push(list[i]);
+        }
+     }
+     return res;
+    }
+var list1=new getbyclass('c');//这种方式最后只能获取第一个div的类名，因为全等的原因。
+console.log(list1);
+//使用正则表达式来判断
+///^c\s|\sc\s|\sc$/g
+    function contains(str1,str2){
+        // return(/^\sc|\sc\s|\sc$/g).test(str1);//这么写是有问题的
+        //所以要利用字符串拼接得到正则表达式。
+     var regexpStr="^\\s"+str2+"|\\s"+str2+"\\s|\\s"+str2+"$";
+     //这里是new一个新的regexp对象，
+     return (new RegExp(regexpStr,'g')).test(str1);//这里的g必须加上引号。
+    }
+    //根据正则表达式来改良上面的代码：
+
+    function agetbyclass(className){
+        var list=document.getElementsByTagName("*");
+        var res=[];
+        for(var i=0;i<list.length;i++){
+            if(list[i].className==className||contains(list[i].className,className)){
+                res.push(list[i]);
+            }
+        }
+        return res;
+    }
+var list2=new agetbyclass('c');
+console.log(list2);
+
+    //jQuery作者的实现方法
+    function getbyclasszz(className){
+        var list=document.getElementsByTagName("*");
+        var res=[];
+        for(var i=0;i<list.length;i++){
+            //这里是将字符串的左右两边全部加上空格，这样子就可以实现同样的效果，并且容易使用indexof的方法来实现效果。
+            if((' '+list[i].className+' ').indexOf(' '+className+' ')>-1){
+                res.push(list[i]);
+            }
+        }
+        return res;
+    }
+    var list3=getbyclasszz('c');
+    console.log(list3);
+
+    // c        " c "               " c "           0
+    // c1 c2 c  " c1 c2 c "         " c "           6
+    // c1 c c2  " c1 c c2 "         " c "           3
+</script>
+</body>
+</html>

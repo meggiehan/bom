@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <div>1</div>
+    <div>2</div>
+    <div class="c">3</div>
+    <div id="dv">4
+      <div class="c">5</div>
+    </div>
+    <p>p1</p>
+    <p class="c">p2</p>
+    <p>p3</p>
+  </body>
+  <script type="text/javascript">
+       // support, getByClassName 函数
+       // 首先创建一个support对象，把属性添加进去，他的类型是boolean值。
+       var support={};
+       //用来匹配[native code]的正则表达式。
+       var rnative=/\{\s*\[native \w/;
+        //任何一个内置方法的返回值都是function 函数名(){[native code]},所以这里是把返回的所有+''则表示这时候就是一个字符串了，同时可以进行测试是否支持该对象了。
+        support.getElementsByClassName=rnative.test(document.getElementsByClassName+'');
+        function getByClassName(className,node){
+          //这里是传入了两个参数，node缩小范围，如果有node就用node，没有的话就用document。
+          node=node||document;
+          //这里是一次性把下面所用到的变量全部声明在了一起。
+          var ele,res=[],i;
+          //判断是否支持该属性，支持则直接返回，否则就进入else。
+          if(support.getElementsByClassName){
+            return node.getElementsByClassName(className);
+          }
+          else{
+            //先获取了所有的类名，进行遍历和判断，并且追加到res数组中。
+            ele=node.getElementsByTagName('*');
+            for(i=0;i<ele.length;i++){
+              if((' '+ele[i].className+' ').indexOf(' '+className+' ')>-1){
+              res.push(ele[i]);
+              }
+            }
+          }
+          return res;
+        //将返回值返回。
+        }
+
+        //传参并且进行遍历和设置样式
+        var list=new getByClassName('c');
+       for(var i=0;i<list.length;i++){
+        list[i].style.border='1px solid green';
+       }
+        console.log(list);
+  </script>
+
+</html>

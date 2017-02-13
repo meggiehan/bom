@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./hmj01.js"></script>
+</head>
+<body>
+</body>
+<script>
+    H( document ).mousemove(function ( e ) {
+        H( 'title' ).get( 0 ).innerHTML =  e.clientX + ', ' + e.clientY;
+        console.log( this );
+    })
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+1.为什么是加到dom[0]中？
+<!-- 因为要把jQuery对象转换为dom对象。 -->
+2.this.constructor(dom);//指的其实是init
+而直接写itcast(dom)是指还要进行查找，先找ITcast，再找init();
+3.itcsat.fn.constructor();
+
+*两种对外公开的接口：1.return   2.沙箱最后的对外接口
+
+4.通过选择器来创建jQ对象，就用selector来记录当前的选择器。
+5.通过jq对象创建jq对象，那么selector也会记录，并存在该属性。
+
+6.get:function(index){
+    if(index===undefined){
+      return this.toArray();
+    }
+    else{
+    return this[index];
+    }
+}
+7.var list=I('div');
+  var  dom=list.get(0);
+  var  itcast1=itcast(dom);
+  //此时dom就是一个dom元素，执行notetype的判断分支。并且这里就是通过dom元素创建一个itcast对象。
+
+8.函数内部的this指的是调用这个函数的那个对象。
+var iobj=itcast(dom);//使用dom作为参数创建一个itcast对象iobj.
+
+9.insertbefore：把新元素放到旧元素前面。

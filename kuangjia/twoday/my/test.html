@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>mytest</title>
+    <script type="text/javascript" src="./select1.js"></script>
+</head>
+<body>
+    <div>div1</div>
+    <div class=".c">div2</div>
+    <div>div3</div>
+    <p>p1</p>
+    <p class=".c">p2</p>
+    <ul>ul1</ul>
+    <script>
+        var list=select('div  ,   p,ul  ');
+        list.forEach(function(v){
+            v.style.backgroundColor='lightgreen';
+        })
+    </script>
+</body>
+</html>

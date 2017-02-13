@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>each</title>
+    <script type="text/javascript" src="./hmj.js"></script>
+</head>
+<body>
+<div>div1</div>
+<p></p>
+<div>div2</div>
+<p></p>
+<div>div3</div>
+<p></p>
+    <script>
+
+
+       // H('div').each(function(k,v){
+       //  console.log(k+'-'+v+'-'+this);
+       //  this.innerHTML='abc';
+       //  this.style.backgroundColor='lightgreen';
+       // })
+
+
+     var a=H('div').map(function(v,k){
+            return 'aaa';
+       })
+    </script>
+</body>
+</html>

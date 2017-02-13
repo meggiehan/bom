@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 对方法的能力进行检查, 首先看是否有该方法, 第二看自己构造一个情节, 让方法调用
+    // 看是否符合要求
+
+    document.body.__proto__.__proto__.getElementsByClassName=function(node){
+    //什么也不做。
+    };
+    //这里是修改下面的属性，虽然下面的function能执行，但是之后的获取就会被改，从而有问题。
+        var support={};
+    // 这里是创建一个support对象。
+        support.getElementsByClassName=(function(){
+            //给他增加一个自调用函数，让他自己调用并检测是否支持该方法，并且看看是否符合要求。
+            var div=document.createElement('div');
+            //动态的创建一个div，以便进行测试
+            if(typeof document.getElementsByClassName==='function');
+            //这里可以是div也可以是document。
+            //通过typeof判断这个是不是方法，以及验证该方法是否可用，是我们才继续检测是否符合要求
+            {
+                div.innerHTML='<div class="c"></div>';//这里的c必须加双引号，因为外面是单引号。
+                //这里就是模拟一个情景，准备一个标签结构。
+                var res=div.getElementsByClassName('c');
+                //这里必须是div不是document。
+                //获取类名
+                if(res&&res.length===1&&res[0].className==='c')
+                    //调用了方法以后，判断是否可以完成想要的功能。不为空，长度为1，并且他的第一个元素时获取的那个类名字符串。
+                {
+                    return true;//若支持上面的功能，那么返回TRUE表示可以用。
+                }
+            }
+            return false;
+            //否则返回FALSE，表示不可用。
+        })();
+    </script>
+</body>
+</html>

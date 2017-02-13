@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var select=
+(function(){
+      var support={};
+      var rnative=/\{\s*\[native \w/;
+      var rtrim=/^\s+|\s+$/g;
+      var rbselector=/^(?:\#([\w\-]+)|\.([\w\-]+)|(\*)|(\w+))$/;
+
+      support.getElementsByClassName=rnative.test(document.getElementsByClassName+'');
+      support.qsa=rnative.test(document.querySelectorAll+'');
+      support.trim=rnative.test(String.prototype.trim+'');
+
+        function getByClassName(className,node){
+          node=node||document;
+          var ele,res=[],i;
+          if(support.getElementsByClassName){
+            return node.getElementsByClassName(className);
+          }
+          else{
+            ele=node.getElementsByTagName('*');
+            for(i=0;i<ele.length;i++){
+              if((' '+ele[i].className+' ').indexOf(' '+className+' ')>-1){
+              res.push(ele[i]);
+              }
+            }
+          }
+          return res;
+        }
+
+    function myTrim(str){
+      if(support.trim){
+        return str.trim;
+      }else{
+        return str.replace(rtrim,'');
+      }
+    }
+
+        function select(selector,results){
+            results=results||[];
+            var m,temp;
+            if(typeof selector!='string') return results;
+
+            m=rbselector.exec(selector);
+
+            if(support.qsa){
+              results.push.apply(results,document.querySelectorAll(selector));
+              return results;
+            }
+
+            if(m){
+              if(m[1]&&(temp=document.getElementById(m[1]))){
+                results.push(temp);
+              }else if(m[2]){
+                  results.push.apply(results,getByClassName(m[2]));
+              }else if(m[3]){
+                  results.push.apply(results,document.getElementsByTagName(m[3]));
+              }else if(m[4]){
+                  results.push.apply(results,document.getElementsByTagName(m[4]));
+            }
+          }
+            return results;
+        }
+return select;
+})();
+  </script>
+</body>
+</html>

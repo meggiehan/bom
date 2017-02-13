@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 150px;
+            height: 150px;
+            position:absolute;
+            border-radius:50%;
+            background-color:lightgreen;
+        }
+    </style>
+    <script type="text/javascript" src="hmj02.js"></script>
+</head>
+<body>
+    <input type="button" name="" value='test' onclick="">
+    <div id="dv"></div>
+    <script>
+        // var div=document.getElementById('dv');
+
+        var easingObj={
+            line:function(x,t,b,c,d){
+                var speed=(c-b)/d;
+                return speed*t;
+
+            },
+            change:function(x,t,b,c,d){
+                return Math.log(t+1)/Math.log(d+1)*(c-b);
+            }
+        }
+
+
+        function animate(x,prop,dur,easing){
+            var start=parseInt(x.style.left||x.offsetLeft);
+
+            var starttime=+new Date();
+            var timer=setInterval(function(){
+                var currenttime=+new Date();
+                var t=currenttime-starttime;
+
+                if(t>=dur){
+                    clearInterval(timer);
+                    t=dur;
+                }
+
+                easing=easing||'change';
+
+                x.style.left=start+easingObj[easing](null,t,start,prop,dur)+'px';
+            },20)
+        }
+
+        H( 'input' ).click(function () {
+
+        animate( H( 'div' )[ 0 ], 700, 4000, 'change' );
+
+    });
+
+    </script>
+</body>
+</html>

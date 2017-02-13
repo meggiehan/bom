@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 150px;
+            height: 150px;
+            position:absolute;
+            border-radius:50%;
+            background-color:orange;
+            left: 0px;
+            top: 0px;
+            border:1px solid red;
+        }
+        input {
+            margin-top: 150px;
+        }
+    </style>
+    <script type="text/javascript" src="hmjwz.js"></script>
+</head>
+<body>
+    <!-- <input type="button" name="" value='test' onclick=""> -->
+    <input type="button" value=" start " id="b1" />
+    <input type="button" value=" stop " id="b2" />
+    <div id="dv"></div>
+    <script>
+
+
+
+             var iobj=H('div');
+
+     H( '#b1' ).click(function () {
+
+        iobj.animate( {
+            left: '700px',
+            top: '200px',
+            width:'150px',
+            height:'150px'
+        },4000,'line',function(){
+            alert('is over');
+        });
+
+    H('#b2').click(function(){
+        iobj.stop();
+    });
+
+    });
+
+
+    </script>
+</body>
+</html>

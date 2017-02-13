@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>apply兼容</title>
+</head>
+<body>
+<div>11</div>
+<div>22</div>
+<div>33</div>
+    <script>
+        var list=document.getElementsByTagName('div');
+        var arr=[];
+        var push=[].push;
+        push={
+            apply:function(arr1,arr2){
+            for(var i=0;i<arr2.length;i++){
+                arr1[arr1.length++]=arr2[i];
+              }
+            }
+        }
+        push.apply(arr,list);
+    </script>
+</body>
+</html>

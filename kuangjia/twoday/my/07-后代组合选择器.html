@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <div>
+        <p>
+            <span class="c">123</span>
+        </p>
+    </div>
+    <div>
+
+    </div>
+</head>
+<body>
+    <script>
+        function select2(selector,results){
+            //"div p .c"
+            results=results||[];
+            var selectors=selector.split(' ');
+
+            var arr=[],node=[document];
+            for(var i=0;i<node.length;i++){
+                arr.push.apply(arr,node[i].document.getElementsByTagName(selector[i]));
+            }
+
+            node=arr;
+            arr=[];
+
+            for(var i=0;i<node.length;i++){
+                arr.push.apply(arr,node[i].document.getElementsByTagName(selector[i]));
+            }
+            node=arr;
+            arr=[];
+
+            for(var i=0;i<arr1.length;i++){
+                arr2.push.apply(arr1,arr1[i].document.getElementsByClassName('c'));
+            }
+        }
+
+    </script>
+</body>
+</html>

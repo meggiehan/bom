@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //封装getbyid函数
+         function getById(Idname,results){
+             results=results||[];
+        //如果没有传进来的数组，那么这时候results是空为FALSE，所以执行后面的[]，进行初始化。如果有值的话就等于前面的results.
+             var id=document.getElementById(Idname);
+        //这时候，定义一个变量，并且获取id名以便进行后面的操作。
+             if(id){//判断id是否存在，若存在，则直接push追加到results中。
+                results.push(id);
+             }
+         //之前我们是将获取到的idname通过借用apply方法把这个伪数组追加到results数组当中。之所以不加apply，因为find得到的是一个dom元素，所以直接使用push方法追加进去就可以了，并且他不是一个伪数组。
+             return results;
+        //最后将results返回。
+         }
+
+//------------------------------------------------------------------------------------------
+        //封装getByTag函数
+        function getByTag(tagName,results){
+            results=results||[];
+            //如果没有传进来的数组，那么这时候results是空为FALSE，所以执行后面的[]，进行初始化。如果有值的话就等于前面的results.
+            results.push.apply(results,getElementsByTagName(tagName));
+            //把获取的步骤直接复制到上面，传入apply里面，直接追加到results中。
+            return results;
+            //最后将results返回。
+        }
+
+//------------------------------------------------------------------------------------------
+        //封装getAll函数
+        function getAll(results){
+            return getById(*,results);//直接调用上面的getById函数，把*也就是所有的都传进去。
+        }
+//------------------------------------------------------------------------------------------
+        //封装selectorqueryAll函数
+        function qsa(selector,results){
+            results=results||[];
+            var all=document.querySelectorAll(selector);
+            results.push.apply(results,all);
+        }
+    </script>
+</body>
+</html>

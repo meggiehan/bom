@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>selectfirst</title>
+</head>
+<body>
+ <div class="c">1</div>
+  <div id="dv">2</div>
+  <p>p1</p>
+  <p>p2</p>
+  <p>p3</p>
+    <script>
+            //这里是判断内置方法的返回值的正则表达式。
+            var rantive=/\{\s*\[native \w/;
+
+            //首先判断浏览器是否支持该方法，任何一个内置方法的返回值都是function 函数名(){[native code]}
+            var support={};
+
+            //首先创建一个support对象，用来测试是否支持该方法，返回值为Boolean。
+            support.qsa=rantive.test(document.querySelectorAll+'');
+            support.getElementsByClassName=rantive.test(document.getElementsByClassName+'');
+            //所以这里是把返回的所有+''则表示这时候就是一个字符串了，同时可以进行测试是否支持该对象了。
+
+            function getClassName(className,node){
+              //首先封装getElementByClassName,传入要遍历的类名和节点。
+               node=node||document;
+               //这里是如果传进来了node就用传进来的，否则就用document。
+               var ele,i,res=[];
+               //这时候判断浏览器是否支持该方法，支持直接返回，如果不支持进入else。
+               if(support.getElementsByClassName){
+                return node.getElementsByClassName(className);
+               }else{
+                //首先获取到所有的类名，存入到ele中。
+                ele=node.getElementsByTagName('*');
+                //开始遍历
+                for(i=0;i<ele.length;i++){
+                  //判断当值>-1时，说明已经匹配到了，这时候就把他追加到res数组中。
+                    if((' '+ele[i].className+' ').indexOf(' '+className+' ')>-1){
+                        res.push(ele[i]);
+                    }
+                 }
+               }
+                 return res;//将获取到的类名返回。
+            }
+
+        //首先使用第一种方法，我要判断，第一个字符是什么，是基本选择器的哪一种。
+            function select(selector,results){
+                results=results||[];
+                //初始化数组
+                var firstchart=selector.charAt(0);
+                //这里是获取第一个字符是什么，如果是#，表示id，是.表示类名。。。
+             if(typeof selector!='string') return results;
+             //如果传入的值不是字符串，那么直接返回一个空数组。
+             if(firstchart=='#'){
+              //当时#号时，则表示获取id，并且通过slice方法截取掉第一个#号字符。
+                results.push(document.getElementById(selector.slice(1)));
+             }else if(firstchart=='.'){
+                //当时.号时，则表示获取类名，并且通过slice方法截取掉第一个.号字符。
+                results.push.apply(results,getClassName(selector.slice(1)));
+             }else if(firstchart==='*'){
+                //当时*号时，则表示获取所有
+                results.push.apply(results,document.getElementsByTagName('*'));
+             }else{
+                //那么剩下的就是标签选择器
+                results.push.apply(results,document.getElementsByName(selector));
+             }
+             return results;
+          }
+        //然后为了简便，使用第二种方法，就是利用正则表达式来匹配。
+        var rbselector=/^(?:\#([\w\-]+)|\.([\w\-]+|)|(\*)|(\w+))$/;
+        //这里是判断基本选择器的正则表达式，以分组的形式。
+
+        function select(selector,results){
+            results=results||[];
+            var m,tem;
+            if(typeof selector!='string') return results;
+            m=rbselector.exec(selector);
+            //这里是通过exec来将传入的数组进行分组，如同['','','',''];
+
+            if(support.qsa){
+                results.push.apply(results,document.querySelectorAll(selector));
+                return results;
+            }
+            //这里是判断系统是否支持querySelectAll方法。
+
+            if(m){
+              //如果m匹配到了数据，那么就进入下面的判断。
+                if(m[1] && (tem=document.getElementById(m[1]))){
+              //m[1]中存储的就是id的匹配，用tem判断是否获取到了数据。
+                    results.push(tem);
+                }else if(m[2]){
+              //m[2]中存储的是类名
+                    results.push.apply(results,getClassName(m[2]));
+                }else if(m[3]){
+              //m[3]中存储的是所有的
+                    results.push.apply(results,document.getElementsByTagName(m[3]));
+                }else{
+              //m[4]中存储的是标签名
+                    results.push.apply(results,document.getElementsByName(m[4]));
+                }
+            }
+            return results;
+        }
+
+
+         var list1=select('*');
+        list1.forEach(function(v){
+            v.style.border='1px solid green';
+        })
+    </script>
+</body>
+</html>

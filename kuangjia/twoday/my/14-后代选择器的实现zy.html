@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>后代选择器</title>
+
+</head>
+<body>
+<div>
+       div1
+            <div>
+            <p>
+                <span class="c">123</span>
+            </p>
+        </div>
+   </div>
+    <div>
+
+    </div>
+    <script>
+    //正则表达式：判断这里的基本选择器。
+         var rbselector=/^(?:\#([\w\-]+)|\.([\w\-]+)|(\*)|(\w+))$/;
+
+         function basicSelect(selector,node){
+             node=node||document;
+             var m,res,results=[];
+             if(typeof selector!='string') return node;
+             //首先判断传进来的字符串是否是字符串，如果不是，那么就返回node。
+             m=rbselector.exec(selector);
+             //然后截取字符串，实现正则的分组。
+             if(m){
+             //如果m匹配到了，那么进入下面的条件。
+                if(m[1] && (res=document.getElementById(m[1]))){
+             //这里是判断当为id时，并且不为空的时候
+                    results.push(res);
+                }else if(m[2]){
+             //这里是判断为类名
+                    results.push.apply(results,node.getElementsByClassName(m[2]));
+                }else if(m[3]){
+             //这里是判断所有的
+                    results.push.apply(results,node.getElementsByTagName(m[3]));
+                }else if(m[4]){
+             //这里是判断标签选择器
+                    results.push.apply(results,node.getElementsByTagName(m[4]));
+                }
+             }
+             return results;
+             //最后返回结果
+         }
+
+         function select2(selector,results){
+            results=results||[];
+            var selectors=selector.split(' ');
+            //首先用空格将后代选择器分隔开。
+            var arr=[],node=[document];
+            //创建一个中间变量，用来接收遍历到的结果，并且创建一个node数组，放入document。
+           for(var i=0;i<selectors.length;i++){
+            //循环总的次数
+             for(var j=0;j<node.length;j++){
+            //每次要去basicSelect看每个元素的基本选择器。
+                arr.push.apply(arr,basicSelect(selectors[i],node[j]))
+             }
+             node=arr;
+             //最后将arr遍历的结果赋值给node数组。
+             arr=[];
+             //同时把arr清空，以便下次再次存储查询的结果。
+           }
+           results.push.apply(results,node);
+           //最后将找到的结果放到results中，并且返回出去。
+           return results;
+         }
+ var list=select2('div p .c');
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ //封装id选择器函数。
+    function byid(idname,results){
+    results=results||[];
+    var find=document.getElementById(idname);
+    if(find){
+    results.push(find);
+    //之所以不加apply，因为find得到的是一个dom元素，所以直接使用push方法追加进去就可以了，因为他不是一个伪数组。
+    }
+    return results;
+}
+    var r=new byid('#aa');
+
+//封装标签选择器函数
+    function bytag(tagName,results){
+        results=results||[];
+        results.push.apply(results,getElementsByTagName(tagName));
+        return results;
+    }
+
+//封装类选择器函数，但是有兼容性问题。
+    function byClass(classname,results){
+        results=results||[];
+        results.push.apply(results,getElementsByClassName(classname));
+        return results;
+    }
+//封装通用选择器函数
+    function byAll(results){
+       return byTag(*,results);
+    }
+    </script>
+</body>
+</html>

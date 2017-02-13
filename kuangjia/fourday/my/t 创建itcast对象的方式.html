@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="itcast.js"></script>
+</head>
+<body>
+		<div>1</div>
+		<div id="dv">2</div>
+		<div>3</div>
+</body>
+<script type="text/javascript">
+	var one = itcast("<div>123</div>");
+	var two = itcast("div");
+
+	//用one对象来创建three对象
+	var three = itcast(one);
+
+	three.sex = '男';
+
+	//var dom = document.getElementById("dv");
+
+	//dom获取的是two对象中的第一个dom元素
+	var dom = two.get(0);
+	var four = itcast( dom );
+	//dd是一个itcast对象，该对象中包含了two对象中的第二个元素
+	var dd = two.eq(2);
+	
+	var five = itcast( dd );
+
+</script>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>appendTo</title>
+    <script src="./hmj.js"></script>
+    <style type="text/css">
+        div {
+            border: 1px dotted blue;
+        }
+
+        #dv, .c {
+
+            width: 300px;
+            height: 150px;
+            border: 1px dashed red;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="c"></div>
+    <div id="dv"></div>
+    <div class="c"></div>
+    <script>
+
+    function prependChild(parent,element){
+        parent.insertBefore(element,parent.firstChild);
+    }
+
+        hmj.fn.extend({
+            appendTo1:function(dom){
+                for ( var i=0;i<this.length;i++){
+                    dom.appendChild(this[i]);
+                }
+            },
+            appendTo2:function(dom){
+            for(var i=0;i<this.length;i++){
+                if(dom.type==='hmj'){
+                    dom[0].appendChild(this[i]);
+                }else if(dom.nodeType){
+                    dom.appendChild(this[i]);
+                }
+            }
+        },
+            appendTo:function(selector){
+            var iobj=this.constructor(selector);
+            //var iobj=hmj(selector);
+            var newobj=this.constructor();
+            //var newiobj=hmj();
+            //var newiobj=hmj.fn.constructor();
+            //就是不能用var newiobj=hmj.constructor();这句,因为hmj是一个构造函数，constructor也是一个构造函数,那么这时候new出来的就是大写的Function(),所以会出错。
+            for(var i=0;i<this.length;i++){
+                for(var j=0;j<iobj.length;j++){
+                    var temp;
+                    if(j==0){
+                        temp=this[i];
+                    }else{
+                        temp=this[i].cloneNode(true);
+                    }
+                [].push.call(newobj,temp);
+                iobj[j].appendChild(temp);
+                }
+            }
+            return newobj;
+        },
+        appen:function(selector){
+            //第一种写法：
+            //H(selector).appendTo(this);
+            var iobj=this.constructor(selector);
+            for(var i=0;i<iobj.length;i++){
+                for(var j=0;j<this.length;i++){
+                    var temp;
+                    if(j==0){
+                        temp=iobj[i];
+                    }else{
+                        temp=iobj[i].cloneNode(true);
+                    }
+                    this[j].appendChild(temp);
+                }
+            }
+            return this;
+        }
+        prependTo:function(selector){
+            var iobj=this.constructor(selector);
+            var newobj=this.constructor();
+            for(var i=0;i<this.length;i++){
+                for(var j=0;j<iobj.length;j++){
+                    var temp;
+                    if(j==0){
+                        temp=this[i];
+                    }else{
+                        temp=this[i].cloneNode(true);
+                    }
+                [].push.call(newobj,temp);
+                prependChild(iobj[j],temp);
+                }
+            }
+            return newobj;
+        },
+        prepend:function(selector){
+            //H(selector).prependTo(this);
+            var iobj=this.constructor(selector);
+            for(var i=0;i<iobj.length;i++){
+                for(var j=0;j<this.length;j++){
+                    var temp;
+                    if(j==0){
+                        temp=iobj[i];
+                    }else{
+                        temp=iobj[i].cloneNode(true);
+                    }
+                    prependChild(this[j],temp);
+                }
+            }
+            return this;
+        }
+    });
+
+    H( '<div>123</div>' +
+       '<div>456</div>' +
+       '<div>789</div>'
+     ).appendTo('.c');
+
+    // H( '<div>123</div>' +
+    //    '<div>456</div>' +
+    //    '<div>789</div>'
+    //  ).appendTo( document.body );
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>css</title>
+    <style type="text/css">
+        #dv{
+            width:200px;
+            height: 100px;
+            background-color:lightgreen;
+        }
+
+    </style>
+    <script type="text/javascript" src="hmj02.js"></script>
+    <script>
+
+            function getStyle(o,name){
+                if(o.currentStyle){
+                    return o.currentStyle;
+                }else{
+                    return window.getComputedStyle(o)[name];
+                }
+            }
+
+        hmj.fn.extend({
+            css1:function(option){
+                for(var i=0;i<this.length;i++){
+                    for( k in option){
+                        this[i].style[k]=option[k];
+                    }
+                }
+                return this;
+            },
+            css:function(option){
+                var len=arguments.length;
+                var args=arguments;
+                if(len===2){
+                    if(hmj.isString(args[0])&&hmj.isString(args[1])){
+                      return this.each(function(){
+                            this.style[args[0]]=args[1];
+                        })
+                    }
+                }else if(len===1){
+                    if(hmj.isString(args[0])){
+                        return this[0].style[option]|| getStyle(this[0],option);
+                    }else if(hmj.isObject(args[0])){
+                        return this.each(function(){
+                            for(var k in option){
+                                this.style[k]=option[k];
+                            }
+                        })
+                    }
+                }
+                return this;
+            }
+        })
+    </script>
+</head>
+<body>
+<div id="dv"></div>
+    <script>
+    //     H( '<div></div>' ).css({
+    //     border: '1px dashed pink',
+    //     backgroundColor: 'lightgreen',
+    //     width: '400px',
+    //     height: '300px'
+    // }).appendTo( 'body' ).click(function () {
+
+    //     this.innerHTML = '点击了';
+    // });
+    // H('#dv').css('backgroundColor','pink');//注意中间是逗号，不是分号。
+
+    H( '<div></div><div></div>' )
+        .appendTo( 'body' )
+        .css( 'border', 123 )
+        .css( 'border', '1px dashed red' )
+        .css( 'width', '200px')
+        .css( 'height', '100px' )
+        .click( function () {
+            alert( '点击' );
+        });
+
+    // alert( H( '#dv' ).css( 'width' ) );
+
+
+    // alert( H( '#dv' ).css( 'backgroundColor' ) );
+
+    // alert( H( '#dv' ).css( 'background-color' ) );
+
+
+    </script>
+</body>
+</html>

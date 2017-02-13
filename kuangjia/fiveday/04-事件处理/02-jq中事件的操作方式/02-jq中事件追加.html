@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="../../my/jquery-1.12.0.js"></script>
+	<style>
+		div {
+			width: 400px;
+			height: 300px;
+			border: 1px dashed red;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv"></div>
+</body>
+<script>
+	// 1, on
+	// $( 'div' )
+	// 	.on( 'click', function () { alert( '你好' ); })
+	// 	.on( 'click', function () { alert( '今天天气怎样' ); })
+
+	// 2, on 与 click
+	// $( 'div' )
+	// 	.click(  function () { alert( '你好' ); })
+	// 	.click(  function () { alert( '今天天气怎样' ); } );
+
+    $( 'div' )
+		.click(function () { alert( '你好' ); })
+		.on( 'click', function () { alert( '今天天气怎样' ); } );
+		//这里是.click表示只需要传一个参数为函数
+		//如果是.on那么就传入事件名，以及函数才是正确的。
+
+	// $( 'div' )
+	// 	.on( 'click', function () { alert( '你好' ); })
+	// 	.click( function () { alert( '今天天气怎样' ); } );
+</script>
+</html>

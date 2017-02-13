@@ -1,0 +1,50 @@
+1.基本选择器：id,class,tag,*
+
+document.getElementById,若页面没有该标签，那么会默认返回一个空（null),故要设置一下,加一个if判断。
+
+function byid(idname,results){
+    results=results||[];
+    var find=document.getElementById(idname);
+    if(find){
+    results.push(find);
+    }
+    return results;
+}
+2.在封装自定义byclass的时候，判断是否存在classname可以使用split方法，来分隔并且存入数组，在遍历和判断。
+
+3.E5新的方法indexof是存在兼容性问题，因为是新发布出来的，但是字符串的indexof方法是没有兼容性问题的，很早就出来了，数组中的indexOf是有兼容性问题的，因为是刚刚出来的。
+
+4.潜规则：尽量不要修改系统对象，容易导致出现其他的问题。
+
+5.方法定义检测(检查是否是第三方的或非标准的)和方法功能检测(检查是否是系统内置的)是用来检查我们的方法是不是可以使用。
+
+6.如果要检查js系统中的一些方法，用方法定义进行检测
+  如果要检测非标准的方法，用方法功能进行检测。
+
+7.伪数组：伪数组不是一个数组，他是一个像数组一样的结构的对象。
+因为伪数组可以按照序号来存储元素，而且他也跟数组一样有length属性
+但是伪数组虽然跟数组很像，有一个地方不一样，就是数组拥有的一些方法，伪数组没有。
+
+8. rnative = /^[^{]+\{\s*\[native \w/
+
+9.innerHTML是没有兼容性问题的，innerText才有。
+
+10.作业：
+getById函数,getByTag函数,getAll函数,getByClassName函数,要求检测getElementByClassName方法的能力。
+
+11.
+    Math.max(1,2,3,4);
+
+    var obj = {};
+    //obj.max(1,2,3,3,4);
+    Math.max.apply(obj,[1,2,3,3,4]);
+    //这里是obj对象借用了math.max方法从而调用了apply方法。
+
+    //apply方法要求第二个参数必须是数组,这是错误的调用形式
+    Math.max.apply(obj,123);
+    //obj.max(123,334,111);
+    Math.max.call(obj,123,334,111);
+
+
+    //函数名.apply(调用函数的对象,参数数组)
+    //函数名.call(调用函数的对象,参数1，参数2，参数3，参数n)

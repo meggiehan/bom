@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>kuangjia</title>
+</head>
+<body>
+    <script>
+         function parseHTML(html){
+             var div=document.createElement('div');
+
+             div.innerHTML=html;
+             var res=[];
+             for(var i=0;i<div.childNodes.length;i++){
+                res.push(div.childNodes[i]);
+             }
+             return res;
+        }
+
+        function hmj(html){
+            return new hmj.prototype.init(html);
+        }
+
+        hmj.prototype={
+            constructor:hmj,
+            length:0,
+            init:function(html){
+                 [].push.apply(this,parseHTML(html));
+             },
+            appendTo:function(dom){
+                for(var i=0;i<this.length;i++){
+                    dom.appendChild(this[i]);
+                }
+            }
+        }
+
+     hmj.prototype.init.prototype=hmj.prototype;
+
+        var i=hmj('<div>123</div>');
+        i.appendTo(document.body);
+    </script>
+</body>
+</html>

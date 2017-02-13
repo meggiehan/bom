@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 300px;
+            height: 300px;
+            position:absolute;
+            background-color:lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name="" value='test' onclick="fn()">
+    <div id="dv"></div>
+    <script>
+        var dv=document.getElementById('dv');
+
+        function fn(){
+            var time=setInterval(function(){
+            var start=parseInt(dv.style.left || dv.offsetLeft);
+
+            start+=2;
+
+            if(start>=500){
+                clearInterval(time);
+                start=500;
+            }
+
+            dv.style.left=start+'px';
+
+        },20)
+        }
+    </script>
+</body>
+</html>

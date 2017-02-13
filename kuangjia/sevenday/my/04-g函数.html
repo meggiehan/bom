@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>animate</title>
+    <style type="text/css">
+        #dv{
+            width: 150px;
+            height: 150px;
+            position:absolute;
+            border-radius:50%;
+            background-color:lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name="" value='test' onclick="fn()">
+    <div id="dv"></div>
+    <script>
+        var dv=document.getElementById('dv');
+
+       function g(deltatime,time,startX,endX){
+            var distance=endX-startX;
+            var speed=distance/time;
+            return speed*deltatime;
+       }
+
+        function move(node,x,time){
+            var startx=parseInt(node.style.left||node.offsetLeft);
+
+            var starttime=+new Date();
+            var timer=setInterval(function(){
+                var currenttime=+new Date();
+                var deltatime=currenttime-starttime;
+
+                if(deltatime>=time){
+                    clearInterval(timer);
+                    deltatime=time;
+                }
+
+                node.style.left=startx+g(deltatime,time,startx,x)+'px';
+            },20)
+        }
+
+        function fn(){
+            move( dv, 900, 2000 );
+        }
+    </script>
+</body>
+</html>

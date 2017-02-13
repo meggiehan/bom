@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>fiallytest</title>
+    <script type="text/javascript" src="./hmj.js"></script>
+    <style type="text/css">
+        div {
+            border: 1px dotted blue;
+        }
+
+        #dv, .c {
+
+            width: 300px;
+            height: 150px;
+            border: 1px dashed red;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv">
+        <div>原有的元素</div>
+    </div>
+    <div class="c">
+        <div>原有的元素</div>
+    </div>
+
+    <script>
+
+     // H( '<div>123</div>' +
+     //   '<div>456</div>' +
+     //   '<div>789</div>'
+     // ).appendTo('.c');
+
+    var h1 = H( '<div>666</div>' );
+
+    var h2 = h1.appendTo( '#dv' );
+    </script>
+</body>
+</html>
